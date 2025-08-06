@@ -10,3 +10,5 @@ The Life Transition Project
 4 AUG 2025 - Woke up at 6:00, had a look at the shortlisted bootcamps, and continued to take the Naver Boostcamp pre-course. The precourses will take around 30 hours to finish, and I will finish them until the 11th so I can apply to the Boostcamp on the 12th. It feels quite good to build some daily routines again.
 
 5 AUG 2025 - Woke up at 5:10, took quite some time taking the Naver Boostcamp pre-courses. It was the most productive day out of the five days!
+
+6 AUG 2025 - Woke up at 6:20, continued to take Naver Boostcamp pre-courses, and also spent quite some time talking to both ChatGPT and Gemini discussing TLTP.
