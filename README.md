@@ -15,4 +15,4 @@ The Life Transition Project
   Naver pre-course: Pythonic code - split & join, list comprehension, enumerate & zip, lambda & map & reduce, generator, asterisk (*args, **kwargs)
   
 7 AUG 2025 - Woke up at 7:00. Naver Bostcamp pre-courses + talking to Gemini/Chatgpt + co-intelligence
-  Naver pre-course: OOP (Object Oriented Programming)
+  Naver pre-course: OOP (Object Oriented Programming): Action & attribute, class, method, object(instance), characteristics (inheritance, polymorphism, visibility), decorate
