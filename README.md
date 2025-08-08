@@ -30,4 +30,5 @@ The Life Transition Project
 8 AUG 2025 - Woke up at 6:20. ChatGPT 5 release videos + trials + talking to Gemini/Chatgpt + co-intelligence
   Naver pre-course: Python data handling - CSV, html, regex, XML, JSON
                     Numpy - numpy, ndarray, shape, dtype, reshape, indexing, slicing, arange, ones, zeros, empty, identity, eye, diag, random sampling, sum, axis, mean, std, concat, element-wise operations, dot product, transpose, 
-                    broadcasting, all & any, np.where, argmax & argmin, loadtxt & savetxt
+                            broadcasting, all & any, np.where, argmax & argmin, loadtxt & savetxt
+                    Pandas - pandas, series, dataframe, loc, iloc
