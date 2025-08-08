@@ -26,3 +26,8 @@ The Life Transition Project
   Naver pre-course: OOP (Object Oriented Programming): action & attribute, class, method, object(instance), characteristics (inheritance, polymorphism, visibility), decorate (first-class objects, inner function, decorator)
                     Module and Project: namespace, built-in modules, package, virtual environment
                     Exception, file, log handling: try ~ except, directory and file, pickle, print vs logging, configparser, argparser
+
+8 AUG 2025 - Woke up at 6:20. ChatGPT 5 release videos + trials + talking to Gemini/Chatgpt + co-intelligence
+  Naver pre-course: Python data handling - CSV, html, regex, XML, JSON
+                    Numpy - numpy, ndarray, shape, dtype, reshape, indexing, slicing, arange, ones, zeros, empty, identity, eye, diag, random sampling, sum, axis, mean, std, concat, element-wise operations, dot product, transpose, 
+                    broadcasting, all & any, np.where, argmax & argmin, loadtxt & savetxt
