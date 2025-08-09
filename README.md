@@ -22,13 +22,17 @@ The Life Transition Project
 6 AUG 2025 - Woke up at 6:20, continued to take Naver Boostcamp pre-courses, and also spent quite some time talking to both ChatGPT and Gemini discussing TLTP.
   Naver pre-course: Pythonic code - split & join, list comprehension, enumerate & zip, lambda & map & reduce, generator, asterisk (*args, **kwargs)
   
-7 AUG 2025 - Woke up at 7:00. Naver Bostcamp pre-courses + talking to Gemini/Chatgpt + co-intelligence
+7 AUG 2025 - Woke up at 7:00. Naver Boostcamp pre-courses + talking to Gemini/Chatgpt + co-intelligence
   Naver pre-course: OOP (Object Oriented Programming): action & attribute, class, method, object(instance), characteristics (inheritance, polymorphism, visibility), decorate (first-class objects, inner function, decorator)
                     Module and Project: namespace, built-in modules, package, virtual environment
                     Exception, file, log handling: try ~ except, directory and file, pickle, print vs logging, configparser, argparser
 
-8 AUG 2025 - Woke up at 6:20. ChatGPT 5 release videos + trials + talking to Gemini/Chatgpt + co-intelligence
+8 AUG 2025 - Woke up at 6:20. ChatGPT 5 release videos + trials + talking to Gemini/Chatgpt + co-intelligence + Naver Boostcamp pre-courses 
   Naver pre-course: Python data handling - CSV, html, regex, XML, JSON
                     Numpy - numpy, ndarray, shape, dtype, reshape, indexing, slicing, arange, ones, zeros, empty, identity, eye, diag, random sampling, sum, axis, mean, std, concat, element-wise operations, dot product, transpose, 
                             broadcasting, all & any, np.where, argmax & argmin, loadtxt & savetxt
                     Pandas - pandas, series, dataframe, loc, iloc
+
+9 AUG 2025 - Woke up at 6:20. Continuing to search Bootcamps + talking to Gemini/Ghatgpt + Naver Boostcamp pre-courses
+  Naver pre-course: Pandas - selection, drop, lambda, map, apply, built-in functions. groupby, pivot table, crosstab, merge, concat, persistence
+                    Basic math - Vector, norm (L1 norm, L2 norm), inner product, matrix (row, column), transpose matrix, matrix multiplication, inverse matrix, psudo-inverse matrix,
