@@ -37,8 +37,11 @@ The Life Transition Project
   Naver pre-course: Pandas - selection, drop, lambda, map, apply, built-in functions. groupby, pivot table, crosstab, merge, concat, persistence
                     Basic math - Vector, norm (L1 norm, L2 norm), inner product, matrix (row, column), transpose matrix, matrix multiplication, inverse matrix, psudo-inverse matrix,
 
-10 AUG 2025 - Woke up at 6:00. Naver Boostcamp pre-courses + talking to Gemini/Chatgpt + reading a book 'AI truth'
+10 AUG 2025 - Woke up at 6:00. Naver Boostcamp pre-courses + talking to Gemini/Chatgpt + reading a book called AI Truth
   Naver pre-course: Basic math - Gradient descent, differentiation, partial differentiation, gradient vector, neural network, softmax function, activation function, ReLU, multi-layer perceptron, backpropagation algorithm, 
                     probability distribution, discrete, continuous, Monte Carlo sampling, parametric, nonparametric, sampling distribution, MLE(Maximum Likelihood Estimation), KL divergence, Bayes' theorem, confusion matrix, 
                     Simpson's pardaox
                     CNN (Convolutional Neural Network), RNN (Recurrent Neural Network), BPTT (Back Propagation Through Time)
+
+11 AUG 2025 - Woke up at 6:30. Naver Boostcamp pre-courses + talking to Gemini/Chatgpt + reading Brave New World
+  Naver pre-course: Deep learning - PyTorch, Tensor handling, Tensor operations
