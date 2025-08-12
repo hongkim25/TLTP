@@ -43,5 +43,10 @@ The Life Transition Project
                     Simpson's pardaox
                     CNN (Convolutional Neural Network), RNN (Recurrent Neural Network), BPTT (Back Propagation Through Time)
 
-11 AUG 2025 - Woke up at 6:30. Naver Boostcamp pre-courses + talking to Gemini/Chatgpt + reading Brave New World
+11 AUG 2025 - Woke up at 6:30. Continued to take Naver Boostcamp pre-courses (70% done) + talked to Gemini/Chatgpt + read "Brave New World" (10% done)
   Naver pre-course: Deep learning - PyTorch, Tensor handling, Tensor operations
+
+12 AUG 2025 - Woke up at 6:00. Continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" 
+  Naver pre-course: Deep learning -
+
+
