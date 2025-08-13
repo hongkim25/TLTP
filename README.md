@@ -51,3 +51,4 @@ The Life Transition Project
 
 13 AUG 2025 - Woke up at 6:00. Continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (50% done)
   Naver pre-course: PyTorch - Hyperparameter tuning, ray, OOM
+                    Deep learning basics - Multi-Layer Perceptron, Hidden Layers, Activation Functions
