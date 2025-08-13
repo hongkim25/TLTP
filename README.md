@@ -44,9 +44,10 @@ The Life Transition Project
                     CNN (Convolutional Neural Network), RNN (Recurrent Neural Network), BPTT (Back Propagation Through Time)
 
 11 AUG 2025 - Woke up at 6:30. Continued to take Naver Boostcamp pre-courses (70% done) + talked to Gemini/Chatgpt + read "Brave New World" (10% done)
-  Naver pre-course: Deep learning - PyTorch, Tensor handling, Tensor operations
+  Naver pre-course: PyTorch - Tensor handling, Tensor operations
 
 12 AUG 2025 - Woke up at 6:00. Applied to the Naver Boostcamp, continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (25% done)
   Naver pre-course: PyTorch - AutoGrad, optimizer, datasets, dataloaders, model saving, model loading, checkpoints, tensorboard, WandB, Multi-GPU
 
-
+13 AUG 2025 - Woke up at 6:00. Continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (50% done)
+  Naver pre-course: PyTorch - Hyperparameter tuning, ray, OOM
