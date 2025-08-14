@@ -52,3 +52,9 @@ The Life Transition Project
 13 AUG 2025 - Woke up at 6:00. Continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (50% done)
   Naver pre-course: PyTorch - Hyperparameter tuning, ray, OOM
                     Deep learning basics - Multi-Layer Perceptron, Hidden Layers, Activation Functions
+
+14 AUG 2025 - Woke up at 6:40. Continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (50% done)
+  Naver pre-course: Deep learning basics - Optimization, Gradient descent methods, regularization, Convolutional Neural Networks, Pooling, Feature Maps, Image Classification, ResNet, GoogLeNet, AlexNet, VGGNet, DenseNet, 
+                                           Semantic Segmentation, Object Detection, Sequential Model, Recurrent Neural Networks, Long Short Term Memory, Gated Recurrent Unit, Transformer, Multi Head Attention, Positional Encoding,
+                                           Autoregressive models, Maximum Likelihood Learning, Latent variable models
+
