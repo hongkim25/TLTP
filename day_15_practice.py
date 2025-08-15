@@ -1,0 +1,1 @@
+print("This is my first code commit from the VS code!")
