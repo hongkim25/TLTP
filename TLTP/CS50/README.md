@@ -1,6 +1,6 @@
 # CS50 lecture notes
 
-Dates: 1 August - 30 September 2025
+Dates: 20 August - 30 October 2025
 
 0: Scratch - Computer Science. Computational Thinking. Problem Solving: Inputs, Outputs. Representation: Unary, Binary, Decimal, ASCII, Unicode, RGB. Abstraction. Algorithms. Running Times. Pseudocode. Scratch: Functions, Arguments, Return Values; Variables; Boolean Expressions, Conditionals; Loops; Events; Threads.
 
