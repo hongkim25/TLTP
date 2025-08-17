@@ -47,8 +47,9 @@ result = 0
 while i <= 10:
     result += i
     i += 1
-
 print(result)
+
+print((lambda a,b: a + b)(34, 42))  # Lambda function to add two numbers
 
 # n = int(input())
 # data = list(map(int, input().split()))
