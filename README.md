@@ -58,6 +58,8 @@ The Life Transition Project
                                            Semantic Segmentation, Object Detection, Sequential Model, Recurrent Neural Networks, Long Short Term Memory, Gated Recurrent Unit, Transformer, Multi Head Attention, Positional Encoding,
                                            Autoregressive models, Maximum Likelihood Learning, Latent variable models
 
-15 AUG 2025 - Woke up at 6:40. Naver Boostcamp coding test prep + talked to Gemini/Chatgpt + Looked into different bootcamps
+15 AUG 2025 - Woke up at 6:40. Naver Boostcamp coding test prep + talked to Gemini/Chatgpt + Looked into different bootcamps + Duolingo Spanish
 
-16 AUG 2025 - Woke up at 6:30. Started taking coding test prep videos by Dongbin Na + talked to Gemini/Chatgpt + Set-up VScode
+16 AUG 2025 - Woke up at 6:30. Started taking coding test prep videos by Dongbin Na + talked to Gemini/Chatgpt + Set-up VScode + Duolingo Spanish
+
+17 AUG 2025 - Woke up at 6:30. 
