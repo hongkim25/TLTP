@@ -17,8 +17,47 @@ else:
     print(False)
 
 
-a = [i for i in range(10)]
+a = [i for i in range(20) if i % 2 == 1]
 print(a)
+
+a = [1, 2, 3, 4, 5, 5, 5]
+remove_set = {3, 5}
+result = [i for i in a if i not in remove_set]
+print(result)   
+
+# Dictionary Key-Value
+a = dict()
+a['name'] = 'Hong'
+a['age'] = 35
+a['city'] = 'Daejeon'
+key_list = a.keys()
+value_list = a.values()
+print(key_list)
+print(value_list)
+
+# Python은 b > 0, b < 20 쓰지 않고 0 < b < 20로 쓸 수 있다.
+b = int(15)
+if 0 < b < 20:
+    print("b is between 0 and 20")
+
+#1부터 9까지 모든 정수의 합 구하기
+i = 1
+result = 0
+
+while i <= 10:
+    result += i
+    i += 1
+
+print(result)
+
+# n = int(input())
+# data = list(map(int, input().split()))
+# data.sort(reverse=True)
+# print(data)
+
+# a, b, c를 공백을 기준으로 구분하여 입력
+# a, b, c = map(int, input().split())
+# print(a, b, c)
 
 
 # Programmers Level 1: Find the middle character (가운데 글자 가져오기)
