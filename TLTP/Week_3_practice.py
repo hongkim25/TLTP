@@ -49,7 +49,18 @@ while i <= 10:
     i += 1
 print(result)
 
+##### Lambda Functions
+
 print((lambda a,b: a + b)(34, 42))  # Lambda function to add two numbers
+
+array = [('hong', 35), ('kim', 20), ('lee', 30)]
+print(sorted(array, key=lambda x: x[1]))  # Sort by second element (age)
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [6, 7, 8, 9, 10]
+result = map(lambda x, y: x + y, list1, list2)  # Element-wise addition
+print(list(result))  # Convert map object to list
+
 
 # n = int(input())
 # data = list(map(int, input().split()))
@@ -61,11 +72,18 @@ print((lambda a,b: a + b)(34, 42))  # Lambda function to add two numbers
 # print(a, b, c)
 
 
+#Day 18 - basics
+
+# 리스트                a = []          
+# 딕셔너리 (빈 집합 X)    d = {}          
+# 빈 집합                s = set()       
+# 한 개짜리 튜플          t = (1,)        
+
+
 # Programmers Level 1: Find the middle character (가운데 글자 가져오기)
 # Problem: A function that returns the middle character of a string.
 # If the length is even, return the two middle characters.
-#
-# My Logic:
+# Logic:
 # 1. Find the length of the string.
 # 2. Calculate the middle index.
 # 3. Use an if/else statement to check if the length is odd or even.

@@ -62,5 +62,6 @@ The Life Transition Project
 
 16 AUG 2025 - Woke up at 6:30. Started taking coding test prep videos by Dongbin Na + talked to Gemini/Chatgpt + Set-up VScode + Duolingo Spanish
 
-17 AUG 2025 - Woke up at 6:30. Took the coding test prep video 1 + talked to Gemini/Chatgpt
-              practiced basic Python using VScode + Duolingo Spanish
+17 AUG 2025 - Woke up at 6:30. Took the coding test prep video 1 + talked to Gemini/Chatgpt + practiced basic Python using VScode + Duolingo Spanish
+
+18 AUG 2025 - Woke up at 6:40. Took the coding test prep video 2 + practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
