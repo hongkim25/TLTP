@@ -74,19 +74,25 @@ print(list(result))  # Convert map object to list
 
 #Day 18 - basics
 
-# 리스트                a = []          
-# 딕셔너리 (빈 집합 X)    d = {}          
-# 빈 집합                s = set()       
-# 한 개짜리 튜플          t = (1,)        
+    # 리스트                a = []          
+    # 딕셔너리 (빈 집합 X)    d = {}          
+    # 빈 집합                s = set()       
+    # 한 개짜리 튜플          t = (1,)        
 
 #Day 19 - basics
+    # 1부터 20까지의 짝수 출력    
 for i in range (2, 21, 2):
     print(i, end=' ')
 
+    # 1부터 20까지의 짝수 출력 (alternative method)
 for i in range (1, 21):
     if i % 2 == 0:
         print(i, end=' ')
 
+    # 구구단
+for i in range(2, 10):
+    for j in range(1, 10):
+        print(f"{i} * {j} = {i * j}")
 
 # Programmers Level 1: Find the middle character (가운데 글자 가져오기)
 # Problem: A function that returns the middle character of a string.
