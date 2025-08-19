@@ -79,6 +79,14 @@ print(list(result))  # Convert map object to list
 # 빈 집합                s = set()       
 # 한 개짜리 튜플          t = (1,)        
 
+#Day 19 - basics
+for i in range (2, 21, 2):
+    print(i, end=' ')
+
+for i in range (1, 21):
+    if i % 2 == 0:
+        print(i, end=' ')
+
 
 # Programmers Level 1: Find the middle character (가운데 글자 가져오기)
 # Problem: A function that returns the middle character of a string.
