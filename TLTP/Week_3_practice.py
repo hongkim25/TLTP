@@ -94,6 +94,10 @@ for i in range(2, 10):
     for j in range(1, 10):
         print(f"{i} * {j} = {i * j}")
 
+    # 역순으로 프린트
+s = "Hello, World!"
+print(s[::-1])  # 슬라이싱 사용. Output: !dlroW ,olleH
+
 # Programmers Level 1: Find the middle character (가운데 글자 가져오기)
 # Problem: A function that returns the middle character of a string.
 # If the length is even, return the two middle characters.
