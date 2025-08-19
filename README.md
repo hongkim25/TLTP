@@ -66,4 +66,4 @@ The Life Transition Project
 
 18 AUG 2025 - Woke up at 6:40. Took the coding test prep video 2 + practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
-19 AUG 2025 - Woke up at 8:20. Practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + read "I'm old but I want to code" (70% done)
+19 AUG 2025 - Woke up at 8:20. Practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + read "I'm old but I want to code" (80% done)

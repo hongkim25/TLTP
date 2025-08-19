@@ -96,7 +96,15 @@ for i in range(2, 10):
 
     # 역순으로 프린트
 s = "Hello, World!"
-print(s[::-1])  # 슬라이싱 사용. Output: !dlroW ,olleH
+print(s[::-1])  # 슬라이싱 사용 string[start:stop:step]. Output: !dlroW ,olleH
+
+# def reverse_string(string):
+#     result = ''
+#     for i in string[::-1]:
+#         result += i
+#     print(result)
+
+
 
 # Programmers Level 1: Find the middle character (가운데 글자 가져오기)
 # Problem: A function that returns the middle character of a string.
