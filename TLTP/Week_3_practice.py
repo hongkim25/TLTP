@@ -105,6 +105,15 @@ print(s[::-1])  # 슬라이싱 사용 string[start:stop:step]. Output: !dlroW ,o
 #     print(result)
 
 
+# Day 20 - basics
+# 정수 n이 주어졌을 때, 0부터 n까지의 짝수의 합을 구하는 함수
+def solution(n):
+    return sum(range(0, n+1, 2))
+
+# Day 21 - basics
+# 배열의 평균값
+def solution(numbers):
+    return sum(numbers) / len(numbers)
 
 # Programmers Level 1: Find the middle character (가운데 글자 가져오기)
 # Problem: A function that returns the middle character of a string.
