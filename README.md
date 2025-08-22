@@ -70,4 +70,6 @@ The Life Transition Project
 
 20 AUG 2025 - Woke up at 6:20. Practiced for the coding test + took the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
-21 AUG 2025
+21 AUG 2025 - Woke up at 6:40. Practiced 14 of the level 0 questions on Programmers + applied to the Programmers backend bootcamp + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
+
+22 AUG 2025 - Woke up at 7:30. Took the CS50x lecture 0: Scratch + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
