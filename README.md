@@ -70,8 +70,10 @@ The Life Transition Project
 
 20 AUG 2025 - Woke up at 6:20. Practiced for the coding test + took the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
-21 AUG 2025 - Woke up at 6:40. Practiced 14 of the level 0 questions on Programmers + applied to the Programmers backend bootcamp + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
+21 AUG 2025 - Woke up at 6:40. Practiced 14 level 0 questions on Programmers + applied to the Programmers backend bootcamp + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
 22 AUG 2025 - Woke up at 7:30. Took the CS50x lecture 0: Scratch + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
 23 AUG 2025 - Woke up at 6:50. DELE B2 + DALF C1 research + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + finished reading "I'm old but I want to code"
+
+24 AUG 2025 - Woke up at 6:30. Took the CS50x lecture 1 + practiced 2 level 0 questions on Programmers + did a job research beyond Europe, to Canada and Australia, talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + finished reading "A social service agent who codes"
