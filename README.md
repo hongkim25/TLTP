@@ -80,4 +80,6 @@ The Life Transition Project
 
 25 AUG 2025 - Woke up at 6:30. Did a research on bootcamps + practiced 2 level 0 questions on Programmers + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
-26 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Brilliant python + Brilliant Python + Babbel/Duolingo Spanish + read "Breaking routine" (50% done)
+26 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (50% done)
+
+27 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (70% done)
