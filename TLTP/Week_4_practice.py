@@ -22,3 +22,10 @@ def solution(n):
     return answer
 
 print(solution(777777))
+
+
+#Day 28 - 중앙값 구하기: 정수 배열 array가 매개변수로 주어질 때, 중앙값을 return 하도록 solution 함수를 완성해보세요.
+
+def solution(array):
+    array.sort()
+    return array[len(array)//2]
