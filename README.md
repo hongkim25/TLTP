@@ -22,38 +22,38 @@ The Life Transition Project
 6 AUG 2025 - Woke up at 6:20, continued to take Naver Boostcamp pre-courses, and also spent quite some time talking to both ChatGPT and Gemini discussing TLTP.
   Naver pre-course: Pythonic code - split & join, list comprehension, enumerate & zip, lambda & map & reduce, generator, asterisk (*args, **kwargs)
   
-7 AUG 2025 - Woke up at 7:00. Naver Boostcamp pre-courses + talking to Gemini/Chatgpt + co-intelligence
+7 AUG 2025 - Woke up at 7:00. Took Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read co-intelligence
   Naver pre-course: OOP (Object Oriented Programming): action & attribute, class, method, object(instance), characteristics (inheritance, polymorphism, visibility), decorate (first-class objects, inner function, decorator)
                     Module and Project: namespace, built-in modules, package, virtual environment
                     Exception, file, log handling: try ~ except, directory and file, pickle, print vs logging, configparser, argparser
 
-8 AUG 2025 - Woke up at 6:20. ChatGPT 5 release videos + trials + talking to Gemini/Chatgpt + co-intelligence + Naver Boostcamp pre-courses 
+8 AUG 2025 - Woke up at 6:20. Watched ChatGPT 5 release videos + trials + talked to Gemini/Chatgpt + co-intelligence + Naver Boostcamp pre-courses 
   Naver pre-course: Python data handling - CSV, html, regex, XML, JSON
                     Numpy - numpy, ndarray, shape, dtype, reshape, indexing, slicing, arange, ones, zeros, empty, identity, eye, diag, random sampling, sum, axis, mean, std, concat, element-wise operations, dot product, transpose, 
                             broadcasting, all & any, np.where, argmax & argmin, loadtxt & savetxt
                     Pandas - pandas, series, dataframe, loc, iloc
 
-9 AUG 2025 - Woke up at 6:20. Continuing to search Bootcamps + talking to Gemini/Ghatgpt + Naver Boostcamp pre-courses
+9 AUG 2025 - Woke up at 6:20. Continued to search Bootcamps + talked to Gemini/Ghatgpt + continued with the Naver Boostcamp pre-courses
   Naver pre-course: Pandas - selection, drop, lambda, map, apply, built-in functions. groupby, pivot table, crosstab, merge, concat, persistence
                     Basic math - Vector, norm (L1 norm, L2 norm), inner product, matrix (row, column), transpose matrix, matrix multiplication, inverse matrix, psudo-inverse matrix,
 
-10 AUG 2025 - Woke up at 6:00. Naver Boostcamp pre-courses + talking to Gemini/Chatgpt + reading a book called AI Truth
+10 AUG 2025 - Woke up at 6:00. Took Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "AI Truth"
   Naver pre-course: Basic math - Gradient descent, differentiation, partial differentiation, gradient vector, neural network, softmax function, activation function, ReLU, multi-layer perceptron, backpropagation algorithm, 
                     probability distribution, discrete, continuous, Monte Carlo sampling, parametric, nonparametric, sampling distribution, MLE(Maximum Likelihood Estimation), KL divergence, Bayes' theorem, confusion matrix, 
                     Simpson's pardaox
                     CNN (Convolutional Neural Network), RNN (Recurrent Neural Network), BPTT (Back Propagation Through Time)
 
-11 AUG 2025 - Woke up at 6:30. Continued to take Naver Boostcamp pre-courses (70% done) + talked to Gemini/Chatgpt + read "Brave New World" (10% done)
+11 AUG 2025 - Woke up at 6:30. Continued to take Naver Boostcamp pre-courses (70% complete) + talked to Gemini/Chatgpt + read "Brave New World" (10% complete)
   Naver pre-course: PyTorch - Tensor handling, Tensor operations
 
-12 AUG 2025 - Woke up at 6:00. Applied to the Naver Boostcamp, continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (25% done)
+12 AUG 2025 - Woke up at 6:00. Applied to the Naver Boostcamp, continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (25% complete)
   Naver pre-course: PyTorch - AutoGrad, optimizer, datasets, dataloaders, model saving, model loading, checkpoints, tensorboard, WandB, Multi-GPU
 
-13 AUG 2025 - Woke up at 6:00. Continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (50% done)
+13 AUG 2025 - Woke up at 6:00. Continued to take Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (50% complete)
   Naver pre-course: PyTorch - Hyperparameter tuning, ray, OOM
                     Deep learning basics - Multi-Layer Perceptron, Hidden Layers, Activation Functions
 
-14 AUG 2025 - Woke up at 6:40. Finished taking Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (60% done)
+14 AUG 2025 - Woke up at 6:40. Finished taking Naver Boostcamp pre-courses + talked to Gemini/Chatgpt + read "I'm old but I want to code" (60% complete)
   Naver pre-course: Deep learning basics - Optimization, Gradient descent methods, regularization, Convolutional Neural Networks, Pooling, Feature Maps, Image Classification, ResNet, GoogLeNet, AlexNet, VGGNet, DenseNet, 
                                            Semantic Segmentation, Object Detection, Sequential Model, Recurrent Neural Networks, Long Short Term Memory, Gated Recurrent Unit, Transformer, Multi Head Attention, Positional Encoding,
                                            Autoregressive models, Maximum Likelihood Learning, Latent variable models
@@ -66,7 +66,7 @@ The Life Transition Project
 
 18 AUG 2025 - Woke up at 6:40. Took the coding test prep video 2 + practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
-19 AUG 2025 - Woke up at 8:20. Practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + read "I'm old but I want to code" (80% done)
+19 AUG 2025 - Woke up at 8:20. Practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + read "I'm old but I want to code" (80% complete)
 
 20 AUG 2025 - Woke up at 6:20. Practiced for the coding test + took the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
@@ -80,10 +80,12 @@ The Life Transition Project
 
 25 AUG 2025 - Woke up at 6:30. Did a research on bootcamps + practiced 2 level 0 questions on Programmers + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
-26 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (50% done)
+26 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (50% complete)
 
-27 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (70% done)
+27 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (70% complete)
 
 28 AUG 2025 - Woke up at 6:50. Took the Programmers' bootcamp test + Did a research on bootcamps + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
-29 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (80% done)
+29 AUG 2025 - Woke up at 7:30. Got admitted to the Programmers' backend bootcamp + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (80% complete)
+
+30 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Starting a career at Apple with military experience" (40% complete)
