@@ -62,9 +62,9 @@ The Life Transition Project
 
 16 AUG 2025 - Woke up at 6:30. Started taking coding test prep videos by Dongbin Na + talked to Gemini/Chatgpt + Set-up VScode + Duolingo Spanish
 
-17 AUG 2025 - Woke up at 6:30. Took the coding test prep video 1 + talked to Gemini/Chatgpt + practiced basic Python using VScode + Duolingo Spanish
+17 AUG 2025 - Woke up at 6:30. Watched the coding test prep video 1 + talked to Gemini/Chatgpt + practiced basic Python using VScode + Duolingo Spanish
 
-18 AUG 2025 - Woke up at 6:40. Took the coding test prep video 2 + practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
+18 AUG 2025 - Woke up at 6:40. Watched the coding test prep video 2 + practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
 19 AUG 2025 - Woke up at 8:20. Practiced for the coding test + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + read "I'm old but I want to code" (80% complete)
 
@@ -72,7 +72,7 @@ The Life Transition Project
 
 21 AUG 2025 - Woke up at 6:40. Practiced 14 level 0 questions on Programmers + applied to the Programmers backend bootcamp + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
-22 AUG 2025 - Woke up at 7:30. Took the CS50x lecture 0: Scratch + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
+22 AUG 2025 - Woke up at 7:30. Completed the CS50x lecture 0: Scratch + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
 23 AUG 2025 - Woke up at 6:50. DELE B2 + DALF C1 research + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + finished reading "I'm old but I want to code"
 
@@ -89,3 +89,5 @@ The Life Transition Project
 29 AUG 2025 - Woke up at 7:30. Got admitted to the Programmers' backend bootcamp + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Breaking routine" (80% complete)
 
 30 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Starting a career at Apple with military experience" (40% complete)
+
+31 AUG 2025 - Woke up at 6:30. The last day of the initial planning phase of TLTP! Planned for the next months of TLTP, Set the target companies to apply in 2026 + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Starting a career at Apple with military experience" (70% complete)
