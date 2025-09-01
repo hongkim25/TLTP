@@ -91,3 +91,5 @@ The Life Transition Project
 30 AUG 2025 - Woke up at 7:30. Did a research on bootcamps + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Starting a career at Apple with military experience" (40% complete)
 
 31 AUG 2025 - Woke up at 6:30. The last day of the initial planning phase of TLTP! Planned for the next months of TLTP, Set the target companies to apply in 2026 + talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + read "Starting a career at Apple with military experience" (70% complete)
+
+1 SEP 2025 - Woke up at 6:50. Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + finished reading "Starting a career at Apple with military experience"
