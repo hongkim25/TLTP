@@ -94,4 +94,6 @@ The Life Transition Project
 
 1 SEP 2025 - Woke up at 6:50. Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + finished reading "Starting a career at Apple with military experience"
 
-2 SEP 2025 - Talked to Gemini/Chatgpt -> finalized the remaining 8 months (2300 hours) of TLTP + Woke up at 8:20. Gathered more information about the Programmers Backend bootcamp + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+2 SEP 2025 - Woke up at 8:20. Talked to Gemini/Chatgpt -> finalized the remaining 8 months (2300 hours) of TLTP + Gathered more information about the Programmers Backend bootcamp + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+
+3 SEP 2025 - Woke up at 7:30. Read some pages of a coding test book + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
