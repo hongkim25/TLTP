@@ -96,4 +96,6 @@ The Life Transition Project
 
 2 SEP 2025 - Woke up at 8:20. Talked to Gemini/Chatgpt -> finalized the remaining 8 months (2300 hours) of TLTP + Gathered more information about the Programmers Backend bootcamp + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
-3 SEP 2025 - Woke up at 7:30. Read some pages of a coding test book + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+3 SEP 2025 - Woke up at 7:30. Read some pages of a coding test book + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + Started Spanish online courses from Siwon school for DELE B2
+
+4 SEP 2025 - Woke up at 6:50. Completed lecture 1's module 1 of Google IT automation with Python in Coursera + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
