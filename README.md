@@ -99,3 +99,5 @@ The Life Transition Project
 3 SEP 2025 - Woke up at 7:30. Read some pages of a coding test book + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish + Started Spanish online courses from Siwon school for DELE B2
 
 4 SEP 2025 - Woke up at 6:50. Completed lecture 1's module 1 of Google IT automation with Python in Coursera + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+
+4 SEP 2025 - Woke up at 6:30. Completed lecture 1 of DELE B2 + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
