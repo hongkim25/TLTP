@@ -100,4 +100,6 @@ The Life Transition Project
 
 4 SEP 2025 - Woke up at 6:50. Completed lecture 1's module 1 of Google IT automation with Python in Coursera + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
-4 SEP 2025 - Woke up at 6:30. Completed lecture 1 of DELE B2 + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+5 SEP 2025 - Woke up at 6:30. Completed lecture 1 of DELE B2 + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+
+6 SEP 2025 - Woke up at 6:30. Read chapter 1 of CLRS + completed lecture 1 EBS math (50 days) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
