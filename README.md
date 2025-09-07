@@ -76,7 +76,7 @@ The Life Transition Project
 
 23 AUG 2025 - Woke up at 6:50. DELE B2 + DALF C1 research + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + finished reading "I'm old but I want to code"
 
-24 AUG 2025 - Woke up at 6:30. Took the CS50x lecture 1 + practiced 2 level 0 questions on Programmers + did a job research beyond Europe, to Canada and Australia + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + finished reading "A social service agent who codes"
+24 AUG 2025 - Woke up at 6:30. Watched the CS50x lecture 1 (30% complete) + practiced 2 level 0 questions on Programmers + did a job research beyond Europe, to Canada and Australia + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish + finished reading "A social service agent who codes"
 
 25 AUG 2025 - Woke up at 6:30. Did a research on bootcamps + practiced 2 level 0 questions on Programmers + talked to Gemini/Chatgpt + Babbel/Duolingo Spanish
 
@@ -103,3 +103,5 @@ The Life Transition Project
 5 SEP 2025 - Woke up at 6:30. Completed lecture 1 of DELE B2 + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
 6 SEP 2025 - Woke up at 6:30. Read chapter 1 of CLRS + completed lecture 1 EBS math (50 days) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+
+7 SEP 2025 - Woke up at 8:00. Took the Programmers' pre-course (5/40 complete) + took the EBS Spanish course (3/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
