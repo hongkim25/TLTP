@@ -102,6 +102,8 @@ The Life Transition Project
 
 5 SEP 2025 - Woke up at 6:30. Completed lecture 1 of DELE B2 + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
-6 SEP 2025 - Woke up at 6:30. Read chapter 1 of CLRS + completed lecture 1 EBS math (50 days) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+6 SEP 2025 - Woke up at 6:30. Read chapter 1 of CLRS + completed lecture 1 of EBS 50 days math part.1 + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
 7 SEP 2025 - Woke up at 8:00. Took the Programmers' pre-course (5/40 complete) + took the EBS Spanish course (3/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+
+8 SEP 2025 - Woke up at 6:40. Took the Programmers' pre-course (10/40 complete) + took the EBS Spanish course (4/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
