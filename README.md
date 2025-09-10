@@ -106,6 +106,8 @@ The Life Transition Project
 
 7 SEP 2025 - Woke up at 8:00. Took the Programmers' pre-course (5/40 complete) + took the EBS Spanish course (3/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
-8 SEP 2025 - Woke up at 6:40. Took the Programmers' pre-course (10/40 complete) + took the EBS Spanish course (4/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+8 SEP 2025 - Woke up at 6:40. Took the Programmers' pre-course (10/40 complete) + Completed Nomad coder Javascript challenge day 1 + took the EBS Spanish course (4/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
 
-9 SEP 2025 - Woke up at 6:20. Took the Programmers' pre-course (13/40 complete) + took the EBS Spanish course (5/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+9 SEP 2025 - Woke up at 6:20. Took the Programmers' pre-course (13/40 complete) + Completed Nomad coder Javascript challenge day 2 + took the EBS Spanish course (5/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish
+
+9 SEP 2025 - Woke up at 8:00. Completed day 1 of the Programmers AI Backend botcamp (orientation, 14:00-18:00) + Took the Programmers' pre-course (20/40 complete) + Completed Nomad coder Javascript challenge day 3 + took the EBS Spanish course (6/30 complete) + Talked to Gemini/Chatgpt + Datacamp/Brilliant python + Babbel/Duolingo Spanish

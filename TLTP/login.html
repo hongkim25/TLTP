@@ -4,13 +4,34 @@
         <meta charset="UTF-8">
         <title> LOGIN </title>
         <script src="app.js"></script>
+        <style>
+            h1 {
+                font-size: 50px;
+                color:darkred;
+                text-align: center;
+            }
+
+            .login_inputs {
+                margin: 10px;
+                width: 300px;
+                height: 50px;
+                font-size: 25px;
+            }
+
+            #btn_login {
+                background-color: lightblue;
+                font-size: 25px; 
+                width:100px; 
+                height: 50px
+            }
+        </style>    
     </head>
     <body>
-        <h1 style="color:darkred; text-align: center;"> LOGIN </h1>
+        <h1> LOGIN </h1>
         <form>
-            ID: <input type="text" name="username" style="font-size: 25px"><br>
-            Password: <input type="password" name="password" style="font-size: 25px"><br>
-            <input type="button" value="Login" style="font-size: 25px; width:100px; height: 50px;">
+            ID: <input class ="login_inputs" type="text" name="username"><br>
+            Password: <input class ="login_inputs" type="password" name="password"><br>
+            <input id="btn_login" type="button" value="Login">
         <br>
         </form>
     </body>
