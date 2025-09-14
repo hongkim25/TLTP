@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- naver 검색 -->
+    <!-- https://search.naver.com/search.naver
+     ?where=nexearch
+     &sm=top_hty&fbm=0&ie=utf8
+     &query=%EB%9F%AC%EC%8A%A4%ED%8A%B8+%EA%B0%9C%EB%B0%9C
+     &ackey=j7o8mxqz -->
+    <!-- form -> button -->
+    <!-- 127.0.0.1:5500/파일.html?.......... -->
+    <!-- https://search.naver.com/search.naver?ssc=tab.blog.all -->
+    <!-- https://search.naver.com/search.naver?ssc=tab.news.all -->
+    <!-- tab을 결정한다 -->
+    <!-- ssc=tab.blog.all tab.news.all tab.image.all -->
+    <form action="https://search.naver.com/search.naver">
+      <input name="sm" value="tab_opt" type="hidden" />
+      <input name="query" /><br />
+      <!-- radio, checkbox, select+option -->
+      <!-- 미리 선택지를 모두 보여주는 형태 -->
+      <!-- 기본 선택 여부 checked -->
+      <!-- <label>
+        검색 탭 :
+
+        <input type="radio" name="ssc" value="tab.nx.all" checked /> 전체
+        <input type="radio" name="ssc" value="tab.blog.all" /> 블로그
+        <input type="radio" name="ssc" value="tab.news.all" /> 뉴스
+        <input type="radio" name="ssc" value="tab.cafe.all" /> 카페
+      </label> -->
+      <br />
+      <label>
+        정렬기준 :
+        <!-- 기본 선택 여부 selected -->
+        <select name="ssc">
+          <option value="tab.nx.all">전체</option>
+          <option value="tab.blog.all">블로그</option>
+          <option value="tab.news.all">뉴스</option>
+          <option value="tab.cafe.all" selected>카페</option>
+        </select>
+      </label>
+      <!-- selected, checked가 2개 이상이라면 가장 뒤에 오는 것을 따라가게 됨 -->
+      <br />
+      <button>검색</button>
+      <!-- TODO : 구글 검색 버전으로 -->
+    </form>
+  </body>
+</html>

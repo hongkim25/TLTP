@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input, form</title>
+  </head>
+  <body>
+    <!-- container -> contain(포함) -->
+    <!-- <form action="" method="get"> -->
+    <form method="get">
+      <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input -->
+      <!-- input -> name, type, value -->
+      <!-- 1. label -->
+      <label> 이름 : <input name="text" type="text" /> </label> <br />
+      <label for="number"> 나이 : </label>
+      <input id="number" name="number" type="number" />
+      <br />
+      <!-- 2. 속성 : required, placeholder -->
+      생일 : <input name="date" type="date" required /> <br />
+      <label>
+        직업 : <input name="job" type="text" placeholder="직업을 알려주세요" />
+      </label>
+      <br />
+      좋아하는 색상 : <input name="color" type="color" />
+      <!-- button : 누르는 형태로 반응 -->
+      <button>제출</button>
+      <!-- <button type="submit">제출</button> -->
+      <!-- 주소창을 통해서 input에 연결된 값들을 전달하는 방식 GET -->
+    </form>
+  </body>
+</html>

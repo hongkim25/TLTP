@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04_list</title>
+  </head>
+  <body>
+    <!-- 말머리표 -> 특수기호 붙여서/번호를 붙여서 나열해놓음 -->
+    <ol>
+      <!-- ordered list -->
+      <!-- list 요소를 만드는 태그 -->
+      <li>1번</li>
+      <li>
+        2번
+        <br />
+        <ol>
+          <li>중첩1</li>
+          <li>중첩2</li>
+          <li>
+            2-3번
+            <br />
+            <ol>
+              <li>중첩1</li>
+              <li>중첩2</li>
+              <li>중첩3</li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>3번</li>
+      <li>4번</li>
+      <li>5번</li>
+    </ol>
+    <ul>
+      <!-- unordered list -->
+      <li>순서없는...</li>
+      <li>
+        <ul>
+          <li>항목</li>
+          <li>항목</li>
+          <li>
+            <ol>
+              <li>섞어서</li>
+              <li>섞어서</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>순서없는...</li>
+      <li>순서없는...</li>
+      <li>순서없는...</li>
+      <!-- li : 한 줄을 다 차지하는 'block' -->
+    </ul>
+
+    <!-- table -->
+    <!-- 표 -->
+    <table border="1">
+      <thead>
+        <th>제목1</th>
+        <th>제목2</th>
+        <th>제목3</th>
+      </thead>
+      <tbody>
+        <!-- table row -->
+        <tr>
+          <!-- table data -->
+          <td>내용1</td>
+          <td>내용2</td>
+          <td>내용3</td>
+        </tr>
+        <tr>
+          <!-- table data -->
+          <td>내용1</td>
+          <td>내용2</td>
+          <td>내용3</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td>합계1</td>
+        <td>합계2</td>
+        <td>합계3</td>
+      </tfoot>
+    </table>
+  </body>
+</html>
