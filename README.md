@@ -119,3 +119,5 @@ The Life Transition Project
 13 SEP 2025 - Woke up at 7:30. Completed Nomad coder Javascript challenge day 6, took the EBS Spanish course (7/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and read "Breaking routine" (90% complete).
 
 14 SEP 2025 - Woke up at 7:30. Talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo Spanish, and reviewed materials for the Programmers AI Backend bootcamp.
+
+15 SEP 2025 - Woke up at 6:00.
