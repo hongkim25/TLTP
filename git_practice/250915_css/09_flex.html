@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex</title>
+    <style>
+      .container {
+        /* flex container */
+        /* overflow: hidden; */
+        display: flex; /* 하위(자식) 요소들을 flex item으로 만드는 설정 */
+        /* flex-direction: row; */
+        gap: 12px; /* flex item들 간의 거리 */
+        /* height: 50vh; */
+      }
+      .box {
+        /* flex item */
+        /* float: left; */
+        /* display: block; */
+        /* display: inline; */
+        /* display: inline-block; */
+        width: 80px;
+        /* height: 80px; */
+        background-color: teal;
+        border: 1px black solid;
+      }
+      /* 넘칠 시 줄바꿈 */
+      .wrap {
+        flex-wrap: wrap;
+      }
+      /* 메인 축 방향 */
+      .column {
+        flex-direction: column;
+        /* row-reverse */
+        /* column-reverse */
+      }
+      /* 주축 Main axis */
+      .justify-content {
+        /* 주축은 여백이 계속 존재하도록 배치한다 */
+        /* justify-content: start; */
+        /* justify-content: center; */
+        /* justify-content: end; */
+        /* [] 1 [] 2 [] 3 [] 
+        각각 flex item들의 width를 빼고, 남은 여백을 왼쪽부터 나머지 []들이 나눠가짐 */
+        /* 똑같이 */
+        /* justify-content: space-evenly; */
+        /* 맨왼쪽, 오른쪽은 반만 */
+        /* justify-content: space-around; */
+        justify-content: space-between;
+      }
+      /* 교차축 Cross axis */
+      /* 여백이 새로 만들지지 않음 -> 늘어날것이냐 */
+      .align-items {
+        /* align-items: stretch; */
+        /* 요소에 height가 있으면 해당 height 우선 */
+        /* 컨텐츠가 내부에 있으면... */
+        /* align-items: start; */
+        align-items: center;
+        /* align-items: end; */
+        height: 240px;
+      }
+    </style>
+  </head>
+  <body>
+    <hr />
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <hr />
+    <div class="container wrap">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+    </div>
+    <hr />
+    <!-- flex-direction -->
+    <!-- row : 행 배치 (왼쪽 -> 오른쪽) -->
+    <!-- column : 열 배치 (위 -> 아래로) -->
+    <div class="container column">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <hr />
+    <div class="container justify-content">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <hr />
+    <!-- 메인축 column으로 했을 경우엔 height가 기본 flex item들의 높이 합과 gap을 통해 정해지므로 space 시리즈들이 의미가 없어짐 -> height를 충분히 주지 않으면 -->
+    <div style="height: 50vh" class="container justify-content column">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <hr />
+    <div class="container align-items">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores velit
+    reprehenderit repellat deleniti, tenetur cum voluptate neque nobis labore.
+    Aperiam voluptas iste quam eaque nulla tempora, in illo commodi. Officia!
+    <div
+      style="
+        width: 256px;
+        aspect-ratio: 1;
+        background-color: aquamarine;
+        /* 아래 구문 때문에 flex 꼭 하는 것 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <img width="64" src="cat.png" alt="" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float</title>
+    <style>
+      /* 요새는 안 쓰는 방법 */
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      /* clear 예시 */
+      .box {
+        width: 120px;
+        height: 120px;
+        border: 1px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img style="width: 48px; float: left" src="cat.png" />
+      <img style="width: 48px; float: left" src="cat.png" />
+      <img style="width: 48px; float: right" src="cat.png" />
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor blanditiis
+      eligendi cumque reiciendis minima neque placeat, iure doloribus earum
+      quaerat. Atque est maiores doloremque quod quae veritatis corrupti
+      perspiciatis non!
+    </section>
+    <section style="border: 1px black solid; overflow: hidden">
+      <!-- overflow를 auto나 hidden을 주면 자식이 float만 있을 때도 그만큼 height -->
+      <img style="float: left; width: 48px" src="cat.png" />
+    </section>
+    <section class="clearfix" style="border: 1px black solid">
+      <!-- overflow를 auto나 hidden을 주면 자식이 float만 있을 때도 그만큼 height -->
+      <img style="float: left; width: 48px" src="cat.png" />
+    </section>
+    <section style="border: 1px black solid">
+      <!-- 다른 충돌할 인라인 요소가 있으면 상관이 없는데... 자식이 float 요소밖에 없으면... -->
+      <!-- <img style="float: left; width: 48px" src="cat.png" /> -->
+    </section>
+    <section>
+      <!-- <div class="box" style="float: left"></div> -->
+      <div class="box" style="float: right"></div>
+      <!-- 겹침 -->
+      <!-- 현재 배치 되는 위치에 있는 라인에 float가 있으면 줄바꿈 -->
+      <!-- <div class="box" style="clear: left"></div> -->
+      <!-- <div class="box" style="clear: right"></div> -->
+      <div class="box" style="clear: both"></div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자 (Selector)</title>
+    <style>
+      .big {
+        font-size: 24pt;
+        font-weight: bold;
+      }
+      .tomato {
+        color: tomato;
+        /* 태그 선택자를 이김 */
+      }
+      #unique {
+        font-size: 36pt;
+        /* 태그 선택자, 클래스 선택자를 모두 이김 */
+      }
+      /* html은 프로그래밍 언어가 아니라 '문서' 언어라서... id를 중복으로 써도... */
+    </style>
+  </head>
+  <body>
+    <p id="unique" class="big tomato">태그1</p>
+    <h1 id="unique" class="big tomato">
+      태그2 : 같은 id를 2번 이상 쓰는게 가능은 한데... 권장 되지 않는다!
+    </h1>
+    <h1 class="big tomato">태그3</h1>
+  </body>
+</html>

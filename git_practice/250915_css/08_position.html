@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+      .container {
+        position: static;
+        width: 240px;
+        height: 240px;
+        background-color: beige;
+        border: 1px grey solid;
+        padding: 20px;
+      }
+      .box {
+        /* 일반 block이나 inline 그대로 작동 */
+        position: static;
+        width: 120px;
+        height: 120px;
+        background-color: yellow;
+        border: 1px grey solid;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Static -->
+    <div class="container">
+      <div class="box" style="position: static; left: 20px; top: 20px">
+        static -> top, left, right, bottom -> 해당 위치로부터 x사이즈만큼 이동
+        -> static은 이를 무시함
+      </div>
+    </div>
+    <!-- Sticky -->
+    <div class="box" style="position: sticky; top: 0">sticky 상단에 붙는다</div>
+    <!-- Relative -->
+    <div class="container">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum,
+      repudiandae totam? Quibusdam blanditiis maiores possimus, assumenda
+      consequatur quam sequi iure hic nihil obcaecati praesentium ut suscipit
+      voluptates dolores, nam magnam.
+      <div
+        class="box"
+        style="margin: auto; position: relative; left: 20px; top: 20px"
+      >
+        -> relative는 현재 주어진 위치 (padding, margin 등을 다 반영한 상태에서)
+      </div>
+    </div>
+    <!-- Absolute : Relative 영역 안에서 작동 -->
+    <div class="container">
+      <div style="position: relative">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam facilis
+        eos sit nostrum molestias hic, aut ab error soluta suscipit repudiandae
+        eveniet. Asperiores aspernatur laborum ipsum inventore magni atque
+        eveniet.
+        <div class="box" style="position: absolute; left: 20px; top: 20px">
+          absolute는 가장 가까운 static이 아닌 상위 요소를 기준으로 배치 ->
+          만약에 없다면 html(root) 경로 -> 흐름에서 제거되며 float 처럼 작동
+        </div>
+        <div class="box" style="position: absolute; right: 20px; bottom: 20px">
+          [ABSOLUTE]
+        </div>
+      </div>
+    </div>
+    <!-- Fixed : 전 화면 -->
+    <div class="container">
+      <div class="box" style="position: fixed; right: 20px; bottom: 20px">
+        fixed는 그냥 화면.
+      </div>
+    </div>
+  </body>
+</html>

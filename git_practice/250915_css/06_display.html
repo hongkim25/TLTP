@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display</title>
+    <style>
+      * {
+        border: 1px black solid;
+      }
+      .w240 {
+        width: 240px;
+        height: 120px;
+      }
+      .block {
+        display: block;
+      }
+      span.w240 {
+        display: inline-block;
+      }
+      nav li {
+        /* display: inline; */
+        display: inline-block;
+        width: 72px;
+        height: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      블록 요소 <br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iure, qui
+      quae ad expedita facilis sint laudantium doloremque eaque nulla aut fuga?
+      Delectus cum corporis ipsa minus nisi voluptate a.
+    </p>
+    <p class="w240">섞이지 못함</p>
+    <p>
+      <strong class="w240">인라인 요소</strong>
+      <strong>인라인 요소</strong>
+      <span style="margin: 24px">마진체크(왼쪽오른쪽)</span>
+      <span class="w240">데이터 표시할 때 많이 쓰임</span>
+      <span class="w240 block">데이터 표시할 때 많이 쓰임</span>
+    </p>
+
+    <nav>
+      <ul>
+        <li>홈</li>
+        <li>게시판1</li>
+        <li>게시판2</li>
+        <li>게시판3</li>
+        <li>게시판4</li>
+      </ul>
+    </nav>
+
+    <div>
+      <!-- 아예 자취를 감춘다 (크기도 없음) -->
+      <div style="display: none">감춤1</div>
+      <!-- 자취만 남김 (크기만 남김) -->
+      <div style="visibility: hidden">감춤2</div>
+    </div>
+  </body>
+</html>
