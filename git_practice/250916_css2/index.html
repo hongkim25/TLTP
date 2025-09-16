@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hong Kim's page</title>
+    <!-- favicon -->
+    <!-- https://realfavicongenerator.net/ -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/./favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/./favicon.svg" />
+    <link rel="shortcut icon" href="/./favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/./apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/./site.webmanifest" />
+    <!-- og tag -->
+    <!-- https://ogp.me/ -->
+    <meta property="og:title" content="Hong's Page" />
+    <meta
+      property="og:description"
+      content="A software engineer with one week of experience."
+    />
+    <meta property="og:image" content="" />
+    <!-- https://{github계정명}.github.io/레포지토리명/preview.png -->
+    <meta
+      property="og:image"
+      content="https://hongkim25.github.io/250916_CSS2/preview.png"
+    />
+    <style>
+      /* 폰트 */
+      @font-face {
+          font-family: 'PyeojinGothic';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Light.woff2') format('woff2');
+          font-weight: 300;
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: 'PyeojinGothic';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Regular.woff2') format('woff2');
+          font-weight: 400;
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: 'PyeojinGothic';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Bold.woff2') format('woff2');
+          font-weight: 700;
+          font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
+        font-weight: 100;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+        font-weight: 200;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+        font-weight: 300;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+        font-weight: 700;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+        font-weight: 800;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');
+        font-weight: 900;
+        font-display: swap;
+      }
+
+      body {
+        font-family: "PyeojinGothic";
+      }
+
+      .title {
+        font-family: "PyeojinGothic";
+        color: #0c76c2;
+      }
+
+      /* 기본 전체 설정 */
+      * {
+        box-sizing: border-box;
+        /* 모든 box width, height를 우리 지정에 맞게 */
+      }
+
+      body {
+        margin: 0; /* 기본 마진 */
+        background-color: aliceblue;
+        color: #063353;
+      }
+
+      /*
+        색상 설정
+        - https://www.bairesdev.com/tools/ai-colors
+        - https://2colors.colorion.co/
+        - https://colorhunt.co/
+        - https://mobilepalette.colorion.co/
+      */
+
+      /*
+      https://colorhunt.co/palette/3b02706f00ffe9b3fbfff1f1
+      */
+
+      .box {
+        background-color: #a3e5ff;
+        padding: 24px;
+        border-radius: 12px;
+        /* border-radius: 50%;  */
+        /* 0~50% */
+      }
+
+      /* 레이아웃 : 박스모델, 플렉스 */
+      body {
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+        /* 위에서 아래 방향으로 쌓아서 처리 */
+      }
+      body > section {
+        /* body에 바로 속한 section */
+        /* 자식 선택 -> 바로 속한 경우 */
+        /* https://getbootstrap.com/docs/5.3/layout/breakpoints/#available-breakpoints */
+        /* padding: 24px; */
+        padding: 0 24px;
+        max-width: 576px;
+        width: 100%;
+        margin: auto;
+      }
+
+      h2 {
+        margin-top: 0; /* top, left, right, bottom */
+      }
+
+      #intro .title {
+        text-align: center;
+      }
+
+      #intro div {
+        line-height: 1.6;
+        text-align: center;
+        /* 1 : 100% */
+      }
+
+      #tech-stack ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      #tech-stack li {
+        list-style: none;
+        width: 128px;
+        aspect-ratio: 1; /* 가로/세로 */
+        background-color: white;
+        border-radius: 8px;
+        border: 1px transparent solid;
+        padding: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #tech-stack img {
+        width: 80%;
+        padding: 8px;
+        background-color: white;
+        border-radius: 50%;
+      }
+
+      #portfolio .box > div {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      #portfolio .item {
+        background-color: rgb(207, 237, 253);
+        width: 100%;
+        height: 108px;
+        border-radius: 8px;
+        padding: 0 16px;
+      }            
+    </style>
+  </head>
+  <body>
+    <section id="intro">
+        <h1 class="title">
+          WELCOME TO MY PAGE!
+        </h1>
+        <section class="box">
+            <div>
+              I have been programming for about a week now. </br>
+              Actually, I have taken 10 different intro Python courses in life feeling proud every single time I printed "Hello, World!" on my terminal. 
+              Unfortunately, printing "Hello, World!" didn't help much, so now I am trying to learn to do a little more than that.
+            </div>
+        </section>
+    </section>
+
+    <!-- flex 기반 레이아웃. svg repo. -->
+    <!-- 기술 스택 (부트캠프) -->
+    <!-- https://www.svgrepo.com/ -->
+    <!-- https://icons8.com/ -->
+    <section id="tech-stack">
+      <section class="box">
+        <!-- https://emojipedia.org/ -->
+        <h2>TECK STACK</h2>
+        <ul>
+          <li>
+            <img src="img/java.png" alt="JAVA" />
+          </li>
+          <li>
+            <img src="img/spring.png" alt="SPRING" />
+          </li>
+          <li>
+            <img src="img/mysql.png" alt="MYSQL" />
+          </li>
+          <li>
+            <img src="img/aws.png" alt="AWS" />
+          </li>
+          <li>
+            <img src="img/github.png" alt="GITHUB" />
+          </li>
+        </ul>
+      </section>
+    </section>
+    <!-- 포트폴리오 (3종) -->
+    <section id="portfolio">
+      <section class="box">
+        <h2>PORTFOLIO</h2>
+        <div>
+          <div class="item">
+            <h3>Project 1</h3>
+            <p>
+              Coming soon!
+            </p>
+          </div>
+          <div class="item">
+            <h3>Project 2</h3>
+            <p>
+              Coming soon, too!
+            </p>
+          </div>
+          <div class="item">
+            <h3>Project 3</h3>
+            <p>
+              Coming in 2026!
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>
