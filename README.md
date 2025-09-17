@@ -123,3 +123,4 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
 15 SEP 2025 - Woke up at 6:00. Completed day 4 of the Programmers AI Backend bootcamp (CSS, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 16 SEP 2025 - Woke up at 5:40. Completed day 5 of the Programmers AI Backend bootcamp (Making an intro page, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
