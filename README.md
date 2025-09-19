@@ -126,6 +126,6 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
 
 17 SEP 2025 - Woke up at 5:50. Completed day 6 of the Programmers AI Backend bootcamp (git, markdown, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-17 SEP 2025 - Woke up at 6:40. Completed day 7 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+18 SEP 2025 - Woke up at 6:40. Completed day 7 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=hongkim25.tltp"> 
