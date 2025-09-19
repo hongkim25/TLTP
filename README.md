@@ -1,6 +1,7 @@
 # TLTP
-The Life Transition Project: 1 August 2025 - 30 April 2026
+The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)
 
+<WEEK 1>
 1 AUG 2025 - It was the first day of the project. It was also the first day I decided to stay sober. I took the intro courses of the Naver Boostcamp pre-course.
   Naver pre-course: Basic computer class for newbies
   
@@ -27,6 +28,7 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
                     Module and Project: namespace, built-in modules, package, virtual environment
                     Exception, file, log handling: try ~ except, directory and file, pickle, print vs logging, configparser, argparser
 
+<WEEK 2>
 8 AUG 2025 - Woke up at 6:20. Watched ChatGPT 5 release videos with trials, talked to Gemini/ChatGPT, read co-intelligence, and took Naver Boostcamp pre-courses.
   Naver pre-course: Python data handling - CSV, html, regex, XML, JSON
                     Numpy - numpy, ndarray, shape, dtype, reshape, indexing, slicing, arange, ones, zeros, empty, identity, eye, diag, random sampling, sum, axis, mean, std, concat, element-wise operations, dot product, transpose, 
@@ -58,6 +60,7 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
                                            Semantic Segmentation, Object Detection, Sequential Model, Recurrent Neural Networks, Long Short Term Memory, Gated Recurrent Unit, Transformer, Multi Head Attention, Positional Encoding,
                                            Autoregressive models, Maximum Likelihood Learning, Latent variable models
 
+<WEEK 3>
 15 AUG 2025 - Woke up at 6:40. Naver Boostcamp coding test prep, talked to Gemini/ChatGPT, looked into different bootcamps, and practiced Spanish on Duolingo.
 
 16 AUG 2025 - Woke up at 6:30. Started taking coding test prep videos by Dongbin Na, talked to Gemini/ChatGPT, set up VScode, and practiced Spanish on Duolingo.
@@ -72,6 +75,7 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
 
 21 AUG 2025 - Woke up at 6:40. Practiced 14 level 0 questions on Programmers, applied to the Programmers backend bootcamp, talked to Gemini/ChatGPT, and practiced Spanish on Babbel/Duolingo.
 
+<WEEK 4>
 22 AUG 2025 - Woke up at 7:30. Completed lecture 0 of CS50x: Scratch, talked to Gemini/ChatGPT, and practiced Spanish on Babbel/Duolingo.
 
 23 AUG 2025 - Woke up at 6:50. DELE B2 and DALF C1 research, talked to Gemini/ChatGPT, practiced Spanish on Babbel/Duolingo, and finished reading "I'm old but I want to code".
@@ -86,6 +90,7 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
 
 28 AUG 2025 - Woke up at 6:50. Took the Programmers' bootcamp test, did a research on bootcamps, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
+<WEEK 5>
 29 AUG 2025 - Woke up at 7:30. Got admitted to the Programmers' backend bootcamp, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and read "Breaking routine" (80% complete).
 
 30 AUG 2025 - Woke up at 7:30. Did a research on bootcamps, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and read "Starting a career at Apple with military experience" (40% complete).
@@ -100,6 +105,7 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
 
 4 SEP 2025 - Woke up at 6:50. Completed lecture 1's module 1 of Google IT automation with Python in Coursera, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
+<WEEK 6>
 5 SEP 2025 - Woke up at 6:30. Completed lecture 1 of DELE B2, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 6 SEP 2025 - Woke up at 6:30. Read chapter 1 of CLRS + completed lecture 1 of EBS 50 days math part.1, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
@@ -113,19 +119,36 @@ The Life Transition Project: 1 August 2025 - 30 April 2026
 10 SEP 2025 - Woke up at 8:00. Completed day 1 of the Programmers AI Backend bootcamp (orientation, 14:00-18:00), took the Programmers' pre-course (20/40 complete) + Completed Nomad coder Javascript challenge day 3 + took the EBS Spanish course (6/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 11 SEP 2025 - Woke up at 7:00. Completed day 2 of the Programmers AI Backend bootcamp (first full day, LLM, 09:00-18:00), completed the Programmers' pre-course (40/40 complete), completed Nomad coder Javascript challenge day 4, took the EBS Spanish course (6/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: LLMs - ChatGPT, Gemini, Claude
 
+<WEEK 7>
 12 SEP 2025 - Woke up at 6:50. Completed day 3 of the Programmers AI Backend bootcamp (HTML, 09:00-18:00), completed Nomad coder Javascript challenge day 5, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: HTML - block, inline, symantic tag, link and image, list and table, agent, rules, input form, form search
 
 13 SEP 2025 - Woke up at 7:30. Completed Nomad coder Javascript challenge day 6, took the EBS Spanish course (7/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and read "Breaking routine" (90% complete).
 
 14 SEP 2025 - Woke up at 7:30. Talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and reviewed materials for the Programmers AI Backend bootcamp.
 
 15 SEP 2025 - Woke up at 6:00. Completed day 4 of the Programmers AI Backend bootcamp (CSS, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: CSS - syntax, selector, property, color, size, box, display, float, position, flex
 
 16 SEP 2025 - Woke up at 5:40. Completed day 5 of the Programmers AI Backend bootcamp (Making an intro page, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: CSS - making a simple webpage
 
 17 SEP 2025 - Woke up at 5:50. Completed day 6 of the Programmers AI Backend bootcamp (git, markdown, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: Git advanced
 
 18 SEP 2025 - Woke up at 6:40. Completed day 7 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: Javascript - syntax, type, operator, condition
+
+<WEEK 8>
+19 SEP 2025 - Woke up at 7:00. Completed day 8 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: Javascript - iteration, array, object, function
+
+
+
+
+
+
 
 <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=hongkim25.tltp"> 
