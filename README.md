@@ -1,7 +1,7 @@
 # TLTP
 The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)
 
-<WEEK 1>
+__WEEK 1__
 1 AUG 2025 - It was the first day of the project. It was also the first day I decided to stay sober. I took the intro courses of the Naver Boostcamp pre-course.
   Naver pre-course: Basic computer class for newbies
   
