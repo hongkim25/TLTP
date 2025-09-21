@@ -139,7 +139,7 @@ function buildUI(){
     clock: clock,
     login: login, 
     todoInput: todoInput,
-    todoList: todoListElement,
+    todoList: todoList,
     bgBtn: bgBtn,
     geoBtn: geoBtn,
     geoDisplay: geoDisplay
