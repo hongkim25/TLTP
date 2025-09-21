@@ -34,7 +34,7 @@ function buildUI(){
 
   const clock = document.createElement('div');
   clock.id = 'clock';
-  clock.style.fontSize = '50px';
+  clock.style.fontSize = '70px';
   clock.style.fontWeight = 'bold';
   header.appendChild(clock);
 
@@ -52,8 +52,8 @@ function buildUI(){
 
   // Todo section
   const todoSection = document.createElement('div');
-  todoSection.style.marginBottom = '30px';
-  todoSection.innerHTML = '<h2>Todo List</h2>';
+  todoSection.style.marginBottom = '40px';
+  todoSection.innerHTML = '<h2>To-do List</h2>';
   
   const todoForm = document.createElement('form');
   todoForm.style.marginBottom = '20px';
@@ -76,7 +76,7 @@ function buildUI(){
   addBtn.style.fontSize = '16px';
   addBtn.style.border = 'none';
   addBtn.style.borderRadius = '5px';
-  addBtn.style.backgroundColor = '#007bff';
+  addBtn.style.backgroundColor = '#606b77ff';
   addBtn.style.color = 'white';
   addBtn.style.cursor = 'pointer';
   
@@ -106,7 +106,7 @@ function buildUI(){
   bgBtn.style.fontSize = '16px';
   bgBtn.style.border = 'none';
   bgBtn.style.borderRadius = '5px';
-  bgBtn.style.backgroundColor = '#28a745';
+  bgBtn.style.backgroundColor = '#606b77ff';
   bgBtn.style.color = 'white';
   bgBtn.style.cursor = 'pointer';
 
@@ -116,8 +116,8 @@ function buildUI(){
   geoBtn.style.fontSize = '16px';
   geoBtn.style.border = 'none';
   geoBtn.style.borderRadius = '5px';
-  geoBtn.style.backgroundColor = '#ffc107';
-  geoBtn.style.color = 'black';
+  geoBtn.style.backgroundColor = '#606b77ff';
+  geoBtn.style.color = 'white';
   geoBtn.style.cursor = 'pointer';
 
   controlsSection.appendChild(bgBtn);
@@ -200,7 +200,7 @@ function renderLogin(){
     btn.style.fontSize = '16px';
     btn.style.border = 'none';
     btn.style.borderRadius = '5px';
-    btn.style.backgroundColor = '#007bff';
+    btn.style.backgroundColor = '#606b77ff';
     btn.style.color = 'white';
     btn.style.cursor = 'pointer';
     
