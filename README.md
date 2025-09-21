@@ -2,7 +2,9 @@
 The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)
 
 __WEEK 8__ <br>
-20 SEP 2025 - Woke up at 6:40. Continued Andrew Ng's machine learning specialization (Completed week 1 of course 1), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo (a lot).
+21 SEP 2025 - Woke up at 6:30. Continued Andrew Ng's machine learning specialization (completed part of week 2 of course 1), read "Grokking Algorithms" (completed the first 29 pages), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+20 SEP 2025 - Woke up at 6:40. Continued Andrew Ng's machine learning specialization (completed week 1 of course 1), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo (a lot).
 
 19 SEP 2025 - Woke up at 7:00. Completed day 8 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
   Programmers AI Backend Bootcamp: Javascript - iteration, array, object, function
