@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요소 선택</title>
+  </head>
+  <body>
+    <header>안녕하세요!</header>
+    <section>
+      메인 내용
+      <div id="item2"></div>
+      <div id="item1">
+        <div class="text">설명</div>
+        <div class="text">설명</div>
+        <div class="text">설명</div>
+        <div class="text">설명</div>
+      </div>
+    </section>
+    <footer>2025 프로그래머스</footer>
+    <script>
+      // document는 현재 웹 페이지의 HTML 문서를 나타내는 객체입니다.
+      // querySelector는 CSS 선택자를 사용하여 요소를 선택하는 메서드입니다.
+      // CSS Selector는 태그, ID(#), 클래스(.) 등을 사용하여 요소를 지정할 수 있습니다.
+      // document.querySelector는 선택된 요소를 변수에 저장하거나 직접 조작하는 데 사용됩니다.
+      const header = document.querySelector("header");
+      // header 태그를 사용하여 만들어진 요소 중 첫 번째로 찾아지는 요소를 선택합니다. (위에서 아래로)
+      console.log(header); // 선택된 요소(node)를 출력합니다.
+
+      // footer 태그를 선택하여 출력합니다.
+      console.log(document.querySelector("footer"));
+      // footer 요소의 HTML 내용을 출력합니다.
+      console.log(document.querySelector("footer").innerHTML);
+      // footer 요소의 텍스트 내용을 출력합니다.
+      console.log(document.querySelector("footer").innerText);
+
+      // section 태그를 선택하여 출력합니다.
+      console.log(document.querySelector("section"));
+      // section 요소의 HTML 내용을 출력합니다.
+      console.log(document.querySelector("section").innerHTML);
+      // section 요소의 텍스트 내용을 출력합니다.
+      console.log(document.querySelector("section").innerText);
+
+      // div 태그 중 첫 번째 요소를 선택하여 출력합니다.
+      console.log(document.querySelector("div"));
+      // id가 "item1"인 요소를 선택하여 출력합니다.
+      console.log(document.querySelector("#item1"));
+
+      // querySelectorAll은 CSS 선택자와 일치하는 모든 요소를 NodeList(유사 배열)로 반환합니다.
+      // div 태그를 가진 모든 요소를 선택하여 출력합니다.
+      console.log(document.querySelectorAll("div")); // NodeList(유사 배열)를 반환합니다.
+      // class가 "text"인 모든 요소를 선택하여 출력합니다.
+      console.log(document.querySelectorAll(".text")); // NodeList(유사 배열)를 반환합니다.
+
+      // 이전 문법 (여전히 작동하지만 querySelector, querySelectorAll 사용을 권장합니다.)
+      // id로 요소를 선택합니다.
+      const item1 = document.getElementById("item1");
+      // 클래스 이름으로 요소를 선택합니다. (HTMLCollection을 반환합니다.)
+      const text = document.getElementsByClassName("text");
+      console.log(item1, text);
+    </script>
+  </body>
+</html>

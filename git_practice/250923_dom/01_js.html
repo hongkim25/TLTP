@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+  </head>
+  <body>
+    <!-- NodeJS 런타임 -> JS -->
+    <!-- 브라우저 환경 -> HTML -> JS -->
+    <!-- 1. 인라인 2. <script> 3. <script src=""> -->
+    <!-- HTML -> ""로 속성에 포함된 문자를 나타내기 때문에 HTML에 속성값으로 포함된 자바스크립트는 문자열을 ''로 묶어야함 -->
+    <button onclick="console.log('정말 눌렀네요')">눌러보세요</button>
+    <button onclick="alert('정말 눌렀네요')">눌러보세요2</button>
+    <button onclick="pleaseClick()">눌러보세요3</button>
+    <button onclick="externalClick()">눌러보세요4</button>
+    <script>
+      // nodejs에서 하던 방식과 유사함
+      function pleaseClick() {
+        alert("정말 눌러주셨군요~~~");
+      } // 호이스팅 작동
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
