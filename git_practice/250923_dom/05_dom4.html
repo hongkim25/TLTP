@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 요소 생성, 삽입, 삭제</title>
+    <style>
+      #box {
+        width: 240px;
+        height: 240px;
+        background-color: beige;
+        border: 1px black solid;
+      }
+      p {
+        background-color: beige;
+        border: 1px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="addBox()">추가</button>
+    <div id="box"></div>
+    <script>
+      const box = document.querySelector("#box");
+      const p = document.createElement("p");
+      // document.createElement(태그명)
+      p.textContent = "안녕하세요 반갑습니다~";
+      p.style.color = "brown";
+      box.append(p); // 내부에 하위 요소로 추가
+      //   box.appendChild(p); // p. box 각각 하나라서...
+      // 2번 추가한다고 해서 2번 연결되진 않음
+      p.remove();
+      function addBox() {
+        // pp는 function scope에서 존재하기 때문에 개별적으로 존재하는 개념
+        const pp = document.createElement("p"); // pp.
+        pp.textContent = "히히";
+        box.append(pp);
+      }
+    </script>
+  </body>
+</html>

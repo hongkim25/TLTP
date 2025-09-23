@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 속성/클래스/스타일</title>
+    <style>
+      div {
+        width: 320px;
+        height: 320px;
+        border: 1px gray solid;
+        margin: 16px;
+        background-color: beige;
+      }
+      .hidden {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1" title="커서를 위에 두면"></div>
+    <div id="box2"></div>
+    <button onclick="box2.classList.toggle('hidden')">토글</button>
+    <div id="box3"></div>
+    <script>
+      const box1 = document.querySelector("#box1");
+      const box2 = document.querySelector("#box2");
+      const box3 = document.querySelector("#box3");
+      console.log(box1.getAttribute("title"));
+      box1.setAttribute("title", "속성을 바꾸었습니다"); // get.set attribute.
+      box1.title = "속성을 바꾸었습니다2"; // getter, setter. 프로퍼티.
+      //   box2.setAttribute("class", "hidden"); // 되긴합니다
+      //   box2.class = "hidden"; // 이건 안됩니다
+      box2.classList; // 클래스리스트
+      box2.classList.add; // 클래스 이름을 주면 추가
+      // 태그.classList.add(클래스명)
+      box2.classList.remove; // 제거
+      // 태그.classList.remove(클래스명)
+      box2.classList.toggle; // 있으면 없애주고 없으면 만들어주고
+      box3.style.backgroundColor = "red";
+      // style="" -> 우선도가 높아서 직접 적용
+    </script>
+  </body>
+</html>
