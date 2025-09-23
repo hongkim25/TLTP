@@ -3,6 +3,11 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
 }
 
 .logo {
@@ -10,12 +15,33 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+.calculator {
+  width: 320px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+
+.display {
+  background-color: #222;
+  color: white;
+  font-size: 2.5rem;
+  text-align: right;
+  padding: 20px;
+  min-height: 30px;
+  overflow-x: auto;
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+
+.button-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
 }
 
 @keyframes logo-spin {
@@ -25,18 +51,55 @@
   to {
     transform: rotate(360deg);
   }
+.button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+.button:hover {
+  background-color: #d6d6d6;
 }
 
 .card {
   padding: 2em;
+.button:active {
+  background-color: #ccc;
 }
 
 .read-the-docs {
   color: #888;
+/* 연산자 버튼 스타일 */
+.operator {
+  background-color: #f5923e;
+  color: white;
+}
+
+.operator:hover {
+  background-color: #e8832a;
+}
+
+.operator:active {
+  background-color: #da751a;
+}
+
+/* '0' 버튼을 2칸 차지하도록 설정 */
+.zero {
+  grid-column: span 2;
+}
+
+/* 'C' 버튼 스타일 */
+.clear {
+  background-color: #d6d6d6;
+}
+
+.clear:hover {
+  background-color: #c0c0c0;
 }
