@@ -2,9 +2,10 @@
 The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)
 
 __WEEK 8__ <br>
-23 SEP 2025 - Woke up at 7:10.
+23 SEP 2025 - Woke up at 7:10. Completed day 11 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+  Programmers AI Backend Bootcamp: DOM (Document Object Model), Event, BOM (Broswer Object Model)
 
-23 SEP 2025 - Woke up at 7:00. Completed day 9 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+23 SEP 2025 - Woke up at 7:00. Completed day 10 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
   Programmers AI Backend Bootcamp: Tools - NoteboomLM, Vite, Vercel. DOM (Document Object Model)
 
 22 SEP 2025 - Woke up at 6:50. Completed day 9 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
