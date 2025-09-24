@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+        padding: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="userForm">
+      <label>
+        이름 :
+        <input
+          name="userName"
+          id="userName"
+          required
+          placeholder="이름을 입력하세요"
+        />
+      </label>
+      <label> 주소 : <input name="userAddress" id="userAddress" /> </label>
+      <label>
+        나이 : <input name="userAge" id="userAge" type="number" />
+      </label>
+      <label>
+        생일 : <input name="userBirth" id="userBirth" type="date" />
+      </label>
+      <label>
+        취업 여부 : <input name="userJob" id="userJob" type="checkbox" />
+      </label>
+      <label>
+        포지션 :
+        <select name="userPosition" id="userPosition">
+          <option value="1">백엔드</option>
+          <option value="2">풀스택</option>
+          <option value="3">클라우드</option>
+        </select>
+      </label>
+
+      <!-- <a href="https://naver.com">네이버</a> -->
+
+      <button>제출</button>
+    </form>
+    <section id="result"></section>
+    <section id="result2"></section>
+    <script>
+      const userForm = document.querySelector("#userForm");
+      const userName = document.querySelector("#userName");
+      const userAddress = document.querySelector("#userAddress");
+      const userAge = document.querySelector("#userAge");
+      const userBirth = document.querySelector("#userBirth");
+      const userJob = document.querySelector("#userJob");
+      const userPosition = document.querySelector("#userPosition");
+      //   userForm.addEventListener("click")
+      // form은 클릭이 아니라 '제출'을 받는다
+      const result = document.querySelector("#result");
+      const result2 = document.querySelector("#result2");
+      userForm.addEventListener("submit", (event) => {
+        // HTML에서 기본적으로 지원하는 이벤트 작업들
+        event.preventDefault(); // 기본 작업 막기
+        alert("제출되었습니다!");
+        // 그냥 내버려두면 -> get요청 보낸다 -> 그 주소로 '접속' -> 새롭게 화면을 불러온다
+        // -> 그 화면을 불러오면서 아예 기존에 구성해놨던 js 작업이나 화면 X.
+        // type : checkbox -> checked -> boolean : true/false -> 참/거짓
+        // select -> option value에 직접적으로 값을 넣어주셔도 되고, switch에 넣어서 -> let으로 대입해서 쓰셔도 됨
+        const formData = new FormData(userForm); // form을 넣으면
+        // name이 key고 각각의 input/select... -> 값들의 value
+        console.log(formData);
+        let position = "";
+        switch (userPosition.value) {
+          case "1":
+            position = "백엔드";
+            break;
+          case "2":
+            position = "풀스택";
+            break;
+          case "3":
+            position = "클라우드";
+            break;
+        }
+        result.innerHTML = `
+            <ul>
+                <li>이름 : ${userName.value}</li>
+                <li>주소 : ${userAddress.value}</li>
+                <li>나이 : ${userAge.value}</li>
+                <li>생일 : ${userBirth.value}</li>
+                <li>취업 여부 : ${userJob.checked ? "취업" : "미취업"}</li>
+                <li>포지션 : ${position}</li>
+            </ul>
+        `;
+        result2.innerHTML = `
+            <ul>
+                <li>이름 : ${formData.get("userName")}</li>
+                <li>주소 : ${formData.get("userAddress")}</li>
+                <li>나이 : ${formData.get("userAge")}</li>
+                <li>생일 : ${formData.get("userBirth")}</li>
+                <li>취업 여부 : ${formData.get("userJob")}</li>
+                <li>포지션 : ${formData.get("userPosition")}</li>
+            </ul>
+            `;
+        // console.log(event.currentTarget);
+        const formData2 = new FormData(event.currentTarget);
+        console.log(formData2);
+
+        // 1. 직관적이고 일반적인 방법 : id를 부여해서 각각 input 호출 qs.
+        // 2. form (qs) -> new FormData
+        // 3. event -> currentTarget = form -> FormData.
+      });
+      //   document
+      //     .querySelector("a")
+      //     .addEventListener("click", (evt) => evt.preventDefault());
+    </script>
+  </body>
+</html>
