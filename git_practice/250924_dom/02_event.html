@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <style>
+      #memo {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .memo {
+        width: 120px;
+        height: 80px;
+        border: 1px solid gray;
+        border-radius: 8px;
+        margin: 8px;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 요소 -> onclick 속성 -> 자바스크립트의 실행문 -->
+    <!-- 1. HTML 혼용 : HTML 화면 -> 디자인 문서, JS : 프로그래밍 코딩 -->
+    <!-- 2. HTML "". 속성 -> ''. 입력하기 복잡해지는 것도 있고, 로직 퍼져있게 됨. -->
+    <!-- 3. 여러 가지의 작동이 들어가야한다면 관리 어려워짐. -->
+    <!-- => eventListener 추가 => 함수형태로 관리 -->
+    <!-- on~ : 이걸 누르면 아래의 실행문을 작동시켜주세요 -> 하나의 함수구문. -->
+    <button onclick="console.log('진짜 누르셨네요?')">눌러보세요</button>
+    <button id="btn">눌러보세요2</button>
+    <section>
+      <input type="text" id="name" placeholder="이름을 입력해주세요" />
+      <button id="inputBtn">추가</button>
+    </section>
+    <section id="memo"></section>
+
+    <script>
+      const btn = document.querySelector("#btn");
+      // 요소.addEventListener("이벤트타입", 함수)
+      function buttonHandler() {
+        alert("버튼 누름!");
+      }
+      const buttonHandler2 = function () {
+        alert("버튼 누름2!");
+        // 요소.removeEventListener("이벤트타입", 함수)
+        btn.removeEventListener("click", buttonHandler); // 연결 삭제
+      };
+      btn.addEventListener("click", buttonHandler); // 함수 실행 X. 함수를 넣음.
+      btn.addEventListener("click", buttonHandler2); // 2개 이상도 추가 가능
+      btn.addEventListener("click", function () {
+        console.log("버튼 누름3!");
+      });
+      // 이게 최종적으로 많이 보는 코드
+      btn.addEventListener("click", () => console.log("버튼 누름4!"));
+      // input -> id를 사용해서 -> value
+      const inputBtn = document.querySelector("#inputBtn");
+      const nameInput = document.querySelector("#name");
+      const memoBox = document.querySelector("#memo");
+      inputBtn.addEventListener("click", () => {
+        // console.log(nameInput.getAttribute("value")); // 작동 X
+        console.log(nameInput.value);
+        const memoElement = document.createElement("div");
+        // memoElement.textContent = nameInput.value;
+        const { value: memoText } = nameInput; // 구조분해할당
+        memoElement.textContent = memoText;
+        memoElement.classList.add("memo");
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "삭제";
+        removeBtn.addEventListener("click", () => {
+          memoElement.remove();
+        });
+        memoElement.append(removeBtn);
+        memoBox.append(memoElement);
+      });
+    </script>
+  </body>
+</html>
