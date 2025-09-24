@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="user">
+      이름 : <input type="text" name="name" /><br />
+      나이 : <input type="text" name="age" /><br />
+      <button>제출</button>
+    </form>
+    <button id="storageClear">클리어</button>
+    <button id="local">로컬</button>
+    <button id="session">세션</button>
+    <script>
+      const userForm = document.querySelector("#user");
+      const users = []; // !!!!
+      userForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(userForm);
+        const user = {
+          name: formData.get("name"),
+          // 숫자
+          age: Number(formData.get("age")), // Number -> 숫자로 변경
+        };
+        console.log(user);
+        users.push(user); // !!!!
+        console.log(users); // !!!!
+        // localStorage.setItem("user", user); // [object Object]
+        // 객체 -> 직렬화.
+        localStorage.setItem("user", JSON.stringify(user));
+        // localStorage.setItem("users", users); // [object Object]
+        localStorage.setItem("users", JSON.stringify(users)); // !!!!
+      });
+      const user = localStorage.getItem("user");
+      if (user) {
+        const userObj = JSON.parse(user); // {"name":"김자바","age":100}
+        // JSON 문자열을 -> 자바스크립트 객체로 '파싱'한다 (해석)한다
+        console.log(userObj);
+        console.log(JSON.parse(localStorage.getItem("users")));
+      }
+      const storageClear = document.querySelector("#storageClear");
+      // localStorage -> 주소 기반
+      storageClear.addEventListener("click", () => {
+        localStorage.clear();
+      });
+      //   localStorage -> 자동으로 지워지지 않는 저장소
+      // sessionStorage 해당 탭을 닫으면 삭제되는 저장소
+      const local = document.querySelector("#local");
+      const session = document.querySelector("#session");
+      local.addEventListener("click", () => {
+        localStorage.setItem("message", "hello");
+      });
+      session.addEventListener("click", () => {
+        sessionStorage.setItem("message", "hello");
+      });
+    </script>
+  </body>
+</html>

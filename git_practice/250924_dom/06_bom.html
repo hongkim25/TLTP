@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM</title>
+  </head>
+  <body>
+    <!-- Clipboard -->
+    <input id="text" /><br />
+    <input id="text2" /><br />
+    <button id="copy">복사</button>
+    <button id="paste">붙여넣기</button>
+    <button onclick="location.href = 'https://naver.com'">네이버로 가기</button>
+    <button onclick="location.reload()">새로고침</button>
+    <button onclick="window.open('https://naver.com')">
+      네이버 새 창 열기
+    </button>
+    <script>
+      // Clipboard
+      const text = document.querySelector("#text");
+      const text2 = document.querySelector("#text2");
+      const copy = document.querySelector("#copy");
+      const paste = document.querySelector("#paste");
+      copy.addEventListener("click", () => {
+        navigator.clipboard.writeText(text.value);
+        // localhost, https. -> http. x.
+      });
+      paste.addEventListener("click", async () => {
+        const copyText = await navigator.clipboard.readText();
+        text2.value = copyText;
+      });
+      // 2. location -> 주소창. 접속 주소.
+      console.log(location);
+      // host : 접속주소
+      // protocol : 접속방식
+      // ........
+      // href
+      // location.href = 현재 접속한 문서의 레퍼런스 주소.
+      // -> 이걸 변경시키면 접속한 링크가 바뀜 (<a href="">)
+    </script>
+  </body>
+</html>

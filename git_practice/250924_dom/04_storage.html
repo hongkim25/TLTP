@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storage</title>
+  </head>
+  <body>
+    <input id="nameInput" /><button id="nameBtn">저장</button>
+    <div id="nameBox"></div>
+
+    <script>
+      // window
+      var a = "hello";
+      b = "hello"; // 알아서 var를 붙여줌
+      console.log(a);
+      //   console.log(window);
+      console.log(window.a);
+      console.log(window.b);
+      function f() {
+        console.log("f");
+      }
+      f();
+      window.f();
+      // var. function. -> window.
+      // -> 다른 함수나 내부에 하면 그 내부에 종속되는데...
+      // 최상위에서 var, function을 하면 window에 소속.
+      //   window.console
+
+      // inner -> HTML이 실제로 존재하는 영역 크기. outer -> 전체 브라우저 크기
+      console.log(window.innerWidth, window.outerWidth);
+      console.log(window.innerHeight, window.outerHeight);
+
+      // Web Storage
+      const storage = window.localStorage;
+      // getItem : key -> value
+      // setItem : key, value
+      // removeItem : key (key 삭제)
+      // clear : 모두 삭제
+      // window.sessionStorage
+      const nameInput = document.querySelector("#nameInput");
+      const nameBox = document.querySelector("#nameBox");
+      const nameBtn = document.querySelector("#nameBtn");
+
+      nameBtn.addEventListener("click", () => {
+        const newName = nameInput.value;
+        nameBox.textContent = newName;
+        // 브라우저에 저장공간에 "key"를 지정해서 집어넣는 기능
+        storage.setItem("name", newName);
+      });
+
+      // 특정한 키에 있는 데이터를 꺼내오는 기능
+      // nameBox.textContent = storage.getItem("name");
+      document.addEventListener("DOMContentLoaded", () => {
+        // 모든 HTML 로드가 끝났을 때
+        const data = storage.getItem("name");
+        nameBox.textContent = data;
+      });
+    </script>
+  </body>
+</html>

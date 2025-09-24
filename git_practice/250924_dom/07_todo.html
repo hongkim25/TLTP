@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 4px;
+        padding: 4px;
+      }
+      #memoBox {
+        margin: 16px;
+        border: 1px solid black;
+        padding: 8px;
+        border-radius: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .memo {
+        width: 160px;
+        border: 1px solid grey;
+        border-radius: 4px;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form id="memoForm">
+        <label>
+          제목 :
+          <input type="text" name="title" />
+        </label>
+        <label>
+          내용 :
+          <textarea name="content"></textarea>
+        </label>
+        <button>등록</button>
+      </form>
+    </section>
+    <section id="memoBox">
+      <p>아직 메모가 없습니다</p>
+    </section>
+    <script>
+      // 1단계 : form data -> dom
+      const memoForm = document.querySelector("#memoForm");
+      const memoBox = document.querySelector("#memoBox");
+      memoForm.addEventListener("submit", (event) => {
+        // HTML 기본 동작 방지
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        console.log(formData.get("title"));
+        console.log(formData.get("content"));
+        // 2단계 : localStorage를 읽어들인다음에, 해당 데이터를 가지고 화면 그리기
+        const memo = {
+          title: formData.get("title"),
+          content: formData.get("content"),
+        };
+        const memos = [];
+        if (localStorage.getItem("memos")) {
+          // 문자열(텍스트)형태로 저장된 배열을 배열 형태로 다시 변환한 뒤
+          // 개별 원소 단위로 memos 변수에 있는 배열에 다시 주입
+          memos.push(
+            // ...으로 개별 원소 분리.
+            ...JSON.parse(
+              // JSON.parse로 객체(배열)로 원복.
+              localStorage.getItem("memos") // 텍스트 형태로 저장되어 있음
+            )
+          );
+        }
+        // memos
+        memos.push(memo); // form으로 새롭게 만들어준 memo를 집어넣는다.
+        memoBox.innerHTML = ""; // 추가전 리셋 (for문 밖으로)
+        for (const m of memos) {
+          const memoElement = document.createElement("div");
+          memoElement.innerHTML = `
+                <h3>${m.title}</h3>
+                <p>${m.content}</p>
+            `;
+          // memoElement.innerHTML = `
+          //     <h3>${formData.get("title")}</h3>
+          //     <p>${formData.get("content")}</p>
+          // `;
+          memoElement.classList.add("memo");
+          memoBox.append(memoElement);
+        }
+        localStorage.setItem("memos", JSON.stringify(memos));
+      });
+
+      // 최초로도 불러오는 게 하나 필요
+      if (localStorage.getItem("memos")) {
+        const memos = JSON.parse(localStorage.getItem("memos"));
+        memoBox.innerHTML = ""; // 추가전 리셋 (for문 밖으로)
+        for (const m of memos) {
+          const memoElement = document.createElement("div");
+          memoElement.innerHTML = `
+                <h3>${m.title}</h3>
+                <p>${m.content}</p>
+            `;
+          memoElement.classList.add("memo");
+          memoBox.append(memoElement);
+        }
+      }
+    </script>
+  </body>
+</html>
