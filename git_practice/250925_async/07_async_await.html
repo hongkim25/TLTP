@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <input id="copy" />
+    <input id="paste" />
+    <button id="copyBtn">복사</button>
+    <button id="pasteBtn">붙여넣기</button>
+
+    <script>
+      // async await -> 일반적인 함수를 Promise 문법
+      function hello() {
+        console.log("hello");
+        return "hello";
+      }
+      async function hello2() {
+        console.log("hello");
+        return "hello2";
+      }
+      console.log(hello());
+      hello2().then((v) => console.log(v));
+      console.log(hello2());
+
+      // JS에서 시간 대기를 걸고 싶으면 아래 구문 밖에 답이 없음 (sleep, wait 없음!)
+      const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms)); // Promise -> then. -> await
+      function fun1() {
+        console.log("a1");
+        delay(1000).then(() => console.log("a2"));
+        // console.log("a2");
+      }
+      fun1();
+
+      async function fun2() {
+        console.log("b1");
+        await delay(1000); // await -> async.
+        console.log("b2");
+        // async, await
+        // async -> 일반 함수를 Promise
+        // await Promise -> 일반적 동기 처리. 이벤트 루프.
+        // await -> async.
+      }
+      fun2();
+
+      // 화살표 함수는 async 어떻게 붙여요?
+      const copy = document.querySelector("#copy");
+      const paste = document.querySelector("#paste");
+      const copyBtn = document.querySelector("#copyBtn");
+      const pasteBtn = document.querySelector("#pasteBtn");
+      //   copyBtn.addEventListener("click", () => {
+      //     navigator.clipboard
+      //       .writeText(copy.value)
+      //       .then(() => console.log("복사 성공!"))
+      //       .catch(() => "복사 실패!");
+      //     // console.log("복사되었습니다!");
+      //   });
+      copyBtn.addEventListener("click", async () => {
+        console.log("앞");
+        await navigator.clipboard
+          .writeText(copy.value)
+          .then(() => console.log("복사 성공!")) // 뒤에 then 어차피 같이 실행됨
+          .catch(() => "복사 실패!"); // 이 경우에는 내부 에러가 외부 throw가 안됨
+        // console.log("복사되었습니다!");
+        console.log("뒤");
+      });
+      pasteBtn.addEventListener("click", async () => {
+        console.log("앞");
+        await navigator.clipboard
+          .readText(copy.value)
+          .then((v) => {
+            paste.value = v;
+            console.log("붙여넣기 성공!");
+          }) // 뒤에 then 어차피 같이 실행됨
+          .catch(() => "붙여넣기 실패!"); // 이 경우에는 내부 에러가 외부 throw가 안됨
+        // console.log("복사되었습니다!");
+        console.log("뒤");
+      });
+    </script>
+  </body>
+</html>

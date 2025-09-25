@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      console.log("A"); // script
+      setTimeout(() => console.log("T"), 0); // 매크로태스크(setTimeout)
+      Promise.resolve().then(() => console.log("P")); // 마이크로태스크큐
+      console.log("B");
+
+      // script가 모두 실행이 되고, (중간에 마이크로태스크큐를 모두 실행하고...) 다음 macrotask queue인 setTimeout
+      // -> 다 빌드업임 (async, await를 위한.)
+
+      function delay(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      // Promise - Pending -> 대기
+      // Resolve -> Fulfilled. (정상 작업) -> then
+      // Reject -> Rejected. (throw) -> catch
+
+      const a = delay(1000).then(() => {
+        console.log("a 실행 완료");
+        throw new Error("a 실패"); // 실패
+        return "a";
+      }); // then.catch -> promise
+      const b = delay(500).then(() => {
+        console.log("b 실행 완료");
+        throw new Error("b 실패"); // 실패
+        return "b";
+      });
+      const c = delay(2000).then(() => {
+        console.log("c 실행 완료");
+        return "c";
+      });
+      // resolve, reject
+      // 여러곳에서 조합해서 하나의 결과를 만들어야하는데...
+      Promise.all([a, b, c])
+        .then(console.log) // 전체 성공해야 여기
+        .catch(console.error); // 실패 시 여기로 처리 되었는데
+      // (return값) -> console.log에 패러미터로 직접 받은 것
+      // 기록을 남기거나 관리를 위해서...
+      Promise.allSettled([a, b, c])
+        .then(console.log) // 여기까지 무조건 실행
+        .catch(console.error); // allSettled에 대한 then이 실패하는 것에 대한 catch
+      // 동일한 결과가 나오는 서버와 출처를 접근하는 것이라면...
+      // 가장 먼저 확정된 것 하나만 결과
+      Promise.race([a, b, c])
+        .then((v) => console.log("race", v)) // 맨 먼저 실패하면 그것을 반영
+        // settle -> 맨 먼저 결과가 확정된 것을 따라가는 것
+        .catch(console.error);
+      // 동일한 결과가 나오지 않을 수 있는... a 서버가 끊겨 있더라도 b, c 서버라도 계속 찾는...
+      Promise.any([a, b, c])
+        .then((v) => console.log("any", v)) // 하나라도 성공하면 성공하는 것
+        .catch(console.error);
+      // all. -> 버스 api -> 버스 노선도. 버스 선호도. 버스 가격표 -> 데이터 출처.
+      // -> 하나라도 없으면? -> all. 데이터를 요청하거나 할 때.
+      // any. -> AWS. GCP. Azure 3중화.
+    </script>
+  </body>
+</html>
