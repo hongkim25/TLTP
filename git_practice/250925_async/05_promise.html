@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      // callback
+      // a -> b -> c
+      // 비동기에는 각각 스타트를 끊으면 실행 순서를 보장할 수 없음
+      // setTimeout(() => console.log("1번 작업"), Math.random() * 1000 + 500);
+      // setTimeout(() => console.log("2번 작업"), Math.random() * 1000 + 1000);
+      // setTimeout(() => console.log("3번 작업"), Math.random() * 1000 + 1500);
+
+      // 콜백 안에 다른 콜백을 넣어서 계속 호출해주면 -> 동기 작업 처럼 순서 보장이 되는데...
+      // 구조가 상당히 복잡해진다 -> {} 깊어지고, 구조도 복잡해짐
+      // => 유지보수하기 어려워지면 -> hell. callback hell.
+      // setTimeout(() => {
+      //   console.log("1번 작업");
+      //   setTimeout(() => {
+      //     console.log("2번 작업");
+      //     setTimeout(() => {
+      //       console.log("3번 작업");
+      //     }, Math.random() * 1000 + 1000);
+      //   }, Math.random() * 1000 + 1000);
+      // }, Math.random() * 1000 + 1000);
+
+      // Promise
+      const p = new Promise((resolve, reject) => {
+        resolve("success");
+        reject("fail");
+      });
+
+      const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log("실행이 되었습니다!");
+          resolve("success"); // resolve를 통해서 return하는 개념.
+        }, 1000);
+      });
+      p1.then((msg) =>
+        console.log("앞선 프로미스가 실행이 완료되었습니다!", msg)
+      );
+      const p2 = new Promise((resolve, reject) => {
+        if (Math.random > 0.5) {
+          resolve("success");
+        } else {
+          reject("fail");
+        }
+      });
+      console.log("p2 이전");
+      p2.then((msg) => console.log(msg)) // 일반적인 결과
+        .catch((error) => console.error(error)); // 에러가 났을 때 / 비승인이 났을 때는 catch.
+      console.log("p2 이후");
+      // promise에다가 then, catch, finally (예외처리의 그것이 맞음)로 연결할 수 있음
+      // 체이닝. 메서드 체이닝 -> promise return. -> then, catch.
+      const p3 = new Promise((resolve, reject) => {
+        resolve(10);
+      });
+      // 연쇄. then... then...
+      p3.then((v) => v * 10)
+        .then((v) => v * 100)
+        .then((v) => `값 : ${v}`)
+        .then((v) => console.log(v));
+      const p4 = new Promise((resolve) => setTimeout(resolve, 1000));
+      function waitSecond(second) {
+        return new Promise((resolve) => setTimeout(resolve, second * 1000));
+      }
+      waitSecond(5).then(() => console.log("5초 출력!"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback</title>
+  </head>
+  <body>
+    <!-- Callback -->
+    <button id="btn">이걸 누르면</button>
+    <button id="sync" onclick="func1()">동기</button>
+    <button id="async" onclick="func2()">비동기</button>
+    <button id="async" onclick="func3()">비동기2</button>
+    <script>
+      // () => { alert("콜백!"); }
+      // 눌렀다는 이벤트에 대한 대응. 콜백.
+      document.querySelector("#btn").addEventListener("click", () => {
+        alert("콜백!");
+      });
+      function func1() {
+        // 동기
+        console.log("message 1");
+        console.log("message 2");
+        console.log("message 3");
+      }
+      function func2() {
+        // 비동기 -> 호출 순서 -> 실행 순서가 일치하지 않음
+        setTimeout(() => console.log("message 1"), 3000); //. 3000ms -> 3초
+        setTimeout(() => console.log("message 2"), 2000);
+        setTimeout(() => console.log("message 3"), 1000);
+      }
+      function func3() {
+        // 외부에서 예측하기 어려운 데이터, 다른 네트워크에서의 요청들을 주로 다룸
+        // 언제 종료될지 모름.
+        setTimeout(() => console.log("message 1"), Math.random() * 3000);
+        setTimeout(() => console.log("message 2"), Math.random() * 3000);
+        setTimeout(() => console.log("message 3"), Math.random() * 3000);
+        // 그럼에도 불구하고 동기처럼 씁니다
+        // -> 화면을 조작하거나 데이터를 변경하거나...
+      }
+    </script>
+  </body>
+</html>

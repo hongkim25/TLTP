@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+  </head>
+  <body>
+    <section>
+      <input type="number" id="timerSecond" />초
+      <button id="timerBtn">알람</button>
+      <button id="timerCancelBtn">알람 취소</button>
+    </section>
+    <script>
+      // 1. setTimeout
+      function fun() {
+        console.log("지연 후 실행!");
+      }
+      setTimeout(fun, 1000); // 1/1000초
+      setTimeout(() => console.log("화살표 함수"), 1000);
+      const timerId = setTimeout(fun, 5000);
+      console.log(timerId);
+      clearTimeout(timerId); // 타이머 취소.
+
+      document.querySelector("#timerBtn").addEventListener("click", () => {
+        // input에서 타이머 지정하고 싶은 초 -> setTimeout에 전달
+        const timerSecond = Number(
+          document.querySelector("#timerSecond").value
+        );
+        const timerId = setTimeout(() => {
+          // alert -> 취소하기 위해 만들었던 리스너를 삭제
+          alert("알람!");
+          cancelButton.removeEventListener("click", timerCancelHandler);
+        }, timerSecond * 1000);
+        const cancelButton = document.querySelector("#timerCancelBtn");
+        function timerCancelHandler() {
+          alert("타이머 취소");
+          clearTimeout(timerId);
+        }
+        cancelButton.addEventListener("click", timerCancelHandler);
+      });
+
+      // 2. setInterval
+      setInterval(() => console.log("Interval"), 1000);
+      const timerId2 = setInterval(() => console.log("Interval2"), 1000);
+      setTimeout(() => clearInterval(timerId2), 5000);
+    </script>
+  </body>
+</html>
