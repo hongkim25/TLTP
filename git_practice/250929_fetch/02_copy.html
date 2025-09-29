@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy</title>
+  </head>
+  <body>
+    <script>
+      const a = { a: 1, b: 2, c: 3 };
+      console.log("a", a); // 데이터 타입 -> 원시,기본 타입 / 객체/참조 타입.
+      // 객체/참조 타입. - 메모리에 저장되어 있는 주소값.
+      const b = a; // 복사한다.
+      console.log("a", a, "b", b);
+      b.a = 10; // a와 b의 연결 관계를 인지 못했다?
+      console.log("a", a, "b", b);
+      // 얕은 복사.
+      const c = { ...a }; // 최상단의 속성을 분해해서 하나씩...
+      console.log("a", a, "b", b, "c", c);
+      b.b = 20;
+      console.log("a", a, "b", b, "c", c);
+      console.log("a === b", a === b);
+      console.log("a === c", a === c);
+      console.log("b === c", b === c);
+      const obj = {
+        a: [1, 2, 3],
+        b: 100,
+      };
+      const obj2 = { ...obj }; // a -> 주소값
+      console.log("obj === obj2", obj === obj2);
+      obj.a.push("hello"); // 속성을 새로 분해해서 넣는다고 해도, 그 속성에 담겨 있는 건 무엇인가? - 주소값
+      obj.b = 2000;
+      console.log(obj, obj2);
+      // 깊은 복사.
+      // JSON - stringify -> parse.
+      // singleton? -> 의도적으로...
+      // -> DB를 사용할 것이기 때문에 별로 크게?
+      const obj3 = JSON.parse(JSON.stringify(obj));
+      obj.a.push("bye");
+      obj.b = 3000;
+      console.log(obj, obj2, obj3);
+      // assign, _.deepCopy? ...
+    </script>
+  </body>
+</html>

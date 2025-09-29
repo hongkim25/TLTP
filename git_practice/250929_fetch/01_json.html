@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <script>
+      // JSON : 데이터 교환 시 자주 사용되는 포맷
+      // 인터넷에서 실제적으로 교환되는 것은 '텍스트'
+      // 직렬화 (텍스트화, 문자열화, 해체과정) / 역직렬화 (파싱(parsing), 구조화, 객체, 데이터타입)
+      // XML, JSON -> HTML <>...</> / JSON 객체.
+      /*
+        {
+            "id": 1,
+            "name": "kim",
+            "job": {
+                "name": "programmer",
+                "language": "java",
+                "salary": 2000
+            },
+            "hobby": ["soccer", "game"]
+        }
+        */
+      const obj = {
+        id: 1,
+        name: "kim",
+        job: {
+          name: "programmer",
+          lauguage: "java",
+          salary: 2000, // 객체는 ,가 가능한데 JSON은 안된다
+        },
+        hobby: ["soccer", "game"], // ,
+      };
+      // JSON String
+      const jsonString = JSON.stringify(obj); // 문자열화 시키면서 -> indent. -> 공백/탭
+      console.log(jsonString); // {"id":1,"name":"kim","job":{"name":"programmer","lauguage":"java","salary":2000},"hobby":["soccer","game"]}
+      // key를 나타낼 때 ""로 표시한다 -> JSON은 작은 따옴표를 키 표시하는데 사용하지 않음.
+      // 맨 마지막 속성이나 요소에 대한 , 를 표시를 허용하지 않음
+      const obj2 = JSON.parse(jsonString); // JSON 형식을 준수하는 문자열을 넣으면 자바스크립트 객체화
+      console.log(obj2); // JSON 스타일을 준수하는 객체나 배열의 경우에는 잘 변환이 되어서 전달
+
+      // 2가지 측면 -> 객체를 JSON.stringify를 해서 문자열화 / 문자열을 JSON.parse를 해서 객체화/배열.
+      // JSON -> 어떤 것을 데이터로 품을 수 있는가?
+      // JSON Object, JSON Array 이외의 객체는 허용하지 않음.
+      // number, string, boolean, null. -> function X. undefined
+      const objTest = {
+        int: 12345,
+        negInt: -12345,
+        float: 12.345,
+        undef: undefined, // undefined? -> stringify하면서 사라짐
+        nill: null, // null은 유지됨
+        fun: () => {}, // 생략.
+        b: true,
+        arr: [1, "1", undefined], // 배열 값의 undefined는 null로 변환
+      };
+      const jsonStringTest = JSON.stringify(objTest);
+      console.log(jsonStringTest);
+      const rawJsonString = '{"name":"kim", "age": 25}';
+      const jsonObj = JSON.parse(rawJsonString);
+      console.log(jsonObj);
+      //   const rawJsonString2 = "{'name':'kim', 'age': 25}"; // '로 문자열이나 키를 나타낼 경우
+      //   const jsonObj2 = JSON.parse(rawJsonString2); // SyntaxError
+      //   console.log(jsonObj2);
+      //   const rawJsonString3 = '{"name":"kim", "age": 25,}'; // 추가적인 ,가 있으면 뒤에 키가 올 것으로 예상
+      //   const jsonObj3 = JSON.parse(rawJsonString3); // SyntaxError
+      //   console.log(jsonObj3);
+    </script>
+  </body>
+</html>

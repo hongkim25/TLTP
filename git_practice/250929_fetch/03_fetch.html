@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch</title>
+  </head>
+  <body>
+    <input type="text" id="userId" placeholder="유저 ID 입력" />
+    <button id="userIdBtn">조회</button>
+    <!-- https://jsonplaceholder.typicode.com/ -->
+    <script>
+      // XMLHttpRequest -> fetch (axios, ky...)
+      // Promise -> 원래 흐름과 별도로 외부 네트워크의 종료 여부를 알아서 처리
+      const response = fetch("https://jsonplaceholder.typicode.com/users/1");
+      console.log(response);
+      // promise -> then
+      response
+        .then((res) => {
+          console.log(res.status); // 200
+          console.log(res.ok); // 2xx status -> true 나머지 4xx, 5xx.
+          // res.text().then(console.log); // 둘이 같이 못 씀
+          // res.json().then(console.log); // JSON String -> 자바스크립트 객체.
+          return res.json();
+        })
+        .then((data) => console.log(data)); // 원한다면 promise 값을 다음으로 return해서 새로운 체이닝의 then으로 받을 수 있음.
+
+      async function fetchUser() {
+        const userId = document.querySelector("#userId").value; // 1~10
+        // await -> async
+        console.log(userId);
+        const response = await fetch(
+          //   "https://jsonplaceholder.typicode.com/users/1"
+          `https://jsonplaceholder.typicode.com/users/${userId}`
+        );
+        const data = await response.json();
+        console.log(data);
+        // 1. Promise -> then. => await. 1번 써준다고 끝나는게 아니라 결과값이 Promise면 그때마다...
+        // 2. await -> async. async function. (event handler, fetching)
+      }
+      //   fetchUser(); // 어떨 때 호출이 되는가? -> Event. -> Button, Form -> 네트워크 요청.
+      // Listener -> Callback (Handler 함수) -> async. + await.
+      document.querySelector("#userIdBtn").addEventListener("click", fetchUser);
+      // 함수를 넣어줘야함 (() 빼고)
+    </script>
+  </body>
+</html>
