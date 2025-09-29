@@ -2,11 +2,11 @@
 The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)
 
 __WEEK 9__ <br>
+29 SEP 2025 - Woke up at 6:00.
+
 28 SEP 2025 - Woke up at 6:10. Continued Meta Full Stack Developer Specialization (completed part of module 1 of course 4: HTML and CSS in Depth), read "Grokking Algorithms" (completed chapter 3: recursion), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 27 SEP 2025 - Woke up at 6:00. Completed Generative AI for Data Analysts Specialization, read "Grokking Algorithms" (completed 63 pages), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
-
-26 SEP 2025 - Woke up at 6:00. Completed lecture 1 of CS50x, Continued Andrew Ng's machine learning specialization (completed part of week 3 of course 1), read "Grokking Algorithms" (completed 50 pages), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 26 SEP 2025 - Woke up at 6:50. Continued Andrew Ng's machine learning specialization (completed week 2 of course 1), read "Grokking Algorithms" (completed the first 50 pages), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
