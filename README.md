@@ -130,5 +130,3 @@ __WEEK 1__ <br>
 1 AUG 2025 - It was the first day of the project. It was also the first day I decided to stay sober. I took the intro courses of the Naver Boostcamp pre-course. Naver pre-course: Basic computer class for newbies
 
 
-
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=hongkim25.tltp"> 
