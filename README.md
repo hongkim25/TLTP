@@ -24,7 +24,7 @@ __WEEK 8__ <br>
 
 19 SEP 2025 - Woke up at 7:00. Completed day 8 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. Programmers AI Backend Bootcamp: Javascript - iteration, array, object, function
 
-WEEK 7
+__WEEK 7__ <br>
 18 SEP 2025 - Woke up at 6:40. Completed day 7 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. Programmers AI Backend Bootcamp: Javascript - syntax, type, operator, condition
 
 17 SEP 2025 - Woke up at 5:50. Completed day 6 of the Programmers AI Backend bootcamp (git, markdown, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. Programmers AI Backend Bootcamp: Git advanced
@@ -39,7 +39,7 @@ WEEK 7
 
 12 SEP 2025 - Woke up at 6:50. Completed day 3 of the Programmers AI Backend bootcamp (HTML, 09:00-18:00), completed Nomad coder Javascript challenge day 5, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. Programmers AI Backend Bootcamp: HTML - block, inline, symantic tag, link and image, list and table, agent, rules, input form, form search
 
-WEEK 6
+__WEEK 6__ <br>
 11 SEP 2025 - Woke up at 7:00. Completed day 2 of the Programmers AI Backend bootcamp (first full day, LLM, 09:00-18:00), completed the Programmers' pre-course (40/40 complete), completed Nomad coder Javascript challenge day 4, took the EBS Spanish course (6/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. Programmers AI Backend Bootcamp: LLMs - ChatGPT, Gemini, Claude
 
 10 SEP 2025 - Woke up at 8:00. Completed day 1 of the Programmers AI Backend bootcamp (orientation, 14:00-18:00), took the Programmers' pre-course (20/40 complete) + Completed Nomad coder Javascript challenge day 3 + took the EBS Spanish course (6/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
@@ -54,7 +54,7 @@ WEEK 6
 
 5 SEP 2025 - Woke up at 6:30. Completed lecture 1 of DELE B2, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-WEEK 5
+__WEEK 5__ <br>
 4 SEP 2025 - Woke up at 6:50. Completed lecture 1's module 1 of Google IT automation with Python in Coursera, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 3 SEP 2025 - Woke up at 7:30. Read some pages of a coding test book, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
@@ -69,7 +69,7 @@ WEEK 5
 
 29 AUG 2025 - Woke up at 7:30. Got admitted to the Programmers' backend bootcamp, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and read "Breaking routine" (80% complete).
 
-WEEK 4
+__WEEK 4__ <br>
 28 AUG 2025 - Woke up at 6:50. Took the Programmers' bootcamp test, did a research on bootcamps, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 27 AUG 2025 - Woke up at 7:30. Did a research on bootcamps, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and read "Breaking routine" (70% complete).
@@ -84,7 +84,7 @@ WEEK 4
 
 22 AUG 2025 - Woke up at 7:30. Completed lecture 0 of CS50x: Scratch, talked to Gemini/ChatGPT, and practiced Spanish on Babbel/Duolingo.
 
-WEEK 3
+__WEEK 3__ <br>
 21 AUG 2025 - Woke up at 6:40. Practiced 14 level 0 questions on Programmers, applied to the Programmers backend bootcamp, talked to Gemini/ChatGPT, and practiced Spanish on Babbel/Duolingo.
 
 20 AUG 2025 - Woke up at 6:20. Practiced for the coding test, took the coding test, talked to Gemini/ChatGPT, and practiced Spanish on Babbel/Duolingo.
@@ -99,7 +99,7 @@ WEEK 3
 
 15 AUG 2025 - Woke up at 6:40. Naver Boostcamp coding test prep, talked to Gemini/ChatGPT, looked into different bootcamps, and practiced Spanish on Duolingo.
 
-WEEK 2
+__WEEK 2__ <br>
 14 AUG 2025 - Woke up at 6:40. Finished taking Naver Boostcamp pre-courses, talked to Gemini/ChatGPT, and read "I'm old but I want to code" (60% complete). Naver pre-course: Deep learning basics - Optimization, Gradient descent methods, regularization, Convolutional Neural Networks, Pooling, Feature Maps, Image Classification, ResNet, GoogLeNet, AlexNet, VGGNet, DenseNet, Semantic Segmentation, Object Detection, Sequential Model, Recurrent Neural Networks, Long Short Term Memory, Gated Recurrent Unit, Transformer, Multi Head Attention, Positional Encoding, Autoregressive models, Maximum Likelihood Learning, Latent variable models
 
 13 AUG 2025 - Woke up at 6:00. Continued to take Naver Boostcamp pre-courses, talked to Gemini/ChatGPT, and read "I'm old but I want to code" (50% complete). Naver pre-course: PyTorch - Hyperparameter tuning, ray, OOM, Deep learning basics - Multi-Layer Perceptron, Hidden Layers, Activation Functions
@@ -114,7 +114,7 @@ WEEK 2
 
 8 AUG 2025 - Woke up at 6:20. Watched ChatGPT 5 release videos with trials, talked to Gemini/ChatGPT, read co-intelligence, and took Naver Boostcamp pre-courses. Naver pre-course: Python data handling - CSV, html, regex, XML, JSON, Numpy - numpy, ndarray, shape, dtype, reshape, indexing, slicing, arange, ones, zeros, empty, identity, eye, diag, random sampling, sum, axis, mean, std, concat, element-wise operations, dot product, transpose, broadcasting, all & any, np.where, argmax & argmin, loadtxt & savetxt, Pandas - pandas, series, dataframe, loc, iloc
 
-WEEK 1
+__WEEK 1__ <br>
 7 AUG 2025 - Woke up at 7:00. Took Naver Boostcamp pre-courses, talked to Gemini/ChatGPT, and read co-intelligence. Naver pre-course: OOP (Object Oriented Programming): action & attribute, class, method, object(instance), characteristics (inheritance, polymorphism, visibility), decorate (first-class objects, inner function, decorator), Module and Project: namespace, built-in modules, package, virtual environment, Exception, file, log handling: try ~ except, directory and file, pickle, print vs logging, configparser, argparser
 
 6 AUG 2025 - Woke up at 6:20. Continued to take Naver Boostcamp pre-courses, and also spent quite some time talking to both ChatGPT and Gemini discussing TLTP. Naver pre-course: Pythonic code - split & join, list comprehension, enumerate & zip, lambda & map & reduce, generator, asterisk (*args, **kwargs)
@@ -128,3 +128,7 @@ WEEK 1
 2 AUG 2025 - I could wake up at 6am! It's been a while since I woke up early in the morning as I have suffered so much from the jet lag since I left the UK. I read ~50 pages of co-intelligence, checked tons of youtube videos comparing different bootcamps, and continued to take the Naver Boostcamp pre-course. Naver pre-course: Python overview - compiler vs interpreter, why Python?
 
 1 AUG 2025 - It was the first day of the project. It was also the first day I decided to stay sober. I took the intro courses of the Naver Boostcamp pre-course. Naver pre-course: Basic computer class for newbies
+
+
+
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=hongkim25.TLTP">
