@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Key</title>
+  </head>
+  <body>
+    <form id="subwayForm">
+      <!-- 호선 이름 option -->
+      <select name="routeName">
+        <option value="1호선">1호선</option>
+        <option value="2호선">2호선</option>
+        <option value="3호선">3호선</option>
+        <option value="4호선">4호선</option>
+      </select>
+      <!-- 역 이름 text -->
+      <input name="stationName" placeholder="역이름" />
+      <!-- 날짜 text -->
+      <input name="date" placeholder="날짜 (20250922)" />
+      <button>조회</button>
+    </form>
+    <script>
+      // https://data.seoul.go.kr/
+      // https://data.seoul.go.kr/dataList/OA-12914/S/1/datasetView.do
+      const subwayForm = document.querySelector("#subwayForm");
+      subwayForm.addEventListener("submit", fetchSubway);
+      async function fetchSubway(event) {
+        const appKey = "";
+        // const url = `http://openapi.seoul.go.kr:8088/${appKey}/json/CardSubwayStatsNew/1/5/20250922/9호선/김포공항`;
+        // const url = `http://openapi.seoul.go.kr:8088/${appKey}/json/CardSubwayStatsNew/1/5/20250922/9호선`;
+        // const url = `http://openapi.seoul.go.kr:8088/${appKey}/json/CardSubwayStatsNew/1/40/20250922/9호선`;
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const date = formData.get("date");
+        const routeName = formData.get("routeName");
+        const stationName = formData.get("stationName");
+        const url = `http://openapi.seoul.go.kr:8088/${appKey}/json/CardSubwayStatsNew/1/5/${date}/${routeName}/${stationName}`;
+        console.log(url);
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        console.log(data.CardSubwayStatsNew.row[0]);
+        const stats = data.CardSubwayStatsNew.row[0];
+        const stationOn = stats.GTOFF_TNOPE;
+        const stationOff = stats.GTON_TNOPE;
+        console.log(stationOn, stationOff);
+      }
+      //   fetchSubway(); // await 못 붙임 (script -> async가 안붙어 있으니까...)
+    </script>
+  </body>
+</html>

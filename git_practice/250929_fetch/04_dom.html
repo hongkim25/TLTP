@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <section>
+      <form id="controller">
+        <input name="dataId" type="number" min="1" max="100" required />
+        <button>조회</button>
+      </form>
+    </section>
+    <section id="container"></section>
+
+    <script>
+      const controller = document.querySelector("#controller");
+      const container = document.querySelector("#container");
+      // 1. 데이터 1개씩만.
+      controller.addEventListener("submit", async (event) => {
+        // 기본 HTML 이벤트 막기
+        event.preventDefault();
+        // const formData = new FormData(controller);
+        const formData = new FormData(event.currentTarget);
+        const postId = formData.get("dataId"); // name
+        const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
+        console.log(url);
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        const { title, body } = data;
+        // container.innerHTML = `<h3>${title}</h3><p>${body}</p>`;
+        // 2. 조회할 때마다 해당 데이터 추가
+        // const post = document.createElement("div");
+        // post.innerHTML = `<h3>${title}</h3><p>${body}</p>`;
+        // container.append(post);
+
+        // 4. localStorage에 저장
+        const rawPosts = localStorage.getItem("posts");
+        // 아예 처음부터 쓴 적이 없어서 undefined 혹은 문자열
+        const postArr = rawPosts ? JSON.parse(rawPosts) : [];
+        postArr.push(data);
+        localStorage.setItem("posts", JSON.stringify(postArr));
+        // id 개념을 추가로 넣어서 filter, map... -> 지난주.
+
+        renderPost(data);
+      });
+      // 3. 별도로 렌더링 함수를 구축
+      function renderPost({ title, body }) {
+        const post = document.createElement("div");
+        post.innerHTML = `<h3>${title}</h3><p>${body}</p>`;
+        container.append(post);
+      }
+      // 5. localStorage에 저장된 내용 불러오기
+      document.addEventListener("DOMContentLoaded", () => {
+        const rawPosts = localStorage.getItem("posts");
+        // 아예 처음부터 쓴 적이 없어서 undefined 혹은 문자열
+        const postArr = rawPosts ? JSON.parse(rawPosts) : [];
+        for (const p of postArr) {
+          renderPost(p);
+        }
+      });
+    </script>
+  </body>
+</html>
