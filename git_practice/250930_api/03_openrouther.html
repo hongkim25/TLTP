@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenRouter API</title>
+  </head>
+  <body>
+    <section>
+      <label>API KEY : <input type="text" id="apiKey" /></label><br />
+      <label
+        >OpenRouter Model :
+        <select id="openRouterModel">
+          <option value="x-ai/grok-4-fast:free">xAI: Grok 4 Fast (free)</option>
+        </select>
+      </label>
+      <br />
+      <label>질문 : <input id="question" /></label><br />
+      <button id="callBtn">호출</button>
+    </section>
+    <section id="dialog"></section>
+    <script>
+      const apiKeyInput = document.querySelector("#apiKey");
+      const callBtn = document.querySelector("#callBtn");
+      // const geminiModelInput = document.querySelector("#geminiModel");
+      // const groqModelInput = document.querySelector("#groqModel");
+      const openRouterModelInput = document.querySelector("#openRouterModel");
+      const questionInput = document.querySelector("#question");
+      const dialog = document.querySelector("#dialog");
+      const context = [];
+
+      callBtn.addEventListener("click", async () => {
+        const apiKey = apiKeyInput.value;
+        console.log(apiKey);
+        // const geminiModel = geminiModelInput.value;
+        // const groqModel = groqModelInput.value;
+        const openRouterModel = openRouterModelInput.value;
+        const question = questionInput.value;
+        // const url = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`;
+        // const url = "https://api.groq.com/openai/v1/chat/completions";
+        const url = "https://openrouter.ai/api/v1/chat/completions";
+        console.log(openRouterModel, url);
+        const instruction = `
+        <persona>과묵하고 말이 짧지만 전문성 있는 내용을 전달. 과잉 친절할 필요 없음. 코딩 및 식사 메뉴 추천에 특화</persona>
+        <task>전달받는 요청사항에 응대</task>
+        <context>20-30대 한국인. 프로그래밍을 배우고 있음. JS 실습 중.</context>
+        <format>200자 이내에, 한글 위주</format>
+        `;
+        console.log(context);
+        const payload = {
+          // system_instruction: {
+          //   parts: [{ text: instruction }],
+          // },
+          // contents: context,
+          messages: [
+            {
+              role: "system",
+              content: instruction,
+            }, // 맨 위에 system instruction을 깔고
+            ...context, // 지금까지의 대화를 context.
+          ], // context 모양도 좀 바꿉시다
+          model: openRouterModel,
+        };
+        const questionBox = document.createElement("div");
+        questionBox.innerHTML = `
+          <h4>질문</h4>
+          <p>${question}</p>
+        `;
+        context.push({
+          role: "user",
+          // parts: [
+          //   {
+          //     text: question,
+          //   },
+          // ],
+          content: question,
+        });
+        dialog.append(questionBox);
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            // "x-goog-api-key": apiKey,
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+        const data = await response.json();
+        // const answer = data.candidates[0].content.parts[0].text;
+        const answer = data.choices[0].message.content;
+        const answerBox = document.createElement("div");
+        answerBox.innerHTML = `
+          <h4>답변</h4>
+          <p>${answer}</p>
+        `;
+        context.push({
+          // role: "model",
+          role: "assistant",
+          // parts: [
+          //   {
+          //     text: answer,
+          //   },
+          // ],
+          content: answer,
+        });
+        dialog.append(answerBox);
+      });
+    </script>
+  </body>
+</html>
