@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gemini API</title>
+    </head>
+    <body>
+      <section>   
+        <label> API KEY: <input type="text", id="apiKey" /><label> <br/>
+        <label
+          > Gemini Model: 
+            <select id="geminiModel">
+            <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
+            <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
+            <option value="gemini-2.5-pro-lite">Gemini 2.5 Pro Lite</option>
+        </select> </label>
+        <br/>
+        <label> Question: <input id="question" /><label> <br/>
+        <button id="callBtn">Call</button> <br/>
+      </section>
+      <!-- 4. dom으로 대화 내용 그리기 -->
+      <section id="dialog"> </section>
+      <script>
+            // 1. input에서 api key를 읽어오고 callBtn 이벤트 리스너
+            const apiKeyInput = document.querySelector('#apiKey');
+            const callBtn = document.querySelector('#callBtn');
+            const geminiModelInput = document.querySelector('#geminiModel');
+            const questionInput = document.querySelector('#question');
+            const dialog = document.querySelector('#dialog');
+            const context = []; // 대화 내용 저장
+
+            callBtn.addEventListener('click', async () => {
+                const apiKey = apiKeyInput.value; // 처음부터 value로 하면 되지 않나?
+                // value -> 문자열 -> '값'이 할당된다 -> 처음부터 외부에 콜백 전에 복사해놓으면 '빈값'이 복사되어 있음
+                console.log(apiKey);
+                //3. input에서 데이터 받기
+                const geminiModel = geminiModelInput.value;
+                const question = questionInput.value;
+                // url
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`
+                console.log(geminiModel, url);
+                // payload
+                // 4. Add instruction and context
+                const instruction = `
+                <persona> You are a world-class expert in helping people become software engineers. Do not sugarcoat, but do not be overly skeptical either. </persona>
+                <task> Help him achieve success</task>
+                <context> A 35-year-old Korean who was an analyst in the UK but temporarily came back to Korea to be a software engineer. He is currently doing a backend bootcamp. </context>
+                <format> Be as specific as possible. Reply in English </format>
+                `;
+                console.log(context)
+                const payload = {
+                    system_instruction: {
+                        parts: [{ text: instruction }],
+                    }, // 200자 이내
+                    // contents: [
+                    //   {
+                    //     // text를 여러개를 넣어서 instruction을 넣을 수도 있음.
+                    //     // parts: [{ text: "오늘 점심 뭐 먹지?" }],
+                    //     parts: [{ text: question }],
+                    //   },
+                    // ],
+                    contents: context,
+                    };
+                const questionBox = document.createElement('div');
+                questionBox.innerHTML = `
+                    <h4>Question</h4>
+                    <p>${question}</p>
+                `;
+                    // put the question in the context
+                    context.push({
+                        role: "user",
+                        parts: [
+                            { 
+                                text: question, 
+                            },
+                        ],
+                    });
+                dialog.append(questionBox);
+                // 2. 외부 API로 요청 전달
+                    const response = await fetch(url, {
+                      // method: "GET", // Form -> GET, POST...
+                      // GET -> 주소에 필요한 데이터를 담아서 전달하는 방식
+                        method: "POST", // Body -> Payload(데이터) -> 보안적                        
+                        headers: { 
+                            // 보안, 메타 데이터
+                            "x-goog-api-key": apiKey,
+                            "Content-Type": "application/json",
+                        },
+                        // https://developer.mozilla.org/ko/docs/Web/API/Fetch_API/Using_Fetch
+                        // 직렬화된 문자열
+                        body: JSON.stringify(payload),
+                    });
+                    const data = await response.json();
+                    // console.log(data);
+                    // console.log(data.candidates[0].content.parts[0].text);
+                    const answer = data.candidates[0].content.parts[0].text;
+                    const answerBox = document.createElement('div');
+                    answerBox.innerHTML = `
+                        <H4>Answer:</H4>
+                        <p>${answer}</p>
+                    `;
+                    // put the response in the context
+                    context.push({
+                        role: "model",
+                        parts: [
+                            { 
+                                text: answer, 
+                            }
+                        ],
+                    });
+                    dialog.append(answerBox);
+                    });
+        </script> 
+    </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Groq API</title>
+    </head>
+    <body>
+      <section>   
+        <label> API KEY: <input type="text", id="apiKey" /><label> <br/>
+        <label
+          > Groq Model: 
+            <select id="groqModel">
+            <option value="openai/gpt-oss-120b">GPT OSS 120b</option>
+            <option value="openai/gpt-oss-20b">GPT OSS 20b</option>
+            <option value="meta-llama/llama-4-maverick-17b-128e-instruct">
+                Llama 4 maverick
+            </option>
+            <option value="meta-llama/llama-4-scout-17b-16e-instruct">
+                Llama 4 scout
+            </option>
+            <option value="moonshotai/kimi-k2-instruct-0905">Kimi K2</option>
+        </select>
+    </label>
+        <br/>
+        <label> Question: <input id="question" /><label> <br/>
+        <button id="callBtn">Call</button> <br/>
+      </section>
+      <section id="dialog"> </section>
+      <script>
+            // 1. input에서 api key를 읽어오고 callBtn 이벤트 리스너
+            const apiKeyInput = document.querySelector('#apiKey');
+            const callBtn = document.querySelector('#callBtn');
+            const geminiModelInput = document.querySelector('#geminiModel');
+            const questionInput = document.querySelector('#question');
+            const dialog = document.querySelector('#dialog');
+            const context = []; // 대화 내용 저장
+
+            callBtn.addEventListener('click', async () => {
+                const apiKey = apiKeyInput.value;
+                console.log(apiKey);
+                //3. input에서 데이터 받기
+                const geminiModel = geminiModelInput.value;
+                const question = questionInput.value;
+                // const url = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`
+                const url = "https://api.groq.com/openai/v1/chat/completions";
+                console.log(geminiModel, url);
+
+                // Add the current question to the conversation history
+                context.push({
+                    role: "user",
+                    parts: [{ text: question }],
+                });
+
+                // payload
+                // 4. Add instruction and context
+                const instruction = `
+                <persona> You are a world-class expert in helping people become software engineers. Do not sugarcoat, but do not be overly skeptical either. </persona>
+                <task> Help him achieve success </task>
+                <context> A 35-year-old Korean who was an analyst in the UK but temporarily came back to Korea to be a software engineer. He is currently doing a backend bootcamp. </context>
+                <format> Be as specific as possible. Reply in English </format>
+                `;
+                console.log(context)
+                const payload = {
+                    // system_instruction: {
+                    //    parts: [{ text: instruction }],
+                    // }, 
+                    // contents: context,
+                messages: [
+                    { 
+                        role: "system", 
+                        content: instruction 
+                    },
+                    ...context,
+                ],
+                model: groqModel
+                };
+
+                const questionBox = document.createElement('div');
+                questionBox.innerHTML = `
+                    <h4>Question:</h4>
+                    <p>${question}</p>
+                `;
+                dialog.append(questionBox);
+                questionInput.value = ''; // Clear input after sending
+
+                // 2. 외부 API로 요청 전달
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 
+                            // "x-goog-api-key": apiKey,
+                            Authorization: `Bearer ${apiKey}`,
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(payload),
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error("API Error:", errorData);
+                        const errorBox = document.createElement('div');
+                        errorBox.style.color = 'red';
+                        errorBox.innerHTML = `<H4>Error:</H4><p>${errorData.error.message}</p>`;
+                        dialog.append(errorBox);
+                        // Remove the last user message from context if API call fails
+                        context.pop(); 
+                        return;
+                    }
+
+                    const data = await response.json();
+                    // const answer = data.candidates[0].content.parts[0].text;
+                    const answer = data.candidates[0].message.content;
+                    const answerBox = document.createElement('div');
+                    answerBox.innerHTML = `
+                        <H4>Answer:</H4>
+                        <p>${answer}</p>
+                    `;
+                    // put the response in the context
+                    context.push({
+                        // role: "model",
+                        role: "assistant",
+                        // parts: [
+                        //     { 
+                        //         text: answer, 
+                        //     }
+                        // ],
+                    content: answer,
+                    });
+                    dialog.append(answerBox);
+                } catch (error) {
+                    console.error("Fetch Error:", error);
+                    const errorBox = document.createElement('div');
+                    errorBox.style.color = 'red';
+                    errorBox.innerHTML = `<H4>Error:</H4><p>Failed to fetch. Check the console for details.</p>`;
+                    dialog.append(errorBox);
+                    // Remove the last user message from context if API call fails
+                    context.pop();
+                }
+                });
+        </script> 
+    </body>
+</html>
