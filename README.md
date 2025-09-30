@@ -1,7 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 9__ <br>
-30 SEP 2025 - Woke up at 7:00.
+30 SEP 2025 - Woke up at 7:00. Completed day 14 of the Programmers AI Backend bootcamp (API, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. It was the last day of the phase 1 of TLTP: The Prep!
+    Programmers AI Backend Bootcamp: API - Gemini, Groq, Openrouter, Render.com
 
 29 SEP 2025 - Woke up at 6:00. Completed day 13 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
     Programmers AI Backend Bootcamp: Javascript - JSON, Fetch, Open API
