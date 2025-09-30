@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 호출</title>
+  </head>
+  <body>
+    <section>
+      <h1>AI와 대화</h1>
+      <input id="text" />
+      <button id="callBtn">호출</button>
+    </section>
+    <script>
+      const callBtn = document.querySelector("#callBtn");
+      const textInput = document.querySelector("#text");
+      callBtn.addEventListener("click", async () => {
+        // const url = "http://localhost:3000/gemini";
+        // http://localhost:3000 -> 서버와 페이지 간의 공통 경로이므로 생략 가능
+        const url = "/gemini";
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text: textInput.value,
+          }),
+        });
+        const data = await response.json();
+        console.log(data);
+        // JS -> data. JSON. 객체 파싱만 하면...
+        // 화면에서 -> dom input -> value?
+        // 1. fetch -> body. wrapping 값 전달
+        // 2. library (fetch... -> 간결한 함수)
+        // 3. Dockerfile -> 인터넷에서 접속 링크.
+        console.log(data.candidates[0].content.parts[0].text);
+      });
+    </script>
+  </body>
+</html>
