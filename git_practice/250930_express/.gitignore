@@ -1,2 +1,4 @@
 # 컴퓨터에서 직접 설치한 내용들을 git에서 제외
 node_modules
+# 소스코드에 올라가지 않게 .gitignore에 포함
+.env
