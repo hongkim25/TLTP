@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path"); // Add at top with other requires
 const { createClient } = require("@supabase/supabase-js"); // 구조분해 할당
 
 dotenv.config(); // .env -> KEY => SUPABASE_KEY
@@ -19,8 +20,11 @@ const port = 3000;
 app.use(cors());
 app.use(express.json()); // req.body -> json.
 
+
+app.use(express.static(__dirname)); // Add before routes
+
 app.get("/", (req, res) => {
-  res.send("bye");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/plans", async (req, res) => {
