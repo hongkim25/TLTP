@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kimjava911/251001_phase01.git"
+    "url": "git+https://github.com/hongkim25/git_practice/251001_phase1.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kimjava911/251001_phase01/issues"
+    "url": "https://github.com/hongkim25/git_practice/251001_phase1/issues"
   },
-  "homepage": "https://github.com/kimjava911/251001_phase01#readme",
+  "homepage": "https://github.com/hongkim25/git_practice/251001_phase1#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.58.0",
     "cors": "^2.8.5",
