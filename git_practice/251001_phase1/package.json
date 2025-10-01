@@ -4,7 +4,7 @@
   "description": "1. Live Server (5500) / Express (3000) 연동 - 1시간 30분. 2. Supabase 세팅 + DOM/Fetch - 1시간 30분 ~ 2시간 3. Gemini, Groq -> Chaining, Ensemble - 1시간 30분 ~ 2시간 4. 배포 (GitHub Pages, Render) - 30분 ~ 1시간",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "node node_modules/nodemon/bin/nodemon.js server.js"
   },
   "repository": {
     "type": "git",
