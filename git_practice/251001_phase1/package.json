@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/kimjava911/251001_phase01#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0"
   },
   "devDependencies": {
