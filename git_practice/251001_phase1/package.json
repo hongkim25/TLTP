@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/hongkim25/git_practice/251001_phase1#readme",
   "dependencies": {
+    "@google/genai": "^1.21.0",    
     "@supabase/supabase-js": "^2.58.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "groq-sdk": "^0.33.0",
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

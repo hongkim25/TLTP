@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>여행 계획 생성기</title>
+    <style>
+      #planForm {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-width: 240px;
+      }
+
+      /* 가로폭 제한 */
+      .tourImg {
+        max-width: 480px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form id="planForm">
+        <!-- value를 통한 기본값 입력 -->
+        <input type="text" name="destination" placeholder="장소" value="파리" />
+        <input
+          type="text"
+          name="purpose"
+          placeholder="목적"
+          value="유명 장소 방문"
+        />
+        <input
+          type="number"
+          name="people_count"
+          placeholder="인원수"
+          value="2"
+        />
+        <label>
+          시작일 :
+          <input type="date" name="start_date" value="2025-11-01" />
+        </label>
+        <label>
+          종료일 :
+          <input type="date" name="end_date" value="2025-11-05" />
+        </label>
+        <!-- 이미지 파일 업로드를 위한 input -->
+        <label>
+          이미지 : <input type="file" name="image" accept="image/*" />
+        </label>
+        <button>생성</button>
+      </form>
+    </section>
+    <section id="planBox"></section>
+    <script>
+      // DOM
+      const planBox = document.querySelector("#planBox");
+      const planForm = document.querySelector("#planForm");
+      // API 서버 주소
+      // const apiServerUrl = "https://two51001-phase01.onrender.com";
+      const apiServerUrl = "http://localhost:3000";
+      // 함수
+      async function renderPlans() {
+        // 불러오는 API
+        const response = await fetch(`${apiServerUrl}/plans`);
+        const data = await response.json();
+        console.log(data);
+        planBox.innerHTML = "";
+        for (const p of data) {
+          const planItem = document.createElement("div");
+          planItem.innerHTML = `
+            <h4>${p.destination}</h4>
+            <div>[목적] ${p.purpose}</div>
+            <div>[인원수] ${p.people_count}</div>
+            <div>[시작일] ${p.start_date}</div>
+            <div>[종료일] ${p.end_date}</div>
+            <div>[추천계획] ${p.ai_suggestion}</div>
+            <div>[최소예산] ${p.ai_min_budget}</div>
+            <div>[최대예산] ${p.ai_max_budget}</div>
+            ${
+              p.image_url
+                ? `<div><img class="tourImg" src=${p.image_url}></div>`
+                : ""
+            }
+          `;
+          const removeBtn = document.createElement("button");
+          removeBtn.textContent = "삭제";
+          removeBtn.addEventListener("click", async () => {
+            const { id: planId } = p;
+            // 삭제하는 API
+            const response = await fetch(`${apiServerUrl}/plans`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ planId }),
+            });
+            if (!response.ok) {
+              return alert("삭제 과정에서 에러가 발생했습니다!");
+            }
+            alert("정상적으로 삭제되었습니다!");
+            await renderPlans();
+          });
+          planItem.append(removeBtn);
+          planBox.append(planItem);
+        }
+      }
+      // 폼 처리
+      planForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        // 파일을 추가하면 JSON이 아님 -> Multipart -> 브라우저가 알아서 해줌
+        const formData = new FormData(event.currentTarget);
+        console.log(...formData.entries());
+        // JSON -> Multipart로 전환
+        // const planObj = Object.fromEntries(formData.entries());
+        // console.log(planObj);
+        // 추가하는 URL
+        const response = await fetch(`${apiServerUrl}/plans`, {
+          method: "POST",
+          // headers: {
+          //   "Content-Type": "application/json", // 수동으로 해주는 것
+          // },
+          // body: JSON.stringify(planObj),
+          body: formData, // body에 직접 formData를 넣으면 브라우저가 알아서 header를 넣어줌
+        });
+        if (!response.ok) {
+          return alert("생성 과정에서 에러가 발생했습니다!");
+        }
+        alert("정상적으로 생성되었습니다!");
+        await renderPlans();
+      });
+
+      document.addEventListener("DOMContentLoaded", renderPlans);
+    </script>
+  </body>
+</html>
