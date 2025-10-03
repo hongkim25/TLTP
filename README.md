@@ -1,7 +1,10 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
+__WEEK 10__ <br>
+3 OCT 2025 - Woke up at 8:50. Completed lecture 1 of CS50x, read "Grokking Algorithms" (completed chapter 4: quicksort), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 __WEEK 9__ <br>
-2 OCT 2025 - Woke up at 5:30. Completed day 16 of the Programmers AI Backend bootcamp (CRUD application, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+2 OCT 2025 - Woke up at 5:30. Completed day 16 of the Programmers AI Backend bootcamp (CRUD application, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.<br>
     Programmers AI Backend Bootcamp: Continued to practice developing a CRUD application for travel planning with Supabase database integration
 
 1 OCT 2025 - Woke up at 7:00. Completed day 15 of the Programmers AI Backend bootcamp (CRUD application, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
