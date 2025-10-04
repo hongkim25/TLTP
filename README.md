@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 10__ <br>
+4 OCT 2025 - Woke up at 8:20. Continued Meta Full Stack Developer Specialization (completed part of module 1 of course 4: HTML and CSS in Depth), Completed lecture 1 of CS50x, talked to Gemini/Claude, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 3 OCT 2025 - Woke up at 8:50. Completed lecture 1 of CS50x, read "Grokking Algorithms" (completed chapter 4: quicksort), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 __WEEK 9__ <br>
