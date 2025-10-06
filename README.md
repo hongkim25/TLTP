@@ -16,10 +16,10 @@ __WEEK 9__ <br>
 1 OCT 2025 - Woke up at 7:00. Completed day 15 of the Programmers AI Backend bootcamp (CRUD application, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.<br>
     Programmers AI Backend Bootcamp: Practiced developing a CRUD application for travel planning with Supabase database integration
 
-30 SEP 2025 - Woke up at 7:00. Completed day 14 of the Programmers AI Backend bootcamp (API, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. It was the last day of the phase 1 of TLTP: The Prep!
+30 SEP 2025 - Woke up at 7:00. Completed day 14 of the Programmers AI Backend bootcamp (API, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. It was the last day of the phase 1 of TLTP: The Prep!<br>
     Programmers AI Backend Bootcamp: API - Gemini, Groq, Openrouter, Render.com
 
-29 SEP 2025 - Woke up at 6:00. Completed day 13 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+29 SEP 2025 - Woke up at 6:00. Completed day 13 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.<br>
     Programmers AI Backend Bootcamp: Javascript - JSON, Fetch, Open API
 
 28 SEP 2025 - Woke up at 6:10. Continued Meta Full Stack Developer Specialization (completed part of module 1 of course 4: HTML and CSS in Depth), read "Grokking Algorithms" (completed chapter 3: recursion), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
@@ -29,47 +29,47 @@ __WEEK 9__ <br>
 26 SEP 2025 - Woke up at 6:50. Continued Andrew Ng's machine learning specialization (completed week 2 of course 1), read "Grokking Algorithms" (completed the first 50 pages), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 __WEEK 8__ <br>
-25 SEP 2025 - Woke up at 5:30. Completed day 12 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+25 SEP 2025 - Woke up at 5:30. Completed day 12 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: Javascript - Callback, Promise, Async, Await
 
-24 SEP 2025 - Woke up at 7:10. Completed day 11 of the Programmers AI Backend bootcamp (Javascript Web, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+24 SEP 2025 - Woke up at 7:10. Completed day 11 of the Programmers AI Backend bootcamp (Javascript Web, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: DOM (Document Object Model), Event, BOM (Broswer Object Model)
 
-23 SEP 2025 - Woke up at 7:00. Completed day 10 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+23 SEP 2025 - Woke up at 7:00. Completed day 10 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: Tools - NoteboomLM, Vite, Vercel. DOM (Document Object Model)
 
-22 SEP 2025 - Woke up at 6:50. Completed day 9 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+22 SEP 2025 - Woke up at 6:50. Completed day 9 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: Javascript - data structure, array, class
 
 21 SEP 2025 - Woke up at 6:30. Continued Andrew Ng's machine learning specialization (completed part of week 2 of course 1), read "Grokking Algorithms" (completed the first 29 pages), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 20 SEP 2025 - Woke up at 6:40. Continued Andrew Ng's machine learning specialization (completed week 1 of course 1), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo (a lot).
 
-19 SEP 2025 - Woke up at 7:00. Completed day 8 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+19 SEP 2025 - Woke up at 7:00. Completed day 8 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: Javascript - iteration, array, object, function
 
 __WEEK 7__ <br>
-18 SEP 2025 - Woke up at 6:40. Completed day 7 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+18 SEP 2025 - Woke up at 6:40. Completed day 7 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: Javascript - syntax, type, operator, condition
 
-17 SEP 2025 - Woke up at 5:50. Completed day 6 of the Programmers AI Backend bootcamp (git, markdown, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+17 SEP 2025 - Woke up at 5:50. Completed day 6 of the Programmers AI Backend bootcamp (git, markdown, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: Git advanced
 
-16 SEP 2025 - Woke up at 5:40. Completed day 5 of the Programmers AI Backend bootcamp (Making an intro page, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+16 SEP 2025 - Woke up at 5:40. Completed day 5 of the Programmers AI Backend bootcamp (Making an intro page, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: CSS - making a simple webpage
 
-15 SEP 2025 - Woke up at 6:00. Completed day 4 of the Programmers AI Backend bootcamp (CSS, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+15 SEP 2025 - Woke up at 6:00. Completed day 4 of the Programmers AI Backend bootcamp (CSS, 09:00-18:00), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: CSS - syntax, selector, property, color, size, box, display, float, position, flex
 
 14 SEP 2025 - Woke up at 7:30. Talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and reviewed materials for the Programmers AI Backend bootcamp.
 
 13 SEP 2025 - Woke up at 7:30. Completed Nomad coder Javascript challenge day 6, took the EBS Spanish course (7/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, practiced Spanish on Babbel/Duolingo, and read "Breaking routine" (90% complete).
 
-12 SEP 2025 - Woke up at 6:50. Completed day 3 of the Programmers AI Backend bootcamp (HTML, 09:00-18:00), completed Nomad coder Javascript challenge day 5, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+12 SEP 2025 - Woke up at 6:50. Completed day 3 of the Programmers AI Backend bootcamp (HTML, 09:00-18:00), completed Nomad coder Javascript challenge day 5, talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: HTML - block, inline, symantic tag, link and image, list and table, agent, rules, input form, form search
 
 __WEEK 6__ <br>
-11 SEP 2025 - Woke up at 7:00. Completed day 2 of the Programmers AI Backend bootcamp (first full day, LLM, 09:00-18:00), completed the Programmers' pre-course (40/40 complete), completed Nomad coder Javascript challenge day 4, took the EBS Spanish course (6/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+11 SEP 2025 - Woke up at 7:00. Completed day 2 of the Programmers AI Backend bootcamp (first full day, LLM, 09:00-18:00), completed the Programmers' pre-course (40/40 complete), completed Nomad coder Javascript challenge day 4, took the EBS Spanish course (6/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: LLMs - ChatGPT, Gemini, Claude
 
 10 SEP 2025 - Woke up at 8:00. Completed day 1 of the Programmers AI Backend bootcamp (orientation, 14:00-18:00), took the Programmers' pre-course (20/40 complete) + Completed Nomad coder Javascript challenge day 3 + took the EBS Spanish course (6/30 complete), talked to Gemini/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
