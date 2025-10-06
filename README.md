@@ -13,10 +13,11 @@ __WEEK 9__ <br>
 2 OCT 2025 - Woke up at 5:30. Completed day 16 of the Programmers AI Backend bootcamp (CRUD application, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.<br>
     Programmers AI Backend Bootcamp: Continued to practice developing a CRUD application for travel planning with Supabase database integration
 
-1 OCT 2025 - Woke up at 7:00. Completed day 15 of the Programmers AI Backend bootcamp (CRUD application, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+1 OCT 2025 - Woke up at 7:00. Completed day 15 of the Programmers AI Backend bootcamp (CRUD application, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.<br>
     Programmers AI Backend Bootcamp: Practiced developing a CRUD application for travel planning with Supabase database integration
 
 30 SEP 2025 - Woke up at 7:00. Completed day 14 of the Programmers AI Backend bootcamp (API, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. It was the last day of the phase 1 of TLTP: The Prep!
+
     Programmers AI Backend Bootcamp: API - Gemini, Groq, Openrouter, Render.com
 
 29 SEP 2025 - Woke up at 6:00. Completed day 13 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
