@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 11__ <br>
+12 OCT 2025 - Woke up at 8:40. Continued Siwonschool Spanish DELE B2 preparation course (completed 12 out of 45 lectures), continued Spanish grammar course (completed 11 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 11 OCT 2025 - Woke up at 7:20. Continued Siwonschool Spanish DELE B2 preparation course (completed 11 out of 45 lectures), continued Spanish grammar course (completed 10 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 10 OCT 2025 - Woke up at 8:20. Continued Siwonschool Spanish DELE B2 preparation course (completed 10 out of 45 lectures), continued Spanish grammar course (completed 8 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
