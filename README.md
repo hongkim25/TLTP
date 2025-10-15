@@ -1,7 +1,7 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 11__ <br>
-15 OCT 2025 - Woke up at 7:40. 
+15 OCT 2025 - Woke up at 7:40. Completed day 19 of the Programmers AI Backend bootcamp (First team project - day 3, 09:00-18:00), continued Siwonschool Spanish DELE B2 preparation course (completed 15 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 14 OCT 2025 - Woke up at 5:30. Completed day 18 of the Programmers AI Backend bootcamp (First team project - day 2, 09:00-18:00), continued Siwonschool Spanish DELE B2 preparation course (completed 14 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
