@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 12__ <br>
+18 OCT 2025 - Woke up at 8:30. Continued Spanish grammar course (completed 13 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 17 OCT 2025 - Woke up at 8:00. Adjusted the plan for the rest of the TLTP without the bootcamp, continued Spanish grammar course (completed 12 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 __WEEK 11__ <br>
