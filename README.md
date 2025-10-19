@@ -1,34 +1,36 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 12__ <br>
+19 OCT 2025 - Woke up at 6:50. Started Java Intro course (completed 10 out of 82 lectures), started Fundamentals of CNNs and RNNs course (completed 2 out of 5 lectures), continued Spanish grammar course (completed 14 out of 60 lectures), continued Spanish DELE B2 preparation course (completed 17 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 18 OCT 2025 - Woke up at 8:30. Continued Spanish grammar course (completed 13 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 17 OCT 2025 - Woke up at 8:00. Adjusted the plan for the rest of the TLTP without the bootcamp, continued Spanish grammar course (completed 12 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 __WEEK 11__ <br>
-16 OCT 2025 - Woke up at 6:40. Made a tough decision to leave the Programmers AI Backend bootcamp to continue TLTP in the best possible way, continued Siwonschool Spanish DELE B2 preparation course (completed 16 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+16 OCT 2025 - Woke up at 6:40. Made a tough decision to leave the Programmers AI Backend bootcamp to continue TLTP in the best possible way, continued Spanish DELE B2 preparation course (completed 16 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-15 OCT 2025 - Woke up at 7:40. Completed day 19 of the Programmers AI Backend bootcamp (First team project - day 3, 09:00-18:00), continued Siwonschool Spanish DELE B2 preparation course (completed 15 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+15 OCT 2025 - Woke up at 7:40. Completed day 19 of the Programmers AI Backend bootcamp (First team project - day 3, 09:00-18:00), continued Spanish DELE B2 preparation course (completed 15 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-14 OCT 2025 - Woke up at 5:30. Completed day 18 of the Programmers AI Backend bootcamp (First team project - day 2, 09:00-18:00), continued Siwonschool Spanish DELE B2 preparation course (completed 14 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+14 OCT 2025 - Woke up at 5:30. Completed day 18 of the Programmers AI Backend bootcamp (First team project - day 2, 09:00-18:00), continued Spanish DELE B2 preparation course (completed 14 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-13 OCT 2025 - Woke up at 6:40. Completed day 17 of the Programmers AI Backend bootcamp (First team project - day 1, 09:00-18:00), continued Siwonschool Spanish DELE B2 preparation course (completed 13 out of 45 lectures), continued Spanish grammar course (completed 12 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+13 OCT 2025 - Woke up at 6:40. Completed day 17 of the Programmers AI Backend bootcamp (First team project - day 1, 09:00-18:00), continued Spanish DELE B2 preparation course (completed 13 out of 45 lectures), continued Spanish grammar course (completed 12 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-12 OCT 2025 - Woke up at 8:40. Continued Siwonschool Spanish DELE B2 preparation course (completed 12 out of 45 lectures), continued Spanish grammar course (completed 11 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+12 OCT 2025 - Woke up at 8:40. Continued Spanish DELE B2 preparation course (completed 12 out of 45 lectures), continued Spanish grammar course (completed 11 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-11 OCT 2025 - Woke up at 7:20. Continued Siwonschool Spanish DELE B2 preparation course (completed 11 out of 45 lectures), continued Spanish grammar course (completed 10 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+11 OCT 2025 - Woke up at 7:20. Continued Spanish DELE B2 preparation course (completed 11 out of 45 lectures), continued Spanish grammar course (completed 10 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-10 OCT 2025 - Woke up at 8:20. Continued Siwonschool Spanish DELE B2 preparation course (completed 10 out of 45 lectures), continued Spanish grammar course (completed 8 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+10 OCT 2025 - Woke up at 8:20. Continued Spanish DELE B2 preparation course (completed 10 out of 45 lectures), continued Spanish grammar course (completed 8 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
 
 
 __WEEK 10__ <br>
-9 OCT 2025 - Woke up at 8:10. Solved 5 easy problems on Codewars, continued Siwonschool Spanish DELE B2 preparation course (completed 9 out of 45 lectures), continued Spanish grammar course (completed 6 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+9 OCT 2025 - Woke up at 8:10. Solved 5 easy problems on Codewars, continued Spanish DELE B2 preparation course (completed 9 out of 45 lectures), continued Spanish grammar course (completed 6 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
 
-8 OCT 2025 - Woke up at 7:10. Continued Siwonschool Spanish DELE B2 preparation course (completed 8 out of 45 lectures), continued Spanish grammar course (completed 3 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+8 OCT 2025 - Woke up at 7:10. Continued Spanish DELE B2 preparation course (completed 8 out of 45 lectures), continued Spanish grammar course (completed 3 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
 
-7 OCT 2025 - Woke up at 7:00. Continued Siwonschool Spanish DELE B2 preparation course (completed 5 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+7 OCT 2025 - Woke up at 7:00. Continued Spanish DELE B2 preparation course (completed 5 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
 
-6 OCT 2025 - Woke up at 7:30. Started Siwonschool Spanish DELE B2 preparation course (completed 3 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
+6 OCT 2025 - Woke up at 7:30. Started Spanish DELE B2 preparation course (completed 3 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. 
 
 5 OCT 2025 - Woke up at 7:40. Continued Meta Full Stack Developer Specialization (completed part of module 2 of course 4: HTML and CSS in Depth), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant and practiced Spanish on Babbel/Duolingo. 
 
