@@ -189,3 +189,6 @@ __WEEK 1__ <br>
 1 AUG 2025 - It was the first day of the project. It was also the first day I decided to stay sober. I took the intro courses of the Naver Boostcamp pre-course. Naver pre-course: Basic computer class for newbies
 
 
+
+
+![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fhongkim25%2FTLTP&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=visits&edge_flat=false)
