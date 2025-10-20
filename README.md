@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 12__ <br>
+20 OCT 2025 - Woke up at 7:20. Continued Java Intro course (completed 20 out of 82 lectures), continued Fundamentals of CNNs and RNNs course (completed 2 out of 5 lectures), started Neetcode DS&A for beginners (Arrays: RAM, static arrays), continued Spanish grammar course (completed 14 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 19 OCT 2025 - Woke up at 6:50. Started Java Intro course (completed 10 out of 82 lectures), started Fundamentals of CNNs and RNNs course (completed 2 out of 5 lectures), continued Spanish grammar course (completed 14 out of 60 lectures), continued Spanish DELE B2 preparation course (completed 17 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 18 OCT 2025 - Woke up at 8:30. Continued Spanish grammar course (completed 13 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
@@ -8,7 +10,7 @@ __WEEK 12__ <br>
 17 OCT 2025 - Woke up at 8:00. Adjusted the plan for the rest of the TLTP without the bootcamp, continued Spanish grammar course (completed 12 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 __WEEK 11__ <br>
-16 OCT 2025 - Woke up at 6:40. Made a tough decision to leave the Programmers AI Backend bootcamp to continue TLTP in the best possible way, continued Spanish DELE B2 preparation course (completed 16 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+16 OCT 2025 - Woke up at 6:40. Made a tough decision to leave the Programmers AI Backend bootcamp to continue TLTP in the best possible way, continued Spanish DELE B2 preparation course (completed 16 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo (achieved a 2,000-day Duolingo streak).
 
 15 OCT 2025 - Woke up at 7:40. Completed day 19 of the Programmers AI Backend bootcamp (First team project - day 3, 09:00-18:00), continued Spanish DELE B2 preparation course (completed 15 out of 45 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
@@ -189,6 +191,3 @@ __WEEK 1__ <br>
 1 AUG 2025 - It was the first day of the project. It was also the first day I decided to stay sober. I took the intro courses of the Naver Boostcamp pre-course. Naver pre-course: Basic computer class for newbies
 
 
-
-
-![Views](https://api.countapi.xyz/hit/hongkim25-tltp/tltp-readme)
