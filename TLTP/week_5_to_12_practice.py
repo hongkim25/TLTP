@@ -52,3 +52,27 @@ class Solution:
 #   If the loop finishes without returning True, that means no duplicates were found. So we return False.
 #   The last return False only runs after the for loop finishes. It means: “We checked every number, and never found a duplicate.”
 #   It’s not inside the loop — it’s the final fallback result.
+
+# Other solutions
+# Brute force
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] == nums[j]:
+                    return True
+        return False
+    
+# Sorting
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                return True
+        return False
+    
+# Hashset length:
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        return len(set(nums)) < len(nums)
