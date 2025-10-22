@@ -1,7 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 12__ <br>
-21 OCT 2025 - Woke up at 7:40. Continued Java Intro course (completed 38 out of 82 lectures), started Neetcode 150 (solved 1 out of 150 problems), continued Neetcode DS&A for beginners (Arrays: dynamic arrays, stack), continued Spanish grammar course (completed 16 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+21 OCT 2025 - Woke up at 8:10. 
+
+21 OCT 2025 - Woke up at 7:40. Continued Java Intro course (completed 38 out of 82 lectures), started Neetcode 150 (solved 1 out of 150 problems), continued Neetcode DS&A for beginners (Linked lists: singly linked lists, doubly linked lists, queues), continued Spanish grammar course (completed 16 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 20 OCT 2025 - Woke up at 7:20. Continued Java Intro course (completed 20 out of 82 lectures), continued Fundamentals of CNNs and RNNs course (completed 3 out of 5 lectures), started Neetcode DS&A for beginners (Arrays: RAM, static arrays), continued Spanish grammar course (completed 15 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
