@@ -76,3 +76,48 @@ class Solution:
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         return len(set(nums)) < len(nums)
+
+
+
+
+# Day 83, 22 Oct 2025
+# LeetCode 242: Valid Anagram
+# Sorting solution
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        return sorted(s) == sorted(t)
+
+# HashMap solution
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        countS, countT = {}, {}
+
+        for i in range(len(s)):
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        return countS == countT
+
+# Line-by-line explanation with ChatGPT:
+# countS and countT: Create two empty dictionaries (hashmaps). We'll use them to count how many times each character appears:
+#   countS will map characters from s to their counts, countT will map characters from t to their counts.
+# Loop index i from 0 to len(s)-1. 
+#   Because lengths are equal, using one index is enough to read characters from both s and t at the same positions.
+
+# countS[s[i]] = 1 + countS.get(s[i], 0) = “Increase the count for this letter by 1. If it’s not in the dictionary yet, start from 0.”
+# same for countT and t[i], but more verbose way is:
+# ch = s[i]
+# if ch in countS:
+#     countS[ch] += 1
+# else:
+#     countS[ch] = 1
+# return countS == countT  //what countS and countT are doing is to count the alphabet and how many times that alphabet appears.
+#   Compare the two dictionaries for equality. 
+#   In Python, two dicts are equal if they have the same keys and each corresponding key has the same value.
+#   If the character counts match exactly, s is an anagram of t → return True. Otherwise False.
+# In the hashmap solution, sorting is not needed because you don't care about ordr, you only care about counts of each character.
+#   When comparing dictionaries in Python, the order doesn't matter, only the key-value pairs matter.
