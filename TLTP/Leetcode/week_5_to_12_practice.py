@@ -72,7 +72,7 @@ class Solution:
                 return True
         return False
     
-# Hashset length:
+# HashSet length:
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         return len(set(nums)) < len(nums)
@@ -89,7 +89,7 @@ class Solution:
             return False
         return sorted(s) == sorted(t)
 
-# HashMap solution
+# HashMap (dictionary in Python) solution
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
@@ -121,3 +121,27 @@ class Solution:
 #   If the character counts match exactly, s is an anagram of t → return True. Otherwise False.
 # In the hashmap solution, sorting is not needed because you don't care about ordr, you only care about counts of each character.
 #   When comparing dictionaries in Python, the order doesn't matter, only the key-value pairs matter.
+
+
+# Day 84, 23 Oct 2025
+# LeetCode 1: Two Sum
+# HashMap (dictionary in Python) solution
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevMap = {}  # val -> index
+
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[n] = i
+
+
+# Brute force solution
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return []

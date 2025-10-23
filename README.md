@@ -1,7 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 12__ <br>
-22 OCT 2025 - Woke up at 8:10. Continued Java Intro course (completed 50 out of 82 lectures), started Neetcode 150 (Valid Anagram; total 2 out of 150 problems solved), continued Neetcode DS&A for beginners (Linked lists: singly linked lists, doubly linked lists, queues), continued Spanish grammar course (completed 17 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+23 OCT 2025 - Woke up at 6:40. Continued Java Intro course (completed 55 out of 82 lectures), continued Meta Full Stack Developer Specialization (completed module 1 of course 2: Programming with JavaScript), continued Neetcode 150 (Two Sum; total 3 out of 150 problems solved), continued Neetcode DS&A for beginners (Recursion: factorials, fibonacci sequence), started studying 200 Spanish words (covered 200 out of 3,000 words), continued Spanish grammar course (completed 18 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+22 OCT 2025 - Woke up at 8:10. Continued Java Intro course (completed 50 out of 82 lectures), continued Neetcode 150 (Valid Anagram; total 2 out of 150 problems solved), continued Neetcode DS&A for beginners (Linked lists: singly linked lists, doubly linked lists, queues), continued Spanish grammar course (completed 17 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 21 OCT 2025 - Woke up at 7:40. Continued Java Intro course (completed 38 out of 82 lectures), started Neetcode 150 (Contains Duplicate; solved 1 out of 150 problems), continued Neetcode DS&A for beginners (Arrays: dynamic arrays, stacks), continued Spanish grammar course (completed 16 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
