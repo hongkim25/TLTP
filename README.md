@@ -1,5 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
+__WEEK 13__ <br>
+24 OCT 2025 - Woke up at 8:20. Continued Java Intro course (completed 58 out of 82 lectures), continued Meta Full Stack Developer Specialization (completed module 2 of course 2: Programming with JavaScript), completed lecture 1 of Stanford CS230, continued Neetcode 150 (Reverse Linked List; total 4 out of 150 problems solved), continued Neetcode DS&A for beginners (Sorting: insertion sort), continued studying 200 Spanish words (covered 400 out of 3,000 words), continued Spanish grammar course (completed 19 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 __WEEK 12__ <br>
 23 OCT 2025 - Woke up at 6:40. Continued Java Intro course (completed 55 out of 82 lectures), continued Meta Full Stack Developer Specialization (completed module 1 of course 2: Programming with JavaScript), continued Neetcode 150 (Two Sum; total 3 out of 150 problems solved), continued Neetcode DS&A for beginners (Recursion: factorials, fibonacci sequence), started studying 200 Spanish words (covered 200 out of 3,000 words), continued Spanish grammar course (completed 18 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
@@ -42,7 +45,7 @@ __WEEK 10__ <br>
 
 5 OCT 2025 - Woke up at 7:40. Continued Meta Full Stack Developer Specialization (completed part of module 2 of course 4: HTML and CSS in Depth), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant and practiced Spanish on Babbel/Duolingo. 
 
-4 OCT 2025 - Woke up at 8:20. Continued Meta Full Stack Developer Specialization (completed module 1 of course 4: HTML and CSS in Depth), Completed lecture 1 of CS50x, talked to Gemini/Claude, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+4 OCT 2025 - Woke up at 8:20. Continued Meta Full Stack Developer Specialization (completed module 1 of course 4: HTML and CSS in Depth), talked to Gemini/Claude, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 3 OCT 2025 - Woke up at 8:50. Completed lecture 1 of CS50x, read "Grokking Algorithms" (completed chapter 4: quicksort), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
