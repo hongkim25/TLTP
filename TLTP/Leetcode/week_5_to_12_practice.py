@@ -17,6 +17,8 @@ def positive_sum(arr):
     return sum(x for x in arr if x > 0)
 
 
+### NEETCODE 3 EASY QUESTIONS ON ARRAYS AND HASHING ###
+
 # Day 82, 21 Oct 2025
 # LeetCode 217: Contains Duplicate
 # HashSet solution
