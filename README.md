@@ -1,6 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 13__ <br>
+24 OCT 2025 - Woke up at 8:20. Continued Java Intro course (completed 70 out of 82 lectures), continued Neetcode 150 (Merge Two Sorted Lists; total 5 out of 150 problems solved), continued studying 200 Spanish words (covered 600 out of 3,000 words), continued Spanish grammar course (completed 20 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+
 24 OCT 2025 - Woke up at 8:20. Continued Java Intro course (completed 58 out of 82 lectures), continued Meta Full Stack Developer Specialization (completed module 2 of course 2: Programming with JavaScript), completed lecture 1 of Stanford CS230, continued Neetcode 150 (Reverse Linked List; total 4 out of 150 problems solved), continued Neetcode DS&A for beginners (Sorting: insertion sort), continued studying 200 Spanish words (covered 400 out of 3,000 words), continued Spanish grammar course (completed 19 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 __WEEK 12__ <br>
