@@ -47,3 +47,40 @@ class Solution:
         node.next = list1 or list2
 
         return dummy.next
+    
+
+
+# Day 87, 26 Oct 2025
+# LeetCode 141: Linked List Cycle
+# Hash set: Time O(n) Space O(n)
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        seen = set()
+        cur = head
+        while cur:
+            if cur in seen:
+                return True
+            seen.add(cur)
+            cur = cur.next
+        return False
+
+# Explanation from the ChatGPT:
+# seen.add(cur) — the key line
+# seen: This is your set(). It’s just a container that remembers objects you’ve already visited.
+# .add: The dot (.) means “access a property or a method of an object.”
+# So seen.add means: “Use the add method that belongs to the set named seen.”
+# (cur): Parentheses () mean “call this method or function, and give it an argument.”
+# So seen.add(cur) means: “Call the add method of the set seen, and pass cur as the argument.”
+
+
+# Fast and slow pointers: Time O(n) Space O(1)
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        slow, fast = head, head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
