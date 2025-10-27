@@ -86,4 +86,16 @@ class Solution:
         return False
     
 
-    # Day 88, 27 Oct 2025
+# Day 88, 27 Oct 2025
+# LeetCode 226: Invert Binary Tree
+# Depth-First Search (DFS):
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root: return None
+
+        root.left, root.right = root.right, root.left
+
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        return root
