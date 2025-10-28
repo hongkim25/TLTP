@@ -99,4 +99,18 @@ class Solution:
         self.invertTree(root.left)
         self.invertTree(root.right)
 
-        return root
+        return rootc
+    
+
+
+# Day 89, 28 Oct 2025
+# LeetCode 100: Same Tree
+# Depth-First Search (DFS):
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+        if p and q and p.val == q.val:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        else:
+            return False
