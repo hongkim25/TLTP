@@ -105,7 +105,7 @@ class Solution:
 
 # Day 89, 28 Oct 2025
 # LeetCode 100: Same Tree
-# Depth-First Search (DFS):
+# Depth-First Search (DFS): time O(n) space O(h)
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q:
@@ -114,3 +114,14 @@ class Solution:
             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         else:
             return False
+        
+# if not p and not q:
+#   checks whether both nodes are empty(none)
+#   If both are empty, that means you’ve reached the bottom of both trees at the same time. 
+#   So yes, those two “empty branches” are the same.
+# if p and q and p.val == q.val:
+#   Checks whether both nodes are non-empty and have the same value.
+#   If this line is True, we’ll now go deeper into their left and right subtrees to make sure those are also identical.
+# return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+#   This line is where the recursion happens. It tells python to keep checking deeper into both trees until reaching the bottom.
+# DFS: You go as deep as possible along one branch before checking others. Recursion is a natural way to do this.
