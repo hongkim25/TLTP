@@ -1,3 +1,5 @@
+### NEETCODE 3 EASY QUESTIONS ON LINKED LIST ###
+
 # Day 85, 24 Oct 2025
 # LeetCode 206: Reverse Linked List
 # Iteration: Time O(n) Space O(1)
@@ -85,6 +87,9 @@ class Solution:
                 return True
         return False
     
+
+
+### NEETCODE 4 EASY QUESTIONS ON TREES ###
 
 # Day 88, 27 Oct 2025
 # LeetCode 226: Invert Binary Tree
