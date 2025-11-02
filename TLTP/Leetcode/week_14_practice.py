@@ -18,7 +18,7 @@ class Solution:
     
 
 
-# Day 93, 28 Oct 2025
+# Day 93, 1 Nov 2025
 # LeetCode 543: Diameter of Binary Tree
 # Definition for a binary tree node.
 # class TreeNode:
@@ -43,4 +43,18 @@ class Solution:
             return 1 + max(left, right)
 
         dfs(root)
+        return res
+    
+
+### NEETCODE 3 EASY QUESTIONS ON BIT MANIPULATION ###
+
+# Day 94, 2 Nov 2025
+# LeetCode 136: Single Number
+# Bit Manipulation: Time O(n) Space O(1)
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        res = 0
+        for num in nums:
+            res = num ^ res
         return res
