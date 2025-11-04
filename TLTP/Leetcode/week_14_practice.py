@@ -58,3 +58,16 @@ class Solution:
         for num in nums:
             res = num ^ res
         return res
+    
+
+# Day 96, 2 Nov 2025
+# LeetCode 191: Number of 1 Bits
+# Bit Mask: Time O(1) Space O(1)
+
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        res = 0
+        for i in range(32):
+            if (1 << i) & n:
+                res += 1
+        return res

@@ -1,0 +1,140 @@
+1	Espero que tengas un buen día.	I hope you have a good day.
+2	Dudo que él diga la verdad.	I doubt he tells the truth.
+3	Es importante que estudies todos los días.	It’s important that you study every day.
+4	Quiero que vengas conmigo.	I want you to come with me.
+5	He visitado España dos veces.	I’ve visited Spain twice.
+6	Hoy no he comido nada.	I haven’t eaten anything today.
+7	¿Alguna vez has estado en México?	Have you ever been to Mexico?
+8	No hemos terminado el trabajo todavía.	We haven’t finished the work yet.
+9	Ayer fui al cine con mis amigos.	I went to the cinema with my friends yesterday.
+10	El año pasado trabajé en una empresa internacional.	Last year I worked at an international company.
+11	Conocí a mi mejor amigo en la universidad.	I met my best friend at university.
+12	Ellos llegaron tarde a la reunión.	They arrived late to the meeting.
+13	Cuando era niño, jugaba en el parque todos los días.	When I was a child, I used to play in the park every day.
+14	Antes vivíamos en Madrid.	We used to live in Madrid.
+15	Mientras estudiaba, escuchaba música.	While I was studying, I listened to music.
+16	Mañana viajaré a Barcelona.	I will travel to Barcelona tomorrow.
+17	Será un día muy importante para mí.	It will be a very important day for me.
+18	No te preocupes, te llamaré después.	Don’t worry, I’ll call you later.
+19	Si tuviera más tiempo, viajaría más.	If I had more time, I would travel more.
+20	Me gustaría trabajar en otro país.	I would like to work in another country.
+21	Desde mi punto de vista, es fundamental proteger el medio ambiente.	From my point of view, it’s essential to protect the environment.
+22	Estoy de acuerdo con la idea de que la educación debe ser gratuita.	I agree with the idea that education should be free.
+23	No estoy totalmente de acuerdo porque hay otros factores importantes.	I’m not completely in agreement because there are other important factors.
+24	Creo que la tecnología ha mejorado nuestra vida, pero también ha creado nuevos problemas.	I think technology has improved our lives, but it has also created new problems.
+25	En mi opinión, el gobierno debería invertir más en energías renovables.	In my opinion, the government should invest more in renewable energy.
+26	Es evidente que la globalización tiene ventajas y desventajas.	It’s clear that globalization has both advantages and disadvantages.
+27	Lo que me preocupa es la falta de empatía en nuestra sociedad.	What worries me is the lack of empathy in our society.
+28	A pesar de los riesgos, pienso que viajar solo puede ser una experiencia positiva.	Despite the risks, I think traveling alone can be a positive experience.
+29	No creo que todos los jóvenes tengan las mismas oportunidades.	I don’t think all young people have the same opportunities.
+30	En resumen, necesitamos actuar juntos para mejorar la situación.	In conclusion, we need to act together to improve the situation.
+31	Quisiera hacer una reserva para el próximo fin de semana.	I would like to make a reservation for next weekend.
+32	Perdone, pero creo que ha habido un malentendido.	Excuse me, but I think there’s been a misunderstanding.
+33	¿Sería posible cambiar la hora de la cita?	Would it be possible to change the appointment time?
+34	Me gustaría hablar con el responsable, por favor.	I would like to speak with the person in charge, please.
+35	Siento mucho las molestias, pero necesito ayuda con este problema.	I’m very sorry for the inconvenience, but I need help with this problem.
+36	¿Podría recomendarme algún restaurante típico de la zona?	Could you recommend me a typical restaurant in the area?
+37	Le agradezco mucho su atención.	I really appreciate your attention.
+38	Si fuera posible, preferiría una habitación con vistas al mar.	If possible, I’d prefer a room with a sea view.
+39	No se preocupe, entiendo perfectamente la situación.	Don’t worry, I completely understand the situation.
+40	En ese caso, podría ofrecerle una alternativa.	In that case, I could offer you an alternative.
+41	En la primera imagen, se puede ver a varias personas trabajando en una oficina.	In the first image, you can see several people working in an office.
+42	Mientras que en la segunda foto, las personas parecen estar al aire libre.	While in the second photo, people seem to be outdoors.
+43	Ambas imágenes representan diferentes formas de trabajar.	Both images represent different ways of working.
+44	Parece que en la primera hay más estrés que en la segunda.	It seems that in the first one there is more stress than in the second.
+45	Podría ser que estén participando en una reunión importante.	It could be that they are taking part in an important meeting.
+46	Tal vez estén hablando sobre un nuevo proyecto.	Maybe they are talking about a new project.
+47	Me da la impresión de que la gente está concentrada.	I get the impression that people are focused.
+48	En mi opinión, trabajar en equipo puede ser más productivo.	In my opinion, working in a team can be more productive.
+49	Por un lado, trabajar desde casa ofrece comodidad; por otro, puede generar aislamiento.	On one hand, working from home offers comfort; on the other, it can cause isolation.
+50	En conclusión, cada forma de trabajo tiene sus ventajas y desventajas.	In conclusion, each way of working has its advantages and disadvantages.
+51	Le escribo para expresar mi preocupación por el servicio recibido.	I am writing to express my concern about the service I received.
+52	Me gustaría solicitar más información sobre el curso anunciado.	I would like to request more information about the announced course.
+53	Lamento informarle que no podré asistir a la reunión.	I regret to inform you that I won’t be able to attend the meeting.
+54	Adjunto los documentos que me pidió en el correo anterior.	I am attaching the documents you asked for in your previous email.
+55	Le agradecería mucho si pudiera enviarme los detalles del evento.	I would be very grateful if you could send me the event details.
+56	Espero su respuesta a la mayor brevedad posible.	I look forward to your reply as soon as possible.
+57	Le escribo en relación con la oferta publicada en su página web.	I am writing regarding the offer published on your website.
+58	Quedo a su disposición para cualquier información adicional.	I remain at your disposal for any further information.
+59	Lamento las molestias que mi mensaje pueda causar.	I apologize for any inconvenience my message may cause.
+60	Agradezco de antemano su atención y amabilidad.	I thank you in advance for your attention and kindness.
+61	En mi opinión, el gobierno debería invertir más en educación pública.	In my opinion, the government should invest more in public education.
+62	No cabe duda de que la tecnología ha cambiado nuestra forma de vivir.	There is no doubt that technology has changed our way of living.
+63	Es necesario que todos participemos activamente en la protección del medio ambiente.	It is necessary that we all participate actively in environmental protection.
+64	Aunque algunos piensen lo contrario, creo que la cultura sigue siendo esencial.	Although some may think otherwise, I believe culture remains essential.
+65	Por un lado, el trabajo remoto ofrece libertad; por otro, reduce el contacto humano.	On one hand, remote work offers freedom; on the other, it reduces human contact.
+66	Desde mi punto de vista, la educación debe centrarse en el pensamiento crítico.	From my point of view, education should focus on critical thinking.
+67	Si los jóvenes tuvieran más oportunidades, habría menos desigualdad.	If young people had more opportunities, there would be less inequality.
+68	Es evidente que la sociedad está cambiando rápidamente.	It is evident that society is changing rapidly.
+69	No creo que la solución sea prohibir el uso de los móviles en clase.	I don’t think the solution is to ban the use of cell phones in class.
+70	Para concluir, debemos encontrar un equilibrio entre progreso y tradición.	To conclude, we must find a balance between progress and tradition.
+71	Hace poco visité un restaurante que me sorprendió gratamente.	I recently visited a restaurant that pleasantly surprised me.
+72	El ambiente era acogedor y el personal muy atento.	The atmosphere was cozy and the staff very attentive.
+73	Lo que más me llamó la atención fue la calidad de los platos.	What caught my attention most was the quality of the dishes.
+74	Sin embargo, los precios me parecieron un poco altos.	However, the prices seemed a bit high to me.
+75	Recomiendo este lugar a quienes busquen una experiencia diferente.	I recommend this place to those looking for a different experience.
+76	La exposición ofrece una mirada profunda al arte contemporáneo.	The exhibition offers an in-depth look at contemporary art.
+77	Sería ideal que ampliaran el horario de visitas.	It would be ideal if they extended the visiting hours.
+78	Lo mejor fue la organización del evento y la calidad del sonido.	The best part was the organization of the event and the sound quality.
+79	En general, la experiencia fue positiva y la recomendaría sin dudar.	Overall, the experience was positive, and I would recommend it without hesitation.
+80	Espero volver pronto para descubrir más.	I hope to return soon to discover more.
+81	Vivo en una ciudad pequeña, pero tiene todo lo necesario.	I live in a small city, but it has everything necessary.
+82	Suelo levantarme temprano para aprovechar el día.	I usually get up early to make the most of the day.
+83	Cuando era niño, pasaba los veranos en casa de mis abuelos.	When I was a child, I used to spend summers at my grandparents’ house.
+84	El fin de semana pasado fui a la montaña con mis amigos.	Last weekend I went to the mountains with my friends.
+85	Me encanta probar platos típicos cuando viajo.	I love trying traditional dishes when I travel.
+86	Si tengo tiempo, hago ejercicio tres veces por semana.	If I have time, I work out three times a week.
+87	He visitado muchos países, pero Japón fue el más impresionante.	I have visited many countries, but Japan was the most impressive.
+88	Me interesa mucho la fotografía porque me permite ser creativo.	I’m very interested in photography because it lets me be creative.
+89	No me importa trabajar en equipo si todos colaboran.	I don’t mind working in a team if everyone collaborates.
+90	A veces me cuesta concentrarme cuando hay ruido.	Sometimes it’s hard for me to concentrate when there’s noise.
+91	Prefiero viajar en tren porque es más cómodo que el avión.	I prefer to travel by train because it’s more comfortable than the plane.
+92	El clima en mi país cambia mucho según la estación.	The weather in my country changes a lot depending on the season.
+93	Cuando tengo estrés, suelo escuchar música o salir a caminar.	When I’m stressed, I usually listen to music or go for a walk.
+94	Mi ciudad es conocida por su comida y su gente amable.	My city is known for its food and friendly people.
+95	Nunca olvidaré la primera vez que vi el mar.	I’ll never forget the first time I saw the sea.
+96	Estoy buscando trabajo relacionado con el análisis de datos.	I’m looking for a job related to data analysis.
+97	Me gustaría mejorar mi nivel de español para comunicarme mejor.	I would like to improve my Spanish to communicate better.
+98	Últimamente he estado muy ocupado con mis estudios.	Lately I’ve been very busy with my studies.
+99	Lo peor de mi trabajo es que tengo que viajar demasiado.	The worst thing about my job is that I have to travel too much.
+100	Si tuviera más tiempo, aprendería otro idioma.	If I had more time, I would learn another language.
+101	Me sorprendió mucho la amabilidad de la gente.	I was very surprised by people’s kindness.
+102	No suelo ver la televisión, prefiero leer libros.	I don’t usually watch TV; I prefer reading books.
+103	Durante las vacaciones me relajé y desconecté completamente.	During the holidays I relaxed and completely disconnected.
+104	A veces tengo que estudiar hasta tarde para cumplir con todo.	Sometimes I have to study until late to get everything done.
+105	Cuando termine mis estudios, me gustaría trabajar en Europa.	When I finish my studies, I’d like to work in Europe.
+106	Lo que más valoro en una persona es la honestidad.	What I value most in a person is honesty.
+107	Es importante mantener un equilibrio entre trabajo y vida personal.	It’s important to maintain a balance between work and personal life.
+108	A pesar de los problemas, intento mantener una actitud positiva.	Despite the problems, I try to keep a positive attitude.
+109	Si pudiera cambiar algo de mi vida, sería el ritmo de trabajo.	If I could change something about my life, it would be my work pace.
+110	Lo mejor de aprender idiomas es poder conocer otras culturas.	The best thing about learning languages is being able to know other cultures.
+111	La felicidad no depende de lo que tenemos, sino de cómo lo valoramos.	Happiness doesn’t depend on what we have, but on how we value it.
+112	El éxito llega cuando haces lo que te apasiona.	Success comes when you do what you’re passionate about.
+113	La tecnología puede unirnos, pero también aislarnos.	Technology can unite us, but also isolate us.
+114	La educación es la base de una sociedad justa.	Education is the foundation of a fair society.
+115	El medio ambiente necesita nuestra ayuda urgente.	The environment needs our urgent help.
+116	Si todos colaboráramos, el mundo sería mejor.	If everyone collaborated, the world would be better.
+117	Es imposible ignorar el impacto del cambio climático.	It’s impossible to ignore the impact of climate change.
+118	La comunicación es la clave de cualquier relación.	Communication is the key to any relationship.
+119	A veces necesitamos fracasar para aprender a avanzar.	Sometimes we need to fail to learn to move forward.
+120	No todo lo moderno es mejor.	Not everything modern is better.
+121	Trabajar en lo que te gusta es un privilegio, no una obligación.	Working in what you love is a privilege, not an obligation.
+122	El dinero no garantiza la felicidad, pero ayuda.	Money doesn’t guarantee happiness, but it helps.
+123	El arte nos permite ver el mundo con otros ojos.	Art allows us to see the world with different eyes.
+124	La empatía es una de las cualidades más valiosas.	Empathy is one of the most valuable qualities.
+125	Los viajes nos enseñan más que los libros.	Travels teach us more than books.
+126	Viajar solo me ayudó a conocerme mejor.	Traveling alone helped me know myself better.
+127	Estudiar en el extranjero amplía tu visión del mundo.	Studying abroad broadens your worldview.
+128	En el futuro, muchas profesiones desaparecerán por la automatización.	In the future, many professions will disappear due to automation.
+129	El trabajo remoto ha cambiado nuestra forma de organizar el tiempo.	Remote work has changed how we organize our time.
+130	Una buena salud mental es tan importante como la física.	Good mental health is as important as physical health.
+131	Los amigos verdaderos se cuentan con los dedos de una mano.	True friends can be counted on one hand.
+132	A veces es necesario desconectarse para reencontrarse.	Sometimes it’s necessary to disconnect to find yourself again.
+133	El tiempo es el recurso más valioso que tenemos.	Time is the most valuable resource we have.
+134	Nada cambia si tú no cambias.	Nothing changes if you don’t change.
+135	Aprender idiomas abre muchas puertas en la vida profesional.	Learning languages opens many doors in professional life.
+136	No hay edad para empezar algo nuevo.	There’s no age to start something new.
+137	Lo importante no es llegar primero, sino no rendirse.	The important thing is not to arrive first, but not to give up.
+138	La paciencia es una virtud que se aprende con el tiempo.	Patience is a virtue that’s learned over time.
+139	Si tienes un sueño, trabaja cada día para alcanzarlo.	If you have a dream, work every day to achieve it.
+140	Nunca es tarde para cambiar tu camino.	It’s never too late to change your path.

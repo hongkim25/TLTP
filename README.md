@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 14__ <br>
+4 NOV 2025 - Woke up at 7:40. Continued Java Basic 1 course (completed 50 out of 98 lectures), continued Neetcode 150 (Number of 1 Bits; total 12 out of 150 problems solved), continued studying 200 Spanish words (covered 2,600 out of 5,000 words), started memorizing 10 Spanish sentneces (covered 10 out of 140 sentences), continued Spanish DELE B2 preparation course (completed 29 out of 45 lectures), continued Spanish grammar course (completed 38 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 3 NOV 2025 - Woke up at 7:40. Continued Java Basic 1 course (completed 42 out of 98 lectures), continued Neetcode 150 (9-11 review), continued studying 200 Spanish words (covered 2,400 out of 5,000 words), continued Spanish DELE B2 preparation course (completed 28 out of 45 lectures), continued Spanish grammar course (completed 36 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 2 NOV 2025 - Woke up at 9:20. Continued Java Basic 1 course (completed 40 out of 98 lectures), continued Neetcode 150 (Single Number; total 11 out of 150 problems solved), continued studying 200 Spanish words (covered 2,200 out of 5,000 words), continued Spanish DELE B2 preparation course (completed 27 out of 45 lectures), continued Spanish grammar course (completed 35 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
