@@ -93,6 +93,7 @@ class Solution:
 # Day 98, 6 Nov 2025
 # LeetCode 190: Reverse Bits
 # Bit Manipulation: Time O(1) Space O(1)
+
 class Solution:
     def reverseBits(self, n: int) -> int:
         res = 0
@@ -100,3 +101,9 @@ class Solution:
             bit = (n >> i) & 1
             res += (bit << (31 - i))
         return res
+    
+# res = 0	Create an empty result number
+# for i in range(32):	We have 32 bits to process
+# bit = (n >> i) & 1	Extract the i-th bit from n
+# res += (bit << (31 - i))	Place it in the reversed position
+# return res	Return the final reversed number
