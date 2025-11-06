@@ -46,7 +46,7 @@ class Solution:
         return res
     
 
-### NEETCODE 3 EASY QUESTIONS ON BIT MANIPULATION ###
+### NEETCODE 4 EASY QUESTIONS ON BIT MANIPULATION ###
 
 # Day 94, 2 Nov 2025
 # LeetCode 136: Single Number
@@ -87,3 +87,16 @@ class Solution:
                 offset = i
             dp[i] = 1 + dp[i - offset]
         return dp
+    
+
+
+# Day 98, 6 Nov 2025
+# LeetCode 190: Reverse Bits
+# Bit Manipulation: Time O(1) Space O(1)
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        res = 0
+        for i in range(32):
+            bit = (n >> i) & 1
+            res += (bit << (31 - i))
+        return res
