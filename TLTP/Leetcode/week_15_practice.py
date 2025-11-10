@@ -56,3 +56,50 @@ class Solution:
                 if numbers[i] + numbers[j] == target:
                     return [i + 1, j + 1]
         return []
+    
+
+# Day 102, 10 NOV 2025
+# LeetCode 15: 3Sum
+# Two Pointers: Time o(n^2) Space O(1)
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        nums.sort()
+
+        for i, a in enumerate(nums):
+            if a > 0:
+                break
+
+            if i > 0 and a == nums[i - 1]:
+                continue
+
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                threeSum = a + nums[l] + nums[r]
+                if threeSum > 0:
+                    r -= 1
+                elif threeSum < 0:
+                    l += 1
+                else:
+                    res.append([a, nums[l], nums[r]])
+                    l += 1
+                    r -= 1
+                    while l < r and nums[l] == nums[l - 1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r + 1]:
+                        r -= 1
+
+        return res
+    
+
+# if a > 0:
+#    break
+# Why break here? Since the array is sorted, if a > 0, 
+# all remaining numbers are also positive (they come after a).
+# It's impossible to get three positive numbers to sum to zero!
+
+# if i > 0 and a == nums[i - 1]:
+#     continue
+# Why continue here?
+# This skips duplicate values for the first number to avoid duplicate triplets.
