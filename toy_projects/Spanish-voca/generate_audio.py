@@ -8,10 +8,10 @@ import time
 # Create output folders
 os.makedirs("temp_spanish", exist_ok=True)
 os.makedirs("temp_english", exist_ok=True)
-os.makedirs("audio_files", exist_ok=True)
+os.makedirs("audio_files2", exist_ok=True)
 
 # Load your vocabulary
-df = pd.read_csv("voca.txt", sep="\t", names=["spanish", "english"], 
+df = pd.read_csv("voca2.txt", sep="\t", names=["spanish", "english"], 
                  on_bad_lines='skip', encoding='utf-8')
 
 print(f"Generating audio for {len(df)} words...")
@@ -22,7 +22,7 @@ for idx, row in tqdm(df.iterrows(), total=len(df)):
     
     # Skip if already exists (resume capability)
     safe_filename = spanish_word.replace(' ', '_').replace('/', '_')[:50]
-    output_file = f"audio_files/{idx+1:04d}_{safe_filename}.mp3"
+    output_file = f"audio_files2/{idx+1:04d}_{safe_filename}.mp3"
     
     if os.path.exists(output_file):
         continue  # Skip already processed files
@@ -68,4 +68,4 @@ for idx, row in tqdm(df.iterrows(), total=len(df)):
 
 print("✅ Done! Cleaning up temp folders...")
 os.system('rm -rf temp_spanish temp_english')
-print("✅ All done! Check the 'audio_files' folder")
+print("✅ All done! Check the 'audio_files2' folder")

@@ -1,20 +1,16 @@
-absoluto	absolute
 adecuado	adequate, suitable
 amplio	wide, ample, broad
 cercano	near
-cerrado	closed
 concreto	concrete, real
 conocido	known, well-known
 corriente	current, flow 
 corto	short, brief
-cuánto	how much?
 cuarto	room, chamber 
 dado	given
 debido debido a 		due to
 definitivo	definitive, conclusive
 determinado	determined, fixed
 diario	newspaper 
-directo	direct, straight
 dispuesto	willing, ready
 diverso	different, several, diverse
 duro	hard 
@@ -25,39 +21,20 @@ extraño	strange, foreign
 extraordinario	extraordinary, exceptional
 familiar	familiar, of the family 
 grave	serious, solemn
-histórico	historical
-imposible	impossible
 inmediato	immediate
-interior	interior, inside 
 interno	internal
 justo	just 
 lleno	full, filled 
 mas	but, however
-material	material, element 
-médico	doctor 
-militar	military 
-mínimo	minimum 
-moderno	modern
-muerto	dead 
 parecido	similar [also similar]
-particular	particular, peculiar 
-peor	worse 
 plano	plane, map, level 
 pleno	complete, fulfilled 
-popular	popular
 preciso	precise, necessary
 presente	present 
-privado	private
-puro	pure, clean
-rápido	quick, fast
 raro	strange, rare, scarce
-rico	rich, tasty
 sencillo	simple, plain, easy
 serio	serious
-simple	simple, mere, simple-minded
-suficiente	sufficient, enough
 supuesto ; por supuesto		supposed: of course		
-total	total, entire 
 unido	united
 abajo	down, below, downward
 adelante	forward, further
@@ -69,40 +46,27 @@ completamente	completely
 debajo	underneath, below
 delante	in front of, ahead
 detrás	in the back
-directamente	directly, straight away
 inmediatamente	immediately
 jamás	never
-junto	together 
 recién	recently, just
 salvo	except for, but
 seguramente	surely, securely
-simplemente	simply, just
 siquiera	even if
 totalmente	totally, completely
-artista	artist, performer
-joven	teenager, young person 
 modelo	model, pattern
 actitud	attitude
 altura	height, altitude
 autoridad	authority
-ayuda	help, aid
 boca	mouth, entrance, opening
 calidad	quality
 capacidad	capacity
 carta	letter, playing card
-causa	cause
 ciencia	science, knowledge
-circunstancia	circumstance
-comida	food, meal
 compañía	company
 comunicación	communication
 conciencia	conscience, consciousness
 confianza	confidence, trust
-consecuencia	consequence
-construcción	construction
 costumbre	habit, custom, usage
-cultura	culture
-decisión	decision
 defensa	defense, plea
 dificultad	difficulty, obstacle
 dirección	direction, address
@@ -111,27 +75,14 @@ elección	election, choice
 empresa	firm, company, venture
 energía	energy, power
 enfermedad	illness, sickness
-entrada	entrance, admission ticket
-escuela	school
 esperanza	hope
 etapa	stage, period
 existencia	existence, life
-explicación	explanation
-expresión	expression
 fecha	date, day
 formación	formation, education
 frase	phrase
 fuente	source, fountain
-función	function, meeting
-generación	generation
-hija	daughter
 hoja	sheet, leaf
-impresión	impression, printing
-información	information
-intención	intention
-labor	labor, work, task
-lectura	reading
-letra	letter, handwriting, lyrics
 lucha	fight, struggle, wrestle
 madera	wood
 máquina	machine
@@ -139,18 +90,14 @@ marcha	march, progress
 masa	mass, dough, bulk, crowd
 materia	matter, subject
 mayoría	majority
-memoria	memory
 mente	mind
 mitad	half, middle
 naturaleza	nature
-nota	note, grade
 noticia	news
-operación	operation
 oportunidad	opportunity, chance
 pared	interior wall
 pareja	couple, pair
 paz	peace
-película	movie, film
 pena	trouble 
 piedra	stone, rock
 piel	skin, hide, fur
@@ -165,7 +112,6 @@ presencia	presence, appearance
 presión	pressure
 propiedad	property
 prueba	proof, trial, test
-responsabilidad	responsibility
 reunión	meeting, reunion
 revista	magazine, journal
 sala	room, hall
@@ -174,7 +120,6 @@ salud	health
 sangre	blood
 santa	saint 
 seguridad	security, safety
-señora	Mrs., lady, madam
 serie	series
 solución	solution, answer
 suerte	luck, fortune
@@ -193,7 +138,6 @@ alumno	student, pupil
 ambiente	environment, atmosphere
 andar	to walk
 apoyo	support, backing
-arte	art, skill
 artículo	article, product, item
 asunto	matter, issue, affair
 banco	financial bank, bench
@@ -206,7 +150,6 @@ cargo	position, charge, fee
 cielo	sky, heaven, ceiling
 compañero	companion, classmate
 conjunto	group, set
-control	control
 corazón	heart, core
 cuadro	painting, picture
 cuarto	fourth 
@@ -219,10 +162,8 @@ destino	destination, destiny
 detalle	detail
 diario, cotidiano	daily
 dolor	pain, ache, sorrow
-edificio	building
 encuentro	meeting, game, skirmish
 equipo	team, equipment, outfit
-error	error, mistake
 espíritu	spirit, ghost
 estilo	style
 éxito	success
@@ -231,52 +172,37 @@ golpe	hit, strike, punch
 grado	degree, grade
 gusto	pleasure, taste, preference
 hogar	home, hearth
-instrumento	instrument
 juicio	judgment
 lenguaje	language, speech
 límite	limit
-mercado	market
 metro	meter , subway
 miembro	member, limb
 motivo	motive, cause, motif
-negocio	business, transaction
 norte	north
 origen	origin, cause
 oro	gold
 peligro	danger, menace
 pensamiento	thought, thinking
-periódico	newspaper, periodical
 personaje	character
 piso	floor, story
 precio	price, cost, value
 presidente	president
 propósito	intention, purpose
 proyecto	project, plan
-público	public, audience 
 puesto	job, place, position
 recuerdo	memory, keepsake
 recurso	resource, recourse, means
 respeto	respect, regard
 ritmo	rhythm
-sentimiento	feeling, sentiment
-silencio	silence
 sueño	dream, sleep
 tamaño	size, dimension
 término	term , end
 terreno	ground, earth, terrain
-título	title, heading
 tono	tone
-uso	use
-autor	writer, author
-capital	capital city , money 
 par	pair, couple 
-radio	radio; set , communication 
-millón	million, fortune
 mediante	by means of
 tras	after, behind
 aquello	that over there 
-ése, ésa 		that one
-mío	mine 
 abandonar	to abandon, leave a place
 acompañar	to accompany
 acordar,recordar		to remember, remind	
@@ -287,7 +213,6 @@ advertir	to warn
 afectar	to affect
 afirmar	to assert, affirm
 anunciar	to announce, advertise
-aplicar	to apply
 apoyar	to support, lean on
 aprovechar	to take advantage of
 asegurar	to assure, secure, insure
@@ -295,18 +220,15 @@ asistir	to attend
 atender	to serve, attend to
 atravesar, cruzar	to cross
 aumentar, incrementar	to increase
-avanzar	to advance, progress
 bajar	to come down, let down
 bastar	to be sufficient
 caber	to fit into
-caminar, andar	to walk
 cargar	to load up, carry
 coincidir	to coincide, agree
 colocar	to place, position
 comentar	to comment on
 compartir	to share
 comprobar	to verify, prove
-comunicar	to communicate
 conducir	to lead, drive
 conservar	to conserve, preserve
 consistir	to consist of
@@ -317,13 +239,11 @@ contener	to contain
 contestar	to answer, reply
 convenir	to be agreeable, be convenient
 corresponder	to correspond with
-cortar	to cut
 costar	to cost, to be hard to do
 crecer	to grow, increase
 cruzar, atravesar	to cross 
 cubrir	to cover
 cuidar	to take care of
-defender	to defend, protect
 definir	to define
 demostrar	to show, demonstrate
 depender	to depend on
@@ -333,7 +253,6 @@ despertar	to wake up, arouse
 destacar	to emphasize, stand out
 discutir	to argue, discuss
 disponer	to have means, dispose
-distinguir	to distinguish
 dominar	to dominate, master
 durar	to last
 emplear	to employ
@@ -354,14 +273,9 @@ guardar	to keep, save
 identificar	to identify
 impedir	to prevent, hinder
 imponer	to impose, enforce
-incluir	to include
-informar	to inform
-iniciar	to initiate, start
-insistir	to insist on
 instalar	to install
 interpretar	to interpret
 intervenir	to intervene
-introducir	to introduce, bring in
 invitar	to invite
 lanzar,arrojar	to throw violently, to hurl
 llenar	to fill
@@ -378,8 +292,6 @@ montar	to ride, mount, assemble
 negar	to deny, refuse
 notar, percibir	to notice
 obligar	to obligate, force
-organizar	to organize
-participar	to participate
 permanecer	to stay, remain
 pertenecer	to belong
 pesar	to weigh 
@@ -393,10 +305,8 @@ quitar	to remove, take away
 recoger	to pick up
 recorrer	to travel, cover distance
 recuperar	to recuperate, recover
-reducir	to reduce
 regresar	to return to a place
 representar	to represent
-resolver	to resolve, settle, work out
 respetar	to respect
 retirar	to take away, retire
 reunir, juntar	to put together, to get together
@@ -414,108 +324,70 @@ transformar	to transform, change
 unir	to unite
 ajeno	not belonging to, detached
 auténtico	authentic
-barato	inexpensive
 bello	beautiful, fine
 breve	brief, short
 brillante	brilliant, shiny, sparkling
-central	central 
 ciego	blind
-comercial	commercial, shopping
 complejo	complex, complicated 
 complicado	complicated, complex
 consciente	conscious, aware
 convencido	convinced, persuaded
-correcto	correct, suitable
 correspondiente	corresponding
 cotidiano, diario	daily
 cristiano	Christian
-curioso	curious, strange
 débil	weak
 delicado	delicate
 desconocido	unknown
-doble	double 
-eléctrico	electric
 encargado	in charge of
 escaso	scarce, very little
-evidente	evident, obvious
-excelente	excellent
-exterior	exterior, outside 
 extranjero	foreign, alien 
 extremo	edge, border, end 
-falso	false
 femenino	feminine, female
 fijo	fixed, steady
 fino	fine, delicate
 fuerte	strong
-griego	Greek
 habitual	usual, habitual, customary
 hermoso	beautiful, lovely
 independiente	independent, self-sufficient
 infantil	of children, childlike, infantile
-inferior	lower, inferior
 inmenso	immense, vast, huge
 intelectual	intellectual
-inteligente	intelligent
 intenso	intense, acute
 lejano	distant
-listo	ready, clever, smart
 literario	literary
 loco	crazy, insane
-lógico	logical
-máximo	maximum 
 muchísimo	great many, great amount
-nervioso	nervous, uptight
 norteamericano	North American
 notable	outstanding, noteworthy
-numeroso	numerous
 objetivo	objective 
 obligado	obliged, required
 peligroso	dangerous
 pendiente	aware of, pending
 permanente	permanent
 pesado	heavy, boring, tiresome
-positivo	positive
 posterior	rear, backside
 práctico	practical, skillful
-preparado	prepared
 previo	previous
-quinto	fifth
 reciente	recent
 relacionado	related, regarding
 sano, saludable	healthy, wholesome
 seco	dry, arid
 seguido	in a row, successive
-seguro	safe, sure, secure 
 semejante	similar, such, alike
 sentado	seated
-técnico	technical 
-tranquilo	calm, tranquil, relaxed
 tremendo	tremendous, dreadful, huge
-útil	useful
 vecino	neighbor 
 violento	violent
-absolutamente	absolutely, completely
 acaso	by chance, maybe
 acerca	about, concerning
 aparte	apart, aside, separately
-
-
-
-
-claramente	clearly
 definitivamente	definitely, finally
-generalmente	generally, usually
 igualmente	equally
 justamente	just, exactly
-nuevamente	anew, again
 prácticamente	practically
-profundamente	profoundly, deeply
-rápidamente	rapidly, quickly
 únicamente, solamente	only
 verdaderamente	truly
 juez	judge
-periodista	journalist
-poeta	poet
 policía	police, police force, police officer
 representante	representative 
 alegría	joy, happiness
@@ -532,16 +404,10 @@ campaña	campaign
 capa	layer, coat
 característica	characteristic, aspect
 carga	load, charge, cargo
-categoría	category
 columna	column, spine
 compra	shopping, buy, purchase
-comunidad	community
-conclusión	conclusion, end
 conducta	conduct, behavior
-consideración	consideration, regard
 costa	coast
-creación	creation
-crisis	crisis
 crítica	criticism, critique
 culpa	blame, fault
 derecha	right, right hand
@@ -554,21 +420,13 @@ espalda	back
 estación	station, season
 estrella	star 
 estructura	structure
-excepción	exception
 fábrica	factory, manufacture
-facilidad	ease, facility
-facultad	faculty, ability
 fe	faith
-fotografía	photograph
 frecuencia	frequency
 frontera	border, frontier
 gana	desire
-hermana	sister
 iglesia	church
-ilusión	illusion, hope, dream
-influencia	influence
 inquietud	restlessness, anxiety
-institución	institution
 inteligencia	intelligence
 interpretación	interpretation, interpreting
 justicia	justice, fairness
@@ -582,95 +440,66 @@ misión	mission, task
 moda	fashion, form
 moneda	coins, currency
 montaña	mountain 
-niña	child, young girl
 norma	standard, pattern, norm
-novela	novel
-obligación	obligation
-oficina	office
 organización	organization
-página	page
-participación	participation, involvement
-partida	game, match, departure
 pasión	passion, desire
 pérdida	loss
-personalidad	personality, celebrity
 perspectiva	perspective
 pierna	leg
 pintura	painting, paint
 plata	silver, money
 plaza	square, marketplace
 prensa	press
-profesión	profession, occupation
 profundidad	depth, profundity
 punta	tip, point
 raíz	root
 rama	branch, bough, limb
 reacción	reaction
 referencia	reference, allusion
-región	region
-regla	rule, ruler, regulation
-religión	religion
-representación	representation
 resistencia	resistance, opposition
 riqueza	riches, wealth
-ropa	clothes, clothing
 rueda	wheel
-satisfacción	satisfaction
 señal	sign, mark, token
 sensación	sensation, feeling
-silla	chair, seat
 sombra	shade, shadow
 sorpresa	surprise
 suma	sum, amount, summary
 superficie	surface, area
 tarde	late 
-técnica	technique, skill
+técnica	technique
 tendencia	tendency, style
-unidad	unit, unity
-universidad	university, college
-velocidad	speed, velocity [also rapidez]
-venta	sale
+velocidad, rapidez	speed
 ventaja	advantage, benefit
-ventana	window
 violencia	violence
 virtud	virtue, quality
 hambre	hunger, starvation
 acceso	access, entry
 accidente	accident, irregularity
 acontecimiento	event, happening
-agosto	August
 alcance	reach, scope
 alimento	food, nourishment
-análisis	analysis
 ánimo	zest, spirit, heart
 aparato	apparatus, device
 argumento	argument, plot
 ataque	attack, raid
-avión	plane, airplane, aircraft
 barco	boat
 barrio	neighborhood, district
 beneficio	benefit, profit
 capítulo	chapter
-chico,muchacho	boy
-cine	cinema, US movie theater
+muchacho	boy
 círculo	circle, club
-coche	car, carriage
 colegio	high school, college
 comentario	remark, comment
 comienzo	start, beginning
 comportamiento	behavior, conduct
 compromiso	compromise, engagement
-conflicto	conflict
 consejo	advice, council, counsel
 contenido	contents, content
-criterio	criterion
 cuento	story, tale
 daño	harm, injury, damage
 dedo	finger, toe, digit
 defecto	defect
-departamento	department, apartment
 diálogo	dialogue, conversation
-diciembre	December
 discurso	lecture, discourse, talk
 dueño	owner, landlord 
 ejercicio	exercise, practice
@@ -678,7 +507,6 @@ ejército	army
 empleado	employee
 empleo	work, job, occupation
 enemigo	enemy
-enero	January
 equilibrio	balance
 espectáculo	spectacle, show
 exceso	excess
@@ -688,7 +516,6 @@ fracaso	failure, collapse
 fruto	fruit, result
 fuego	fire, gunfire
 gasto	expense, expenditure
-general	general 
 gesto	gesture
 habitante	inhabitant
 honor	honor, honesty
@@ -696,14 +523,9 @@ indio	Indian
 individuo	individual, person
 instante	instant, moment
 intento	attempt, try
-interior	interior, inside 
-invierno	winter
-kilómetro	kilometer
-maestro	master 
 marco	frame, mark, setting
 material	material 
 matrimonio	marriage, married couple
-mensaje	message
 método	method
 nacimiento	birth, origin
 organismo	organization, organism, human body
@@ -725,7 +547,6 @@ rey	king
 riesgo	risk
 ruido	noise
 salto	jump, hop, skip
-sector	sector, area, section
 signo	sign, mark, symbol
 sonido	sound
 sur	south
@@ -733,17 +554,12 @@ techo	ceiling, roof
 temor, miedo	fear
 territorio	territory
 en torno a torno 		about, regarding		
-total	sum, total 
 tratamiento	treatment, processing
 trato	treatment, manner, agreement
-tren	train, convoy
 vehículo	vehicle, car
 viento	wind, scent
 volumen	volume
-escritor	writer
-médico	medical 
 político	politician 
-secretario	secretary
 corte	court , cut 
 margen	edge, margin, border, brink
 aquél	that one over there 
@@ -755,7 +571,6 @@ alejar	to move away
 amar	to love
 añadir	to add
 analizar	to analyze
-animar	to cheer up
 apreciar	to appreciate
 aprobar	to pass a test, approve
 apuntar	to point, note, aim
@@ -767,29 +582,22 @@ atacar	to attack
 atraer	to attract
 atrever	to dare
 basar	to base on, base upon
-beber	to drink
 calcular	to calculate, figure out
 cantar	to sing
 casar	to marry
 causar	to cause, bring about
 ceder	to give way, yield
 celebrar	to celebrate
-citar	to cite, quote
 cobrar	to charge money
 cometer	to commit
-comparar	to compare
 componer	to compose, be part of
 conceder	to grant, concede
-concentrar	to concentrate
-concluir	to conclude, finish
 condenar	to convict, condemn
 confiar	to trust, confide
 confirmar	to confirm
 conformar	to conform
 confundir	to confuse
-consumir	to consume, take in
 contribuir	to contribute
-controlar	to control
 convencer	to convince, persuade
 declarar	to declare, testify
 descansar	to rest
@@ -798,7 +606,7 @@ destinar	to assign, appoint
 destruir	to destroy, ruin
 determinar	to determine, decide
 devolver, retornar	to give back, to return something
-disfrutar, gozar	to enjoy
+gozar	to enjoy
 dividir	to divide
 dudar	to have doubt
 ejercer	to practice, exercise
@@ -821,12 +629,9 @@ interrumpir	to interrupt
 inventar	to invent, make up
 justificar	to justify, excuse
 juzgar	to judge
-liberar	to free, liberate
-limitar	to limit
 llorar	to cry
 luchar	to fight, wrestle
 manifestar	to express, show
-marchar	to walk, to work like a machine
 mezclar	to mix
 molestar	to bother, disturb, upset
 nombrar	to name, appoint
@@ -868,17 +673,14 @@ acostumbrado	accustomed
 agradable	nice, pleasant
 aislado	isolated
 alejado	remote, distant, aloof
-amarillo	yellow
 ancho	wide 
 anciano	elderly, aged
 aplicado	applied
-argentino	Argentine
 armado	armed
 artístico	artistic
 avanzado	advanced
 caliente	hot, warm, spirited
 campesino	rural
-caro	expensive, difficult, dear
 casado	married
 castellano	Castilian, Spanish
 científico	scientific 
@@ -886,18 +688,12 @@ circular	to circulate, go around, flow
 ciudadano	citizen 
 clave	key 
 colectivo	collective, joint 
-cómodo	comfortable, convenient
 conforme	in agreement
-contento	happy, content
-continuo	continuous
-conveniente	convenient
-crítico	critical 
 cubierto	covered
 decidido	determined, resolute
 digno	worthy
 divino	divine
 efectivo, eficaz	effective
-elegante	elegant, smart, stylish
 elemental	elemental, basic
 elevado	elevated, high, lofty
 entendido	understood
@@ -910,45 +706,30 @@ excesivo	excessive
 fiel	faithful, loyal
 firme	firm, steady
 frecuente	frequent
-ideal	ideal, goal 
 incapaz	incapable
 increíble	incredible, unbelievable
-indispensable	indispensable, essential
-inevitable	inevitable, unavoidable
-inicial	initial 
 interesado	interested
 íntimo	close, intimate
 inútil	useless
-ligero	light in weight, slight
-limitado	limited
 magnífico	magnificent, splendid
 maravilloso	wonderful, marvelous
-mecánico	mechanical
-mental	mental
 múltiple	multiple, many
 mundial	worldwide
-musical	musical
-negativo	negative, pessimistic
 nocturno	nocturnal, evening
 no obstante obstante 		nevertheless		
-ocupado	busy, occupied
 oportuno	opportune, timely
 opuesto	opposite, contrary
-oriental	eastern, oriental
 poderoso	powerful
 precioso	beautiful, precious
 preocupado	worried, concerned
 primario	primary
 probable	probable
-radical	radical
 redondo	round 
 reducido	reduced, limited
-regular	regular 
 relativo	relative 
 respectivo	respective
 revolucionario	revolutionary
 rodeado	surrounded
-romano	Roman
 roto	broken, torn
 sabio	wise, learned
 sagrado	sacred
@@ -960,7 +741,6 @@ sólido	solid, strong
 suave	soft, gentle, mild
 suelto	loose
 sujeto	subject, individual 
-típico	typical
 trabajador, obrero	worker, laborer
 vacío	empty, vacant 
 vestido	dressed 
@@ -974,10 +754,7 @@ justo	fair, just
 a menudo 		often		
 naturalmente	naturally
 peor	worse, worst 
-personalmente	personally
-posiblemente	possibly
 suficientemente	enough 
-agente	agent
 amante	lover
 cliente	client, customer
 especialista	specialist
@@ -995,33 +772,21 @@ búsqueda	search
 caída	fall, drop, falling
 cárcel	jail, prison
 carretera	highway, road
-chica	girl, female
 cifra	figure, number, amount
 cinta	tape, ribbon, film, strip
 claridad	clearness, clarity
 cola	line, queue, tail
-colección	collection
-comparación	comparison
 competencia	competition, contest
 composición	composition, make-up, essay
-comprensión	understanding 
-concentración	concentration, gathering
-confusión	confusion
-continuación	continuation, follow-up
 corriente	current, common 
 cualidad	quality, attribute
 curiosidad	curiosity, quaintness
 declaración	declaration, statement
-definición	definition
 demanda	petition, request, demand
 desgracia	misfortune, bad luck
-dimensión	dimension, size
-división	division
-economía	economy, economics, thriftiness
 emoción	emotion, excitement
 enseñanza	teaching, instruction
 escala	scale, ladder, rank
-esencia	essence
 espera	wait
 esquina	corner
 evolución	evolution, development
@@ -1038,22 +803,16 @@ habilidad	ability, skill, talent
 habitación	room, bedroom, habitat
 humanidad	humanity, mankind
 identidad	identity
-imaginación	imagination, fantasy
 independencia	independence
-industria	industry, factory
 infancia	infancy, childhood
 iniciativa	initiative
-instrucción	instruction
 intervención	intervention
 llegada	arrival
 manifestación	protest, manifestation
-medicina	medicine
 mentira	lie
 mezcla	mixture, blend
 miseria	misery, wretchedness
-moral	morals, ethics 
 muestra	proof, sample, sign
-nación	nation
 novedad	latest news, newness
 nube	cloud
 observación	observation
@@ -1080,28 +839,21 @@ temporada	season, period, time
 tensión	tension, stress, strain
 tragedia	tragedy
 tranquilidad	tranquility, peace
-vacaciones	vacation
-versión	version, account
 víctima	victim, casualty
 victoria	victory, triumph
 vivienda	housing, dwelling
 vocación	vocation, calling
 área	area, zone 
-abuelo	grandfather
-actor	actor
 alrededor	surrounding area, vicinity 
 ámbito	sphere, space
 aumento	increase, rise
-automóvil	automobile
 avance, adelanto	advance, progress
-baño	bathroom, bath, swim
 borde	edge
 bosque	forest
 caballero	gentleman, knight
 cálculo	calculation, calculus
 canal	channel, canal
 canto	singing, chant
-carro	car, cart
 castigo	punishment, penalty
 cerebro	brain
 clima	climate
@@ -1109,7 +861,6 @@ comercio	commerce, trade
 continente	continent
 contrato	contract, agreement
 crecimiento	growth, increase
-crédito	credit, reputation
 crimen	crime, murder
 cuello	neck, collar
 desastre	disaster
@@ -1117,18 +868,14 @@ descanso	rest, interval, break
 descubrimiento	discovery
 dibujo	drawing, sketch
 diente	tooth, cog
-disco	disc, disk, record
-dólar	dollar
 dominio	power, control
 ensayo	essay, rehearsal
 entusiasmo	enthusiasm
 escenario	stage, setting, scene
 espejo	mirror, reflection
-exterior	exterior, outside 
 extremo	extreme 
 factor	factor, cause, influence
 familiar	relative 
-febrero	February
 funcionario	civil servant
 género	sort, gender, genre
 grito	cry, shout, scream
@@ -1147,17 +894,13 @@ lector	reader, lecturer
 llamado	call, calling
 local	place, quarters 
 lujo	luxury
-mal	evil 
 mecanismo	mechanism
 mérito	worth, merit
-militar	soldier, military person 
 monte	mountain 
 montón	lot of, heap, pile
-motor	engine, motor
 muchacho	boy
 mueble	piece of furniture
 muro	outer wall, rampart
-octubre	October
 oficio	job, occupation, function
 oído	hearing, ear
 olor	smell, odor, fragrance
@@ -1166,14 +909,11 @@ pago	payment
 paisaje	landscape
 pájaro,ave	bird
 palacio	palace
-parque	park
 patio	courtyard, playground, yard
 patrón	employer, landlord, patron saint, pattern
 pecho	chest, breast
 permiso	permission, permit
 y pico 		and a bit	
-plato	plate, dish
-poema	poem
 polvo	dust, powder
 prestigio	prestige
 primo	cousin
@@ -1183,13 +923,10 @@ progreso	progress
 reconocimiento	recognition, acknowledgment
 reflejo	reflection 
 regreso, retorno	return
-reloj	clock, watch
 revés, al revés 		backwards, upside down, inside out		
 sacerdote	priest
 sacrificio	sacrifice
-salón	hall, room
-secreto	secret 
-seno	breast, bosom, cavity
+seno	breast
 significado	meaning
 símbolo	symbol
 sueldo	salary, pay
@@ -1197,17 +934,13 @@ sujeto	fastened, subject to
 testigo	witness
 tío	uncle, guy
 tiro	throw, shot
-traje	suit, dress, costume
+traje	suit, dress
 transporte	transportation, transport
 triunfo	triumph, victory
 vacío	emptiness, void 
 valle	valley
 vecino	nearby, neighboring 
 vuelo	flight
-abogado	lawyer
-ingeniero	engineer
-ministro	government secretary, minister
-soldado	soldier
 aconsejar	to advise, counsel
 acostumbrar, soler	to be accustomed to
 acusar	to accuse
@@ -1236,16 +969,11 @@ chocar	to crash into, collide with
 coger	to hold, take, catch
 colaborar	to collaborate, work together
 combatir	to fight against
-completar	to complete
-complicar	to complicate, make difficult
 concebir	to conceive, understand
 confesar	to confess, admit
 constar	to consist of, comprise
-consultar	to consult
 corregir	to correct, rectify
 criar	to bring up, rear
-criticar	to criticize
-cultivar	to cultivate, produce
 deber	duty, obligation 
 denominar, llamar	to call, name
 depositar	to deposit, place, store
@@ -1259,8 +987,6 @@ dictar	to dictate, announce
 disminuir	to decrease, diminish
 distribuir	to distribute, deliver
 doblar	to bend, turn
-elaborar	to make, develop
-eliminar	to eliminate, exclude
 emitir	to emit, give off
 empeñar	to pawn, pledge, engage
 empujar	to push, shove
@@ -1292,8 +1018,7 @@ parecer	opinion, looks
 pasear	to go for a walk, ride
 pelear	to fight, struggle
 penetrar	to penetrate
-percibir	to notice [also notar]
-perdonar	to forgive, excuse
+percibir, notar	to notice
 precisar	to do exactly, specify
 prohibir	to prohibit, forbid
 prometer	to promise
@@ -1305,7 +1030,6 @@ reaccionar	to react
 reclamar	to demand, require
 recomendar	to recommend
 recurrir	to resort to
-regalar	to give as a gift
 registrar	to register, record [also inscribir]
 relacionar	to relate
 rendir	to yield, to produce
@@ -1333,7 +1057,6 @@ académico	academic
 agresivo	aggressive
 agudo	sharp, acute
 alegre	happy, lively, cheerful
-amable	kind, nice, friendly
 anónimo	anonymous
 apropiado	appropriate
 atractivo	attractive 
@@ -1357,16 +1080,12 @@ desierto	desert
 desnudo	nude, naked
 distante	distant, far, remote
 doloroso	painful
-dramático	dramatic
-ejemplar	copy, issue 
 encerrado	locked up
 envuelto	wrapped
 equivocado	mistaken, wrong
 específico	specific
 espontáneo	spontaneous
 estricto	strict, rigorous
-excepcional	exceptional, unusual
-exclusivo	exclusive
 extenso	extensive, large
 externo	external, outward
 favorable	favorable, suitable
@@ -1384,7 +1103,6 @@ industrial	industrial
 infinito	infinite 
 injusto	unfair, unjust
 judío	Jewish
-legal	legal
 masculino	masculine, manly, male
 mero	mere
 modesto	modest, humble
@@ -1402,7 +1120,6 @@ paralelo	parallel
 pintado	painted
 poquito	little bit
 previsto	foreseen, planned
-primitivo	primitive
 prohibido	prohibited
 querido	dear, beloved
 razonable	reasonable
@@ -1410,8 +1127,6 @@ remoto	remote, far-off
 repetido	repeated
 resuelto	resolved, determined
 rígido	rigid, stiff, firm
-romántico	romantic
-ruso	Russian
 salvaje	wild, savage, uncultivated
 secundario	secondary
 sensible	sensitive, sentient
@@ -1419,19 +1134,12 @@ solitario	solitary, lonely
 sorprendente	surprising, astonishing
 sucesivo	successive, following
 tonto	stupid, dumb
-uniforme	uniform 
-universitario	university 
-urbano	urban, city, urbane
-urgente	urgent
 válido	valid
 valioso	valuable, precious
 variado	varied, mixed
-visible	visible
-acá	here, around here
+acá	here
 actualmente	now, at present
-adentro  [also dentro]		inside		
-aproximadamente	approximately
-necesariamente	necessarily
+adentro, dentro		inside
 plenamente	fully
 posteriormente	afterwards
 principalmente	principally, mainly
@@ -1439,17 +1147,13 @@ repente: de + repente 		suddenly
 sencillamente	simply
 sumamente	extremely, highly
 últimamente	lately, recently
-ay	oh no! oh my!
 etcétera	etcetera
 colega	colleague
 comerciante	merchant, businessman
 guía	guide, leader
 líder	leader
 pariente	relative 
-abuela	grandmother
 actualidad	present time
-administración	administration
-admiración	admiration
 afirmación	statement, assertion
 ambición	ambition
 amenaza	threat
@@ -1461,15 +1165,8 @@ banda	musical band, sash
 bandera	flag
 botella	bottle, flask
 broma	joke
-calma	calm, lull
-camisa	shirt
 casualidad	chance, coincidence
 caza	hunting 
-ceremonia	ceremony
-cita	appointment, date, quotation
-civilización	civilization
-colaboración	collaboration
-colonia	colony, cologne
 combinación	combination
 comisión	commission, committee
 comodidad	comfort, convenience
@@ -1479,7 +1176,6 @@ conferencia	conference, lecture
 consulta	consultation, advice
 contradicción	contradiction
 convicción	conviction
-copia	copy
 creencia	belief
 criatura	creature, child
 cuerda	cord, rope
@@ -1493,13 +1189,11 @@ deuda	debt
 dignidad	dignity
 distribución	distribution
 doña	courtesy title , Mrs.
-droga	drug
 edición	edition, publication
 ejecución	performance, execution
 entrega	delivery
 escritura	writing, scripture
 estancia	stay, stance, ranch
-evidencia	evidence, certainty
 expectativa	expectation, hope, prospect
 explosión	explosion
 extensión	extension, area, expanse
@@ -1510,7 +1204,6 @@ gloria	glory, fame
 herencia	inheritance, legacy
 herida	wound, injury
 herramienta	tool
-hipótesis	hypothesis
 huella	trace, track, footstep
 inclinación	slope, incline, tendency
 instalación	installation, facilities
@@ -1527,7 +1220,6 @@ limpieza	cleanliness, purity
 llave	key, faucet, wrench
 locura	madness, insanity
 lógica	logic
-luna	moon
 madrugada	dawn, daybreak [also alba]
 mancha	stain, spot
 maravilla	wonder, marvel
@@ -1552,7 +1244,6 @@ pista	clue, track, trace
 pluma	pen, feather
 posesión	possession
 preparación	preparation, training
-primavera	spring, spring-like
 promesa	promise
 proporción	proportion
 propuesta	proposal, proposition
@@ -1577,7 +1268,6 @@ transformación	transformation
 tristeza	sadness
 tropa	troops, forces
 tumba	tomb, grave
-unión	union
 urgencia	urgency
 vaca	cow
 variedad	variety
@@ -1589,19 +1279,14 @@ aceite	oil
 afán	eagerness, zeal, effort
 afecto	affection, fondness
 almacén	warehouse, store
-ángel	angel
 ángulo	angle
 anuncio	advertisement, announcement
 apellido	last name
 arco	arch, arc, bow
 asiento	seat, chair
-auto	auto, car
-ave	bird [also pájaro]
+ave,pájaro	bird
 azar	random, chance, hazard
-baile	dance, ball
-bar	snack bar, café
 bienestar	wellbeing, welfare
-bloque	block
 bolsillo	pocket
 cadáver	corpse, body
 candidato	candidate
@@ -1609,12 +1294,9 @@ caos	chaos
 capitán	captain, chief
 cariño	love, affection
 centímetro	centimeter
-ciclo	cycle
 cierre	zipper, closing
-club	club, society
 código	code
 combate	combat, battle, fight
-concierto	concert, concerto
 consumo	consumption
 contraste	contrast
 creador	creator
@@ -1622,11 +1304,9 @@ cristal	glass, crystal, window
 cultivo	cultivation, crop
 debate	debate
 delito	crime, offense
-deporte	sport
 desorden	disorder, mess
 despacho	office, study
 diseño	design
-doble	double 
 duro	money 
 eco	echo, response
 episodio	episode, incident
@@ -1643,7 +1323,6 @@ hielo	ice
 homenaje	homage, tribute
 horario	schedule, timetable
 horizonte	horizon
-horror	horror, atrocity
 impacto	impact
 inconveniente	inconvenience, drawback
 intercambio	exchange, interchange
@@ -1652,15 +1331,10 @@ líquido	liquid
 mando	command, authority
 manejo	handling, management
 mapa	map
-marzo	March
 matiz	shade, tint, nuance
-máximo	maximum 
-metal	metal
 milagro	miracle
-mínimo	minimum 
 mito	myth
 muerto	dead person 
-noviembre	November
 núcleo	nucleus, core
 objetivo	objective, impartial 
 odio	hatred
@@ -1692,24 +1366,18 @@ síntoma	symptom
 socio	member, partner
 talento	talent, skill
 taller	workshop, shop
-templo	temple, church
-terror	terror, horror
 testimonio	testimony, evidence
 toro	bull
-tráfico	traffic, trade
 tratado	treaty, treatise
 turno, en turno a 		turn; shift		
 varón	male, man
 vaso	drinking glass, vase
 vestido	dress 
 vidrio	glass, pane
-viernes	Friday
 voto	vote
 pintor	painter
-vendedor	salesperson
 cura	priest , cure 
 doscientos	two hundred
-ochenta	eighty
 abarcar	to encompass, comprise
 abordar	to board, get in/on
 absorber	to absorb, soak up
@@ -1755,13 +1423,10 @@ equilibrar	to balance
 escoger	to choose
 especializar	to specialize, major in
 estallar	to break out, explode, start
-exhibir	to exhibit, show off
 expulsar	to expel, throw out
 extraer	to extract, take out
 favorecer	to favor, help
-formular	to formulate
 fracasar	to fail, to be unsuccessful
-fumar	to smoke
 garantizar	to guarantee
 generar	to generate
 gobernar	to govern
@@ -1772,7 +1437,6 @@ influir	to have influence
 inspirar	to inspire, inhale
 juntar	to put togerther, to get together [also reunir]
 llover	to rain
-multiplicar	to multiply
 optar	to choose, opt for
 orientar	guide, show the way
 otorgar	to give, grant, award
@@ -1783,7 +1447,6 @@ prolongar	to extend, prolong
 protestar	to protest, object
 quebrar	to break, bend, weaken
 reconstruir	to reconstruct
-renovar	to renew, renovate
 retener	to keep, retain
 secar	to dry
 situar	to situate, place, locate
@@ -1793,7 +1456,6 @@ tapar	to cover, wrap
 variar	to change, vary
 vigilar	to watch over, guard
 aburrido	boring, bored
-administrativo	administrative
 admirable	admirable
 adolescente	adolescent 
 aéreo	aerial, air
@@ -1802,7 +1464,6 @@ amargo	bitter, sour, painful
 aparente	apparent
 atento	attentive, careful, polite
 ausente	absent
-automático	automatic
 autónomo	autonomous
 bárbaro	savage, horrible
 blando	soft, limp, gentle
@@ -1818,7 +1479,6 @@ crudo	raw, crude, natural
 culto	cultured, educated 
 decisivo	decisive, conclusive
 deportivo	sports, sporty
-divertido	funny, amusing
 dorado	golden, gold-plated
 dormido	asleep, sleeping
 escolar	school, scholastic
@@ -1870,7 +1530,6 @@ noble	noble
 obvio	obvious
 peculiar	peculiar
 pensado	thought-out, designed
-plástico	plastic 
 prestado	borrowed, lent
 prolongado	prolonged, lengthy
 prudente	sensible, prudent
@@ -1879,9 +1538,6 @@ realista	realistic
 recto	right, straight, honest
 reservado	reserved, booked
 riguroso	rigorous, severe
-rural	rural, country
-sentimental	sentimental
-simpático	nice, likeable, friendly
 sincero	sincere
 singular	single, singular
 socialista	socialist
@@ -1889,7 +1545,6 @@ sonoro	loud, resounding
 sordo	deaf, dull
 supremo	supreme
 sutil	subtle
-telefónico	telephone
 teórico	theoretical
 tierno	tender, soft
 tímido	timid, shy, half-hearted
@@ -1906,12 +1561,9 @@ enfrente	in front of
 enseguida	immediately, at once
 estrictamente	strictly
 francamente	frankly, openly
-fundamentalmente	fundamentally, basically
 libremente	freely
-ligeramente	slightly, lightly
 particularmente	particularly, personally
 previamente, anteriormente	previously
-puramente	purely, simply
 recientemente	recently
 relativamente	relatively
 seguida, en seguida 		right away, at once		
@@ -1937,7 +1589,6 @@ bola	ball, sphere
 bondad	goodness, kindness
 bota	boot, wineskin
 campana	bell
-cartera	wallet, satchel
 cercanía	nearness, proximity
 certeza	certainty
 charla	talk, chat
@@ -1961,7 +1612,6 @@ descripción	description
 desesperación	desperation, exasperation
 determinación	determination
 dictadura	dictatorship
-distinción	distinction
 docena	dozen
 doctrina	doctrine, teachings
 dosis	dose
@@ -2007,14 +1657,12 @@ oración	prayer
 orientación	orientation, direction
 palma	palm tree, palm
 pausa	pause
-perfección	perfection
 precaución	caution, forethought
 preferencia	preference
 prenda	piece of clothing
 presa	dam, prisoner 
 pretensión	pretension, claim
 prisión	prison, imprisonment
-promoción	promotion
 propaganda	advertising, propaganda
 publicación	publication
 publicidad	advertising, publicity
@@ -2026,7 +1674,6 @@ reforma	reform, improvement
 residencia	residence
 resolución	resolution
 sabiduría	wisdom, knowledge
-selección	selection, choice
 semilla	seed
 señorita	young woman
 sentencia	legal sentence, judgment
@@ -2046,7 +1693,6 @@ variación	variation
 vigilancia	surveillance, vigilance
 habla	speech, talking
 abandono	abandonment, desertion
-abrigo	overcoat, shelter
 abuso	abuse, misuse
 acento	accent, stress
 adiós	goodbye
@@ -2101,7 +1747,6 @@ filósofo	philosopher
 foco	focus
 fresco	freshness, coolness 
 fundamento	foundation, ground
-fútbol	soccer
 genio	genius, temper, genie
 grano	grain, kernel
 humo	smoke
@@ -2110,19 +1755,15 @@ incendio	fire, conflagration
 inicio	beginning, start
 instinto	instinct
 invitado	guest
-jueves	Thursday
 juguete	toy
-kilo	kilogram
 labio	lip
 lago	lake
 lazo	bow, knot, tie, lasso
 león	lion
 mediodía	noon, midday
 monumento	monument
-museo	museum
 nervio	nerve
 nieto	grandchild
-novio	boyfriend, groom
 obstáculo	obstacle
 olvido	forgetfulness, omission
 pacto	pact, agreement
@@ -2131,9 +1772,6 @@ paraíso	paradise
 pasillo	hall, corridor
 pecado	sin
 pedazo	piece, bit
-pescado	fish 
-piano	piano
-plástico	plastic 
 porvenir	future, time to come
 pozo	well, shaft
 prejuicio	prejudice
@@ -2146,15 +1784,12 @@ requisito	prerequisite, requirement
 respaldo	support, backing, back
 resumen	summary
 robo	theft, robbery
-rumor	rumor, murmur
 saco	sack, bag, plunder
 saludo	greeting
 sello	stamp, seal
-septiembre	September
 sombrero	hat, sombrero
 suceso	event, incident
 sufrimiento	suffering
-tabaco	tobacco, cigarette, cigar
 tejido	fabric, tissue
 tesoro	treasure, thesaurus
 tránsito	traffic, transit
@@ -2171,20 +1806,14 @@ arquitecto	architect
 científico	scientist 
 corredor	broker, corridor, runner
 investigador	researcher, investigator
-músico	musician
 obrero	working class 
 técnico	technician 
 postre; a la postre 		dessert; in the end
-dieciocho	eighteen
-dieciséis	sixteen
-veinticuatro	twenty-four
-tuyo	yours 
 abrazar	to hug, embrace
 abundar	to be plentiful
 acentuar	to accent, stress
 acoger	to welcome, accept
 adivinar	to guess, solve
-administrar	to administer, manage
 afrontar	to face, confront
 ahogar	to drown, choke, flood
 ahorrar	to save 
@@ -2192,7 +1821,6 @@ alargar	to enlarge, elongate
 alegrar	to be/make happy
 alzar	to lift, raise
 anotar	to annotate, jot, note
-anular	to annul, cancel
 armar	to arm, put together
 asimilar	to assimilate
 asustar	to frighten, scare
@@ -2258,14 +1886,12 @@ relatar	to tell, narrate
 remontar	to go back to time
 reparar	to repair, to mend, to fix
 rescatar	to rescue, save
-reservar	to reserve, book
 residir	to reside, live in
 restar	to subtract, minimize
 retroceder	to go back
 rezar	to pray, recite
 sacrificar	to sacrifice
 sacudir	to shake, jolt
-seleccionar	to select
 sembrar	to sow, plant
 sobrar	to be too much, left over
 sonreír	to smile
@@ -2280,7 +1906,6 @@ triunfar	to triumph
 tropezar	to trip, stumble
 valorar	to value
 violar	to violate, trespass, rape
-aceptable	acceptable, suitable
 altísimo	very high, tall
 ambicioso	ambitious, greedy
 amoroso	loving, affectionate
@@ -2292,9 +1917,7 @@ brusco	brusque, abrupt, sudden
 callado	quiet, reserved
 casero	homemade
 célebre	famous, renowned
-chileno	Chilean
 colgado	hanging
-colonial	colonial
 cómico	comic
 contemporáneo	contemporary
 contradictorio	contradictory
@@ -2327,11 +1950,9 @@ genial	brilliant, inspired
 geográfico	geographical
 gracioso	funny, charming, amusing
 grato	agreeable, pleasant
-gratuito	free, arbitrary, gratuitous
 heroico	heroic
 honesto	honest
 ignorante	ignorant
-iluminado	illuminated
 ilustrado	learned, illustrated
 indirecto	indirect
 innecesario	unnecessary
@@ -2341,30 +1962,23 @@ insuficiente	insufficient
 intacto	intact
 intermedio	interim, intermediate 
 interminable	endless, interminable
-irregular	irregular
 laboral	labor, industry 
 lamentable	regrettable
-materno	maternal
 mediano	average, medium, ordinary
 miserable	wretched, miserable
 molesto	annoyed, bothered, upset
 mortal	mortal, lethal, deadly 
 mudo	mute, silent
-nativo	native
 notorio	notorious, noticeable
-obligatorio	obligatory, compulsory
-optimista	optimistic
 pacífico	peaceful
 pálido	pale, ghastly, faded
 pasajero	passenger 
-poético	poetic
 policial	police 
 potente	potent, powerful
 preferible	preferable
 preso	prisoner 
 procedente, proveniente	coming from
 psicológico	psychological
-puntual	punctual
 quemado	burned, burnt
 quieto	still, motionless, calm
 referente	concerning
@@ -2373,7 +1987,6 @@ repentino	sudden [also súbito]
 restante	remaining
 ridículo	ridiculous, absurd 
 rotundo	categorical
-rubio	blonde, fair
 satisfactorio	satisfactory
 sexto	sixth
 silencioso	quiet, silent
@@ -2394,8 +2007,6 @@ vegetal	plant, vegetable
 verbal	verbal, oral
 vertical	vertical, upright
 vinculado	connected
-vuestro	your 
-anoche	last night
 automáticamente	automatically
 concretamente	specifically, exactly
 curiosamente	strangely, funnily enough
@@ -2403,7 +2014,6 @@ desgraciadamente	unfortunately
 difícilmente	with difficulty
 habitualmente	habitually
 indudablemente	doubtless, undoubtedly
-lógicamente	logically
 ojalá	I hope that
 permanentemente	permanently
 propiamente	exactly, properly
@@ -2416,9 +2026,7 @@ cantante	singer
 civil	civilian 
 descendiente	descendant
 dirigente	leader, director, manager
-turista	tourist 
 abundancia	abundance
-adolescencia	adolescence
 advertencia	warning, notice
 afición	fondness, interest
 agresión	aggression, attack
@@ -2436,7 +2044,6 @@ carencia	lack, shortage [also falta]
 catástrofe	catastrophe
 celebración	celebration
 célula	cell 
-cerveza	beer, ale
 cintura	waist
 clave	key 
 comedia	comedy, play, pretense
@@ -2448,13 +2055,10 @@ constancia	perseverance
 continuidad	continuity
 conveniencia	convenience, usefulness
 corbata	tie, sash
-corrupción	corruption
 decadencia	decline, decay
 depresión	depression, slump
 desconfianza	distrust
 diversión	fun, entertainment
-duración	duration, length
-emergencia	emergency
 envidia	envy
 escasez	scarcity, shortage
 espada	sword
@@ -2462,7 +2066,6 @@ estabilidad	stability
 estadística	statistic
 estatua	statue
 excelencia	excellence
-falda	skirt
 feria	fair, festival
 fibra	fiber, grain
 ficción	fiction
@@ -2479,7 +2082,6 @@ ideología	ideology
 ignorancia	ignorance
 indiferencia	indifference
 inspiración	inspiration, inhalation
-introducción	introduction
 jerarquía	hierarchy, rank
 junta	meeting, conference, seam
 justificación	justification
@@ -2492,15 +2094,8 @@ manga	sleeve
 máscara	mask
 matemática	mathematics
 mejora	improvement
-mención	mention
 mentalidad	mindset, mind
-mina	mine 
 molestia	bother, nuisance, trouble
-motivación	motivation
-muñeca	doll, wrist
-negativa	negative, denial
-nostalgia	nostalgia, homesickness
-obsesión	mania, obsession
 orquesta	orchestra, dance band
 paja	straw, thatching
 pauta	guideline, rule, standard
@@ -2522,11 +2117,9 @@ proyección	projection, screening
 pureza	purity, chastity
 rata	rat
 raya	line, ray, stripe
-recepción	reception, waiting-room
 receta	recipe, prescription
 recuperación	recovery, recuperation
 renta	income, rent 
-repetición	repetition
 república	republic
 respiración	respiration, breath
 rutina	routine
@@ -2540,13 +2133,11 @@ taza	cup, bowl
 timidez	shyness, timidity
 tinta	ink
 tontería	stupidity, stupid thing [also estupidez]
-traducción	translation
 traición	treason, betrayal
 transición	transition
 trascendencia	transcendent nature, significance
 trayectoria	trajectory, path
-uña	nail, fingernail, toenail
-utilización	use, utilization
+uña	nail
 venganza	revenge, vengeance
 de veras vera 		really, for real
 acero	steel
@@ -2560,16 +2151,13 @@ amanecer	daybreak, dawn
 anillo	ring
 aplauso	applause, praise, acclaim
 archivo	archive, file, filing cabinet
-arroz	rice
 ascenso	promotion, climb
 asesinato	murder, assassination
 asesino	killer, assassin
 atractivo	attraction, charm 
 auxilio	help, aid, assistance
 balance	outcome, balance
-balcón	balcony
 bando	faction, side
-bebé	baby
 beso	kiss
 billete	ticket, bill, note
 brillo	shine, twinkling, sparkle
@@ -2597,7 +2185,6 @@ demonio	demon, devil
 desayuno	breakfast
 domicilio	residence, address
 dormitorio	bedroom, dormitory
-dulce	candy, sweets 
 empeño	insistence, determination
 encanto	charm, spell
 enfrentamiento	confrontation
@@ -2617,27 +2204,21 @@ indicio	indication, sign
 infierno	hell, inferno
 ingenio	ingenuity, talent, wit
 invento	invention
-jugador	player, gambler
 ladrillo	brick
 lápiz	pencil
-latín	Latin 
 logro	success, achievement
 macho	male, manliness
 maíz	corn, maize
 malestar	discomfort, unease, unrest
 mandato	mandate, order, command
 manifiesto poner de manifiesto 		to show	
-martes	Tuesday
-miércoles	Wednesday
 ministerio	ministry
 mono	monkey
 monstruo	monster, monstrosity
-músculo	muscle
 nido	nest
 nudo	knot
 obispo	bishop
 observador	observer
-otoño	autumn
 pánico	panic
 párrafo	paragraph
 patrimonio	patrimony, inheritance
@@ -2650,7 +2231,6 @@ portador	bearer, carrier
 prisionero	prisoner
 pulmón	lung
 quehacer	task, job, chore
-queso	cheese
 rango	rank, range
 rastro	track, sign, flea market
 razonamiento	reasoning
@@ -2664,7 +2244,6 @@ salario	salary, wages
 seguro	insurance 
 suicidio	suicide
 susto	fright, scare
-taxi	taxi, cab
 televisor	television set
 timbre	doorbell, bell, seal, stamp
 toque	touch, ringing, warning
@@ -2686,8 +2265,6 @@ noventa	ninety
 quinientos	five hundred
 trescientos	three hundred
 excepto	except for
-contigo	with you
-vos	you  [also tú]
 acelerar	to accelerate, speed up
 acertar	to get right
 acostar	to put/go to bed
@@ -2781,7 +2358,6 @@ velar	to watch over
 volcar	to turn/knock over, empty
 votar	to vote
 abstracto	abstract
-africano	African
 agrícola	agricultural, farming
 ambiguo	ambiguous
 anual	annual, yearly
@@ -2800,8 +2376,6 @@ comparable	comparable
 complementario	additional, complementary
 consagrado	dedicated, consecrated
 costoso	costly, expensive
-creativo	creative
-cubano	Cuban
 denso	heavy, dense, thick
 desaparecido	missing
 desigual	uneven, unequal
@@ -2813,7 +2387,6 @@ educativo	educational
 eficiente	efficient
 egoísta	selfish
 embarazada	pregnant
-emocional	emotional
 encantador	charming
 espeso	thick, dense, stiff
 estático	static, motionless
@@ -2827,7 +2400,6 @@ flaco	thin, frail
 franco	open, frank, outspoken
 funcional	functional
 furioso	furious
-global	global, overall
 glorioso	glorious
 horizontal	horizontal
 hostil	hostile, unfriendly
@@ -2851,16 +2423,12 @@ marginal	marginal, minor
 masivo	mass, massive
 matemático	mathematical
 mensual	monthly
-mexicano	Mexican
-oral	oral
 orgánico	organic
 parcial	partial, biased
 pardo	brown, dark, dim
 penoso	painful, laborious
 pésimo	dreadful, awful
 poblado	populated
-portugués	Portuguese
-preferido	preferred, favorite
 privilegiado	privileged
 progresivo	progressive
 propicio	appropriate, suitable
@@ -2870,7 +2438,6 @@ representativo	representative
 respetuoso	respectful
 saludable	healthy, wholesome [also sano]
 sangriento	bloody
-sistemático	systematic
 solar	solar
 sospechoso	suspicious
 subterráneo	underground
@@ -2881,7 +2448,6 @@ tendido	spread, hung, laid out
 tibio	lukewarm
 torpe	clumsy, awkward, slow
 tropical	tropical
-turco	Turkish
 vasco	Basque
 vigente	in force, valid
 virgen	virgin 
@@ -2889,20 +2455,15 @@ adónde	to where?
 antaño	in days gone by, last year
 antemano	beforehand, in advance
 asimismo	as well, also, moreover
-básicamente	basically
 diariamente	daily 
 enormemente	enormously
 enteramente	completely, entirely
-excesivamente	excessively
 extraordinariamente	extraordinarily
-físicamente	physically
-frecuentemente	frequently, often
 fuertemente	strongly
 inclusive	including, even
 inevitablemente	inevitably
 intensamente	intensely
 lamentablemente	regrettably
-literalmente	literally
 obviamente	obviously
 simultáneamente	simultaneously
 sinceramente	sincerely
@@ -2910,14 +2471,10 @@ suavemente	softly
 cuidadosamente	carefully
 compatriota	fellow countryman
 rival	rival
-acumulación	accumulation
 acusación	accusation, charge
-adaptación	adaptation
 adquisición	acquisition
-agricultura	agriculture, farming
 aguja	needle, spire, stylus
 alianza	alliance
-alteración	alteration, change
 alusión	allusion, hint
 amplitud	breadth, extent, range
 antigüedad	antiquity, seniority
@@ -2932,7 +2489,6 @@ caridad	charity
 casita	cottage
 ceniza	ash
 censura	censorship, criticism
-central	headquarters 
 chispa	spark
 clínica	clinic
 comunión	communion
@@ -2975,11 +2531,9 @@ goma	rubber
 hacienda	ranch
 harina	flour
 hazaña	deed, heroic feat
-iluminación	illumination, lighting
 incapacidad	inability, incompetence
 inocencia	innocence
 inscripción	inscription, registration
-inseguridad	insecurity
 insistencia	insistence, persistence
 interrupción	interruption
 intuición	intuition
@@ -2991,20 +2545,16 @@ lealtad	loyalty, faithfulness
 lentitud	slowness
 llama	flame, llama
 localidad	town, locality
-maestra	teacher 
 maquinaria	machinery
 mariposa	butterfly, wing nut
 mecánica	mechanics, mechanism
 medalla	medal, medallion
-modificación	modification, alteration
 monja	nun
 muralla	city wall
 naturalidad	ease, spontaneity
-ópera	opera
 oveja	sheep, ewe
 paloma	dove
 parada	transportation stop
-pasta	pasta, dough
 pertenencia	membership, property
 peseta	peseta 
 peste	plague, pestilence, pest
@@ -3016,8 +2566,6 @@ proposición	proposition
 prudencia	prudence, moderation
 rebeldía	rebelliousness, defiance
 redacción	editing, wording, essay
-reducción	reduction
-renovación	renewal, renovation
 renuncia	resignation, renunciation
 réplica	answer, retort, copy
 represión	repression
@@ -3033,7 +2581,6 @@ semejanza	similarity, likeness
 seña	sign, mark, seal
 serenidad	serenity, calm
 solicitud	request, application
-sopa	soup
 sugerencia	suggestion
 supervivencia	survival
 ternura	tenderness
@@ -3064,7 +2611,6 @@ aniversario	anniversary
 antepasado	ancestor
 aporte	contribution 
 apunte	note, annotation
-aroma	aroma
 asalto	assault, robbery
 ascensor	elevator
 asombro	amazement, astonishment
@@ -3084,7 +2630,6 @@ colmo; para colmo 		climax; to top it all
 comandante	commander, commanding officer
 coronel	colonel
 correo	mail, post office
-cumpleaños	birthday
 decreto	decree, order
 descenso	decline, descent, lowering
 desfile	parade, line, formation
@@ -3114,12 +2659,8 @@ gallo	rooster
 gobernador	governor
 heredero	heir, heiress
 himno	hymn, anthem
-humano	human 
-insecto	insect
-instituto	institute
 insulto	insult
 interlocutor	participant in a dialog
-jugo	juice
 lecho	bed
 lema	motto, slogan
 lobo	wolf
@@ -3127,15 +2668,11 @@ mantenimiento	maintenance, sustenance
 manto	cloak
 mate	mate 
 molde	mold, cast, pattern
-océano	ocean
 oeste	West
-optimismo	optimism
-original	original 
 pañuelo	handkerchief, shawl
 parentesco	kinship
 parto	birth
 pasto	grass, pasture
-perfume	perfume
 perjuicio	damage, loss
 planteamiento	proposal, exposition
 polo	pole, polo, polo shirt
@@ -3154,7 +2691,6 @@ reposo	rest, peace
 residuo	residue, waste
 retraso	delay
 ridículo	ridicule 
-ritual	ritual, rite
 sillón	armchair, seat
 sindicato	trade union
 sobrino	nephew
@@ -3162,11 +2698,8 @@ temblor	tremor, shudder, shiver
 teniente	lieutenant, deputy mayor
 tercio	third 
 titular	headline, holder 
-tomate	tomato
 trigo	wheat
 umbral	threshold, outset
-uniforme	uniform 
-vocabulario	vocabulary
 administrador	administrator, manager
 embajador	ambassador
 físico	physicist 
@@ -3189,9 +2722,7 @@ arrepentir	to repent, regret
 asaltar	to assault
 asombrar	to amaze, astound
 atrapar	to trap, catch
-besar	to kiss
 charlar	to chat, talk
-clasificar	to classify, sort, file
 complacer	to please, satisfy
 complementar	to complement, supplement
 conmover	to move, affect
@@ -3214,7 +2745,6 @@ destrozar	to rip/break into pieces
 disipar	to dispel, dissipate
 dotar	to endow, bestow
 embarcar	to embark, load
-emigrar	to emigrate
 encarar	to front, confront
 encarnar	to embody
 enfocar	to focus
@@ -3226,26 +2756,22 @@ estrechar	to tighten, make closer
 estrenar	to use for the first time, debut
 explorar	to explore
 extinguir	to extinguish, put out
-felicitar	to congratulate
 filtrar	to seep, filter
 florecer	to flower, bloom, flourish
 fomentar	to foster, promote, encourage
 fundir	to melt, cast, smelt
 honrar	to honor
-ilustrar	to illustrate
 incitar	to incite
 incrementar	to increase [also aumentar]
 inscribir	to register, record [also registrar]
 intercambiar	to exchange
 interrogar	to question, interrogate
 madurar	to mature, ripen
-meditar	to meditate, ponder
 mojar	to make wet, dampen
 morder	to bite
 movilizar	to mobilize
 mudar	to move, change
 narrar	to narrate, tell
-negociar	to negotiate, deal with
 ofender	to offend
 oscilar	oscillate
 paralizar	to paralyze
@@ -3259,7 +2785,6 @@ propiciar	to favor, foster, aid
 radicar	to lie, be situated
 ratificar	to ratify
 reanudar	to renew, resume
-recitar	to recite
 recobrar	to recover, regain
 recortar	to trim, cut off, clip
 refugiar	to take shelter, give refuge
@@ -3270,18 +2795,14 @@ resaltar	to emphasize
 retornar	to return, give back [also devolver]
 revivir	to revive
 revolver	to stir, to make upset, to rummage through
-sentir	feeling 
-simular	to pretend, simulate
 sobrepasar	excel, out perform
 sobresalir	to stand out, excel
 subsistir	to subsist, survive
 traicionar	to betray
-tranquilizar	to calm down
 traspasar	to go beyond, cross over
 vaciar	to empty, pour out
 verificar	to verify
 acertado	correct, accurate
-adicional	additional
 ágil	agile
 agitado	agitated, irritated
 agrario	agrarian, agricultural
@@ -3297,12 +2818,10 @@ atrasado	behind, slow
 audaz	audacious, bold
 brasileño	Brazilian
 cariñoso	affectionate
-catalán	Catalan
 celeste	heavenly, sky-blue
 celoso	jealous
 clandestino	undercover, clandestine
 coherente	coherent, connected
-compacto	compact, dense
 comprensible	understandable
 comunitario	of the community
 condicionado	conditioned
@@ -3325,28 +2844,20 @@ enterado	aware of
 enterrado	buried
 entusiasmado	enthused, excited
 equivalente	equivalent 
-erótico	erotic
 espacial	spatial, space
 estatal	state, government-owned
 estéril	sterile, barren
 estratégico	strategic
 ético	ethical
-experimental	experimental
-explícito	explicit
 expresivo	expressive
 expreso	express, explicit
-fiscal	fiscal, treasury 
-fotográfico	photographic
-genético	genetic
 gigante	gigantic 
 gráfico	graphic, explicit
 grandioso	magnificent, grandiose
 grosero	crude, rude, crass
-guapo	handsome, beautiful
 holandés	Dutch
 honrado	honest, respectable
 hundido	buried, sunken
-imperial	imperial, imperialist
 imprevisto	unforeseen, unexpected
 incipiente	incipient, beginning
 incomprensible	incomprehensible
@@ -3369,10 +2880,8 @@ liviano	light, frivolous
 llamativo	striking
 maldito	damned, wretched
 matrimonial	matrimonial
-medieval	medieval
 mediocre	mediocre
 minucioso	meticulous, thorough
-mixto	mixed, co-ed
 mojado	wet
 monótono	monotonous
 necesitado	poor, needy
@@ -3416,33 +2925,25 @@ susceptible	susceptible
 tenue	tenuous, flimsy
 transitorio	transitory
 veloz	fast, quick
-visual	visual
 adonde	to where
 altamente	highly
 ampliamente	widely
 bruscamente	quickly, sharply
-correctamente	correctly
 decididamente	decidedly, decisively
 específicamente	specifically
 extremadamente	extremely
 independientemente	independently
 íntimamente	intimately
 mutuamente	mutually, each other
-radicalmente	radically
 supuestamente	supposedly, allegedly
-violentamente	violently
 agradecido	grateful, thankful
 retirado	retired, remote, secluded
-adolescente	adolescent 
 cómplice	accomplice
-criminal	criminal 
 delincuente	delinquent
 gobernante	ruler, leader
 interrogante	question, interrogator
 noble	nobleman, noble 
-novelista	novelist
 rebelde	rebel, insurgent 
-academia	academy
 afueras	outskirts, suburbs
 agitación	agitation, excitement
 alerta	alert
@@ -3450,7 +2951,6 @@ amargura	bitterness, sorrow
 apreciación	appreciation, assessment
 aproximación	approximation
 apuesta	wager, bet
-autorización	authorization
 bandeja	tray
 barbaridad	atrocity
 biografía	biography
@@ -3458,19 +2958,14 @@ bruja	witch, hag
 burla	mockery, joke, trick
 cadera	hip
 calificación	evaluation, qualification
-camiseta	T-shirt
 cancha	playing field, court
 carcajada	hearty laughter, guffaw
 cátedra	academic chair
-catedral	cathedral
 ceja	eyebrow, brow
-chaqueta	jacket
 chimenea	chimney, fireplace
 cima	summit, peak, top
-clasificación	classification
 colina	hill, slope
 compensación	compensation
-computadora	computer
 consigna	watchword, motto, slogan
 constitución	constitution
 contienda	contest, dispute
@@ -3484,7 +2979,6 @@ dinámica	dynamics
 elegancia	elegance, style
 embajada	embassy
 encuesta	poll, survey, inquiry
-era	era, age
 escultura	sculpture, carving
 estatura	stature, height
 estupidez, tontería	stupidity, stupid thing
@@ -3504,19 +2998,13 @@ furia	fury, rage
 gala	gala 
 ganancia	gain, profit
 grabación	recording
-humillación	humiliation
 ida	departure, first half of a trip
 ilustración	illustration
-imitación	imitation
 imposibilidad	impossibility
 imposición	imposition
 imprenta	printing house
 incorporación	inclusion, incorporation
-indicación	indication
 indignación	indignation
-infinidad	infinity, countless
-innovación	innovation
-integración	integration
 integridad	integrity
 jaula	cage, crate, playpen
 leña	firewood
@@ -3525,11 +3013,9 @@ longitud	length, longitude
 maleta	suitcase, case
 manta	blanket
 marea	wave, tide, ebb
-melodía	melody
 merced	favor, mercy
 mierda	shit, crap, excrement
 minoría	minority
-nacionalidad	nationality
 narración	narration, account
 niebla	fog
 niñez	childhood, infancy
@@ -3544,7 +3030,6 @@ piedad	pity, mercy
 plancha	electric iron, plate, sheet
 presidencia	presidency
 princesa	princess
-probabilidad	probability
 procesión	procession
 prohibición	prohibition
 psicología	psychology
@@ -3556,7 +3041,6 @@ sede	headquarters, seat
 sencillez	simplicity
 sequía	drought
 serpiente	snake
-siesta	siesta, afternoon nap
 sinceridad	sincerity
 superioridad	superiority
 talla	size , stature
@@ -3570,7 +3054,6 @@ validez	validity
 vanguardia	vanguard, forefront
 vejez	old age
 verdura	vegetables, greenery
-violación	violation, rape
 virgen	virgin 
 abanico	range, handheld fan
 aburrimiento	boredom
@@ -3585,7 +3068,6 @@ alivio	relief, unburdening
 altar	altar
 amparo	protection, shelter
 anhelo	longing, yearning
-apetito	appetite
 arranque	start, outburst, kick-start
 arroyo	brook, stream, gutter
 asco	disgust
@@ -3593,8 +3075,7 @@ atardecer	evening, dusk
 atributo	attribute, quality
 bastón	walking cane
 bigote	mustache
-a bordo 		on board		
-catálogo	catalog
+a bordo 		on board
 caudal	volume, abundance, fortune
 chorro	stream, jet, spurt
 clavo	nail, tack, peg
@@ -3613,7 +3094,6 @@ corral	corral, yard
 cuerno	horn, antler
 desacuerdo	disagreement
 deterioro	deterioration, damage
-diccionario	dictionary
 disparate	nonsense, blunder
 egoísmo	selfishness
 elogio	praise, eulogy, compliment
@@ -3633,10 +3113,8 @@ jovencito	young person
 laberinto	maze, labyrinth
 lapso	lapse
 lío	mess, problem, bad situation
-litro	liter
 llanto	crying, weeping
 mango	handle, mango
-manual	manual 
 mármol	marble
 mozo	waiter, youth, bellboy
 ocio	leisure time
@@ -3649,7 +3127,6 @@ ramo	bunch of flowers, branch
 reclamo	claim, complaint, protest
 rencor	grudge, spite
 repertorio	repertoire, list, index
-reportaje	news report
 resentimiento	resentment
 riñón	kidney
 rollo	roll, coil
@@ -3671,21 +3148,17 @@ trapo	rag, cloth
 trastorno	confusion, trouble, upheaval
 triángulo	triangle
 truco	trick, ruse
-turismo	tourism
 veneno	poison, venom
-verbo	verb
 volante	steering wheel
 asesor	adviser, consultant
 cocinero	cook
 consejero	advisor, counselor
-fotógrafo	photographer
 piloto	pilot, driver
 portero	porter, doorkeeper, goalkeeper
 senador	senator
 servidor	servant
 trabajador	hardworking 
 lente	lens, [pl] glasses
-vosotros	you 
 aburrir	to bore, tire
 acariciar	to stroke, fondle, caress
 adornar	to adorn, to decorate
@@ -3693,8 +3166,7 @@ aferrar	to grasp, clutch
 agravar	to aggravate, worsen
 agrupar	to put in a group
 aparentar	to give the appearance
-apresurar  [also apurar]		to hurry up		
-apurarse  [also apresurarse]		to hurry 		
+apurarse, apresurarse		to hurry
 argumentar	to argue, deduce
 arrasar	to raze, ravage
 articular	to articulate
@@ -3779,134 +3251,73 @@ trepar	to climb
 vacilar	to vacillate, hesitate
 vibrar	to vibrate, tremble
 vincular	to connect, link, bind
-abierto	open, unlocked
-alto	tall, high
-ambos	both
 anterior	previous, preceding
 antiguo	old, ancient, former
-aquel	that 
 bajo	under, underneath 
-blanco	white
-bueno	good 
 cada	each, every
 capaz	capable, able
 cierto	certain, sure, true
-claro	clear 
-completo	complete
-común	common
 contrario	contrary, opposite
-en cuanto a cuanto 		in terms of, regarding		
+en cuanto a cuanto 		in terms of, regarding
 cuyo	whose
 demás	the rest, others
 demasiado	too much, too many
 derecho	right, justice, law 
-diferente	different, separate
-difícil	difficult, hard
 distinto	distinct, different
-económico	economic
 enorme	enormous, vast
-ese, esa 		that		
-español	Spanish
-especial	special
-este, esta 		this 		
-al final final 		finally, in the end		
-general	general 
-grande	large, great, big
-humano	human 
-igual	equal, same as
-importante	important
-joven	young 
-junto	together with, next to 
-largo	long 
-libre	free, vacant
+ese, esa 		that
+este, esta 		this
+al final final 		finally, in the end	
 malo	bad
 mayor	larger, older, main
 medio	means, middle 
 mejor	best, better 
 menor	younger, youngest
 menos	less, fewer
-mi	my
-mismo	same
-natural	natural
-necesario	necessary
-negro	black
-nuestro	our
-nuevo	new
-otro	other, another
 pasado	past, last 
-pequeño	little, small, young
 pobre	poor
-poco	little, few, a little bit 
-político	political 
-posible	possible
-primero	first
-principal	main, principal
 profundo	deep, profound
 propio	own, proper, typical
-próximo	next
-público	public 
 real	royal, real, authentic
-segundo	second 
 siguiente	following, next
-social	social
 solo	lonely, alone 
-su	his/her/their/your 
 tal	such a
 tanto	so much, so many
 tercero	third
-todo	all, every
-tu	your 
 último	last, final
-único	only, unique, sole
 varios	several, various
 verdadero	true, real
-viejo	old, aged
 vivo	alive, bright
 bastante	rather, fairly, quite a bit
-mucho	much, many, a lot
 alguno	some, someone
 cualquier	any, anyone
 ninguno	no, none, nobody
 además	also, as well, besides
-ahí  [also allí]		there		
-ahora	now
+ahí, allí		there
 allá	there, over there
-allí	there [also ahí]
 antes	before
-aquí	here
 así	like that
 atrás	behind
-aún	still, yet [also todavía]
-bien  [also bueno]		well 		
-bueno  [also bien]		well 		
+aún, todavía	still, yet
 casi	almost, nearly
 cerca	close, near
 claro	of course, clearly 
-como	like, as
 cuando	when 
 dentro  [also adentro]		inside		
 después	after
-donde	where
 durante	during, for 
 encima	above, on top, in addition
 entonces	so, then
 fuera	out, outside, away
-hoy	today, nowadays
-incluso	including, even 
 lejos	far away, far off
 luego	later, afterwards
 mal	badly 
-mañana	morning, tomorrow 
 muy	very, really
-no	no
 nunca	never, ever
 pronto	soon, quick
 quizás	perhaps, maybe
 realmente	really, actually, in fact
 si	if, whether
-siempre	always, forever
-solamente	only [also únicamente]
-solo	only, just 
 también	also
 tampoco	neither, nor, either
 tan	such, as, too, so
@@ -3916,32 +3327,18 @@ a través 		across, over, through
 ya	already, still
 él	he, [ellos] them 
 lo	the 
-un	a, an
 aunque	although, even though
-cómo	how?
-dónde	where?
 más	more
 mientras	while, whereas, as long as
 ni	not even, neither, nor
-o	or
 pero	but, yet, except
-porque	because
 pues	then, well then
-que	that, which
-sí	yes
 sino	but, except, rather
-y	and
-acción	action, act, deed
-actividad	activity, action
-atención	attention
 base	base, basis
 cabeza	head 
-calle	street
 cantidad	quantity, amount
 cara	face, expression
 carrera	career, course, race
-casa	house
-ciudad	city
 clase	kind, class, order
 condición	condition
 cosa	thing
@@ -3970,30 +3367,20 @@ ley	law, bill, rule
 libertad	freedom, liberty
 línea	line, course
 luz	light
-madre	mother
 manera	way, manner 
 mano	hand
 medida ; a medida que		measure: to the extent		
 mesa	table, board
 muerte	death
-mujer	woman, wife
 necesidad	necessity, need
-noche	night, evening
 obra	work, book, deed
 ocasión	opportunity, occasion
 palabra	word
 parte	part, portion
-persona	person
-posibilidad	possibility
-pregunta	question
-puerta	door
 razón	reason
 realidad	reality, actuality
 relación	relationship, relation
 respuesta	answer, reply
-semana	week
-situación	situation
-sociedad	society
 tierra	earth, land, ground
 verdad	truth
 vez	time 
@@ -4001,13 +3388,8 @@ vida	life
 vista	view, sight
 voz	voice
 zona	area, zone 
-agua	water
 acuerdo ; de acuerdo		accord: in agreement		
 aire	air, wind, appearance
-amigo	friend
-amor	love
-animal	animal
-año	year
 aspecto	aspect, appearance
 cabo	end, bit
 cambio	change
@@ -4015,51 +3397,35 @@ camino	road, route, path
 campo	field, country
 caso	case, occasion
 centro	center, middle, downtown
-color	color
 conocimiento	knowledge
 cuerpo	body
-deber	should, ought to; to owe 
-día	day
-dinero	money
+deber	should, to owe 
+	day
 dios	god, divinity
 don	courtesy title , Mr., gift
 efecto	effect
 ejemplo	example
-sin embargo embargo 		nevertheless	sin embargo	
+sin embargo, embargo 		nevertheless
 esfuerzo	effort, endeavor
 espacio	space, room
 estado	state, condition, status
-estudio	study, learning
 favor	favor, benefit
-fin	end
 fondo	background, back, bottom
-gobierno	government
-grupo	group
 hecho	fact, happening
-hijo	son, [pl] children
 hombre	man, mankind, husband
 interés	interest
 juego	game, play, sport
 lado	side
 ladrón	thief
-libro	book
 lugar	place, position
 medio	half, middle 
 mes	month
-miedo	fear [also temor]
-minuto	minute
+miedo, temor	fear
 modo	way, manner 
 momento	moment, time
 movimiento	movement
-mundo	world
-niño	child, little boy
-nivel	level
-nombre	name, noun
-número	number
 objeto	object, thing
 ojo	eye
-padre	father
-país	country
 papel	paper, role, part
 parecer	to seem, look like 
 partido	party, group, sports match
@@ -4069,115 +3435,63 @@ peso	peso , weight, load
 pie	foot, base
 poder	to be able to, can 
 principio	beginning, principle
-problema	problem
 proceso	process, procedure
 programa	program, plan
 pueblo	people, village
 punto	point, dot, period
-respecto ; con respecto a		respect: with regards to		
+respecto, con respecto a		respect, with regards to
 resto	rest, remainder, leftover
-resultado	result, outcome
 saber	to know , find out 
 santo	saint 
-señor	sir, Mr., lord
 sentido	sense, feeling
-sentir	to feel, regret 
-ser	to be  
 servicio	service, helpfulness
 siglo	century, age
 sistema	system
 suelo	ground, floor
-te	you 
 tema	theme, subject, topic
 tiempo	time , weather
-tipo	type, kind
 trabajo	work, job, effort
 valor	value, worth 
 viaje	travel, trip
 al frente: frente a frente 		facing; across from		
 orden	order; sequence , religious 
-ciento	hundred 
-cinco	five
-cuatro	four
-diez	ten
-dos	two
-mil	thousand
-ocho	eight
-seis	six
-siete	seven
-tres	three
-uno	one
-a	to, at
 ante	before, in the presence of
-bajo	short, low 
-con	with
 contra	against, opposite
-de  de		of, from		
 desde	from, since
-en	in, on
 entre	between, among
 hacia	toward, towards
 hasta	until, up to, even 
-para	for, to, in order to
-por	by, for, through
 según	according to
-sin	without
 sobre	on top of, over, about
-algo	something, somewhat
 alguien	somebody, someone, anyone
 cual	which, who, whom
 cuál	which?
-el, la 		the		
-ella, ellas 		she, them 		
 ello	it 
 eso	that 
 éste, ésta 		this one		
-esto	this 
-la	3rd person dir obj-f
-le	3rd person indir obj
-lo	3rd person dir obj-m
-me  [also mí]		me 		
-mí  [also me]		me 		
 nada	nothing, not at all
 nadie	nobody, anybody
-nos	us
-nosotros	we
 qué	what?, which?, how !
 quien	who, whom
 quién	who?, whom?
-se	oneself, self
-usted	you 
-yo	I 
-abrir	to open
 acabar	to have just
 aceptar	to accept
 acercar	to come near
 alcanzar	to reach, catch up with
 aparecer	to appear
-aprender	to learn
-ayudar	to help
-buscar	to look for
 caer	to fall
-cambiar	to change
 cerrar	to close
-comenzar	to begin, start [also empezar]
-comer	to eat
-comprar	to buy
-comprender	to understand [also entender]
-conocer	to know 
+comenzar, empezar	to start
+comprender, entender	to understand
 conseguir	to get, acheive
 considerar	to consider
 contar	to tell, count
-continuar	to continue
 convertir	to convert, change, become
-correr	to run
 crear	to create
 creer	to believe, think
 cumplir	to fulfill
-dar	to give
 decidir	to decide
 decir	to tell, say
-dedicar	to dedicate, devote
 dejar	to let, leave
 desarrollar	to develop
 descubrir	to discover
@@ -4185,99 +3499,60 @@ detener	to stop, detain
 dirigir	to direct, manage
 echar	to throw
 elegir	to choose, elect
-empezar	to begin, start [also comenzar]
+empezar, comenzar	to begin, start
 encontrar	to find
-entender	to understand [also comprender]
-entrar	to enter
-escribir	to write
-escuchar	to listen to
 esperar	to wait, hope for, expect
-estar	to be 
-estudiar	to study
-evitar	to avoid, prevent [also prevenir]
+evitar, prevenir	to avoid, prevent
 existir	to exist
-explicar	to explain
 fijar	to set, fix, [se] notice
 formar	to form
 ganar	to win, earn
-gustar	to be pleasing to
 haber	to have 
-hablar	to speak, talk
 hacer	to do, to make
-imaginar	to imagine
 importar	to matter, import
-indicar	to indicate
 intentar	to try, attempt
-interesar	to interest
-ir	to go
-jugar	to play 
-leer	to read
 levantar	to raise, lift
-llamar	to call, name [also denominar]
 llegar	to arrive
 llevar	to take, carry
 lograr	to get, to manage to 
 mantener	to keep, maintain
-mirar	to look, watch
-morir	to die
 mostrar	to show
 mover	to move, incite
 nacer	to be born
-necesitar	to need
 observar	to observe, to notice
 obtener	to obtain
 ocupar	to occupy, use
-ocurrir	to happen, occur
 ofrecer	to offer, present
 oír	to hear
 olvidar	to forget
-pagar	to pay
 partir	to leave, split
 pasar	to pass, spend time
 pedir	to ask for, request
-pensar	to think
 perder	to lose, miss
-permitir	to allow, permit
 poder	power 
 poner	to put on
-preguntar	to ask a question
-preparar	to prepare
-presentar	to introduce, present
-producir	to produce, cause
 proponer	to propose
 quedar	to remain, stay
-querer	to want, love
 realizar	to fulfill, carry out
 recibir	to receive
 reconocer	to recognize, admit
-recordar  [also acordar]		to remember, remind		
+recordar, acordar		to remember, remind	
 referir	to refer to, tell
-repetir	to repeat
-responder	to answer, respond
-resultar	to result, turn out
 sacar	to take out
-salir	to leave [also partir]
+salir, partir	to leave
 seguir	to follow, to go on
 señalar	to point out, signal
 ser	being 
-servir	to serve
-soler	to be accustomed to [also acostumbrar]
+soler, acustombrar	to be accustomed to
 subir	to go up
 suceder	to happen
 sufrir	to suffer, undergo
 suponer	to suppose, assume
-tener	to have
-terminar	to finish, end
 tocar	to touch, play an instrument
-tomar	to take, drink
-trabajar	to work
 traer	to bring, carry
 tratar	to try, treat, deal with
-usar	to use
-utilizar	to use, utilize
 valer	to be worth, cost
-venir	to come
-volver	to turn, to turn over, to return to a place
+volver	to turn, to return to a place
 accesible	accessible
 acelerado	accelerated, quick
 acomodado	well-to-do, suitable
@@ -4299,8 +3574,6 @@ callejero	of the street
 caprichoso	capricious, whimsical
 carente	lacking, devoid
 cerebral	cerebral
-clínico	clinical
-colombiano	Colombian
 colorado	red, colored
 combinado	combined
 comprensivo	understanding 
@@ -4314,7 +3587,6 @@ crónico	chronic
 decente	respectable, decent
 desconcertado	disoriented, disconcerted
 eclesiástico	ecclesiastical
-educado	educated
 elocuente	eloquent
 entusiasta	enthusiastic
 esporádico	sporadic
@@ -4327,7 +3599,6 @@ frontal	frontal
 geométrico	geometric
 grotesco	grotesque, ridiculous
 guerrero	warrior, warlike 
-hispano	Hispanic
 ilegal	illegal
 ilimitado	unlimited
 impecable	impeccable, faultless
@@ -4337,7 +3608,6 @@ importado	imported
 impreciso	imprecise
 inestable	unstable, unsteady
 inexistente	non-existent
-informativo	informative
 ingenioso	ingenious, clever
 inseguro	unsure, unsafe
 inseparable	inseparable
@@ -4351,15 +3621,11 @@ laborioso	laborious, industrious
 larguísimo	very long
 llano	flat, level, plain
 maligno	evil, malignant
-marrón	brown
 melancólico	melancholy
 minúsculo	minute, insignificant
 mismísimo	very same
 místico	mystical
 monstruoso	monstrous
-monumental	monumental
-móvil	mobile
-neutro	neutral
 nítido	clear, clean, neat
 nulo	void, null
 ocasional	occasional, random
@@ -4375,10 +3641,8 @@ prestigioso	prestigious
 presunto	alleged, presumed
 previsible	foreseeable
 prodigioso	prodigious, famous
-productivo	productive, profitable
 provincial	provincial
 recíproco	reciprocal
-rítmico	rhythmic
 robusto	strong, robust, sturdy
 rudo	rude, crude, coarse
 sabroso	delicious, tasty
@@ -4391,52 +3655,33 @@ soberano	sovereign, self-assured
 soberbio	proud, arrogant [also orgulloso]
 sofisticado	sophisticated
 sonriente	smiling
-subjetivo	subjective
 sumido	sunken, drowned
 terrestre	earthly, of the earth
 trascendental	momentous, transcendental
 trascendente	transcendent
 trasero	behind, back
-triple	triple
-turístico	tourist 
-usual	normal, usual
 vertiginoso	dizzying
 vigoroso	vigorous, strong
-vulnerable	vulnerable
 abiertamente	openly
 brevemente	briefly
 debidamente	properly, duly
 duramente	harshly, severely
-económicamente	economically
-esencialmente	essentially
 espontáneamente	spontaneously
 firmemente	firmly
-inicialmente	initially
 largamente	for a long time, at length
-mentalmente	mentally
-oficialmente	officially
 parcialmente	partially
 públicamente	publicly, in public
-terriblemente	terribly
-tradicionalmente	traditionally
 viceversa	vice versa
-voluntariamente	voluntarily
-hola	hello, hi
 fiscal	district attorney, prosecutor 
 gigante	giant 
 idiota	idiot, dunce
-inmigrante	immigrant
-intérprete	performer, interpreter
-mortal	mortal 
 abeja	bee
 abstracción	abstraction
 acera	sidewalk
-actriz	actress
 adhesión	adherence
 agonía	agony, grief
 agresividad	aggressiveness
 almohada	pillow
-ampliación	enlargement, extension
 antena	antenna
 araña	spider
 audacia	boldness, audacity
@@ -4459,8 +3704,6 @@ consistencia	consistency
 conspiración	conspiracy
 contestación	answer
 convención	convention, assembly
-cooperación	cooperation
-crema	cream
 cuenca	socket, basin, bowl
 cueva	cave
 decena	ten 
@@ -4478,7 +3721,6 @@ diligencia	diligence
 disculpa	apology, excuse
 distracción	distraction, amusement
 diversidad	diversity, variety
-documentación	documentation
 edificación	construction, building
 eficiencia	efficiency
 elevación	rise, elevation, increase
@@ -4492,7 +3734,6 @@ estética	aesthetics
 euforia	euphoria, elation
 exhibición	exhibition, showing
 expulsión	expulsion, ejection
-extinción	extinction
 fabricación	manufacture, production
 facción	face feature, faction
 factura	invoice, bill
@@ -4510,14 +3751,10 @@ hostilidad	hostility, enmity
 impotencia	impotence
 incidencia	incidence, impact
 incursión	invasion, incursion
-infección	infection
-inicial	initial  
-inspección	inspection
 inundación	flood, deluge
 inyección	shot, injection
 jugada	move, play
 latitud	latitude
-legislación	legislation
 lesión	injury, wound, harm
 libra	pound 
 librería	bookstore
@@ -4531,7 +3768,6 @@ metáfora	metaphor
 modalidad	mode, manner
 navaja	razor, blade, navaja
 navegación	navigation, shipping
-negociación	negotiation
 nobleza	nobility, uprightness
 obediencia	obedience
 ocurrencia	idea, witty remark
@@ -4542,7 +3778,6 @@ partícula	particle
 penetración	penetration, insight
 penumbra	semidarkness, twilight
 pinta	pint, aspect, dot
-pirámide	pyramid
 piscina	swimming pool
 pólvora	gunpowder, powder
 prevención	prevention, warning
@@ -4564,7 +3799,6 @@ significación	meaning, significance
 sirena	siren, mermaid
 soberanía	sovereignty
 sobra	excess, surplus, leftover
-táctica	tactics, strategy
 tasa	rate, fee, levy
 toalla	towel
 torta	cake
@@ -4573,7 +3807,6 @@ vara	rod, stick
 vecindad	nearness, vicinity
 ventanilla	vehicle window, box office
 vereda	path, sidewalk
-vibración	vibration
 acta	meeting proceedings, minutes
 adjetivo	adjective
 admirador	admirer
@@ -4583,7 +3816,6 @@ artefacto	artifact, device
 asilo	asylum, shelter
 astro	star 
 atentado	attack, offense
-autobús	bus
 bachillerato	high school diploma
 banquete	banquet, feast
 bicho	bug, creature
@@ -4612,7 +3844,6 @@ desperdicio	waste, refuse, garbage
 despliegue	deployment, display
 diamante	diamond
 dictador	dictator
-elefante	elephant
 emperador	emperor
 encaje	lace
 enigma	enigma, mystery
@@ -4628,7 +3859,6 @@ gusano	worm, caterpillar
 hueco	hollow 
 incremento	increase, raise
 infinito	infinite, infinity 
-ingrediente	ingredient
 intermedio	means, interval 
 jinete	rider, horseman
 lomo	back, loin, spine
@@ -4646,7 +3876,6 @@ pabellón	pavilion, sports hall
 padrino	godparent, sponsor
 paraje	place, spot
 paréntesis	parenthesis, digression
-participante	participant
 pasajero	fleeting, transitory 
 pato	duck
 peón	unskilled laborer, field hand
@@ -4671,9 +3900,7 @@ sótano	basement
 tanque	tank, large container
 tejado	roof, housetop
 temperamento	temperament, personality
-tenis	tennis
 tenor	meaning, sense, tenor
-tigre	tiger
 tranvía	trolley, tram, streetcar
 trazo	line, stroke
 trono	throne
@@ -4681,23 +3908,15 @@ vaivén	swinging, rocking
 vegetal	plant, vegetable 
 velo	veil
 vestuario	wardrobe, changing room
-violín	violin
 volcán	volcano
-whisky	whisky
-agricultor	farmer
 bailarín	dancer
 cirujano	surgeon
 diplomático	diplomat 
-economista	economist
-editor	editor, publisher
 guerrero	warrior, soldier 
-inspector	inspector
 marinero	sailor
-psicólogo	psychologist
 cólera	rage , cholera 
 cometa	comet , kite 
 editorial	publisher , editorial article 
-veintidós	twenty-two
 acatar	to comply with, abide by
 adentrar	to penetrate, go inside
 adherir	to adhere, attach
@@ -4712,7 +3931,6 @@ bordear	to border
 conferir	to confer
 decaer	to decay, wane
 demandar	to claim, sue
-desayunar	to have breakfast
 descifrar	to decipher
 desesperar	to despair, lose hope
 desmentir	to contradict
@@ -4768,7 +3986,6 @@ reposar	to rest, lie down
 resignar	to resign, relinquish
 restablecer	to reestablish, restore
 resucitar	to resuscitate, revive 
-seducir	to seduce, tempt
 sobrevenir	to happen unexpectedly, befall, ensue
 sudar	to sweat
 suspirar	to sigh
