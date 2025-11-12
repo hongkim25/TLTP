@@ -1,5 +1,6 @@
 ### NEETCODE 3 EASY/MEDIUM QUESTIONS ON TWO POINTERS ###
 
+
 # Day 100, 8 NOV 2025
 # LeetCode 125: Valid Palindrome
 
@@ -103,3 +104,26 @@ class Solution:
 #     continue
 # Why continue here?
 # This skips duplicate values for the first number to avoid duplicate triplets.
+
+
+
+### NEETCODE 2 EASY/MEDIUM QUESTIONS ON STACK ###
+
+
+# Day 104, 12 NOV 2025
+# LeetCode 121: Best Time to Buy And Sell Stock
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        l, r = 0, 1  # Left pointer (l) starts at index 0, Right pointer (r) starts at index 1.
+        maxP = 0      # Start with a profit of 0.
+
+        while r < len(prices):  # Loop until right pointer goes beyond the last index.
+            if prices[l] < prices[r]:  # Check if buying at 'l' and selling at 'r' is profitable.
+                profit = prices[r] - prices[l]  # Calculate profit.
+                maxP = max(maxP, profit)  # Update maxP if we found a higher profit.
+            else:
+                l = r  # If prices[r] < prices[l], we update 'l' to 'r', because we need to buy at a lower price.
+            r += 1  # Move the right pointer to the next day.
+        
+        return maxP  # Return the maximum profit found.
