@@ -127,3 +127,22 @@ class Solution:
             r += 1  # Move the right pointer to the next day.
         
         return maxP  # Return the maximum profit found.
+    
+
+# Day 105, 13 NOV 2025
+# LeetCode 3: Longest Substring Without Repeating Characters
+# Sliding Window: Time O(n) Space O(m)
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        charSet = set()
+        l = 0
+        res = 0
+
+        for r in range(len(s)):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l += 1
+            charSet.add(s[r])
+            res = max(res, r - l + 1)
+        return res
