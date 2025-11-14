@@ -1,6 +1,10 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 15__ <br>
+13 NOV 2025 - Woke up at 8:10. Started Java Intermediate 1 course (completed 7 out of 103 lectures), continued Neetcode 150 (Valid Parentheses; total 20 out of 150 problems solved), continued studying 200 Spanish words (covered 4,400 out of 5,000 words), continued memorizing 10 Spanish sentneces (covered 140 out of 140 sentences), continued Spanish DELE B2 preparation course (completed 40 out of 45 lectures), continued Spanish grammar course (completed 52 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+
+__WEEK 15__ <br>
 13 NOV 2025 - Woke up at 8:10. Started Java Intermediate 1 course (completed 7 out of 103 lectures), continued Neetcode 150 (Longest Substring Without Repeating Characters; total 19 out of 150 problems solved), continued studying 200 Spanish words (covered 4,200 out of 5,000 words), continued memorizing 10 Spanish sentneces (covered 130 out of 140 sentences), continued Spanish DELE B2 preparation course (completed 39 out of 45 lectures), continued Spanish grammar course (completed 51 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 12 NOV 2025 - Woke up at 8:20. Completed Java Basic course (completed 98 out of 98 lectures), continued Neetcode 150 (Best Time to Buy And Sell Stock; total 18 out of 150 problems solved), continued studying 200 Spanish words (covered 4,000 out of 5,000 words), continued memorizing 10 Spanish sentneces (covered 120 out of 140 sentences), continued Spanish DELE B2 preparation course (completed 38 out of 45 lectures), continued Spanish grammar course (completed 50 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
