@@ -1,6 +1,5 @@
 ### NEETCODE 2 EASY/MEDIUM QUESTIONS ON STACK ###
 
-
 # Day 106, 14 NOV 2025
 # LeetCode 20: Valid Parentheses
 # Stack: Time O(n) Space O(n)
@@ -45,3 +44,29 @@ class MinStack:
 
     def getMin(self) -> int:
         return self.minStack[-1]
+
+
+
+### NEETCODE 3 EASY/MEDIUM QUESTIONS ON BINARY SEARCH ###
+
+# Day 109, 17 NOV 2025
+# LeetCode 704: Binary Search
+# Binary Search: Time O(log n) Space O(1)
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            m = l + ((r - l) // 2)
+
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
+                l = m + 1
+            else:
+                return m
+        return -1
+    
+
+# (l + r) // 2 can lead to overflow
