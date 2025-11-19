@@ -67,7 +67,6 @@ class Solution:
             else:
                 return m
         return -1
-    
 # (l + r) // 2 can lead to overflow
 
 # Day 110, 18 NOV 2025
