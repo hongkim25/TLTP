@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 17__ <br>
+23 NOV 2025 - Woke up at 8:10. Continued Java Intermediate 1 course (completed 26 out of 103 lectures), continued Neetcode 150 (Last Stone Weight; total 26 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
+
 22 NOV 2025 - Woke up at 6:40. Completed a scheduled language assessment milestone. Successfully cleared this blocking task to realign primary bandwidth back to Engineering (Java/Spring/Project). Continued Java Intermediate 1 course (completed 24 out of 103 lectures), continued Neetcode 150 (24-25 review), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
 
 21 NOV 2025 - Woke up at 7:40. Continued Java Intermediate 1 course (completed 23 out of 103 lectures), continued Neetcode 150 (Kth Largest Element in a Stream; total 25 out of 150 problems solved), completed Spanish grammar course (completed 60 out of 60 lectures), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo.
