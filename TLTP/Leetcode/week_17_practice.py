@@ -36,3 +36,27 @@ class Solution:
 
         stones.append(0)
         return abs(stones[0])
+    
+
+### NEETCODE 23 MEDIUM BACKTRACKING ###
+
+# Day 116, 24 NOV 2025
+# LeetCode 78: Subsets
+# Backtracking: Time O(n * 2^n) Space O(n)
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        subset = []
+
+        def dfs(i):
+            if i >= len(nums):
+                res.append(subset.copy())
+                return
+            subset.append(nums[i])
+            dfs(i + 1)
+            subset.pop()
+            dfs(i + 1)
+
+        dfs(0)
+        return res
