@@ -38,7 +38,7 @@ class Solution:
         return abs(stones[0])
     
 
-### NEETCODE 23 MEDIUM BACKTRACKING ###
+### NEETCODE 3 MEDIUM QUESTIONS ON BACKTRACKING ###
 
 # Day 116, 24 NOV 2025
 # LeetCode 78: Subsets
@@ -60,3 +60,20 @@ class Solution:
 
         dfs(0)
         return res
+    
+
+# Day 117, 25 NOV 2025
+# LeetCode 46: Permutations
+# Iteration: Time O(n! * n^2) Space O(n! * n)
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        perms = [[]]
+        for num in nums:
+            new_perms = []
+            for p in perms:
+                for i in range(len(p) + 1):
+                    p_copy = p.copy()
+                    p_copy.insert(i, num)
+                    new_perms.append(p_copy)
+            perms = new_perms
+        return perms
