@@ -106,3 +106,15 @@ class Solution:
             two = temp
 
         return one
+    
+
+# Day 124, 2 DEC 2025
+# LeetCode 746: Min Cost Climbing Stairs
+# Dynamic Programming (Space Optimized): Time O(n) Space O(1)
+
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        for i in range(len(cost) - 3, -1, -1):
+            cost[i] += min(cost[i + 1], cost[i + 2])
+
+        return min(cost[0], cost[1])
