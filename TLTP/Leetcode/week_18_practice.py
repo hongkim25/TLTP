@@ -118,3 +118,18 @@ class Solution:
             cost[i] += min(cost[i + 1], cost[i + 2])
 
         return min(cost[0], cost[1])
+    
+
+# Day 125, 3 DEC 2025
+# LeetCode 198: House Robber
+# Dynamic Programming (Space Optimized): Time O(n) Space O(1)
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        rob1, rob2 = 0, 0
+
+        for num in nums:
+            temp = max(num + rob1, rob2)
+            rob1 = rob2
+            rob2 = temp
+        return rob2
