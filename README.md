@@ -1,6 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 18__ <br>
+2 DEC 2025 - Woke up at 6:20. Completed Java Intermediate 1 course (completed 103 out of 103 lectures), Started Java Intermediate 2 course (completed 10 out of 93 lectures), continued HTTP Web Fundamentals course (completed 21 out of 41 lectures), continued Neetcode 150 (House Robber; total 35 out of 150 problems solved), completed lecture 2 of Stanford CS230, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
+
+
 2 DEC 2025 - Woke up at 6:20. Continued Java Intermediate 1 course (completed 92 out of 103 lectures), continued HTTP Web Fundamentals course (completed 21 out of 41 lectures), continued Neetcode 150 (Min Cost Climbing Stairs; total 34 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
 
 1 DEC 2025 - Woke up at 6:40. Continued Java Intermediate 1 course (completed 70 out of 103 lectures), continued HTTP Web Fundamentals course (completed 20 out of 41 lectures), continued Neetcode 150 (Climbing Stairs; total 33 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
