@@ -40,3 +40,5 @@ class Solution:
             return dp[(i, buying)]
 
         return dfs(0, True)
+# caching
+
