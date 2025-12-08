@@ -60,3 +60,18 @@ class Solution:
                     dp[i][j] = max(dp[i][j + 1], dp[i + 1][j])
 
         return dp[0][0]
+    
+
+# Day 130, 8 DEC 2025
+# LeetCode 53: Maximum Subarray
+# Dynamic Programming (Kadane's Algorithm): Time O(n) Space O(1)
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        maxSub, curSum = nums[0], 0
+        for num in nums:
+            if curSum < 0:
+                curSum = 0
+            curSum += num
+            maxSub = max(maxSub, curSum)
+        return maxSub
