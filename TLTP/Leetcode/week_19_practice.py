@@ -60,7 +60,11 @@ class Solution:
                     dp[i][j] = max(dp[i][j + 1], dp[i + 1][j])
 
         return dp[0][0]
-    
+
+
+
+### NEETCODE 3 MEDIUM QUESTIONS ON GREEDY ###
+
 
 # Day 130, 8 DEC 2025
 # LeetCode 53: Maximum Subarray
@@ -75,3 +79,17 @@ class Solution:
             curSum += num
             maxSub = max(maxSub, curSum)
         return maxSub
+
+
+# Day 131, 9 DEC 2025
+# LeetCode 55: Jump Game
+# Greedy: Time O(n) Space O(1)
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        goal = len(nums) - 1
+
+        for i in range(len(nums) - 2, -1, -1):
+            if i + nums[i] >= goal:
+                goal = i
+        return goal == 0
