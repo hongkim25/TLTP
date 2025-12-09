@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 19__ <br>
+9 DEC 2025 - Woke up at 6:40. Continued Java Intermediate 2 course (completed 82 out of 93 lectures), continued HTTP Web Fundamentals course (completed 29 out of 41 lectures), continued Neetcode 150 (Jump Game; total 41 out of 150 problems solved), reviewed Neetcode DS&A for beginners (Sorting: insertion sort), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.
+
 8 DEC 2025 - Woke up at 6:20. Continued Java Intermediate 2 course (completed 67 out of 93 lectures), continued HTTP Web Fundamentals course (completed 27 out of 41 lectures), continued Neetcode 150 (Maximum Subarray; total 40 out of 150 problems solved), reviewed Neetcode DS&A for beginners (Recursion: factorial, fibonacci sequence), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish/French on Babbel/Duolingo.
 
 7 DEC 2025 - Woke up at 6:50. Continued Java Intermediate 2 course (completed 61 out of 93 lectures), continued HTTP Web Fundamentals course (completed 26 out of 41 lectures), continued Neetcode 150 (Longest Common Subsequence; total 39 out of 150 problems solved), reviewed Neetcode DS&A for beginners (Linked lists: singly linked lists, doubly linked lists, queues), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish/French on Babbel/Duolingo.
