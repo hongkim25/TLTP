@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 19__ <br>
+10 DEC 2025 - Woke up at 5:40. Completed Java Intermediate 2 course (completed 93 out of 93 lectures), started Spring Introduction course (completed 4 out of 28 lectures), continued HTTP Web Fundamentals course (completed 30 out of 41 lectures), continued Neetcode 150 (Jump Game II; total 43 out of 150 problems solved), continued Neetcode DS&A for beginners (Sorting: merge sort, quick sort), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.
+
 9 DEC 2025 - Woke up at 6:40. Continued Java Intermediate 2 course (completed 82 out of 93 lectures), continued HTTP Web Fundamentals course (completed 29 out of 41 lectures), continued Neetcode 150 (Jump Game; total 41 out of 150 problems solved), reviewed Neetcode DS&A for beginners (Sorting: insertion sort), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.
 
 8 DEC 2025 - Woke up at 6:20. Continued Java Intermediate 2 course (completed 67 out of 93 lectures), continued HTTP Web Fundamentals course (completed 27 out of 41 lectures), continued Neetcode 150 (Maximum Subarray; total 40 out of 150 problems solved), reviewed Neetcode DS&A for beginners (Recursion: factorial, fibonacci sequence), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish/French on Babbel/Duolingo.
@@ -15,7 +17,7 @@ __WEEK 19__ <br>
 __WEEK 18__ <br>
 4 DEC 2025 - Woke up at 6:30. Continued Java Intermediate 2 course (completed 25 out of 93 lectures), continued HTTP Web Fundamentals course (completed 22 out of 41 lectures), continued Neetcode 150 (House Robber II; total 36 out of 150 problems solved), completed lecture 3 of Stanford CS230, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
 
-3 DEC 2025 - Woke up at 6:20. Completed Java Intermediate 1 course (completed 103 out of 103 lectures), Started Java Intermediate 2 course (completed 10 out of 93 lectures), continued HTTP Web Fundamentals course (completed 21 out of 41 lectures), continued Neetcode 150 (House Robber; total 35 out of 150 problems solved), completed lecture 2 of Stanford CS230, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
+3 DEC 2025 - Woke up at 6:20. Completed Java Intermediate 1 course (completed 103 out of 103 lectures), started Java Intermediate 2 course (completed 10 out of 93 lectures), continued HTTP Web Fundamentals course (completed 21 out of 41 lectures), continued Neetcode 150 (House Robber; total 35 out of 150 problems solved), completed lecture 2 of Stanford CS230, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
 
 2 DEC 2025 - Woke up at 6:20. Continued Java Intermediate 1 course (completed 92 out of 103 lectures), continued HTTP Web Fundamentals course (completed 21 out of 41 lectures), continued Neetcode 150 (Min Cost Climbing Stairs; total 34 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced French on Babbel/Duolingo.
 
