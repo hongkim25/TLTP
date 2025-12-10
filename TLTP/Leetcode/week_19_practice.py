@@ -93,3 +93,22 @@ class Solution:
             if i + nums[i] >= goal:
                 goal = i
         return goal == 0
+    
+
+# Day 132, 10 DEC 2025
+# LeetCode 45: Jump Game II
+# BFS / Greedy: Time O(n) Space O(1)
+
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        res = 0
+        l = r = 0
+
+        while r < len(nums) - 1:
+            farthest = 0
+            for i in range(l, r + 1):
+                farthest = max(farthest, i + nums[i])
+            l = r + 1
+            r = farthest
+            res += 1
+        return res
