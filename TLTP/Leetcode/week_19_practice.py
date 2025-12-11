@@ -112,3 +112,30 @@ class Solution:
             r = farthest
             res += 1
         return res
+    
+
+### NEETCODE 3 EASY/MEDIUM QUESTIONS ON INTERVALS ###
+
+# Day 133, 11 DEC 2025
+# LeetCode 252: Meeting Rooms
+# Sorting: Time O(n log n) Space O(1) or O(n)
+
+"""
+Definition of Interval:
+class Interval(object):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+"""
+
+class Solution:
+    def canAttendMeetings(self, intervals: List[Interval]) -> bool:
+        intervals.sort(key=lambda i: i.start)
+
+        for i in range(1, len(intervals)):
+            i1 = intervals[i - 1]
+            i2 = intervals[i]
+
+            if i1.end > i2.start:
+                return False
+        return True
