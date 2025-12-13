@@ -44,3 +44,10 @@ class Solution:
             output += digit
             n = n // 10
         return output
+
+# If the number is 23, digit = 23 % 10 = 3, digit ** 2 = 9, output = 0 + 9 = 9, n = 23 // 10 = 2
+# Next iteration: digit = 2 % 10 = 2, digit ** 2 = 4, output = 9 + 4 = 13, n = 2 // 10 = 0
+# Return 13
+
+# while n means while n != 0
+
