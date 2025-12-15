@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 20__ <br>
+15 DEC 2025 - Woke up at 6:20. 
+
 14 DEC 2025 - Woke up at 6:20. Continued Spring Basic course (completed 37 out of 65 lectures), continued Neetcode 150 (Plus One; total 49 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.
 
 13 DEC 2025 - Woke up at 6:20. Started Spring Basic course (completed 18 out of 65 lectures), continued Neetcode 150 (Happy Number; total 48 out of 150 problems solved), continued Andrew Ng's machine learning specialization (completed part of week 3 of course 1), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.

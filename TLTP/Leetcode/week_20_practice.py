@@ -20,6 +20,10 @@ class Solution:
         res.append(newInterval)
         return res
 
+
+### NEETCODE 3 EASY/MEDIUM QUESTIONS ON MATH & GEOMETRY ###
+
+
 # Day 135, 13 DEC 2025
 # LeetCode 202: Happy Number
 # HashSet: Time O(log n) Space O(log n)    
@@ -51,7 +55,8 @@ class Solution:
 
 # while n means while n != 0
 
-# Day 135, 13 DEC 2025
+
+# Day 136, 14 DEC 2025
 # LeetCode 66: Plus One
 # Time O(n) Space O(1)
 
@@ -75,3 +80,32 @@ class Solution:
 
         digits.reverse()
         return digits
+
+
+# Day 137, 15 DEC 2025
+# LeetCode 48: Rotate Image
+# Rotation by 4 cells: Time O(n^2) Space O(1)
+
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        l, r = 0, len(matrix) - 1
+        while l < r:
+            for i in range(r - l):
+                top, bottom = l, r
+
+                # save the topleft
+                topLeft = matrix[top][l + i]
+
+                # move bottom left into top left
+                matrix[top][l + i] = matrix[bottom - i][l]
+
+                # move bottom right into bottom left
+                matrix[bottom - i][l] = matrix[bottom][r - i]
+
+                # move top right into bottom right
+                matrix[bottom][r - i] = matrix[top + i][r]
+
+                # move top left into top right
+                matrix[top + i][r] = topLeft
+            r -= 1
+            l += 1
