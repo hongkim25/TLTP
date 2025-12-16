@@ -21,7 +21,7 @@ class Solution:
         return res
 
 
-### NEETCODE 3 EASY/MEDIUM QUESTIONS ON MATH & GEOMETRY ###
+### NEETCODE 4 EASY/MEDIUM QUESTIONS ON MATH & GEOMETRY ###
 
 
 # Day 135, 13 DEC 2025
@@ -109,3 +109,31 @@ class Solution:
                 matrix[top + i][r] = topLeft
             r -= 1
             l += 1
+
+
+# Day 138, 16 DEC 2025
+# LeetCode 54: Spiral Matrix
+# Iteration: Time O(m * n) Space O(1)
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        res = []
+        left, right = 0, len(matrix[0])
+        top, bottom = 0, len(matrix)
+
+        while left < right and top < bottom:
+            for i in range(left, right):
+                res.append(matrix[top][i])
+            top += 1
+            for i in range(top, bottom):
+                res.append(matrix[i][right - 1])
+            right -= 1
+            if not (left < right and top < bottom):
+                break
+            for i in range(right - 1, left - 1, -1):
+                res.append(matrix[bottom - 1][i])
+            bottom -= 1
+            for i in range(bottom - 1, top - 1, -1):
+                res.append(matrix[i][left])
+            left += 1
+
+        return res
