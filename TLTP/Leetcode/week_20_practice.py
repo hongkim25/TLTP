@@ -114,6 +114,7 @@ class Solution:
 # Day 138, 16 DEC 2025
 # LeetCode 54: Spiral Matrix
 # Iteration: Time O(m * n) Space O(1)
+
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         res = []
@@ -137,5 +138,4 @@ class Solution:
             left += 1
 
         return res
-    
     
