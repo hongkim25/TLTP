@@ -139,3 +139,19 @@ class Solution:
 
         return res
     
+    
+### NEETCODE 150 ARRAYS & HASHING QUESTIONS ###
+
+# # Day 139, 17 DEC 2025
+# LeetCode 49: Group Anagrams
+# Hash Table: Time O(m * n) Space O(m)
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = defaultdict(list)
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[ord(c) - ord('a')] += 1
+            res[tuple(count)].append(s)
+        return list(res.values())
