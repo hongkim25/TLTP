@@ -1,9 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 21__ <br>
-20 DEC 2025 - Woke up at 5:50. 
+20 DEC 2025 - Woke up at 5:50. Continued Spring MVP 1 course (completed 50 out of 72 lectures), continued Neetcode 150 (Product of Array Except Self; total 53 out of 150 problems solved), had an initial branstorming session for the bakery app, talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
-19 DEC 2025 - Woke up at 6:30. Continued Spring MVP 1 course (completed 40 out of 72 lectures), continued Neetcode 150 (Encoding and decoding; total 52 out of 150 problems solved), continued Neetcode DS&A for beginners (Binary Search: search array),  talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+19 DEC 2025 - Woke up at 6:30. Continued Spring MVP 1 course (completed 40 out of 72 lectures), continued Neetcode 150 (Encoding and decoding; total 52 out of 150 problems solved), continued Neetcode DS&A for beginners (Binary Search: search array), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 __WEEK 20__ <br>
 18 DEC 2025 - Woke up at 6:20. Continued Spring MVP 1 course (completed 25 out of 72 lectures), continued Neetcode 150 (Top K Frequent Elements; total 51 out of 150 problems solved), completed course 1 of Andrew Ng's machine learning specialization, talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
