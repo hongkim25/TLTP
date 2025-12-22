@@ -68,3 +68,21 @@ class Solution:
                 squares[(r // 3, c // 3)].add(board[r][c])
 
         return True
+    
+
+# Day 144, 22 DEC 2025
+# LeetCode 169: Longest Consecutive Sequence
+# HashSet: Time O(n) Space O(n)
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        numSet = set(nums)
+        longest = 0
+
+        for num in numSet:
+            if (num - 1) not in numSet:
+                length = 1
+                while (num + length) in numSet:
+                    length += 1
+                longest = max(length, longest)
+        return longest
