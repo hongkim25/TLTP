@@ -86,3 +86,21 @@ class Solution:
                     length += 1
                 longest = max(length, longest)
         return longest
+    
+# Day 145, 23 DEC 2025
+# LeetCode 11: Container With Most Water
+# Two Pointers: Time O(n) Space O(1)
+
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        l, r = 0, len(heights) - 1
+        res = 0
+
+        while l < r:
+            area = min(heights[l], heights[r]) * (r - l)
+            res = max(res, area)
+            if heights[l] <= heights[r]:
+                l += 1
+            else:
+                r -= 1
+        return res
