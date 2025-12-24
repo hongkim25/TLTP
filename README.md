@@ -1,7 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 21__ <br>
-23 DEC 2025 - Woke up at 6:20. Started JPA course (completed 27 out of 56 lectures), continued Neetcode 150 (Container With Most Water; total 56 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+24 DEC 2025 - Woke up at 6:50. Continued JPA course (completed 35 out of 56 lectures), continued Neetcode 150 (Trapping Rain Water; total 57 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+23 DEC 2025 - Woke up at 6:20. Continued JPA course (completed 27 out of 56 lectures), continued Neetcode 150 (Container With Most Water; total 56 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 22 DEC 2025 - Woke up at 7:10. Started JPA course (completed 14 out of 56 lectures), continued Neetcode 150 (Longest Consecutive Sequence; total 55 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
