@@ -1,5 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
+__WEEK 22__ <br>
+26 DEC 2025 - Woke up at 6:50. Completed JPA course (completed 56 out of 56 lectures), started Spring DB 1 course (completed 8 out of 57 lectures), continued Neetcode 150 (Permutation in Spring; total 60 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+
 __WEEK 21__ <br>
 25 DEC 2025 - Woke up at 6:40. Continued JPA course (completed 45 out of 56 lectures), continued Neetcode 150 (Longest Repeating Character Replacement; total 59 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo. Merry Christmas!
 
@@ -15,6 +19,7 @@ __WEEK 21__ <br>
 
 19 DEC 2025 - Woke up at 6:30. Continued Spring MVP 1 course (completed 40 out of 72 lectures), continued Neetcode 150 (Encoding and decoding; total 52 out of 150 problems solved), continued Neetcode DS&A for beginners (Binary Search: search array), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
+
 __WEEK 20__ <br>
 18 DEC 2025 - Woke up at 6:20. Continued Spring MVP 1 course (completed 25 out of 72 lectures), continued Neetcode 150 (Top K Frequent Elements; total 51 out of 150 problems solved), completed course 1 of Andrew Ng's machine learning specialization, talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
@@ -29,6 +34,7 @@ __WEEK 20__ <br>
 13 DEC 2025 - Woke up at 6:20. Started Spring Basic course (completed 18 out of 65 lectures), continued Neetcode 150 (Happy Number; total 46 out of 150 problems solved), continued Andrew Ng's machine learning specialization (completed part of week 3 of course 1), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.
 
 12 DEC 2025 - Woke up at 6:00. Completed Spring Introduction course (completed 28 out of 28 lectures), continued Neetcode 150 (Insert Interval; total 45 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.
+
 
 __WEEK 19__ <br>
 11 DEC 2025 - Woke up at 5:50. Completed HTTP Web Fundamentals course (completed 41 out of 41 lectures), continued Spring Introduction course (completed 10 out of 28 lectures), continued Neetcode 150 (Meeting Room, Meeting Room II; total 44 out of 150 problems solved), continued Neetcode DS&A for beginners (Sorting: bucket sort), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish/French on Babbel/Duolingo.
