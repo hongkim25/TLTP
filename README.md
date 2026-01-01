@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 22__ <br>
+1 JAN 2026 - Woke up at 6:10. Started Spring Boot & JPA 2 course (completed 10 out of 24 lectures), continued Neetcode 150 (Time Based Key-Value Store; total 66 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo. Happy New Year!
+
 31 DEC 2025 - Woke up at 6:20. Completed Spring Boot & JPA 1 course (completed 36 out of 36 lectures), continued Neetcode 150 (Search In Rotated Sorted Array; total 65 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 30 DEC 2025 - Woke up at 5:50. Started Spring Boot & JPA 1 course (completed 13 out of 36 lectures), continued Neetcode 150 (Koko Eating Bananas; total 64 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
