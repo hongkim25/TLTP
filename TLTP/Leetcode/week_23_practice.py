@@ -46,7 +46,11 @@ class Solution {
 
 # Day 156, 03 JAN 2026
 # LeetCode 19: Remove Nth Node From End of List
-# Time O(n) Space O(1)
+# Two Pointers: Time O(n) Space O(1)
+
+# Use two pointers so that the gap between them is exactly n. Move the right pointer n steps ahead first.
+# Then move both pointers together. When the right pointer reaches the end, the left pointer will be just before the node we must remove.
+# This avoids counting the entire list and removes the target in one pass.
 
 /**
  * Definition for singly-linked list.
