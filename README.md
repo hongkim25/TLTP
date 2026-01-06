@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 23__ <br>
+6 JAN 2026 - Woke up at 6:00. Continued Spring Data JPA course (completed 26 out of 32 lectures), continued Neetcode 150 (Balanced Binary Tree; total 70 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, started Data Types and Exceptions in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 5 JAN 2026 - Woke up at 6:00. Continued Spring Data JPA course (completed 19 out of 32 lectures), continued Neetcode 150 (Add Two Numbers; total 70 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, completed Introduction to OOP in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 4 JAN 2026 - Woke up at 7:00. Started Spring Data JPA course (completed 6 out of 32 lectures), continued Neetcode 150 (Copy List With Random Pointer; total 69 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, practiced Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
