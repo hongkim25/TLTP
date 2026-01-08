@@ -204,3 +204,27 @@ class Solution:
             return (self.sameTree(root.left, subRoot.left) and
                    self.sameTree(root.right, subRoot.right))
         return False
+    
+
+# Day 161, 08 JAN 2026
+# LeetCode 235: Lowest Common Ancestor of a Binary Search Tree
+# Iteration: Time O(h) Space O(1)
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        cur = root
+
+        while cur:
+            if p.val > cur.val and q.val > cur.val:
+                cur = cur.right
+            elif p.val < cur.val and q.val < cur.val:
+                cur = cur.left
+            else:
+                return cur
