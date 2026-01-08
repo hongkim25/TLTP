@@ -1,7 +1,11 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 23__ <br>
-6 JAN 2026 - Woke up at 6:00. Continued Spring Data JPA course (completed 26 out of 32 lectures), continued Neetcode 150 (Balanced Binary Tree; total 70 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, started Data Types and Exceptions in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+8 JAN 2026 - Woke up at 6:30. Started QueryDSL course (completed 7 out of 41 lectures), continued Neetcode 150 (Lowest Common Ancestor of a Binary Search Tree; total 73 out of 150 problems solved), read "Finish Spring Boot in One Day", continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+7 JAN 2026 - Woke up at 6:30. Completed Spring Data JPA course (completed 32 out of 32 lectures), continued Neetcode 150 (Subtree of Another Tree; total 72 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+6 JAN 2026 - Woke up at 6:00. Continued Spring Data JPA course (completed 26 out of 32 lectures), continued Neetcode 150 (Balanced Binary Tree; total 71 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, started Data Types and Exceptions in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 5 JAN 2026 - Woke up at 6:00. Continued Spring Data JPA course (completed 19 out of 32 lectures), continued Neetcode 150 (Add Two Numbers; total 70 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, completed Introduction to OOP in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
