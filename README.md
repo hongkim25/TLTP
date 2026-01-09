@@ -1,5 +1,9 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
+__WEEK 24__ <br>
+9 JAN 2026 - Woke up at 5:50. Continued QueryDSL course (completed 16 out of 41 lectures), continued Neetcode 150 (Binary Tree Level Order Traversal; total 74 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+
+
 __WEEK 23__ <br>
 8 JAN 2026 - Woke up at 6:30. Started QueryDSL course (completed 7 out of 41 lectures), continued Neetcode 150 (Lowest Common Ancestor of a Binary Search Tree; total 73 out of 150 problems solved), read "Finish Spring Boot in One Day", continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
