@@ -61,8 +61,9 @@ class Solution:
                 res.append(rightSide.val)
         return res
     
+
 # Day 164, 11 JAN 2026
-# LeetCode 1448: Count Good Nodes in Binary Tree
+# LeetCode 98. Validate Binary Search Tree
 # DFS: Time O(n) Space O(n)
 
 # Definition for a binary tree node.
@@ -73,16 +74,15 @@ class Solution:
 #         self.right = right
 
 class Solution:
-    def goodNodes(self, root: TreeNode) -> int:
-
-        def dfs(node, maxVal):
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        def valid(node, left, right):
             if not node:
-                return 0
+                return True
+            if not (left < node.val < right):
+                return False
 
-            res = 1 if node.val >= maxVal else 0
-            maxVal = max(maxVal, node.val)
-            res += dfs(node.left, maxVal)
-            res += dfs(node.right, maxVal)
-            return res
+            return valid(node.left, left, node.val) and valid(
+                node.right, node.val, right
+            )
 
-        return dfs(root, root.val)
+        return valid(root, float("-inf"), float("inf"))
