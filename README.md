@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 24__ <br>
+13 JAN 2026 - Woke up at 6:30. Started Algorithms for Coding Tests course (completed 5 out of 56 lectures), continued Neetcode 150 (Kth Smallest Element In a Bst; total 78 out of 150 problems solved), reviewed Spanish vocabulary using Anki, continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+
 12 JAN 2026 - Woke up at 6:30. Completed QueryDSL course (completed 41 out of 41 lectures), continued Neetcode 150 (Validate Binary Search Tree; total 77 out of 150 problems solved), reviewed Spanish vocabulary using Anki, continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 11 JAN 2026 - Woke up at 6:50. Continued QueryDSL course (completed 36 out of 41 lectures), continued Neetcode 150 (Count Good Nodes In Binary Tree; total 76 out of 150 problems solved), continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
