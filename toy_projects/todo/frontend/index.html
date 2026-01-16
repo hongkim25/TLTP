@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO APP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MY TO-DO LIST</h1>
+        
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="todoInput" 
+                placeholder="WHAT NEEDS TO BE DONE?"
+                onkeypress="if(event.key==='Enter') addTodo()"
+            >
+            <button onclick="addTodo()">ADD</button>
+        </div>
+        
+        <ul id="todoList" class="todo-list">
+            <!-- Todos will be added here dynamically -->
+        </ul>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

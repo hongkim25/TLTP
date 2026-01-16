@@ -1,7 +1,11 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
+__WEEK 25__ <br>
+16 JAN 2026 - Woke up at 6:50. Initialized the backend for the Bakery Web App, continued Algorithms for Coding Tests course (completed 15 out of 56 lectures), continued Neetcode 150 (Rotting Oranges; total 80 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
+
+
 __WEEK 24__ <br>
-15 JAN 2026 - Woke up at 6:10. Continued Algorithms for Coding Tests course (completed 13 out of 56 lectures), continued Neetcode 150 (K Closest Points to Origin; total 79 out of 150 problems solved), took the SIELE exam, reviewed Spanish vocabulary using Anki, continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
+15 JAN 2026 - Woke up at 6:10. Continued Algorithms for Coding Tests course (completed 13 out of 56 lectures), continued Neetcode 150 (Walls and Gates; total 79 out of 150 problems solved), took the SIELE exam, reviewed Spanish vocabulary using Anki, continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 
 14 JAN 2026 - Woke up at 6:20. Continued Algorithms for Coding Tests course (completed 10 out of 56 lectures), continued Neetcode 150 (K Closest Points to Origin; total 79 out of 150 problems solved), reviewed Spanish vocabulary using Anki, continued reviewing HTML, CSS, and JavaScript, talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced Spanish on Babbel/Duolingo.
 

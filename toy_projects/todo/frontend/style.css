@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #eaeeff 0%, #cfd7e4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgb(252, 254, 255);
+    border-radius: 0px;
+    /* box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    max-width: 1000px;
+    padding: 150px;
+}
+
+h1 {
+    text-align: center;
+    color: #070765;
+    margin-bottom: 60px;
+    font-size: 5.5em;
+}
+
+.input-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 0px;
+    font-size: 18px;
+    transition: border-color 0.3s;
+}
+
+#todoInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    padding: 10px 29px;
+    background: #5375c5;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    /* box-shadow: 0 5px 15px rgba(69, 94, 204, 0.4); */
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    background: #d7dde3;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item.completed {
+    opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #8994b0;
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 18px;
+    color: #000000;
+}
+
+.delete-btn {
+    padding: 8px 10px;
+    background: #3e404f;
+    font-size: 15px;
+}
+
+.delete-btn:hover {
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 18px;
+}
