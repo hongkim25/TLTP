@@ -26,5 +26,5 @@ public class OrderItem {
 
     private int quantity; // How many?
 
-    private BigDecimal priceAtPurchase; // Price might change later, so save it here!
+    private BigDecimal priceAtPurchase; // 가격은 나중에 바뀔 수 있으므로 여기에 저장
 }

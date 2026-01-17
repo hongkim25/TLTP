@@ -16,11 +16,11 @@ public class Product {
 
     private String name;
 
-    private BigDecimal price; // Money should always be BigDecimal
+    private BigDecimal price; // 돈은 언제나 BigDecimal
 
-    private String category; // "BREAD", "CAKE", "DRINK"
+    private String category; // 빵, 음료 등
 
-    @Column(length = 1000) // Allow longer text for AI descriptions
+    @Column(length = 1000) // 혹시나 길어질 수 있어서 1000으로 설정
     private String description;
 
     private String imageUrl;

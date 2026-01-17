@@ -21,27 +21,27 @@ public class DataLoader {
                 System.out.println("... Loading Initial Bakery Menu ...");
 
                 Product p1 = new Product();
-                p1.setName("Sourdough Loaf");
+                p1.setName("사워도우");
                 p1.setPrice(new BigDecimal("6500"));
-                p1.setCategory("BREAD");
+                p1.setCategory("하드빵");
                 p1.setAvailable(true);
                 p1.setStockQuantity(10);
                 p1.setDescription("Classic fermented sourdough with a crispy crust.");
                 productRepo.save(p1);
 
                 Product p2 = new Product();
-                p2.setName("Lemon Cream Cake");
-                p2.setPrice(new BigDecimal("7500"));
-                p2.setCategory("CAKE");
+                p2.setName("베이글");
+                p2.setPrice(new BigDecimal("3500"));
+                p2.setCategory("베이글");
                 p2.setAvailable(true);
                 p2.setStockQuantity(5);
                 p2.setDescription("Zesty lemon cream layered between fluffy sponge.");
                 productRepo.save(p2);
 
                 Product p3 = new Product();
-                p3.setName("Iced Americano");
-                p3.setPrice(new BigDecimal("3500"));
-                p3.setCategory("DRINK");
+                p3.setName("아이스 아메리카노");
+                p3.setPrice(new BigDecimal("4500"));
+                p3.setCategory("음료");
                 p3.setAvailable(true);
                 p3.setStockQuantity(100); // Drinks are virtual stock
                 productRepo.save(p3);
