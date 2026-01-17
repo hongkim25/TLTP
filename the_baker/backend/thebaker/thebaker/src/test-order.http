@@ -1,0 +1,19 @@
+### 1. Get all products (Check Stock BEFORE)
+GET http://localhost:8080/api/products
+
+### 2. Place an Order (Buy 2 Sourdoughs)
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "phoneNumber": "01012345678",
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 2
+    }
+  ]
+}
+
+### 3. Get all products (Check Stock AFTER - Should be 8!)
+GET http://localhost:8080/api/products

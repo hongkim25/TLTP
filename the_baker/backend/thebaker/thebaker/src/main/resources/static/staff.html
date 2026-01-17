@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS INLINED FOR EASIER EDITING RIGHT NOW */
+        :root {
+            --bg: #1e1e24; /* Darker, cleaner grey */
+            --card: #2b2b36;
+            --text: #ffffff;
+            --muted: #a0a0b0;
+            --accent: #00cec9; /* Cyan */
+            --danger: #ff7675; /* Soft Red */
+            --success: #55efc4; /* Soft Green */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+        body { background: var(--bg); color: var(--text); padding: 40px; display: flex; justify-content: center; }
+
+        .dashboard { width: 100%; max-width: 600px; display: flex; flex-direction: column; gap: 30px; }
+
+        /* HEADER & STATUS */
+        .header { display: flex; justify-content: space-between; align-items: center; }
+        h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        /* CARD STYLES */
+        .card { background: var(--card); padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .card-title { color: var(--muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px; }
+
+        /* POINT SYSTEM */
+        .input-row { display: flex; gap: 10px; margin-bottom: 15px; }
+        input {
+            flex: 1; padding: 15px; background: #17171d; border: 1px solid #3a3a45;
+            color: white; border-radius: 8px; font-size: 1rem; text-align: center;
+        }
+        input:focus { border-color: var(--accent); outline: none; }
+
+        .btn-primary {
+            width: 100%; padding: 15px; border: none; border-radius: 8px;
+            background: var(--accent); color: #000; font-weight: 700; font-size: 1rem; cursor: pointer;
+        }
+        .btn-primary:active { transform: scale(0.98); }
+
+        /* INVENTORY LIST */
+        .stock-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 0; border-bottom: 1px solid #3a3a45;
+        }
+        .stock-item:last-child { border-bottom: none; }
+
+        .item-name { font-weight: 500; font-size: 1.1rem; }
+
+        .stock-control { display: flex; align-items: center; gap: 10px; }
+        .stock-input { width: 60px; padding: 8px; text-align: center; background: #17171d; border: 1px solid #3a3a45; border-radius: 6px; color: white; }
+
+        .btn-small {
+            padding: 8px 15px; font-size: 0.8rem; font-weight: 600;
+            background: #3a3a45; color: white; border: none; border-radius: 6px; cursor: pointer;
+        }
+        .btn-small:hover { background: var(--success); color: black; }
+
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="header">
+        <h1>🍞 Control Center</h1>
+        <div id="statusBtn" class="status-badge" onclick="toggleShop()">로딩중입니다...</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Walk-In Points</div>
+        <div class="input-row">
+            <input type="tel" id="phone" placeholder="Phone (010...)" autocomplete="off">
+            <input type="number" id="amount" placeholder="Amount (₩)" autocomplete="off">
+        </div>
+        <button class="btn-primary" onclick="addPoints()">ADD POINTS</button>
+        <div id="pointMsg" style="margin-top: 15px; text-align: center; color: var(--success); height: 20px;"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Live Inventory Count</div>
+        <div id="inventoryList">Loading Menu...</div>
+    </div>
+
+</div>
+
+<script>
+    // --- STATUS LOGIC ---
+    async function loadStatus() {
+        const res = await fetch('/api/staff/status');
+        const data = await res.json();
+        updateStatusUI(data.open);
+    }
+
+    async function toggleShop() {
+        const btn = document.getElementById('statusBtn');
+        const isCurrentlyOpen = btn.innerText.includes("OPEN");
+        const res = await fetch('/api/staff/status', {
+            method: 'POST', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ open: !isCurrentlyOpen })
+        });
+        updateStatusUI(!isCurrentlyOpen);
+    }
+
+    function updateStatusUI(isOpen) {
+        const btn = document.getElementById('statusBtn');
+        if(isOpen) {
+            btn.innerText = "● OPEN";
+            btn.style.background = "rgba(85, 239, 196, 0.2)";
+            btn.style.color = "#55efc4";
+        } else {
+            btn.innerText = "● CLOSED";
+            btn.style.background = "rgba(255, 118, 117, 0.2)";
+            btn.style.color = "#ff7675";
+        }
+    }
+
+    // --- INVENTORY LOGIC ---
+    async function loadInventory() {
+        const res = await fetch('/api/products');
+        const products = await res.json();
+
+        const container = document.getElementById('inventoryList');
+        container.innerHTML = products.map(p => `
+            <div class="stock-item">
+                <span class="item-name">${p.name}</span>
+                <div class="stock-control">
+                    <input type="number" id="stock-${p.id}" class="stock-input" value="${p.stockQuantity}">
+                    <button class="btn-small" onclick="updateStock(${p.id})">SAVE</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function updateStock(id) {
+        const val = document.getElementById(`stock-${id}`).value;
+        const res = await fetch('/api/staff/stock', {
+            method: 'POST', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ productId: id, quantity: parseInt(val) })
+        });
+        if(res.ok) alert("Stock Updated!");
+    }
+
+    // --- POINTS LOGIC (Keep existing) ---
+    async function addPoints() {
+        const phone = document.getElementById('phone').value;
+        const amount = document.getElementById('amount').value;
+        const msg = document.getElementById('pointMsg');
+
+        if(!phone || !amount) return;
+
+        const res = await fetch('/api/staff/points', {
+            method: 'POST', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ phoneNumber: phone, amount: amount })
+        });
+        const data = await res.json();
+        if (res.ok) {
+            msg.innerText = `✅ +${data.added} pts!`;
+            document.getElementById('amount').value = '';
+            document.getElementById('phone').value = '';
+        }
+    }
+
+    // INIT
+    document.addEventListener('DOMContentLoaded', () => {
+        loadStatus();
+        loadInventory();
+    });
+</script>
+
+</body>
+</html>

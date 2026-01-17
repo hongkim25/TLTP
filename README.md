@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 25__ <br>
+17 JAN 2026 - Woke up at 6:40. Shipped the MVP Core (Full-Stack Order System + Staff Inventory Control) of the Bakery Web App, continued Algorithms for Coding Tests course (completed 15 out of 56 lectures), continued Neetcode 150 (Longest Palindromic Substring; total 81 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
+
 16 JAN 2026 - Woke up at 6:50. Initialized the backend for the Bakery Web App, continued Algorithms for Coding Tests course (completed 15 out of 56 lectures), continued Neetcode 150 (Rotting Oranges; total 80 out of 150 problems solved), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
 
 
