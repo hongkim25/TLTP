@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manager Terminal</title>
+    <title>직원용 페이지</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* CSS INLINED FOR EASIER EDITING RIGHT NOW */
@@ -80,7 +80,7 @@
 <div class="dashboard">
 
     <div class="header">
-        <h1>🍞 Control Center</h1>
+        <h1>직원용 페이지</h1>
         <div id="statusBtn" class="status-badge" onclick="toggleShop()">로딩중입니다...</div>
     </div>
 
@@ -143,7 +143,7 @@
                 <span class="item-name">${p.name}</span>
                 <div class="stock-control">
                     <input type="number" id="stock-${p.id}" class="stock-input" value="${p.stockQuantity}">
-                    <button class="btn-small" onclick="updateStock(${p.id})">SAVE</button>
+                    <button class="btn-small" onclick="updateStock(${p.id})">저장</button>
                 </div>
             </div>
         `).join('');
@@ -155,7 +155,7 @@
             method: 'POST', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ productId: id, quantity: parseInt(val) })
         });
-        if(res.ok) alert("Stock Updated!");
+        if(res.ok) alert("재고가 업데이트되었습니다!");
     }
 
     // --- POINTS LOGIC (Keep existing) ---

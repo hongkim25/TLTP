@@ -13,11 +13,11 @@ async function checkShopStatus() {
 
         if (data.open === true) {
             // IF OPEN: Load the menu
-            console.log("Shop is OPEN");
+            console.log("더베이커 영업 중입니다.");
             fetchProducts();
         } else {
             // IF CLOSED: Kill the menu, show the banner
-            console.log("Shop is CLOSED");
+            console.log("지금은 영업 중이 아닙니다.");
             showClosedState();
         }
     } catch (error) {
@@ -35,8 +35,8 @@ function showClosedState() {
     document.getElementById('productList').innerHTML = `
         <div class="sold-out-hero" style="grid-column: 1 / -1; text-align: center; padding: 50px; background: #eee; border-radius: 20px;">
             <h1 style="font-size: 3rem; color: #d63031;">⛔ SOLD OUT</h1>
-            <p style="font-size: 1.5rem; margin-top: 20px;">We are sold out for today.</p>
-            <p>See you tomorrow at 9:00 AM!</p>
+            <p style="font-size: 1.5rem; margin-top: 20px;">솔드아웃 되었습니다.</p>
+            <p>내일 9시에 뵙겠습니다!</p>
         </div>
     `;
 }
@@ -86,7 +86,7 @@ function renderCart() {
     const totalEl = document.getElementById('totalPrice');
 
     if (Object.keys(cart).length === 0) {
-        container.innerHTML = '<p class="empty-cart">Your tray is empty.</p>';
+        container.innerHTML = '<p class="empty-cart">트레이가 비어 있습니다.</p>';
         totalEl.innerText = '0 ₩';
         return;
     }
@@ -112,7 +112,7 @@ function renderCart() {
 async function placeOrder() {
     const phone = document.getElementById('phoneNumber').value;
     if (!phone) {
-        alert("Please enter your phone number to earn points!");
+        alert("포인트 적립을 위해 핸드폰 번호를 입력해주세요.");
         return;
     }
 
@@ -138,12 +138,12 @@ async function placeOrder() {
             let total = 0;
             Object.values(cart).forEach(item => total += item.price * item.qty);
 
-            alert("✅ Order Reserved!\n\nPlease transfer " + total.toLocaleString() + " KRW to:\nKB Bank 123-456-7890 (Hong Bakery)\n\nWe will prepare your bread once confirmed!");
+            alert("✅ 예약이 완료되었습니다!\n\n " + total.toLocaleString() + " 원을 입금해주세요. \nKB 은행 123-456-7890 (김현균)\n\n입금 확인 후 준비해드리겠습니다.");
             cart = {};
             renderCart();
             fetchProducts();
         } else {
-            alert("Order Failed! Check stock.");
+            alert("주문에 실패했습니다. 재고를 확인해주세요.");
         }
     } catch (error) {
         console.error("Order error:", error);
@@ -167,7 +167,7 @@ function toggleMembership() {
 function showBarcode() {
     const phone = document.getElementById('myPhone').value;
     if (phone.length < 10) {
-        alert("Please enter a valid phone number");
+        alert("핸드폰 번호를 확인해주세요.");
         return;
     }
 

@@ -11,52 +11,52 @@
 
 <body>
     <header>
-        <div class="logo">🍞 The Daily Baker</div>
+        <div class="logo">THE BAKER</div>
         <button onclick="toggleMembership()" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">
-            🪪 My Card
+            멤버십
         </button>
     </header>
 
     <div id="membershipModal" class="modal-overlay" style="display:none;">
         <div class="modal-card">
             <span class="close-btn" onclick="toggleMembership()">&times;</span>
-            <h2>My Membership</h2>
+            <h2>나의 멤버십</h2>
 
             <div id="loginPhase">
-                <p>Enter your phone to see your card</p>
+                <p>핸드폰 번호를 입력하세요.</p>
                 <input type="tel" id="myPhone" placeholder="010-1234-5678" style="text-align:center;">
                 <button onclick="showBarcode()" class="checkout-btn" style="margin-top:10px;">Show Card</button>
             </div>
 
             <div id="cardPhase" style="display:none; text-align:center;">
                 <canvas id="barcode"></canvas> <p id="displayPhone" style="font-weight:bold; margin-top:10px; font-size:1.2rem;"></p>
-                <p style="color:green; margin-top:5px;">Show this to staff to earn points!</p>
+                <p style="color:green; margin-top:5px;">포인트 적립을 위해 직원에게 바코드를 보여주세요.</p>
             </div>
         </div>
     </div>
 
     <div class="main-container">
         <section class="menu-section">
-            <h2>Freshly Baked Today</h2>
+            <h2>오늘의 메뉴</h2>
             <div id="productList" class="grid-container">
-                <div class="loading">Loading fresh bread...</div>
+                <div class="loading">로딩중...</div>
             </div>
         </section>
 
         <aside class="cart-section">
-            <h2>Your Tray</h2>
+            <h2>트레이</h2>
             <div id="cartItems" class="cart-items">
-                <p class="empty-cart">Your tray is empty.</p>
+                <p class="empty-cart">트레이가 비어있습니다.</p>
             </div>
             
             <div class="cart-total">
-                <span>Total:</span>
+                <span>총:</span>
                 <span id="totalPrice">0 ₩</span>
             </div>
 
             <div class="checkout-area">
                 <input type="tel" id="phoneNumber" placeholder="010-0000-0000" maxlength="13">
-                <button onclick="placeOrder()" class="checkout-btn">Order Now</button>
+                <button onclick="placeOrder()" class="checkout-btn">주문하기</button>
             </div>
         </aside>
     </div>
