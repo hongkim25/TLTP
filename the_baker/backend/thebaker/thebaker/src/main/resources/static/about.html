@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE BAKER - Reservation</title>
+    <title>THE BAKER - About</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
-                    colors: { brown: '#6B4423', black: '#111111', white: '#FFFFFF', gray: '#F4F4F4' }
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'], // Global Font
+                    },
+                    colors: {
+                        brown: '#6B4423',
+                        black: '#111111',
+                        white: '#FFFFFF',
+                        gray: '#F4F4F4'
+                    }
                 }
             }
         }
     </script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <style> body { font-family: 'Pretendard', sans-serif; } </style>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased">
 
@@ -50,31 +61,26 @@
     });
 </script>
 
-<main class="pt-32 pb-24 px-6 max-w-screen-sm mx-auto">
-    <h1 class="text-4xl font-bold mb-8 tracking-[-0.03em]">RESERVATION</h1>
-    <p class="mb-12 text-gray-500 font-medium">원하시는 빵을 미리 예약하세요.</p>
+<main class="pt-32 pb-24 px-6 max-w-screen-md mx-auto fade-in">
+    <h1 class="text-3xl md:text-6xl font-bold mb-12  flex items-center justify-center tracking-[-0.03em] uppercase">
+        NOT ONE OF THE BAKERS
+    </h1>
 
-    <form class="space-y-8">
-        <div>
-            <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">Name</label>
-            <input type="text" placeholder="성함" class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition">
-        </div>
+    <div class="space-y-8 text-[18px] leading-relaxed font-medium text-black/80">
+        <p>
+            영업시간: 오전 9시- 오후 5시 (재고 소진 시 조기 마감)
+            매주 화요일 휴무
+        </p>
+        <p>
+            (Write your brother's story here.)
+        </p>
+    </div>
 
-        <div>
-            <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">Phone</label>
-            <input type="tel" placeholder="010-0000-0000" class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition">
-        </div>
-
-        <div>
-            <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">Message</label>
-            <textarea placeholder="예약하실 빵 종류와 수량을 적어주세요." rows="4" class="w-full border-b border-gray-300 py-3 text-lg font-medium focus:outline-none focus:border-black transition"></textarea>
-        </div>
-
-        <button type="button" class="w-full bg-brown text-white py-5 text-[18px] font-bold tracking-tight hover:bg-black transition mt-8">
-            예약 신청하기
-        </button>
-    </form>
+    <div class="mt-12 w-full h-96 bg-gray-100 flex items-center justify-center text-gray-400 font-bold uppercase tracking-widest">
+        Add Photo Here (bakery_interior.jpg)
+    </div>
 </main>
+</body>
 
 <footer class="bg-white py-12 px-6 border-t border-gray-100">
     <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[13px] uppercase tracking-wide text-gray-400">
@@ -86,5 +92,4 @@
     </div>
 </footer>
 
-</body>
 </html>

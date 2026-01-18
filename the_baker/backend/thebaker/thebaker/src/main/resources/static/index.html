@@ -1,66 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE BAKER</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                        serif: ['Pretendard', 'sans-serif'],
+                        nav: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brown: '#6B4423',
+                        black: '#111111',
+                        white: '#FFFFFF',
+                        gray: '#F4F4F4',
+                        cream: '#f9f7f2'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+            font-weight: 600;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-display: swap;
+        }
+
+        /* Hide Scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Smooth Fade In */
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+}
+    </style>
 </head>
+<body class="bg-white text-brown font-sans antialiased">
 
-<body>
-    <header>
-        <div class="logo">THE BAKER</div>
-        <button onclick="toggleMembership()" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">
-            멤버십
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-screen-xl mx-auto px-6 h-16 flex justify-between items-center">
+        <a href="index.html" class="text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
+
+        <div class="space-x-6 text-[14px] font-bold tracking-wider hidden md:block">
+            <a href="about.html" id="link-about" class="hover:text-brown transition">소개</a>
+            <a href="menu.html" id="link-menu" class="hover:text-brown transition">메뉴</a>
+            <a href="reservation.html" id="link-reservation" class="hover:text-brown transition">예약</a>
+        </div>
+
+        <button class="md:hidden text-[20px] uppercase tracking-tight font-bold">Menu</button>
+    </div>
+</nav>
+
+<script>
+    // AUTO-HIGHLIGHT LOGIC
+    // This script checks the URL and adds the 'opacity-50' class to the current page link
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname;
+
+        if (path.includes("about")) {
+            document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
+        } else if (path.includes("menu")) {
+            document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
+        } else if (path.includes("reservation")) {
+            document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
+        }
+    });
+</script>
+
+<section class="h-screen flex flex-col justify-center items-center px-6 pt-16 text-center">
+    <p class="text-[25px] uppercase tracking-[-0.03em] mb-10 text-gray-500 fade-in font-bold" style="animation-delay: 0.1s">NOT ONE OF THE BAKERS,</p>
+
+    <h1 class="text-6xl md:text-9xl font-semibold mb-10 tracking-[-0.03em] fade-in" style="animation-delay: 0.2s">
+        THE BAKER
+    </h1>
+
+    <div class="fade-in mt-8" style="animation-delay: 0.3s">
+            <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[21px] font-bold tracking-wide uppercase">
+                <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span>
+                OPEN
+            </span>
+    </div>
+
+    <div class="absolute bottom-10 animate-bounce">
+        <svg class="w-6 h-6 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </div>
+</section>
+
+<section class="min-h-[80vh] bg-brown text-white px-6 py-24 flex flex-col items-center justify-center">
+    <h2 class="font-serif text-4xl mb-4 text-center font-bold">멤버십</h2>
+    <p class="text-white/60 text-[18px] mb-12 text-center max-w-md font-serif">포인트 적립을 위해 핸드폰 번호를 입력해 주세요.</p>
+
+    <div id="login-form" class="w-full max-w-sm fade-in" style="animation-delay: 0.4s">
+        <div class="flex border-b border-white/30 pb-2">
+            <input type="tel" id="phoneInput" placeholder="010-1234-5678" class="bg-transparent w-full outline-none text-[30px] placeholder-white/20 text-center font-serif">
+        </div>
+        <button onclick="checkMember()" class="w-full mt-8 bg-white text-brown py-4 text-[18px] tracking-tight hover:bg-gray-200 transition">
+            나의 멤버십 확인
         </button>
-    </header>
+    </div>
 
-    <div id="membershipModal" class="modal-overlay" style="display:none;">
-        <div class="modal-card">
-            <span class="close-btn" onclick="toggleMembership()">&times;</span>
-            <h2>나의 멤버십</h2>
+    <div id="member-card" class="hidden w-full max-w-sm bg-white text-black p-8 rounded-sm text-center">
+        <p class="text-xs tracking-wide uppercase text-gray-500 mb-2 font-black">현재 포인트 잔액</p>
+        <p class="text-5xl font-serif mb-8 font-bold" id="pointsDisplay">0 P</p>
 
-            <div id="loginPhase">
-                <p>핸드폰 번호를 입력하세요.</p>
-                <input type="tel" id="myPhone" placeholder="010-1234-5678" style="text-align:center;">
-                <button onclick="showBarcode()" class="checkout-btn" style="margin-top:10px;">Show Card</button>
-            </div>
+        <div class="bg-gray-100 p-4 mb-4 flex justify-center">
+            <svg id="barcode" class="w-full h-16"></svg>
+        </div>
+        <p class="text-[10px] tracking-wide uppercase text-gray-400 font-black">결제 시 스캔해주세요</p>
+    </div>
+</section>
 
-            <div id="cardPhase" style="display:none; text-align:center;">
-                <canvas id="barcode"></canvas> <p id="displayPhone" style="font-weight:bold; margin-top:10px; font-size:1.2rem;"></p>
-                <p style="color:green; margin-top:5px;">포인트 적립을 위해 직원에게 바코드를 보여주세요.</p>
-            </div>
+<footer class="bg-white py-12 px-6 border-t border-gray-100">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[13px] uppercase tracking-wide text-gray-400">
+        <p class="font-bold tracking-tight">&copy; 2026 THE BAKER DAEJEON</p>
+        <div class="space-x-6 mt-4 md:mt-0 font-bold">
+            <a href="#">인스타그램</a>
+            <a href="#">개인정보</a>
         </div>
     </div>
+</footer>
 
-    <div class="main-container">
-        <section class="menu-section">
-            <h2>오늘의 메뉴</h2>
-            <div id="productList" class="grid-container">
-                <div class="loading">로딩중...</div>
-            </div>
-        </section>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+<script>
+    async function checkMember() {
+        const phone = document.getElementById('phoneInput').value;
+        if(!phone) return;
 
-        <aside class="cart-section">
-            <h2>트레이</h2>
-            <div id="cartItems" class="cart-items">
-                <p class="empty-cart">트레이가 비어있습니다.</p>
-            </div>
-            
-            <div class="cart-total">
-                <span>총:</span>
-                <span id="totalPrice">0 ₩</span>
-            </div>
+        document.getElementById('login-form').classList.add('hidden');
+        document.getElementById('member-card').classList.remove('hidden');
 
-            <div class="checkout-area">
-                <input type="tel" id="phoneNumber" placeholder="010-0000-0000" maxlength="13">
-                <button onclick="placeOrder()" class="checkout-btn">주문하기</button>
-            </div>
-        </aside>
-    </div>
+        JsBarcode("#barcode", phone, {
+            format: "CODE128",
+            displayValue: false,
+            lineColor: "#000",
+            width: 2,
+            height: 50,
+            margin: 0
+        });
 
-    <script src="app.js"></script>
+        try {
+            const res = await fetch('/api/staff/points/' + phone);
+            document.getElementById('pointsDisplay').innerText = "5,200 P";
+        } catch(e) {
+            console.error("Backend not connected yet");
+        }
+    }
+</script>
 </body>
 </html>

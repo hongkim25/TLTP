@@ -30,7 +30,7 @@ public class DataLoader {
                 productRepo.save(p1);
 
                 Product p2 = new Product();
-                p2.setName("베이글");
+                p2.setName("플레인 베이글");
                 p2.setPrice(new BigDecimal("3500"));
                 p2.setCategory("베이글");
                 p2.setAvailable(true);

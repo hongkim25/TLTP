@@ -1,13 +1,12 @@
-package com.hong.thebaker.entity;
+package com.hong.thebaker.entity; // PACKAGED AS ENTITY
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
+import java.math.BigDecimal; // Money
 
 @Entity
-@Getter @Setter @NoArgsConstructor
+@Getter @Setter
 public class Product {
 
     @Id
@@ -15,17 +14,18 @@ public class Product {
     private Long id;
 
     private String name;
-
-    private BigDecimal price; // 돈은 언제나 BigDecimal
-
-    private String category; // 빵, 음료 등
-
-    @Column(length = 1000) // 혹시나 길어질 수 있어서 1000으로 설정
-    private String description;
-
-    private String imageUrl;
-
-    private boolean isAvailable;
-
+    private BigDecimal price; // money -> BigDecimal even for KRW
     private int stockQuantity;
+
+    // NEW FIELD
+    private String category; // "HARD", "SOFT", "ALL"
+
+    public Product() {}
+
+    public Product(String name, BigDecimal price, int stockQuantity, String category) {
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+        this.category = category;
+    }
 }

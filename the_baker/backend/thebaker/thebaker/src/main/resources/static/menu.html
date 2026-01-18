@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BAKER - Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
+                    colors: { brown: '#6B4423', black: '#111111', white: '#FFFFFF', gray: '#F4F4F4' }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+
+<body class="bg-white text-brown font-sans antialiased flex flex-col min-h-screen">
+
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-screen-xl mx-auto px-6 h-16 flex justify-between items-center">
+        <a href="index.html" class="text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
+
+        <div class="space-x-6 text-[14px] font-bold tracking-wider hidden md:block">
+            <a href="about.html" id="link-about" class="hover:text-brown transition">소개</a>
+            <a href="menu.html" id="link-menu" class="hover:text-brown transition">메뉴</a>
+            <a href="reservation.html" id="link-reservation" class="hover:text-brown transition">예약</a>
+        </div>
+
+        <button class="md:hidden text-[20px] uppercase tracking-tight font-bold">Menu</button>
+    </div>
+</nav>
+
+<script>
+    // AUTO-HIGHLIGHT LOGIC
+    // This script checks the URL and adds the 'opacity-50' class to the current page link
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname;
+
+        if (path.includes("about")) {
+            document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
+        } else if (path.includes("menu")) {
+            document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
+        } else if (path.includes("reservation")) {
+            document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
+        }
+    });
+</script>
+
+<main class="pt-32 pb-24 px-6 max-w-screen-xl mx-auto flex-1 w-full">
+    <h1 class="text-4xl font-bold mb-12 tracking-[-0.03em]">MENU</h1>
+
+    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <div class="group border-b border-gray-100 pb-6">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="text-xl font-bold text-black group-hover:text-brown transition">Sourdough</h3>
+                <span class="text-lg font-bold">₩5,000</span>
+            </div>
+            <p class="text-gray-500 text-sm">천연 발효종으로 만든 건강한 빵</p>
+        </div>
+
+        <div class="group border-b border-gray-100 pb-6 opacity-50">
+            <div class="flex justify-between items-baseline mb-2">
+                <h3 class="text-xl font-bold text-black">Salt Bread</h3>
+                <span class="text-sm font-bold bg-black text-white px-2 py-1 rounded-sm uppercase">Sold Out</span>
+            </div>
+            <p class="text-gray-500 text-sm">프랑스 고메 버터와 펄 솔트</p>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-white py-12 px-6 border-t border-gray-100 mt-auto">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[13px] uppercase tracking-wide text-gray-400">
+        <p class="font-bold tracking-tight">&copy; 2026 THE BAKER DAEJEON</p>
+        <div class="space-x-6 mt-4 md:mt-0 font-bold">
+            <a href="#">인스타그램</a>
+            <a href="#">개인정보</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // We will hook this up to /api/products shortly
+</script>
+</body>
+</html>

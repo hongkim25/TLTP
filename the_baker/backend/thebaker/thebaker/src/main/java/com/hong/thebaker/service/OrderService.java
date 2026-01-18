@@ -78,8 +78,8 @@ public class OrderService {
         order.setItems(orderItems);
         order.setTotalAmount(totalAmount);
 
-        // 7. Calculate Points (Logic: 5% of total amount)
-        int pointsEarned = totalAmount.multiply(BigDecimal.valueOf(0.05)).intValue();
+        // 7. Calculate Points
+        int pointsEarned = totalAmount.multiply(BigDecimal.valueOf(0.03)).intValue();
         order.setPointsEarned(pointsEarned);
 
         // 8. Update Customer's Total Points
