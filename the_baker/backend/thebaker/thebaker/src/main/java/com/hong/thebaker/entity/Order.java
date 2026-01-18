@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "orders") // "Order" is a reserved SQL word, so we rename the table
+@Table(name = "orders")
 @Getter @Setter @NoArgsConstructor
 public class Order {
 

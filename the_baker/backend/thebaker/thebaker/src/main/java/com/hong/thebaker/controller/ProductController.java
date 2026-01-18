@@ -19,39 +19,51 @@ public class ProductController {
 
     // GET /api/products -> Returns ONLY what is sold TODAY
     @GetMapping
-    public List<Product> getTodayMenu() {
+    public List<Product> getMenuByDate(@RequestParam(required = false) String date) {
         List<Product> allProducts = productRepository.findAll();
 
-        // 1. What day is it?
-        DayOfWeek today = LocalDate.now().getDayOfWeek();
+        // 1. Determine the Target Date
+        LocalDate targetDate;
+        if (date == null || date.isEmpty()) {
+            targetDate = LocalDate.now(); // Default to Today
+        } else {
+            try {
+                targetDate = LocalDate.parse(date); // Parse "2026-01-22"
+            } catch (Exception e) {
+                targetDate = LocalDate.now(); // Fallback if format is wrong
+            }
+        }
 
-        // 2. Filter Logic
+        // 2. What day of the week is that?
+        DayOfWeek dayOfWeek = targetDate.getDayOfWeek();
+
+        // 3. Filter Logic (Same as before, but using the specific day)
         return allProducts.stream()
-                .filter(product -> isAvailableToday(product, today))
+                .filter(product -> isAvailableOnDay(product, dayOfWeek))
                 .collect(Collectors.toList());
     }
 
-    // The Logic Engine
-    private boolean isAvailableToday(Product product, DayOfWeek today) {
-        String type = product.getCategory(); // HARD, SOFT, ALL
+    // Rename 'isAvailableToday' to 'isAvailableOnDay' for clarity
+    private boolean isAvailableOnDay(Product product, DayOfWeek day) {
+        String type = product.getCategory();
 
-        if (type == null || type.equals("ALL")) return true; // Drinks are always sold
+        if (type == null || type.equals("ALL")) return true;
 
         // HARD BREAD: Thu, Fri, Sat
         if (type.equals("HARD")) {
-            return today == DayOfWeek.THURSDAY ||
-                    today == DayOfWeek.FRIDAY ||
-                    today == DayOfWeek.SATURDAY;
+            return day == DayOfWeek.THURSDAY ||
+                    day == DayOfWeek.FRIDAY ||
+                    day == DayOfWeek.SATURDAY;
         }
 
         // BAGELS (SOFT): Sun, Mon, Wed
         if (type.equals("SOFT")) {
-            return today == DayOfWeek.SUNDAY ||
-                    today == DayOfWeek.MONDAY ||
-                    today == DayOfWeek.WEDNESDAY;
+            return day == DayOfWeek.SUNDAY ||
+                    day == DayOfWeek.MONDAY ||
+                    day == DayOfWeek.WEDNESDAY;
         }
 
-        return false; // Closed on Tuesday or unknown category
+        return false;
     }
 
     // Keep the POST method for Staff to add items

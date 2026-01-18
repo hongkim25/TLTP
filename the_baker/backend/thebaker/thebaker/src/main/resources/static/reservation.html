@@ -16,75 +16,125 @@
         }
     </script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <style> body { font-family: 'Pretendard', sans-serif; } </style>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        /* Modal Animation */
+        .fade-in-up { animation: fadeInUp 0.3s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
-<body class="bg-white text-brown font-sans antialiased">
+<body class="bg-white text-brown font-sans antialiased flex flex-col min-h-screen">
 
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
     <div class="max-w-screen-xl mx-auto px-6 h-16 flex justify-between items-center">
-        <a href="index.html" class="text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
-
+        <a href="index.html" class="text-[24px] font-semibold tracking-tight hover:opacity-70 transition" style="font-family: Arial, sans-serif;">THE BAKER</a>
         <div class="space-x-6 text-[14px] font-bold tracking-wider hidden md:block">
-            <a href="about.html" id="link-about" class="hover:text-brown transition">소개</a>
-            <a href="menu.html" id="link-menu" class="hover:text-brown transition">메뉴</a>
-            <a href="reservation.html" id="link-reservation" class="hover:text-brown transition">예약</a>
+            <a href="about.html" class="hover:text-brown transition">소개</a>
+            <a href="menu.html" class="hover:text-brown transition">메뉴</a>
+            <a href="reservation.html" class="opacity-50 text-brown pointer-events-none">예약</a>
         </div>
-
         <button class="md:hidden text-[20px] uppercase tracking-tight font-bold">Menu</button>
     </div>
 </nav>
 
-<script>
-    // AUTO-HIGHLIGHT LOGIC
-    // This script checks the URL and adds the 'opacity-50' class to the current page link
-    document.addEventListener("DOMContentLoaded", () => {
-        const path = window.location.pathname;
-
-        if (path.includes("about")) {
-            document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
-        } else if (path.includes("menu")) {
-            document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
-        } else if (path.includes("reservation")) {
-            document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
-        }
-    });
-</script>
-
-<main class="pt-32 pb-24 px-6 max-w-screen-sm mx-auto">
+<main class="pt-32 pb-24 px-6 max-w-screen-sm mx-auto flex-1 w-full">
     <h1 class="text-4xl font-bold mb-8 tracking-[-0.03em]">RESERVATION</h1>
-    <p class="mb-12 text-gray-500 font-medium">원하시는 빵을 미리 예약하세요.</p>
+    <p class="mb-12 text-gray-500 font-medium">Please fill out the form. Payment is required to confirm.</p>
 
-    <form class="space-y-8">
+    <form id="reserveForm" class="space-y-8">
         <div>
-            <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">Name</label>
-            <input type="text" placeholder="성함" class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition">
+            <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">Name</label>
+            <input type="text" id="inputName" placeholder="Your Name" required class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition text-black">
         </div>
 
         <div>
-            <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">Phone</label>
-            <input type="tel" placeholder="010-0000-0000" class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition">
+            <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">Phone</label>
+            <input type="tel" id="inputPhone" placeholder="010-0000-0000" required class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition text-black">
         </div>
 
         <div>
-            <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">Message</label>
-            <textarea placeholder="예약하실 빵 종류와 수량을 적어주세요." rows="4" class="w-full border-b border-gray-300 py-3 text-lg font-medium focus:outline-none focus:border-black transition"></textarea>
+            <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">Order Details</label>
+            <textarea id="inputMsg" placeholder="Ex: 2 Sourdough, 1 Baguette" required rows="3" class="w-full border-b border-gray-300 py-3 text-lg font-medium focus:outline-none focus:border-black transition text-black"></textarea>
         </div>
 
-        <button type="button" class="w-full bg-brown text-white py-5 text-[18px] font-bold tracking-tight hover:bg-black transition mt-8">
-            예약 신청하기
+        <button type="button" onclick="openPayment()" class="w-full bg-brown text-white py-5 text-[14px] font-bold uppercase tracking-widest hover:bg-black transition mt-8">
+            Proceed to Payment
         </button>
     </form>
 </main>
 
-<footer class="bg-white py-12 px-6 border-t border-gray-100">
+<footer class="bg-white py-12 px-6 border-t border-gray-100 mt-auto">
     <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[13px] uppercase tracking-wide text-gray-400">
         <p class="font-bold tracking-tight">&copy; 2026 THE BAKER DAEJEON</p>
-        <div class="space-x-6 mt-4 md:mt-0 font-bold">
-            <a href="#">인스타그램</a>
-            <a href="#">개인정보</a>
-        </div>
     </div>
 </footer>
 
+<div id="bank-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+
+    <div class="relative bg-white w-full max-w-sm mx-6 p-8 shadow-2xl animate-fade-in-up">
+        <h3 class="text-xl font-bold mb-6 tracking-tight text-black">PAYMENT INFO</h3>
+
+        <div class="space-y-4 mb-8 text-black">
+            <div class="p-4 bg-gray-50 border border-gray-100">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Bank</p>
+                <p class="text-lg font-bold">KB Kookmin (국민은행)</p>
+            </div>
+            <div class="p-4 bg-gray-50 border border-gray-100 group cursor-pointer hover:bg-gray-100 transition" onclick="copyAccount()">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Account Number (Click to Copy)</p>
+                <div class="flex justify-between items-center">
+                    <p class="text-lg font-mono font-bold" id="account-num">1234-56-789012</p>
+                    <span class="text-xs text-brown font-bold opacity-0 group-hover:opacity-100 transition">COPY</span>
+                </div>
+            </div>
+            <div class="p-4 bg-gray-50 border border-gray-100">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Owner</p>
+                <p class="text-lg font-bold">Hong Bakery</p>
+            </div>
+        </div>
+
+        <button onclick="finishReservation()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">
+            I Sent the Money
+        </button>
+
+        <button onclick="closeModal()" class="w-full mt-4 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-black">
+            Cancel
+        </button>
+    </div>
+</div>
+
+<script>
+    function openPayment() {
+        // Simple Validation
+        const name = document.getElementById('inputName').value;
+        const phone = document.getElementById('inputPhone').value;
+        const msg = document.getElementById('inputMsg').value;
+
+        if(!name || !phone || !msg) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        // Show Modal
+        document.getElementById('bank-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('bank-modal').classList.add('hidden');
+    }
+
+    function copyAccount() {
+        const num = document.getElementById('account-num').innerText;
+        navigator.clipboard.writeText(num).then(() => {
+            alert("Account Number Copied!");
+        });
+    }
+
+    function finishReservation() {
+        // In a real app, you would send the data to backend here.
+        alert("Reservation Confirmed! We will verify the payment shortly.");
+        location.href = "index.html"; // Redirect to home
+    }
+</script>
 </body>
 </html>
