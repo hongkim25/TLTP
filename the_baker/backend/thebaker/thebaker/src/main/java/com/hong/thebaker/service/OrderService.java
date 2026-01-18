@@ -121,4 +121,44 @@ public class OrderService {
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
     }
+
+    // Logic for Sidebar Quick Payment
+    public void processQuickPayment(com.hong.thebaker.dto.QuickPaymentRequest request) {
+
+        // 1. Find or Create Customer
+        Customer customer = customerRepository.findByPhone(request.getPhoneNumber())
+                .orElseGet(() -> {
+                    Customer newCustomer = new Customer();
+                    newCustomer.setPhone(request.getPhoneNumber());
+                    newCustomer.setName("Guest");
+                    newCustomer.setPoints(0);
+                    return customerRepository.save(newCustomer);
+                });
+
+        // 2. Use Points (Redemption)
+        if (request.getPointsToUse() > 0) {
+            if (customer.getPoints() < request.getPointsToUse()) {
+                throw new RuntimeException("포인트가 부족합니다. 보유 포인트: " + customer.getPoints());
+            }
+            customer.setPoints(customer.getPoints() - request.getPointsToUse());
+        }
+
+        // 3. Calculate "Net Pay" (Total - Points Used)
+        BigDecimal totalAmountBd = BigDecimal.valueOf(request.getTotalAmount());
+        BigDecimal pointsUsedBd = BigDecimal.valueOf(request.getPointsToUse());
+        BigDecimal netPayAmount = totalAmountBd.subtract(pointsUsedBd);
+
+        if (netPayAmount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("결제 금액보다 많은 포인트를 사용할 수 없습니다.");
+        }
+
+        // 4. Earn Points (Cash 3%, Card 1%)
+        PaymentMethod method = request.getPaymentMethod();
+        if (method == null) method = PaymentMethod.CARD; // Default safety
+
+        int pointsEarned = method.calculatePoints(netPayAmount);
+
+        customer.setPoints(customer.getPoints() + pointsEarned);
+        customerRepository.save(customer);
+    }
 }
