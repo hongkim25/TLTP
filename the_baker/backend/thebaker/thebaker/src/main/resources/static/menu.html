@@ -38,7 +38,7 @@
         @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-white text-brown font-sans antialiased">
+<body class="bg-white text-brown font-sans antialiased overflow-x-hidden">
 
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
     <div class="max-w-screen-xl mx-auto px-6 h-16 flex justify-between items-center">
@@ -67,7 +67,7 @@
         <span class="text-sm font-bold text-gray-400 uppercase tracking-widest" id="date-display">...</span>
     </div>
 
-    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-12">
         <div class="animate-pulse text-gray-300 font-bold text-xl">로딩중입니다...</div>
     </div>
 </main>
