@@ -30,6 +30,11 @@ public class Customer {
 
     private LocalDateTime createdAt;
 
+    private boolean marketingConsent; // New Field
+
+    public boolean isMarketingConsent() { return marketingConsent; }
+    public void setMarketingConsent(boolean marketingConsent) { this.marketingConsent = marketingConsent; }
+
     // Relationship: "One Customer has Many Orders"
     // This connects the Customer table to the Order table
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)

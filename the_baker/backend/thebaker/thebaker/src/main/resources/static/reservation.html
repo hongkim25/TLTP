@@ -9,39 +9,68 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
-                    colors: { brown: '#6B4423', black: '#111111', white: '#FFFFFF', gray: '#F4F4F4' }
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                        serif: ['Pretendard', 'sans-serif'],
+                        nav: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brown: '#6B4423',
+                        black: '#111111',
+                        white: '#FFFFFF',
+                        gray: '#F4F4F4',
+                        cream: '#f9f7f2',
+                        success: '#22c55e',
+                        danger: '#ef4444'
+                    }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <style> body { font-family: 'Pretendard', sans-serif; } </style>
+    <style>
+        @font-face { font-family: 'Pretendard'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+        @font-face { font-family: 'Pretendard'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+        @font-face { font-family: 'Pretendard'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased flex flex-col min-h-screen">
 
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
     <div class="max-w-screen-xl mx-auto px-6 h-16 flex justify-between items-center">
-        <a href="index.html" class="text-[24px] font-semibold tracking-tight hover:opacity-70 transition" style="font-family: Arial, sans-serif;">THE BAKER</a>
+        <a href="index.html" class="text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
         <div class="space-x-6 text-[14px] font-bold tracking-wider hidden md:block">
-            <a href="about.html" class="hover:text-brown transition">소개</a>
-            <a href="menu.html" class="hover:text-brown transition">메뉴</a>
-            <a href="reservation.html" class="opacity-50 text-brown pointer-events-none">예약</a>
+            <a href="about.html" id="link-about" class="hover:text-brown transition">소개</a>
+            <a href="menu.html" id="link-menu" class="hover:text-brown transition">메뉴</a>
+            <a href="reservation.html" id="link-reservation" class="hover:text-brown transition">예약</a>
         </div>
         <button class="md:hidden text-[20px] uppercase tracking-tight font-bold">Menu</button>
     </div>
 </nav>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname;
+        if (path.includes("about")) document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
+        else if (path.includes("menu")) document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
+        else if (path.includes("reservation")) document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
+    });
+</script>
+
 <main class="pt-32 pb-24 px-6 max-w-screen-md mx-auto flex-1 w-full">
-    <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase">Reserve for Pickup</h1>
+    <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase">픽업 예약</h1>
 
     <div class="space-y-6 mb-12 border-b border-gray-100 pb-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-                <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 날짜</label>
+                <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 날짜</label>
                 <input type="date" id="datePicker" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none">            </div>
             <div>
-                <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">시간</label>
+                <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">시간</label>
                 <select class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none">
                     <option>11:00 AM</option>
                     <option>12:00 PM</option>
@@ -53,13 +82,13 @@
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="text" id="custName" placeholder="Your Name" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
-            <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
+            <input type="text" id="custName" placeholder="성함" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
+            <input type="tel" id="custPhone" placeholder="핸드폰 번호" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
         </div>
     </div>
 
     <div class="mb-12">
-        <h3 class="text-xl font-bold mb-6">Select Bread</h3>
+        <h3 class="text-xl font-bold mb-6">메뉴</h3>
         <div id="menu-list" class="space-y-4">
             <div class="text-gray-400 text-sm">Please select a date to view the menu.</div>
         </div>
@@ -69,6 +98,13 @@
         <div class="flex justify-between items-center mb-6">
             <span class="text-sm font-bold uppercase tracking-widest text-gray-400">Total Estimate</span>
             <span class="text-2xl font-black text-black" id="totalPrice">0 KRW</span>
+        </div>
+        <div class="flex items-start space-x-3 mb-6 bg-yellow-50 p-4 border border-yellow-100 rounded">
+            <input type="checkbox" id="marketingConsent" class="mt-1 w-4 h-4 accent-brown">
+            <label for="marketingConsent" class="text-xs text-gray-600 leading-tight">
+                <span class="font-bold text-brown uppercase block mb-1">마케팅 수신 동의</span>
+                I agree to receive a text message if my favorite bread is left over at 3 PM.
+            </label>
         </div>
         <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">
             Proceed to Payment
@@ -249,6 +285,7 @@
         async function finishReservation() {
             const name = document.getElementById('custName').value;
             const phone = document.getElementById('custPhone').value;
+            const consent = document.getElementById('marketingConsent').checked;
 
             // 1. Build the Item List from the Cart
             const items = [];
@@ -267,6 +304,7 @@
             const payload = {
                 customerName: name,
                 phoneNumber: phone,
+                marketingConsent: consent,
                 items: items
             };
 

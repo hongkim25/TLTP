@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>더베이커 직원용 페이지</title>
-    
+    <title>THE BAKER - Staff Dashboard</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -32,188 +32,293 @@
 </head>
 <body class="bg-cream text-black font-sans h-screen flex flex-col overflow-hidden">
 
-    <header class="h-14 border-b border-black flex justify-between items-center px-6 bg-white shrink-0">
-        <div class="flex items-center space-x-4">
-            <button id="statusBtn" onclick="toggleShop()" class="flex items-center space-x-2 px-3 py-1 rounded-full border border-transparent hover:border-black transition">
-                <div id="statusDot" class="w-3 h-3 bg-gray-400 rounded-full"></div>
-                <span id="statusText" class="text-xs font-bold tracking-[0.2em] uppercase">로딩중...</span>
-            </button>
-        </div>
+<header class="h-14 border-b border-black flex justify-between items-center px-6 bg-white shrink-0">
+    <div class="flex items-center space-x-4">
+        <button id="statusBtn" onclick="toggleShop()" class="flex items-center space-x-2 px-3 py-1 rounded-full border border-transparent hover:border-black transition">
+            <div id="statusDot" class="w-3 h-3 bg-gray-400 rounded-full"></div>
+            <span id="statusText" class="text-xs font-bold tracking-[0.2em] uppercase">Checking...</span>
+        </button>
+    </div>
+    <div class="flex items-center space-x-4">
+        <button onclick="openProductModal()" class="text-xs font-bold uppercase border border-black px-3 py-1 hover:bg-black hover:text-white transition">
+            + New Product
+        </button>
         <div class="font-mono text-xs" id="clock">--:--</div>
-    </header>
+    </div>
+</header>
 
-    <main class="flex-1 flex overflow-hidden">
-        
-        <section class="flex-1 overflow-y-auto p-6">
-            <div class="flex justify-between items-end mb-6">
-                <h2 class="text-2xl font-bold tracking-tight">현재 재고</h2>
-                <button onclick="loadInventory()" class="text-[10px] uppercase tracking-widest border border-black px-3 py-1 hover:bg-black hover:text-white transition">
-                    Refresh
-                </button>
+<main class="flex-1 flex overflow-hidden">
+
+    <section class="flex-1 overflow-y-auto p-6 space-y-8">
+
+        <div>
+            <div class="flex justify-between items-end mb-4">
+                <h2 class="text-lg font-bold tracking-tight uppercase">재고 현황</h2>
+                <button onclick="loadInventory()" class="text-[16px] uppercase tracking-widest text-gray-500 hover:text-black">새로고침</button>
             </div>
-
             <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                </div>
-        </section>
-
-        <aside class="w-80 border-l border-black bg-white flex flex-col">
-            
-            <div class="p-6 border-b border-black">
-                <h3 class="text-xs font-bold tracking-tight uppercase text-gray-500 mb-4">포인트 적립</h3>
-                
-                <div class="space-y-3">
-                    <input type="tel" id="phone" placeholder="핸드폰 번호 (010...)" class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm">
-                    <input type="number" id="amount" placeholder="구매금액 (₩)" class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm">
-                    
-                    <button onclick="addPoints()" class="w-full bg-brown text-white py-3 text-base font-bold uppercase tracking-widest hover:bg-gray-800 transition rounded-sm">
-                        확인
-                    </button>
-                    
-                    <p id="pointMsg" class="text-center text-xs font-mono h-4 text-success"></p>
-                </div>
             </div>
+        </div>
 
-            <div class="flex-1 p-4 bg-gray-50">
-                <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">시스템 기록</h3>
-                <div id="logs" class="space-y-2">
-                    </div>
+        <div>
+            <div class="flex justify-between items-end mb-4 pt-8 border-t border-black/10">
+                <h2 class="text-lg font-bold tracking-tight uppercase text-brown">새로운 예약</h2>
+                <button onclick="loadOrders()" class="text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Check New</button>
             </div>
-        </aside>
+            <div id="order-list" class="space-y-4">
+                <div class="text-gray-400 text-sm">No new orders.</div>
+            </div>
+        </div>
 
-    </main>
+    </section>
 
-    <script>
-        // --- 1. CLOCK ---
-        setInterval(() => {
-            const now = new Date();
-            document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
-        }, 1000);
+    <aside class="w-80 border-l border-black bg-white flex flex-col shrink-0">
+        <div class="p-6 border-b border-black">
+            <h3 class="text-xs font-bold tracking-tight uppercase text-gray-500 mb-4">포인트 적립</h3>
+            <div class="space-y-3">
+                <input type="tel" id="phone" placeholder="핸드폰 번호 (010-0000-0000)" class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm">
+                <input type="number" id="amount" placeholder="금액 (₩)" class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm">
+                <button onclick="addPoints()" class="w-full bg-brown text-white py-3 text-base font-bold uppercase tracking-wide hover:bg-gray-800 transition rounded-sm">포인트 적립하기</button>
+                <p id="pointMsg" class="text-center text-xs font-mono h-4 text-success"></p>
+            </div>
+        </div>
+        <div class="flex-1 p-4 bg-gray-50 overflow-y-auto">
+            <h3 class="text-xs font-bold tracking-tight uppercase text-gray-500 mb-4">시스템 기록</h3>
+            <div id="logs" class="space-y-2"></div>
+        </div>
+    </aside>
 
-        // --- 2. STATUS LOGIC ---
-        async function loadStatus() {
-            try {
-                const res = await fetch('/api/staff/status');
+</main>
+
+<div id="product-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm">
+    <div class="bg-white p-8 w-96 shadow-2xl relative">
+        <button onclick="closeProductModal()" class="absolute top-4 right-4 text-xl font-bold">&times;</button>
+        <h2 class="text-xl font-bold mb-6">Add New Product</h2>
+        <div class="space-y-4">
+            <input id="new-name" placeholder="Name (e.g. Garlic Bread)" class="w-full border-b border-black p-2 outline-none">
+            <input id="new-price" type="number" placeholder="Price (₩)" class="w-full border-b border-black p-2 outline-none">
+            <select id="new-category" class="w-full border-b border-black p-2 outline-none bg-white">
+                <option value="HARD">Hard Bread (Thu-Sat)</option>
+                <option value="SOFT">Soft/Bagel (Sun-Wed)</option>
+                <option value="ALL">All Days</option>
+            </select>
+            <input id="new-stock" type="number" placeholder="Initial Stock" class="w-full border-b border-black p-2 outline-none">
+            <button onclick="createNewProduct()" class="w-full bg-black text-white py-3 font-bold mt-4">CREATE</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- 1. CLOCK ---
+    setInterval(() => {
+        document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
+    }, 1000);
+
+    // --- 2. STATUS LOGIC (RESTORED) ---
+    async function loadStatus() {
+        try {
+            const res = await fetch('/api/staff/status');
+            if(res.ok) {
                 const data = await res.json();
                 updateStatusUI(data.open);
-            } catch(e) { console.error("API Error"); }
-        }
-
-        async function toggleShop() {
-            const btnText = document.getElementById('statusText').innerText;
-            const isCurrentlyOpen = btnText.includes("OPEN");
-            
-            try {
-                const res = await fetch('/api/staff/status', {
-                    method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ open: !isCurrentlyOpen })
-                });
-                updateStatusUI(!isCurrentlyOpen);
-            } catch(e) { alert("Error connecting to server"); }
-        }
-
-        function updateStatusUI(isOpen) {
-            const dot = document.getElementById('statusDot');
-            const text = document.getElementById('statusText');
-            
-            if(isOpen) {
-                text.innerText = "OPEN";
-                dot.classList.remove('bg-danger', 'bg-gray-400');
-                dot.classList.add('bg-success', 'animate-pulse');
-            } else {
-                text.innerText = "CLOSED";
-                dot.classList.remove('bg-success', 'animate-pulse');
-                dot.classList.add('bg-danger');
             }
-        }
+        } catch(e) { console.error("Status API Error", e); }
+    }
 
-        // --- 3. INVENTORY LOGIC (Grid Version) ---
-        async function loadInventory() {
-            try {
-                const res = await fetch('/api/products');
-                const products = await res.json();
-                renderGrid(products);
-            } catch(e) { console.error("Inventory Error"); }
-        }
+    async function toggleShop() {
+        const btnText = document.getElementById('statusText').innerText;
+        const isCurrentlyOpen = btnText.includes("OPEN");
 
-        function renderGrid(products) {
-            const container = document.getElementById('inventory-grid');
-            container.innerHTML = products.map(p => `
-                <div class="bg-white border border-gray-200 p-4 flex flex-col justify-between h-32 relative group hover:border-black transition shadow-sm">
-                    <div class="flex justify-between items-start">
-                        <span class="text-sm font-bold leading-tight">${p.name}</span>
-                        <span class="font-mono text-xl font-bold" id="display-${p.id}">${p.stockQuantity}</span>
-                    </div>
-                    
-                    <div class="flex space-x-2 mt-auto opacity-50 group-hover:opacity-100 transition">
-                        <input type="number" id="input-${p.id}" value="${p.stockQuantity}" class="hidden"> 
-                        <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded">-</button>
-                        <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded">+</button>
-                    </div>
+        try {
+            const res = await fetch('/api/staff/status', {
+                method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ open: !isCurrentlyOpen })
+            });
+            if(res.ok) {
+                updateStatusUI(!isCurrentlyOpen);
+                addLog(isCurrentlyOpen ? "매장을 닫았습니다" : "매장을 오픈했습니다");
+            }
+        } catch(e) { alert("Error connecting to server"); }
+    }
+
+    function updateStatusUI(isOpen) {
+        const dot = document.getElementById('statusDot');
+        const text = document.getElementById('statusText');
+
+        if(isOpen) {
+            text.innerText = "OPEN";
+            dot.classList.remove('bg-danger', 'bg-gray-400');
+            dot.classList.add('bg-success', 'animate-pulse');
+        } else {
+            text.innerText = "CLOSED";
+            dot.classList.remove('bg-success', 'animate-pulse');
+            dot.classList.add('bg-danger');
+        }
+    }
+
+    // --- 3. INVENTORY LOGIC (RESTORED STOCK UPDATE) ---
+    async function loadInventory() {
+        try {
+            const res = await fetch('/api/products');
+            const products = await res.json();
+            renderGrid(products);
+        } catch(e) { console.error(e); }
+    }
+
+function renderGrid(products) {
+        const container = document.getElementById('inventory-grid');
+        container.innerHTML = products.map(p => `
+            <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-30 flex flex-col">
+
+                <button onclick="deleteProduct(${p.id})" class="absolute top-2 right-2 text-gray-300 hover:text-red-500 font-bold px-2 text-lg z-10">&times;</button>
+
+                <div class="flex-1 flex flex-col justify-center items-center text-center mt-1">
+                    <span class="text-sm font-bold text-gray-500 uppercase tracking-tight mb-1">${p.name}</span>
+                    <span class="font-mono text-xl font-black text-black" id="display-${p.id}">${p.stockQuantity}</span>
                 </div>
-            `).join('');
-        }
 
-        // Quick Update (+/- buttons)
-        async function quickUpdate(id, change) {
-            const display = document.getElementById(`display-${id}`);
-            let currentVal = parseInt(display.innerText);
-            let newVal = currentVal + change;
-            if(newVal < 0) newVal = 0;
+                <div class="flex space-x-2 mt-auto opacity-20 group-hover:opacity-100 transition w-full">
+                    <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-200 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">-</button>
+                    <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-200 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">+</button>
+                </div>
+            </div>
+        `).join('');
+    }
 
-            // Optimistic UI Update (Instant feel)
-            display.innerText = newVal;
+    async function quickUpdate(id, change) {
+        // Optimistic UI
+        const display = document.getElementById(`display-${id}`);
+        let val = parseInt(display.innerText) + change;
+        if(val < 0) val = 0;
+        display.innerText = val;
 
-            // Send to Server
+        // RESTORED: Call StaffController
+        try {
             await fetch('/api/staff/stock', {
                 method: 'POST', headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ productId: id, quantity: newVal })
+                body: JSON.stringify({ productId: id, quantity: val })
             });
-            
-            // Log it
-            addLog(`${change > 0 ? 'Restocked' : 'Sold'} Product #${id}`);
-        }
+            addLog(`${change > 0 ? 'Stocked' : 'Sold'} Item #${id}`);
+        } catch(e) { console.error("Stock Update Error"); }
+    }
 
-        // --- 4. POINTS LOGIC ---
-        async function addPoints() {
-            const phone = document.getElementById('phone').value;
-            const amount = document.getElementById('amount').value;
-            const msg = document.getElementById('pointMsg');
+    // --- 4. ORDERS LOGIC (NEW) ---
+    async function loadOrders() {
+        const list = document.getElementById('order-list');
+        try {
+            const res = await fetch('/api/orders');
+            const orders = await res.json();
 
-            if(!phone || !amount) return;
+            if(orders.length === 0) {
+                list.innerHTML = '<div class="text-gray-400 text-sm">새로운 예약이 없습니다.</div>';
+                return;
+            }
+            orders.reverse(); // Newest first
 
-            try {
-                const res = await fetch('/api/staff/points', {
-                    method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ phoneNumber: phone, amount: amount })
-                });
-                const data = await res.json();
-                
-                if (res.ok) {
-                    msg.innerText = `Success: +${data.added} pts`;
-                    addLog(`Points added to ${phone.substring(7)}`);
-                    document.getElementById('amount').value = '';
-                    document.getElementById('phone').value = '';
-                    
-                    setTimeout(() => msg.innerText = '', 3000);
-                }
-            } catch(e) { msg.innerText = "Error!"; }
-        }
+            list.innerHTML = orders.map(order => {
+                if (!order.items || order.items.length === 0) return '';
+                const date = new Date(order.orderDate).toLocaleString('ko-KR', { hour: '2-digit', minute:'2-digit', month:'numeric', day:'numeric' });
+                // Handle product name safety check
+                const itemsHtml = order.items.map(i =>
+                    `<span class="mr-2 text-black font-bold">${i.product ? i.product.name : 'Item'} (${i.quantity})</span>`
+                ).join(', ');
 
-        function addLog(text) {
-            const logs = document.getElementById('logs');
-            const now = new Date().toLocaleTimeString('en-US', {hour12:false, hour:'2-digit', minute:'2-digit'});
-            logs.insertAdjacentHTML('afterbegin', `
-                <div class="text-[10px] text-gray-500 font-mono border-l-2 border-black pl-2 mb-2">
-                    <span class="opacity-50">${now}</span> ${text}
-                </div>
-            `);
-        }
+                return `
+                    <div class="bg-white border border-gray-200 p-4 flex justify-between items-center shadow-sm">
+                        <div>
+                            <div class="flex items-center space-x-2 mb-1">
+                                <span class="text-xs font-bold text-brown uppercase">${order.customer ? order.customer.name : 'Guest'}</span>
+                                <span class="text-[10px] text-gray-400 font-mono">${order.customer ? order.customer.phone : ''}</span>
+                            </div>
+                            <div class="text-sm">${itemsHtml}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-mono font-bold text-lg">₩${order.totalAmount}</div>
+                            <div class="text-[10px] text-gray-400">${date}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } catch(e) { console.error(e); }
+    }
 
-        // INIT
-        document.addEventListener('DOMContentLoaded', () => {
-            loadStatus();
-            loadInventory();
+    // --- 5. NEW PRODUCT LOGIC (NEW) ---
+    function openProductModal() { document.getElementById('product-modal').classList.remove('hidden'); }
+    function closeProductModal() { document.getElementById('product-modal').classList.add('hidden'); }
+
+    async function createNewProduct() {
+        const name = document.getElementById('new-name').value;
+        const price = document.getElementById('new-price').value;
+        const category = document.getElementById('new-category').value;
+        const stock = document.getElementById('new-stock').value;
+
+        if(!name || !price) return;
+
+        const payload = {
+            name: name,
+            price: parseFloat(price),
+            category: category,
+            stockQuantity: parseInt(stock)
+        };
+
+        await fetch('/api/products', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
         });
-    </script>
+
+        closeProductModal();
+        loadInventory();
+        addLog(`Created Product: ${name}`);
+    }
+
+    // --- 6. POINTS LOGIC (RESTORED) ---
+    async function addPoints() {
+        const phone = document.getElementById('phone').value;
+        const amount = document.getElementById('amount').value;
+        const msg = document.getElementById('pointMsg');
+
+        if(!phone || !amount) return;
+
+        try {
+            const res = await fetch('/api/staff/points', {
+                method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ phoneNumber: phone, amount: amount })
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                msg.innerText = `Success: +${data.added} pts`;
+                addLog(`Points added to ${phone.substring(7)}`);
+                document.getElementById('amount').value = '';
+                document.getElementById('phone').value = '';
+                setTimeout(() => msg.innerText = '', 3000);
+            }
+        } catch(e) { msg.innerText = "Error!"; }
+    }
+
+    // --- 7. LOGS ---
+    function addLog(text) {
+        const logs = document.getElementById('logs');
+        const now = new Date().toLocaleTimeString('en-US', {hour12:false, hour:'2-digit', minute:'2-digit'});
+        logs.insertAdjacentHTML('afterbegin', `<div class="text-[10px] text-gray-500 font-mono border-l-2 border-black pl-2 mb-2"><span class="opacity-50">${now}</span> ${text}</div>`);
+    }
+
+    async function deleteProduct(id) {
+        if(!confirm("Really delete this item?")) return;
+
+        await fetch(`/api/products/${id}`, { method: 'DELETE' });
+        loadInventory(); // Refresh grid
+    }
+
+    // INIT
+    document.addEventListener('DOMContentLoaded', () => {
+        loadStatus();
+        loadInventory();
+        loadOrders();
+        setInterval(loadOrders, 30000); // Auto-refresh orders
+
+    });
+</script>
 </body>
 </html>

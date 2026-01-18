@@ -1,5 +1,6 @@
 package com.hong.thebaker.dto;
 
+import com.hong.thebaker.entity.PaymentMethod;
 import lombok.Data;
 import java.util.List;
 
@@ -9,6 +10,9 @@ public class OrderRequest {
     private String customerName;
     private String phoneNumber;
     private List<OrderItemRequest> items;
+    private boolean marketingConsent;
+    private int pointsToUse;
+    private PaymentMethod paymentMethod;
 
     @Data
     public static class OrderItemRequest {

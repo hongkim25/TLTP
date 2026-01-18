@@ -20,49 +20,23 @@
                         black: '#111111',
                         white: '#FFFFFF',
                         gray: '#F4F4F4',
-                        cream: '#f9f7f2'
+                        cream: '#f9f7f2',
+                        success: '#22c55e',
+                        danger: '#ef4444'
                     }
                 }
             }
         }
     </script>
     <style>
-        @font-face {
-            font-family: 'Pretendard';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
-            font-weight: 400;
-            font-display: swap;
-        }
+        @font-face { font-family: 'Pretendard'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+        @font-face { font-family: 'Pretendard'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+        @font-face { font-family: 'Pretendard'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 
-        @font-face {
-            font-family: 'Pretendard';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
-            font-weight: 600;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Pretendard';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
-            font-weight: 700;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Pretendard';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
-            font-weight: 800;
-            font-display: swap;
-        }
-
-        /* Hide Scrollbar but keep functionality */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Smooth Fade In */
         .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
         @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-}
     </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased">
@@ -82,18 +56,11 @@
 </nav>
 
 <script>
-    // AUTO-HIGHLIGHT LOGIC
-    // This script checks the URL and adds the 'opacity-50' class to the current page link
     document.addEventListener("DOMContentLoaded", () => {
         const path = window.location.pathname;
-
-        if (path.includes("about")) {
-            document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
-        } else if (path.includes("menu")) {
-            document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
-        } else if (path.includes("reservation")) {
-            document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
-        }
+        if (path.includes("about")) document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
+        else if (path.includes("menu")) document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
+        else if (path.includes("reservation")) document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
     });
 </script>
 
@@ -104,11 +71,11 @@
         THE BAKER
     </h1>
 
-    <div class="fade-in mt-8" style="animation-delay: 0.3s">
-            <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[21px] font-bold tracking-wide uppercase">
-                <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span>
-                OPEN
-            </span>
+    <div id="status-container" class="fade-in mt-8" style="animation-delay: 0.3s">
+        <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-200 text-[21px] font-bold tracking-wide uppercase text-gray-400">
+            <span class="w-4 h-4 bg-gray-300 rounded-full mr-2 animate-pulse"></span>
+            Checking...
+        </span>
     </div>
 
     <div class="absolute bottom-10 animate-bounce">
@@ -152,6 +119,36 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
 <script>
+    // 1. DYNAMIC STATUS CHECK
+    async function checkStatus() {
+        const container = document.getElementById('status-container');
+        try {
+            const res = await fetch('/api/staff/status');
+            if(res.ok) {
+                const data = await res.json();
+
+                if (data.open) {
+                    // OPEN STATE
+                    container.innerHTML = `
+                        <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[21px] font-bold tracking-wide uppercase text-brown">
+                            <span class="w-4 h-4 bg-green-500 rounded-full mr-2 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                            OPEN
+                        </span>
+                    `;
+                } else {
+                    // CLOSED STATE
+                    container.innerHTML = `
+                        <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-300 text-[21px] font-bold tracking-wide uppercase text-gray-400 bg-gray-50">
+                            <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                            CLOSED
+                        </span>
+                    `;
+                }
+            }
+        } catch(e) { console.error("Status check failed"); }
+    }
+
+    // 2. MEMBERSHIP CHECK (Connects to Real Backend now)
     async function checkMember() {
         const phone = document.getElementById('phoneInput').value;
         if(!phone) return;
@@ -159,22 +156,30 @@
         document.getElementById('login-form').classList.add('hidden');
         document.getElementById('member-card').classList.remove('hidden');
 
-        JsBarcode("#barcode", phone, {
-            format: "CODE128",
-            displayValue: false,
-            lineColor: "#000",
-            width: 2,
-            height: 50,
-            margin: 0
-        });
+        JsBarcode("#barcode", phone, { format: "CODE128", displayValue: false, lineColor: "#000", width: 2, height: 50, margin: 0 });
 
         try {
-            const res = await fetch('/api/staff/points/' + phone);
-            document.getElementById('pointsDisplay').innerText = "5,200 P";
+            // Updated to use the correct endpoint structure if available
+            // Note: If you haven't built /api/customers/{phone}, this might fail silently
+            // For now, we simulate the points as per your previous request,
+            // but in real life: const res = await fetch('/api/customers/' + phone);
+            document.getElementById('pointsDisplay').innerText = "0 P"; // Default
+
+            // Try to fetch real points if endpoint exists
+            const res = await fetch('/api/customers/search?phone=' + phone);
+            if(res.ok) {
+                const customer = await res.json();
+                document.getElementById('pointsDisplay').innerText = new Intl.NumberFormat('ko-KR').format(customer.points) + " P";
+            }
         } catch(e) {
-            console.error("Backend not connected yet");
+            console.log("Customer not found or API issue");
         }
     }
+
+    // INIT
+    document.addEventListener("DOMContentLoaded", () => {
+        checkStatus();
+    });
 </script>
 </body>
 </html>

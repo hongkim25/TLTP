@@ -30,14 +30,16 @@ public class OrderService {
         // 1. Find OR Create Customer
         Customer customer = customerRepository.findByPhone(request.getPhoneNumber())
                 .orElseGet(() -> {
-                    // Logic: If not found, create them instantly!
                     Customer newCustomer = new Customer();
-                    String name = request.getCustomerName() != null ? request.getCustomerName() : "Guest";
-                    newCustomer.setName("Guest " + request.getPhoneNumber());
+                    newCustomer.setName(request.getCustomerName() != null ? request.getCustomerName() : "Guest");
                     newCustomer.setPhone(request.getPhoneNumber());
                     newCustomer.setPoints(0);
-                    return customerRepository.save(newCustomer);
+                    return newCustomer; // Don't save yet, we will save below
                 });
+
+        // ALWAYS update the consent based on the latest order
+        customer.setMarketingConsent(request.isMarketingConsent());
+        customerRepository.save(customer);
 
         Order order = new Order();
         order.setCustomer(customer);
@@ -79,14 +81,40 @@ public class OrderService {
         order.setItems(orderItems);
         order.setTotalAmount(totalAmount);
 
-        // 7. Calculate Points
-        int pointsEarned = totalAmount.multiply(BigDecimal.valueOf(0.03)).intValue();
+
+        // 7-A. Handle Point Usage (Redemption)
+        int pointsToUse = request.getPointsToUse();
+        if (pointsToUse > 0) {
+            if (customer.getPoints() < pointsToUse) {
+                throw new RuntimeException("포인트가 부족합니다. 보유 포인트: " + customer.getPoints());
+            }
+            // Subtract used points
+            customer.setPoints(customer.getPoints() - pointsToUse);
+        }
+
+        // B. Calculate "Net Pay" (Total - PointsUsed)
+        // We only give points on the actual money paid
+        BigDecimal pointsUsedBd = BigDecimal.valueOf(pointsToUse);
+        BigDecimal netPayAmount = totalAmount.subtract(pointsUsedBd);
+
+        // Safety check: Cannot use more points than total price
+        if (netPayAmount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("결제 금액보다 많은 포인트를 사용할 수 없습니다.");
+        }
+
+        // C. Handle Point Earning based on Payment Method
+        // Default to CARD (1%) if null, or strict check if preferred
+        PaymentMethod method = request.getPaymentMethod();
+
+        if (method == null) {
+            method = PaymentMethod.CARD; // 기본값 카드
+        }
+
+        int pointsEarned = method.calculatePoints(netPayAmount);
         order.setPointsEarned(pointsEarned);
-
-        // 8. Update Customer's Total Points
         customer.setPoints(customer.getPoints() + pointsEarned);
-        customerRepository.save(customer);
 
+        customerRepository.save(customer);
         return orderRepository.save(order);
     }
 
