@@ -159,20 +159,18 @@
         JsBarcode("#barcode", phone, { format: "CODE128", displayValue: false, lineColor: "#000", width: 2, height: 50, margin: 0 });
 
         try {
-            // Updated to use the correct endpoint structure if available
-            // Note: If you haven't built /api/customers/{phone}, this might fail silently
-            // For now, we simulate the points as per your previous request,
-            // but in real life: const res = await fetch('/api/customers/' + phone);
-            document.getElementById('pointsDisplay').innerText = "0 P"; // Default
-
-            // Try to fetch real points if endpoint exists
-            const res = await fetch('/api/customers/search?phone=' + phone);
-            if(res.ok) {
-                const customer = await res.json();
-                document.getElementById('pointsDisplay').innerText = new Intl.NumberFormat('ko-KR').format(customer.points) + " P";
+            const res = await fetch(`/api/customers/${phone}`);
+            if (res.ok) {
+                const data = await res.json();
+                // Format with commas (e.g., 5,200)
+                const fmt = new Intl.NumberFormat('ko-KR').format(data.points);
+                document.getElementById('pointsDisplay').innerText = `${fmt} P`;
+            } else {
+                document.getElementById('pointsDisplay').innerText = "0 P";
             }
         } catch(e) {
-            console.log("Customer not found or API issue");
+            console.error("Connection Error");
+            document.getElementById('pointsDisplay').innerText = "-";
         }
     }
 

@@ -136,7 +136,7 @@
         document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
     }, 1000);
 
-    // --- 2. STATUS LOGIC (RESTORED) ---
+    // --- 2. STATUS LOGIC ---
     async function loadStatus() {
         try {
             const res = await fetch('/api/staff/status');
@@ -178,7 +178,7 @@
         }
     }
 
-    // --- 3. INVENTORY LOGIC (RESTORED STOCK UPDATE) ---
+    // --- 3. INVENTORY LOGIC ---
     async function loadInventory() {
         try {
             const res = await fetch('/api/products');
@@ -187,11 +187,10 @@
         } catch(e) { console.error(e); }
     }
 
-function renderGrid(products) {
+    function renderGrid(products) {
         const container = document.getElementById('inventory-grid');
         container.innerHTML = products.map(p => `
             <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-30 flex flex-col">
-
                 <button onclick="deleteProduct(${p.id})" class="absolute top-2 right-2 text-gray-300 hover:text-red-500 font-bold px-2 text-lg z-10">&times;</button>
 
                 <div class="flex-1 flex flex-col justify-center items-center text-center mt-1">
@@ -208,23 +207,21 @@ function renderGrid(products) {
     }
 
     async function quickUpdate(id, change) {
-        // Optimistic UI
         const display = document.getElementById(`display-${id}`);
         let val = parseInt(display.innerText) + change;
         if(val < 0) val = 0;
         display.innerText = val;
 
-        // RESTORED: Call StaffController
         try {
             await fetch('/api/staff/stock', {
                 method: 'POST', headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ productId: id, quantity: val })
             });
-            addLog(`${change > 0 ? 'Stocked' : 'Sold'} Item #${id}`);
+            addLog(`${change > 0 ? '재고 추가' : '판매 완료'} : 상품 #${id}`);
         } catch(e) { console.error("Stock Update Error"); }
     }
 
-    // --- 4. ORDERS LOGIC (NEW) ---
+    // --- 4. ORDERS LOGIC ---
     async function loadOrders() {
         const list = document.getElementById('order-list');
         try {
@@ -235,12 +232,12 @@ function renderGrid(products) {
                 list.innerHTML = '<div class="text-gray-400 text-sm">새로운 예약이 없습니다.</div>';
                 return;
             }
-            orders.reverse(); // Newest first
+            orders.reverse();
 
             list.innerHTML = orders.map(order => {
                 if (!order.items || order.items.length === 0) return '';
                 const date = new Date(order.orderDate).toLocaleString('ko-KR', { hour: '2-digit', minute:'2-digit', month:'numeric', day:'numeric' });
-                // Handle product name safety check
+
                 const itemsHtml = order.items.map(i =>
                     `<span class="mr-2 text-black font-bold">${i.product ? i.product.name : 'Item'} (${i.quantity})</span>`
                 ).join(', ');
@@ -264,7 +261,7 @@ function renderGrid(products) {
         } catch(e) { console.error(e); }
     }
 
-    // --- 5. NEW PRODUCT LOGIC (NEW) ---
+    // --- 5. NEW PRODUCT LOGIC ---
     function openProductModal() { document.getElementById('product-modal').classList.remove('hidden'); }
     function closeProductModal() { document.getElementById('product-modal').classList.add('hidden'); }
 
@@ -284,23 +281,21 @@ function renderGrid(products) {
         };
 
         await fetch('/api/products', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            method: 'POST', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(payload)
         });
 
         closeProductModal();
         loadInventory();
-        addLog(`Created Product: ${name}`);
+        addLog(`신규 상품 등록: ${name}`);
     }
 
-    // --- 6. POINTS LOGIC (RESTORED) ---
-// --- 6. TRANSACTION LOGIC (UPDATED) ---
+    // --- 6. TRANSACTION LOGIC ---
     async function processTransaction() {
         const phone = document.getElementById('phone').value;
         const amount = document.getElementById('amount').value;
-        const usePoints = document.getElementById('usePoints').value || 0; // Default to 0
-        const paymentMethod = document.getElementById('paymentMethod').value; // CASH or CARD
+        const usePoints = document.getElementById('usePoints').value || 0;
+        const paymentMethod = document.getElementById('paymentMethod').value;
         const msg = document.getElementById('pointMsg');
 
         if(!phone || !amount) {
@@ -312,11 +307,10 @@ function renderGrid(products) {
             phoneNumber: phone,
             totalAmount: parseFloat(amount),
             pointsToUse: parseInt(usePoints),
-            paymentMethod: paymentMethod // Sends "CASH" or "CARD"
+            paymentMethod: paymentMethod
         };
 
         try {
-            // Note: Make sure your Backend Controller matches this URL
             const res = await fetch('/api/points/pay', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -324,18 +318,18 @@ function renderGrid(products) {
             });
 
             if (res.ok) {
-                const data = await res.text(); // Assuming backend returns a simple string message
-                msg.innerText = "Success!";
+                msg.innerText = "성공적으로 처리되었습니다!";
                 msg.classList.remove('text-danger');
                 msg.classList.add('text-success');
 
-                addLog(`Paid ₩${amount} via ${paymentMethod} (${phone.substring(7)})`);
+                addLog(`결제 완료: ₩${amount} (${paymentMethod}) - ${phone.substring(7)}`);
 
                 // Clear inputs
                 document.getElementById('amount').value = '';
                 document.getElementById('usePoints').value = '0';
-                // We usually keep the phone number for a few seconds in case of mistake, or clear it:
                 document.getElementById('phone').value = '';
+                // Refocus on phone for next customer
+                document.getElementById('phone').focus();
 
                 setTimeout(() => msg.innerText = '', 3000);
             } else {
@@ -350,7 +344,7 @@ function renderGrid(products) {
         }
     }
 
-    // --- 7. LOGS ---
+    // --- 7. LOGS & DELETE ---
     function addLog(text) {
         const logs = document.getElementById('logs');
         const now = new Date().toLocaleTimeString('en-US', {hour12:false, hour:'2-digit', minute:'2-digit'});
@@ -358,20 +352,43 @@ function renderGrid(products) {
     }
 
     async function deleteProduct(id) {
-        if(!confirm("Really delete this item?")) return;
-
+        if(!confirm("정말 이 상품을 삭제하시겠습니까? (Really delete?)")) return;
         await fetch(`/api/products/${id}`, { method: 'DELETE' });
-        loadInventory(); // Refresh grid
+        loadInventory();
     }
 
-    // INIT
+    // --- 8. INITIALIZATION (CLEANED UP) ---
     document.addEventListener('DOMContentLoaded', () => {
+        // A. Load Initial Data
         loadStatus();
         loadInventory();
         loadOrders();
-        setInterval(loadOrders, 30000); // Auto-refresh orders
+        setInterval(loadOrders, 30000);
 
+        // B. Setup Barcode Scanner (Enter Key Listener)
+        const phoneInput = document.getElementById('phone');
+        if(phoneInput) {
+            phoneInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    document.getElementById('amount').focus(); // Jump to Amount
+                }
+            });
+        }
+
+        // C. Setup Amount Enter Key: Allows hitting Enter on amount to submit immediately
+        const amountInput = document.getElementById('amount');
+        if(amountInput) {
+            amountInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    processTransaction();
+                }
+            });
+        }
     });
 </script>
+
+
 </body>
 </html>
