@@ -36,6 +36,10 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
         @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+        html {
+            overflow-y: scroll;
+        }
     </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased">
@@ -62,7 +66,7 @@
 </script>
 
 <main class="pt-32 pb-24 px-6 max-w-screen-xl mx-auto">
-    <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase">픽업 예약</h1>
+    <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase">당일 예약</h1>
 
     <div class="space-y-6 mb-12 border-b border-gray-100 pb-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
