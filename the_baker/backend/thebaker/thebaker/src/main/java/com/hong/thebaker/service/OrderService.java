@@ -32,6 +32,7 @@ public class OrderService {
                 .orElseGet(() -> {
                     // Logic: If not found, create them instantly!
                     Customer newCustomer = new Customer();
+                    String name = request.getCustomerName() != null ? request.getCustomerName() : "Guest";
                     newCustomer.setName("Guest " + request.getPhoneNumber());
                     newCustomer.setPhone(request.getPhoneNumber());
                     newCustomer.setPoints(0);
@@ -87,5 +88,9 @@ public class OrderService {
         customerRepository.save(customer);
 
         return orderRepository.save(order);
+    }
+
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
     }
 }

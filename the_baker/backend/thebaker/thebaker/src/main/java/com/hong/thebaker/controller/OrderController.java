@@ -3,25 +3,29 @@ package com.hong.thebaker.controller;
 import com.hong.thebaker.dto.OrderRequest;
 import com.hong.thebaker.entity.Order;
 import com.hong.thebaker.service.OrderService;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
 // @CrossOrigin logic will be needed later for Frontend
 public class OrderController {
 
-    private final OrderService orderService;
+    @Autowired
+    private OrderService orderService;
 
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
+    // POST /api/orders
+    // Receives JSON: { "phoneNumber": "...", "customerName": "...", "items": [...] }
+    @PostMapping
+    public Order createOrder(@RequestBody OrderRequest request) {
+        return orderService.createOrder(request);
     }
 
-    // POST http://localhost:8080/api/orders
-    @PostMapping
-    public ResponseEntity<Order> placeOrder(@RequestBody OrderRequest request) {
-        // The Controller is "dumb". It just passes the request to the Service.
-        Order newOrder = orderService.createOrder(request);
-        return ResponseEntity.ok(newOrder);
+    // GET /api/orders (For the Staff Page)
+    @GetMapping
+    public List<Order> getAllOrders() {
+        return orderService.getAllOrders(); // We need to ensure Service has this method
     }
 }

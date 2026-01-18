@@ -16,12 +16,7 @@
         }
     </script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <style>
-        body { font-family: 'Pretendard', sans-serif; }
-        /* Modal Animation */
-        .fade-in-up { animation: fadeInUp 0.3s ease-out forwards; opacity: 0; transform: translateY(20px); }
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <style> body { font-family: 'Pretendard', sans-serif; } </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased flex flex-col min-h-screen">
 
@@ -37,30 +32,51 @@
     </div>
 </nav>
 
-<main class="pt-32 pb-24 px-6 max-w-screen-sm mx-auto flex-1 w-full">
-    <h1 class="text-4xl font-bold mb-8 tracking-[-0.03em]">RESERVATION</h1>
-    <p class="mb-12 text-gray-500 font-medium">Please fill out the form. Payment is required to confirm.</p>
+<main class="pt-32 pb-24 px-6 max-w-screen-md mx-auto flex-1 w-full">
+    <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase">Reserve for Pickup</h1>
 
-    <form id="reserveForm" class="space-y-8">
-        <div>
-            <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">Name</label>
-            <input type="text" id="inputName" placeholder="Your Name" required class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition text-black">
+    <div class="space-y-6 mb-12 border-b border-gray-100 pb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 날짜</label>
+                <input type="date" id="datePicker" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none">            </div>
+            <div>
+                <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">시간</label>
+                <select class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none">
+                    <option>11:00 AM</option>
+                    <option>12:00 PM</option>
+                    <option>1:00 PM</option>
+                    <option>2:00 PM</option>
+                    <option>3:00 PM</option>
+                    <option>4:00 PM</option>
+                </select>
+            </div>
         </div>
-
-        <div>
-            <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">Phone</label>
-            <input type="tel" id="inputPhone" placeholder="010-0000-0000" required class="w-full border-b border-gray-300 py-3 text-xl font-bold focus:outline-none focus:border-black transition text-black">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input type="text" id="custName" placeholder="Your Name" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
+            <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
         </div>
+    </div>
 
-        <div>
-            <label class="block text-[10px] font-bold mb-2 uppercase tracking-wide text-gray-400">Order Details</label>
-            <textarea id="inputMsg" placeholder="Ex: 2 Sourdough, 1 Baguette" required rows="3" class="w-full border-b border-gray-300 py-3 text-lg font-medium focus:outline-none focus:border-black transition text-black"></textarea>
+    <div class="mb-12">
+        <h3 class="text-xl font-bold mb-6">Select Bread</h3>
+        <div id="menu-list" class="space-y-4">
+            <div class="text-gray-400 text-sm">Please select a date to view the menu.</div>
         </div>
+    </div>
 
-        <button type="button" onclick="openPayment()" class="w-full bg-brown text-white py-5 text-[14px] font-bold uppercase tracking-widest hover:bg-black transition mt-8">
+    <div class="bg-gray-50 p-6 rounded-lg">
+        <div class="flex justify-between items-center mb-6">
+            <span class="text-sm font-bold uppercase tracking-widest text-gray-400">Total Estimate</span>
+            <span class="text-2xl font-black text-black" id="totalPrice">0 KRW</span>
+        </div>
+        <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">
             Proceed to Payment
         </button>
-    </form>
+        <p class="text-[10px] text-gray-400 mt-4 text-center">
+            * Large orders (over 20 items)? Please call us directly.
+        </p>
+    </div>
 </main>
 
 <footer class="bg-white py-12 px-6 border-t border-gray-100 mt-auto">
@@ -71,70 +87,208 @@
 
 <div id="bank-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
-
-    <div class="relative bg-white w-full max-w-sm mx-6 p-8 shadow-2xl animate-fade-in-up">
-        <h3 class="text-xl font-bold mb-6 tracking-tight text-black">PAYMENT INFO</h3>
-
+    <div class="relative bg-white w-full max-w-sm mx-6 p-8 shadow-2xl">
+        <h3 class="text-xl font-bold mb-6 tracking-tight text-black">PAYMENT</h3>
         <div class="space-y-4 mb-8 text-black">
             <div class="p-4 bg-gray-50 border border-gray-100">
                 <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Bank</p>
                 <p class="text-lg font-bold">KB Kookmin (국민은행)</p>
             </div>
-            <div class="p-4 bg-gray-50 border border-gray-100 group cursor-pointer hover:bg-gray-100 transition" onclick="copyAccount()">
-                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Account Number (Click to Copy)</p>
-                <div class="flex justify-between items-center">
-                    <p class="text-lg font-mono font-bold" id="account-num">1234-56-789012</p>
-                    <span class="text-xs text-brown font-bold opacity-0 group-hover:opacity-100 transition">COPY</span>
-                </div>
+            <div class="p-4 bg-gray-50 border border-gray-100 group cursor-pointer" onclick="copyAccount()">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Account</p>
+                <p class="text-lg font-mono font-bold" id="account-num">1234-56-789012</p>
             </div>
-            <div class="p-4 bg-gray-50 border border-gray-100">
-                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Owner</p>
-                <p class="text-lg font-bold">Hong Bakery</p>
+            <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                <span class="text-sm font-bold text-gray-400">Amount to Send</span>
+                <span class="text-xl font-black text-brown" id="modalTotal">0</span>
             </div>
         </div>
-
-        <button onclick="finishReservation()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">
-            I Sent the Money
-        </button>
-
-        <button onclick="closeModal()" class="w-full mt-4 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-black">
-            Cancel
-        </button>
+        <button onclick="finishReservation()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">I Sent It</button>
+        <button onclick="closeModal()" class="w-full mt-4 text-xs font-bold uppercase tracking-widest text-gray-400">Cancel</button>
     </div>
 </div>
 
 <script>
-    function openPayment() {
-        // Simple Validation
-        const name = document.getElementById('inputName').value;
-        const phone = document.getElementById('inputPhone').value;
-        const msg = document.getElementById('inputMsg').value;
+        // --- SMART DATE LOGIC ---
+        const dateInput = document.getElementById('datePicker');
 
-        if(!name || !phone || !msg) {
-            alert("Please fill out all fields.");
-            return;
+        // 1. Set MIN Date (Today)
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+
+        // 2. Set MAX Date (Next 14 Days)
+        const maxDate = new Date();
+        maxDate.setDate(today.getDate() + 14);
+        dateInput.max = maxDate.toISOString().split("T")[0];
+
+        // 3. Set Default Date (Tomorrow, Skip Tuesday)
+        let defaultDate = new Date();
+        defaultDate.setDate(defaultDate.getDate() + 1);
+        while(defaultDate.getDay() === 2) { // If Tuesday (2), skip to Wednesday
+            defaultDate.setDate(defaultDate.getDate() + 1);
+        }
+        dateInput.valueAsDate = defaultDate;
+
+        // 4. EVENT LISTENER (Blocks Tuesday & Updates Menu)
+        dateInput.addEventListener('change', function() {
+            const selected = new Date(this.value);
+            if(selected.getDay() === 2) { // 2 = Tuesday
+                alert("죄송합니다. 화요일은 정기 휴무일입니다.\n(We are closed on Tuesdays.)");
+                this.value = ""; // Clear the input
+                document.getElementById('menu-list').innerHTML = ''; // Clear menu
+                document.getElementById('totalPrice').innerText = "0 KRW";
+                cart = {}; // Reset cart
+            } else {
+                fetchMenuForDate(); // Load menu if valid
+            }
+        });
+
+        // Store current cart state { productId: quantity }
+        let cart = {};
+        let productData = []; // Store fetched products to look up prices later
+
+        async function fetchMenuForDate() {
+            const date = dateInput.value;
+            if(!date) return;
+
+            // Reset Cart
+            cart = {};
+            updateTotal();
+
+            const list = document.getElementById('menu-list');
+            list.innerHTML = '<div class="animate-pulse text-gray-300">Checking Menu...</div>';
+
+            try {
+                // Call Backend with ?date=YYYY-MM-DD
+                const res = await fetch(`/api/products?date=${date}`);
+                productData = await res.json();
+
+                list.innerHTML = '';
+
+                if(productData.length === 0) {
+                    list.innerHTML = '<div class="text-red-400 font-bold">Sorry, we are closed on this day.</div>';
+                    return;
+                }
+
+                // Render Items
+                productData.forEach(p => {
+                    const priceFmt = new Intl.NumberFormat('ko-KR').format(p.price);
+
+                    const itemHTML = `
+                        <div class="flex justify-between items-center border border-gray-100 p-4 rounded-lg bg-white shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-lg">${p.name}</h4>
+                                <p class="text-sm text-gray-500">₩${priceFmt}</p>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <button onclick="updateQty(${p.id}, -1)" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 font-bold">-</button>
+                                <span id="qty-${p.id}" class="w-4 text-center font-bold">0</span>
+                                <button onclick="updateQty(${p.id}, 1)" class="w-8 h-8 rounded-full bg-black text-white hover:bg-brown font-bold">+</button>
+                            </div>
+                        </div>
+                    `;
+                    list.insertAdjacentHTML('beforeend', itemHTML);
+                });
+
+            } catch(e) {
+                console.error(e);
+                list.innerHTML = 'Error loading menu.';
+            }
         }
 
-        // Show Modal
-        document.getElementById('bank-modal').classList.remove('hidden');
-    }
+        function updateQty(id, change) {
+            if(!cart[id]) cart[id] = 0;
+            cart[id] += change;
+            if(cart[id] < 0) cart[id] = 0;
 
-    function closeModal() {
-        document.getElementById('bank-modal').classList.add('hidden');
-    }
+            // Update UI Number
+            document.getElementById(`qty-${id}`).innerText = cart[id];
+            updateTotal();
+        }
 
-    function copyAccount() {
-        const num = document.getElementById('account-num').innerText;
-        navigator.clipboard.writeText(num).then(() => {
-            alert("Account Number Copied!");
-        });
-    }
+        function updateTotal() {
+            let total = 0;
+            // Loop through cart and find price from productData
+            for (const [id, qty] of Object.entries(cart)) {
+                const product = productData.find(p => p.id == id);
+                if(product) {
+                    total += product.price * qty;
+                }
+            }
 
-    function finishReservation() {
-        // In a real app, you would send the data to backend here.
-        alert("Reservation Confirmed! We will verify the payment shortly.");
-        location.href = "index.html"; // Redirect to home
-    }
+            const fmt = new Intl.NumberFormat('ko-KR').format(total) + " KRW";
+            document.getElementById('totalPrice').innerText = fmt;
+            document.getElementById('modalTotal').innerText = fmt; // Update Modal too
+        }
+
+        // Initialize
+        fetchMenuForDate(); // Load tomorrow's menu on start
+
+        // Payment Logic
+        function openPayment() {
+            const name = document.getElementById('custName').value;
+            const totalText = document.getElementById('totalPrice').innerText;
+
+            // Basic validation
+            if(!name) { alert("Please enter your name."); return; }
+            if(totalText === "0 KRW") { alert("Please select at least one bread."); return; }
+
+            document.getElementById('bank-modal').classList.remove('hidden');
+        }
+
+        function closeModal() { document.getElementById('bank-modal').classList.add('hidden'); }
+        function copyAccount() {
+            navigator.clipboard.writeText("1234-56-789012");
+            alert("Copied!");
+        }
+
+        async function finishReservation() {
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+
+            // 1. Build the Item List from the Cart
+            const items = [];
+            for (const [id, qty] of Object.entries(cart)) {
+                if (qty > 0) {
+                    items.push({ productId: parseInt(id), quantity: qty });
+                }
+            }
+
+            if (items.length === 0) {
+                alert("Cart is empty!");
+                return;
+            }
+
+            // 2. Create the Payload
+            const payload = {
+                customerName: name,
+                phoneNumber: phone,
+                items: items
+            };
+
+            // 3. Send to Backend
+            try {
+                const response = await fetch('/api/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    alert("예약이 성공적으로 접수되었습니다! (Order Received)");
+                    location.href = "index.html";
+                } else {
+                    alert("Order failed. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Server error.");
+            }
+        }
 </script>
 </body>
 </html>
