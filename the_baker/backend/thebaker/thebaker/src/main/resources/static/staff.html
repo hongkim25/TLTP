@@ -19,6 +19,7 @@
                     },
                     colors: {
                         brown: '#6B4423',
+                        darkbrown: '#47280e',
                         black: '#111111',
                         white: '#FFFFFF',
                         cream: '#f9f7f2',
@@ -40,8 +41,8 @@
         </button>
     </div>
     <div class="flex items-center space-x-4">
-        <button onclick="openProductModal()" class="text-xs font-bold uppercase border border-black px-3 py-1 hover:bg-black hover:text-white transition">
-            + New Product
+        <button onclick="openProductModal()" class="text-xs font-bold uppercase border border-black px-3 py-1 hover:bg-brown hover:text-white transition">
+            + 새 상품 등록
         </button>
         <div class="font-mono text-xs" id="clock">--:--</div>
     </div>
@@ -66,7 +67,7 @@
                 <button onclick="loadOrders()" class="text-[11px] uppercase tracking-wide text-gray-400 hover:text-black">새 예약 확인</button>
             </div>
             <div id="order-list" class="space-y-4">
-                <div class="text-gray-400 text-sm">No new orders.</div>
+                <div class="text-gray-400 text-sm">새로운 주문이 없습니다.</div>
             </div>
         </div>
 
@@ -97,8 +98,8 @@
                 </div>
 
                 <button onclick="processTransaction()"
-                        class="w-full bg-brown text-white py-3 text-base font-bold uppercase tracking-wide hover:bg-gray-800 transition rounded-sm shadow-sm">
-                    결제 완료 (Process)
+                        class="w-full bg-brown text-white py-3 text-base font-bold uppercase tracking-wide hover:bg-darkbrown transition rounded-sm shadow-sm">
+                    결제 완료
                 </button>
 
                 <p id="pointMsg" class="text-center text-xs font-mono h-4 text-success mt-2"></p>
