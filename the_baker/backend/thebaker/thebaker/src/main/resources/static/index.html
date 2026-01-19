@@ -41,6 +41,22 @@
         html {
             overflow-y: scroll;
         }
+
+        /* Blur Reveal Animation */
+        .blur-in {
+            opacity: 0;
+            filter: blur(10px); /* Starts blurry */
+            transform: scale(0.95); /* Starts slightly small */
+            animation: blurAnim 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes blurAnim {
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased">
@@ -69,13 +85,13 @@
 </script>
 
 <section class="h-screen flex flex-col justify-center items-center px-6 pt-16 text-center">
-    <p class="text-[25px] uppercase tracking-[-0.03em] mb-10 text-gray-500 fade-in font-bold" style="animation-delay: 0.1s">NOT ONE OF THE BAKERS,</p>
+    <p class="text-[28px] uppercase tracking-[-0.03em] mb-12 text-gray-500 blur-in font-bold" style="animation-delay: 0.1s">NOT ONE OF THE BAKERS,</p>
 
-    <h1 class="text-6xl md:text-9xl font-semibold mb-10 tracking-[-0.03em] fade-in" style="animation-delay: 0.2s">
+    <h1 class="text-6xl md:text-9xl font-semibold mb-10 tracking-[-0.03em] blur-in" style="animation-delay: 0.3s">
         THE BAKER
     </h1>
 
-    <div id="status-container" class="fade-in mt-8" style="animation-delay: 0.3s">
+    <div id="status-container" class="fade-in mt-8" style="animation-delay: 0.5s">
         <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-200 text-[21px] font-bold tracking-wide uppercase text-gray-400">
             <span class="w-4 h-4 bg-gray-300 rounded-full mr-2 animate-pulse"></span>
             확인중...
