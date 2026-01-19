@@ -53,8 +53,8 @@
 
         <div>
             <div class="flex justify-between items-end mb-4">
-                <h2 class="text-lg font-bold tracking-tight uppercase">재고 현황</h2>
-                <button onclick="loadInventory()" class="text-[16px] uppercase tracking-widest text-gray-500 hover:text-black">새로고침</button>
+                <h2 class="text-lg font-bold tracking-tight uppercase text-brown">재고 현황</h2>
+                <button onclick="loadInventory()" class="text-[11px] uppercase tracking-tight text-gray-500 hover:text-black">새로고침</button>
             </div>
             <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             </div>
@@ -63,7 +63,7 @@
         <div>
             <div class="flex justify-between items-end mb-4 pt-8 border-t border-black/10">
                 <h2 class="text-lg font-bold tracking-tight uppercase text-brown">새로운 예약</h2>
-                <button onclick="loadOrders()" class="text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Check New</button>
+                <button onclick="loadOrders()" class="text-[11px] uppercase tracking-wide text-gray-400 hover:text-black">새 예약 확인</button>
             </div>
             <div id="order-list" class="space-y-4">
                 <div class="text-gray-400 text-sm">No new orders.</div>
@@ -74,16 +74,16 @@
 
     <aside class="w-80 border-l border-black bg-white flex flex-col shrink-0">
         <div class="p-6 border-b border-black">
-            <h3 class="text-xs font-bold tracking-tight uppercase text-gray-500 mb-4">결제 및 포인트 적립</h3>
+            <h3 class="text-xs font-bold tracking-tight uppercase text-gray-800 mb-4">결제 및 포인트 적립</h3>
             <div class="space-y-3">
                 <input type="tel" id="phone" placeholder="핸드폰 번호 (010-0000-0000)"
-                       class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm">
+                       class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm font-semibold">
 
                 <input type="number" id="amount" placeholder="결제 금액 (₩)"
-                       class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm">
+                       class="w-full bg-gray-50 border border-gray-200 p-3 text-sm font-sans focus:border-black focus:outline-none rounded-sm font-semibold">
 
-                <input type="number" id="usePoints" placeholder="사용할 포인트 (선택사항)" value="0"
-                       class="w-full bg-cream border border-gray-300 p-3 text-sm font-sans focus:border-brown focus:outline-none rounded-sm text-brown font-bold">
+                <input type="number" id="usePoints" placeholder="사용할 포인트 (선택사항)"
+                       class="w-full bg-cream border border-gray-200 p-3 text-sm font-sans focus:border-brown focus:outline-none rounded-sm text-brown">
 
                 <div class="relative">
                     <select id="paymentMethod"
@@ -97,7 +97,7 @@
                 </div>
 
                 <button onclick="processTransaction()"
-                        class="w-full bg-black text-white py-3 text-base font-bold uppercase tracking-wide hover:bg-gray-800 transition rounded-sm shadow-sm">
+                        class="w-full bg-brown text-white py-3 text-base font-bold uppercase tracking-wide hover:bg-gray-800 transition rounded-sm shadow-sm">
                     결제 완료 (Process)
                 </button>
 
@@ -120,15 +120,18 @@
             <input id="new-name" placeholder="Name (e.g. Garlic Bread)" class="w-full border-b border-black p-2 outline-none">
             <input id="new-price" type="number" placeholder="Price (₩)" class="w-full border-b border-black p-2 outline-none">
             <select id="new-category" class="w-full border-b border-black p-2 outline-none bg-white">
-                <option value="HARD">Hard Bread (Thu-Sat)</option>
-                <option value="SOFT">Soft/Bagel (Sun-Wed)</option>
-                <option value="ALL">All Days</option>
+                <option value="HARD">하드계열 (목요일-토요일)</option>
+                <option value="SOFT">베이글 (일요일-수요일)</option>
+                <option value="ALL">매일</option>
             </select>
             <input id="new-stock" type="number" placeholder="Initial Stock" class="w-full border-b border-black p-2 outline-none">
             <button onclick="createNewProduct()" class="w-full bg-black text-white py-3 font-bold mt-4">CREATE</button>
         </div>
     </div>
 </div>
+
+<button onclick="showPrediction(${p.id})" class="mt-2 text-[10px] bg-brown text-white px-2 py-1 rounded font-bold w-full">Ask AI</button>
+<div id="ai-result-${p.id}" class="text-[10px] text-blue-600 font-bold mt-1 hidden"></div>
 
 <script>
     // --- 1. CLOCK ---
@@ -386,9 +389,17 @@
                 }
             });
         }
+
+        async function showPrediction(id) {
+            try {
+                const res = await fetch(`/api/products/${id}/prediction`);
+                const text = await res.text();
+                document.getElementById(`ai-result-${id}`).innerText = text;
+                document.getElementById(`ai-result-${id}`).classList.remove('hidden');
+            } catch(e) { console.error(e); }
+        }
     });
 </script>
-
 
 </body>
 </html>

@@ -2,7 +2,9 @@ package com.hong.thebaker.controller;
 
 import com.hong.thebaker.entity.Product;
 import com.hong.thebaker.repository.ProductRepository;
+import com.hong.thebaker.service.PredictionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.DayOfWeek;
@@ -76,6 +78,15 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Autowired
+    private PredictionService predictionService;
+
+    // GET /api/products/{id}/prediction
+    @GetMapping("/{id}/prediction")
+    public ResponseEntity<String> getPrediction(@PathVariable Long id) {
+        return ResponseEntity.ok(predictionService.getPrediction(id));
     }
 }
 
