@@ -197,17 +197,25 @@
     function renderGrid(products) {
         const container = document.getElementById('inventory-grid');
         container.innerHTML = products.map(p => `
-            <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-30 flex flex-col">
+            <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-auto flex flex-col">
                 <button onclick="deleteProduct(${p.id})" class="absolute top-2 right-2 text-gray-300 hover:text-red-500 font-bold px-2 text-lg z-10">&times;</button>
 
-                <div class="flex-1 flex flex-col justify-center items-center text-center mt-1">
+                <div class="flex-1 flex flex-col justify-center items-center text-center mt-4 mb-2">
                     <span class="text-sm font-bold text-gray-500 uppercase tracking-tight mb-1">${p.name}</span>
                     <span class="font-mono text-xl font-black text-black" id="display-${p.id}">${p.stockQuantity}</span>
                 </div>
 
-                <div class="flex space-x-2 mt-auto opacity-20 group-hover:opacity-100 transition w-full">
-                    <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-200 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">-</button>
-                    <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-200 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">+</button>
+                <div class="flex space-x-2 w-full mb-3">
+                    <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">-</button>
+                    <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">+</button>
+                </div>
+
+                <div class="pt-2 border-t border-gray-100 w-full">
+                    <button onclick="askAI(${p.id}, '${p.name}')"
+                            class="w-full py-2 bg-blue-50 text-blue-600 text-[10px] font-bold rounded flex justify-center items-center gap-1 hover:bg-blue-100 transition">
+                        <span>AI 예측</span>
+                    </button>
+                    <div id="ai-result-${p.id}" class="hidden mt-2 text-[10px] bg-gray-50 p-2 rounded text-left leading-tight"></div>
                 </div>
             </div>
         `).join('');
@@ -226,6 +234,35 @@
             });
             addLog(`${change > 0 ? '재고 추가' : '판매 완료'} : 상품 #${id}`);
         } catch(e) { console.error("Stock Update Error"); }
+    }
+
+    // --- AI LOGIC (NEW) ---
+    async function askAI(id, name) {
+        const resultDiv = document.getElementById(`ai-result-${id}`);
+
+        // 1. Show "Loading"
+        resultDiv.classList.remove('hidden');
+        resultDiv.innerHTML = `<span class="animate-pulse text-blue-400">🤖 데이터 분석중...</span>`;
+
+        try {
+            // 2. Call Backend
+            const response = await fetch(`/api/products/${id}/prediction`);
+
+            if (response.ok) {
+                const text = await response.text();
+                // 3. Show Result
+                resultDiv.innerHTML = `
+                    <div class="border-l-2 border-blue-500 pl-2">
+                        <div class="text-[9px] text-gray-400 font-bold mb-1">AI ANALYTICS</div>
+                        <div class="text-blue-900 font-medium">${text}</div>
+                    </div>`;
+            } else {
+                resultDiv.innerHTML = `<span class="text-red-500">분석 실패</span>`;
+            }
+        } catch (e) {
+            console.error(e);
+            resultDiv.innerHTML = `<span class="text-red-500">서버 연결 오류</span>`;
+        }
     }
 
     // --- 4. ORDERS LOGIC ---
@@ -397,15 +434,6 @@
                     processTransaction();
                 }
             });
-        }
-
-        async function showPrediction(id) {
-            try {
-                const res = await fetch(`/api/products/${id}/prediction`);
-                const text = await res.text();
-                document.getElementById(`ai-result-${id}`).innerText = text;
-                document.getElementById(`ai-result-${id}`).classList.remove('hidden');
-            } catch(e) { console.error(e); }
         }
     });
 </script>
