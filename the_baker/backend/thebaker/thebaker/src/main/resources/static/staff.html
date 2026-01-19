@@ -118,15 +118,19 @@
         <button onclick="closeProductModal()" class="absolute top-4 right-4 text-xl font-bold">&times;</button>
         <h2 class="text-xl font-bold mb-6">Add New Product</h2>
         <div class="space-y-4">
-            <input id="new-name" placeholder="Name (e.g. Garlic Bread)" class="w-full border-b border-black p-2 outline-none">
-            <input id="new-price" type="number" placeholder="Price (₩)" class="w-full border-b border-black p-2 outline-none">
+            <input id="new-name" placeholder="제품명 (예: 소금빵)" class="w-full border-b border-black p-2 outline-none">
+            <input id="new-price" type="number" placeholder="가격 (₩)" class="w-full border-b border-black p-2 outline-none">
+
+            <label class="block text-sm font-bold text-gray-500">Product Image</label>
+            <input id="new-image" type="file" accept="image/*" class="w-full text-sm text-gray-500">
+
             <select id="new-category" class="w-full border-b border-black p-2 outline-none bg-white">
                 <option value="HARD">하드계열 (목요일-토요일)</option>
                 <option value="SOFT">베이글 (일요일-수요일)</option>
                 <option value="ALL">매일</option>
             </select>
             <input id="new-stock" type="number" placeholder="Initial Stock" class="w-full border-b border-black p-2 outline-none">
-            <button onclick="createNewProduct()" class="w-full bg-black text-white py-3 font-bold mt-4">CREATE</button>
+            <button onclick="createNewProduct()" class="w-full bg-black text-white py-3 font-bold mt-4">생성하기</button>
         </div>
     </div>
 </div>
@@ -274,19 +278,24 @@
         const price = document.getElementById('new-price').value;
         const category = document.getElementById('new-category').value;
         const stock = document.getElementById('new-stock').value;
+        const imageInput = document.getElementById('new-image');
 
         if(!name || !price) return;
 
-        const payload = {
-            name: name,
-            price: parseFloat(price),
-            category: category,
-            stockQuantity: parseInt(stock)
-        };
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('price', price);
+        formData.append('category', category);
+        formData.append('stockQuantity', stock);
 
+        if(imageInput.files[0]) {
+            formData.append('image', imageInput.files[0]);
+        }
+
+        // Send (Notice: NO 'Content-Type': 'application/json' header. Browser handles it.)
         await fetch('/api/products', {
-            method: 'POST', headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(payload)
+            method: 'POST',
+            body: formData
         });
 
         closeProductModal();

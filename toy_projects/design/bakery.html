@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BAKER</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        black: '#111111',
+                        white: '#FFFFFF',
+                        gray: '#F4F4F4'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hide Scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Smooth Fade In */
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-white text-black font-sans antialiased">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
+        <div class="max-w-screen-xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="#" class="text-xs font-bold tracking-[0.2em]">THE BAKER</a>
+            <div class="space-x-6 text-xs font-medium tracking-widest hidden md:block">
+                <a href="about.html" class="hover:opacity-50 transition">ABOUT</a>
+                <a href="menu.html" class="hover:opacity-50 transition">MENU</a>
+                <a href="locations.html" class="hover:opacity-50 transition">LOCATIONS</a>
+            </div>
+            <button class="md:hidden text-xs uppercase tracking-widest">Menu</button>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col justify-center items-center px-6 pt-16 text-center">
+        <p class="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500 fade-in" style="animation-delay: 0.1s">Artisan Sourdough</p>
+        
+        <h1 class="text-6xl md:text-9xl font-serif italic mb-6 fade-in" style="animation-delay: 0.2s">
+            Hong<br>Bakery
+        </h1>
+
+        <div class="fade-in mt-8" style="animation-delay: 0.3s">
+            <span class="inline-flex items-center px-4 py-2 rounded-full border border-black text-xs font-bold tracking-widest uppercase">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                We Are Open
+            </span>
+        </div>
+
+        <div class="absolute bottom-10 animate-bounce">
+            <svg class="w-6 h-6 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <section class="min-h-[80vh] bg-black text-white px-6 py-24 flex flex-col items-center justify-center">
+        <h2 class="font-serif text-4xl mb-2 text-center">Membership</h2>
+        <p class="text-white/60 text-sm mb-12 text-center max-w-md">Enter your phone number to access your points and digital ID.</p>
+
+        <div id="login-form" class="w-full max-w-sm fade-in" style="animation-delay: 0.4s">
+            <div class="flex border-b border-white/30 pb-2">
+                <input type="tel" id="phoneInput" placeholder="010-1234-5678" class="bg-transparent w-full outline-none text-xl placeholder-white/20 text-center font-serif">
+            </div>
+            <button onclick="checkMember()" class="w-full mt-8 bg-white text-black py-4 text-xs font-bold tracking-[0.2em] hover:bg-gray-200 transition">
+                VIEW MY CARD
+            </button>
+        </div>
+
+        <div id="member-card" class="hidden w-full max-w-sm bg-white text-black p-8 rounded-sm text-center">
+            <p class="text-xs tracking-widest uppercase text-gray-500 mb-2">Current Balance</p>
+            <p class="text-5xl font-serif mb-8" id="pointsDisplay">0 P</p>
+            
+            <div class="bg-gray-100 p-4 mb-4 flex justify-center">
+                <svg id="barcode" class="w-full h-16"></svg>
+            </div>
+            <p class="text-[10px] tracking-widest uppercase text-gray-400">Scan at Counter</p>
+        </div>
+    </section>
+
+    <footer class="bg-white py-12 px-6 border-t border-gray-100">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-400">
+            <p>&copy; 2026 THE BAKER</p>
+            <div class="space-x-6 mt-4 md:mt-0">
+                <a href="#">Instagram</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script>
+        // Use your existing logic, just mapped to these new IDs
+        async function checkMember() {
+            const phone = document.getElementById('phoneInput').value;
+            if(!phone) return;
+
+            // 1. Hide Form, Show Card
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('member-card').classList.remove('hidden');
+
+            // 2. Generate Barcode
+            JsBarcode("#barcode", phone, {
+                format: "CODE128",
+                displayValue: false,
+                lineColor: "#000",
+                width: 2,
+                height: 50,
+                margin: 0
+            });
+
+            // 3. FETCH POINTS (The Engine) - WE ADD THIS TODAY
+            try {
+                // Call the API we built yesterday
+                const res = await fetch('/api/staff/points/' + phone); // We might need to adjust the endpoint URL
+                /* Wait! We need to make sure the endpoint allows "GET" or "POST" 
+                   Currently StaffController has manual add, we need a "check" endpoint.
+                   We will add that in 10 minutes.
+                */
+               // Simulating for design test:
+               document.getElementById('pointsDisplay').innerText = "5,200 P"; 
+            } catch(e) {
+                console.error("Backend not connected yet");
+            }
+        }
+    </script>
+</body>
+</html>

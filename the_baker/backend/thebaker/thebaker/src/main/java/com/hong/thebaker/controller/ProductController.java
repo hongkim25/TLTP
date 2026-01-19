@@ -6,11 +6,13 @@ import com.hong.thebaker.service.PredictionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Base64;
 
 @RestController
 @RequestMapping("/api/products")
@@ -68,10 +70,32 @@ public class ProductController {
         return false;
     }
 
-    // Keep the POST method for Staff to add items
+    // POST method for Staff to add items
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productRepository.save(product);
+    public ResponseEntity<Product> createProduct(
+            @RequestParam("name") String name,
+            @RequestParam("price") Double price,
+            @RequestParam("category") String category,
+            @RequestParam("stockQuantity") int stockQuantity,
+            @RequestParam(value = "image", required = false) MultipartFile imageFile
+    ) {
+        try {
+            Product product = new Product();
+            product.setName(name);
+            product.setPrice(price);
+            product.setCategory(category);
+            product.setStockQuantity(stockQuantity);
+
+            // IMAGE LOGIC
+            if (imageFile != null && !imageFile.isEmpty()) {
+                String base64Image = Base64.getEncoder().encodeToString(imageFile.getBytes());
+                product.setImageBase64("data:image/jpeg;base64," + base64Image); // Prefix for HTML
+            }
+
+            return ResponseEntity.ok(productRepository.save(product));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     // DELETE /api/products/{id}
