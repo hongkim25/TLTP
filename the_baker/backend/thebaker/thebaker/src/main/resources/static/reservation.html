@@ -68,7 +68,7 @@
 <main class="pt-32 pb-24 px-6 max-w-screen-xl mx-auto">
     <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase">당일 예약</h1>
 
-    <div class="space-y-6 mb-12 border-b border-gray-100 pb-12">
+    <div class="space-y-6 mb-12 pb-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 날짜</label>
@@ -100,8 +100,8 @@
 
     <div class="bg-gray-50 p-6 rounded-lg">
         <div class="flex justify-between items-center mb-6">
-            <span class="text-sm font-bold uppercase tracking-widest text-gray-400">총 금액</span>
-            <span class="text-2xl font-black text-black" id="totalPrice">0 KRW</span>
+            <span class="text-xl font-bold uppercase tracking-wide text-gray-400">총 금액</span>
+            <span class="text-2xl font-black text-black" id="totalPrice">0 원</span>
         </div>
         <div class="flex items-start space-x-3 mb-6 bg-yellow-50 p-4 border border-yellow-100 rounded">
             <input type="checkbox" id="marketingConsent" class="mt-1 w-4 h-4 accent-brown">
@@ -111,7 +111,7 @@
             </label>
         </div>
         <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">
-            Proceed to Payment
+            예약 완료하기
         </button>
         <p class="text-[16px] text-gray-400 mt-4 text-center">
             * 20개 제품 이상의 대량 주문이실 경우에는 더베이커로 직접 연락 부탁드립니다.
@@ -128,23 +128,23 @@
 <div id="bank-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
     <div class="relative bg-white w-full max-w-sm mx-6 p-8 shadow-2xl">
-        <h3 class="text-xl font-bold mb-6 tracking-tight text-black">PAYMENT</h3>
+        <h3 class="text-xl font-bold mb-6 tracking-tight text-black">입금 계좌</h3>
         <div class="space-y-4 mb-8 text-black">
             <div class="p-4 bg-gray-50 border border-gray-100">
-                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Bank</p>
-                <p class="text-lg font-bold">KB Kookmin (국민은행)</p>
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">은행</p>
+                <p class="text-lg font-bold">국민은행</p>
             </div>
             <div class="p-4 bg-gray-50 border border-gray-100 group cursor-pointer" onclick="copyAccount()">
-                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Account</p>
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">계좌번호</p>
                 <p class="text-lg font-mono font-bold" id="account-num">1234-56-789012</p>
             </div>
             <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                <span class="text-sm font-bold text-gray-400">Amount to Send</span>
+                <span class="text-sm font-bold text-gray-400">입금하실 금액</span>
                 <span class="text-xl font-black text-brown" id="modalTotal">0</span>
             </div>
         </div>
-        <button onclick="finishReservation()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">I Sent It</button>
-        <button onclick="closeModal()" class="w-full mt-4 text-xs font-bold uppercase tracking-widest text-gray-400">Cancel</button>
+        <button onclick="finishReservation()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">입금을 완료하신 후 클릭해주세요.</button>
+        <button onclick="closeModal()" class="w-full mt-4 text-xs font-bold uppercase tracking-widest text-gray-400">취소하기</button>
     </div>
 </div>
 
@@ -179,7 +179,7 @@
                 alert("죄송합니다. 화요일은 정기 휴무일입니다.\n(We are closed on Tuesdays.)");
                 this.value = ""; // Clear the input
                 document.getElementById('menu-list').innerHTML = ''; // Clear menu
-                document.getElementById('totalPrice').innerText = "0 KRW";
+                document.getElementById('totalPrice').innerText = "0 원";
                 cart = {}; // Reset cart
             } else {
                 fetchMenuForDate(); // Load menu if valid
@@ -260,7 +260,7 @@
                 }
             }
 
-            const fmt = new Intl.NumberFormat('ko-KR').format(total) + " KRW";
+            const fmt = new Intl.NumberFormat('ko-KR').format(total) + " 원";
             document.getElementById('totalPrice').innerText = fmt;
             document.getElementById('modalTotal').innerText = fmt; // Update Modal too
         }
@@ -274,8 +274,8 @@
             const totalText = document.getElementById('totalPrice').innerText;
 
             // Basic validation
-            if(!name) { alert("Please enter your name."); return; }
-            if(totalText === "0 KRW") { alert("Please select at least one bread."); return; }
+            if(!name) { alert("성함을 적어주세요."); return; }
+            if(totalText === "0 원") { alert("최소 한 개 이상의 제품을 선택해주세요."); return; }
 
             document.getElementById('bank-modal').classList.remove('hidden');
         }
@@ -332,5 +332,6 @@
             }
         }
 </script>
+
 </body>
 </html>
