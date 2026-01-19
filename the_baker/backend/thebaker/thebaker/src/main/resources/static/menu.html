@@ -52,7 +52,7 @@
             <a href="menu.html" id="link-menu" class="hover:text-brown transition">메뉴</a>
             <a href="reservation.html" id="link-reservation" class="hover:text-brown transition">예약</a>
         </div>
-        <button class="md:hidden text-[20px] uppercase tracking-tight font-bold">Menu</button>
+        <button class="md:hidden text-[20px] uppercase tracking-tight font-bold">메뉴</button>
     </div>
 </nav>
 
@@ -71,7 +71,7 @@
         <span class="text-sm font-bold text-gray-400 uppercase tracking-widest" id="date-display">...</span>
     </div>
 
-    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-12">
+    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="animate-pulse text-gray-300 font-bold text-xl">로딩중입니다...</div>
     </div>
 </main>
@@ -90,7 +90,7 @@
     // 1. Set Today's Date
     const today = new Date();
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
-    document.getElementById('date-display').innerText = today.toLocaleDateString('en-US', options);
+    document.getElementById('date-display').innerText = today.toLocaleDateString('ko-KR', options);
 
     // 2. Fetch Data from Java Backend
     async function loadMenu() {
@@ -99,39 +99,44 @@
             const products = await response.json();
 
             const grid = document.getElementById('menu-grid');
-            grid.innerHTML = ''; // Clear "Loading..." text
+            grid.innerHTML = '';
 
             if (products.length === 0) {
-                grid.innerHTML = '<p class="text-gray-400">No items available today.</p>';
+                grid.innerHTML = '<p class="text-gray-400">현재 주문 가능한 상품이 없습니다..</p>';
                 return;
             }
 
             // 3. Create HTML for each product
             products.forEach(p => {
-                // Format price (e.g., 4500 -> 4,500)
                 const formattedPrice = new Intl.NumberFormat('ko-KR').format(p.price);
 
+                // Image Logic (Showcase Mode)
+                const imageHtml = p.imageBase64
+                    ? `<img src="${p.imageBase64}" class="w-full h-full object-cover">`
+                    : `<span class="text-6xl">🍞</span>`;
+
                 const card = `
-                    <div class="group border-b border-gray-100 pb-6 hover:border-brown transition cursor-pointer">
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="text-xl font-bold text-black group-hover:text-brown transition">${p.name}</h3>
-                            <span class="text-lg font-bold">₩${formattedPrice}</span>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-full">
+
+                        <div class="h-48 bg-gray-50 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                            ${imageHtml}
                         </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-500 text-xs uppercase tracking-widest font-bold">${p.category}</p>
-                            ${p.stockQuantity === 0
-                                ? '<span class="text-xs font-bold bg-black text-white px-2 py-1 rounded-sm uppercase">Sold Out</span>'
-                                : `<span class="text-xs font-bold text-gray-300">Stock: ${p.stockQuantity}</span>`
-                            }
+
+                        <div class="text-center">
+<!--                        <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block mb-1">${p.category}</span>-->
+                            <h3 class="font-bold text-lg text-black mb-1">${p.name}</h3>
+                            <div class="font-mono font-bold text-brown text-lg">₩${formattedPrice}</div>
                         </div>
+
                     </div>
                 `;
+
                 grid.insertAdjacentHTML('beforeend', card);
             });
 
         } catch (error) {
             console.error('Error:', error);
-            document.getElementById('menu-grid').innerHTML = '<p class="text-red-500">Failed to load menu. Is the server running?</p>';
+            document.getElementById('menu-grid').innerHTML = '<p class="text-red-500">메뉴 로딩에 실패했습니다. 서버 문제가 있나요?</p>';
         }
     }
 

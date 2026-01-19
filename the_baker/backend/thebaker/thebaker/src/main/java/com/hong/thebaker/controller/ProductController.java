@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
@@ -74,7 +75,7 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<Product> createProduct(
             @RequestParam("name") String name,
-            @RequestParam("price") Double price,
+            @RequestParam("price") BigDecimal price,
             @RequestParam("category") String category,
             @RequestParam("stockQuantity") int stockQuantity,
             @RequestParam(value = "image", required = false) MultipartFile imageFile
