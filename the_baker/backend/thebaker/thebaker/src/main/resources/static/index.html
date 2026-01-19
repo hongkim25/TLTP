@@ -62,16 +62,15 @@
 <body class="bg-white text-brown font-sans antialiased">
 
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
-    <div class="max-w-screen-xl mx-auto px-6 h-16 flex justify-between items-center">
-        <a href="index.html" class="text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
+    <div class="max-w-screen-xl mx-auto px-4 md:px-6 h-16 flex justify-between items-center">
 
-        <div class="space-x-6 text-[14px] font-bold tracking-wider hidden md:block">
-            <a href="about.html" id="link-about" class="hover:text-brown transition">소개</a>
-            <a href="menu.html" id="link-menu" class="hover:text-brown transition">메뉴</a>
-            <a href="reservation.html" id="link-reservation" class="hover:text-brown transition">예약</a>
+        <a href="index.html" class="text-[20px] md:text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
+
+        <div class="flex space-x-4 md:space-x-8 text-[14px] md:text-[15px] font-bold tracking-tight md:tracking-wider">
+            <a href="about.html" class="hover:text-brown transition">소개</a>
+            <a href="menu.html" class="hover:text-brown transition">메뉴</a>
+            <a href="reservation.html" class="hover:text-brown transition">예약</a>
         </div>
-
-        <button class="md:hidden text-[20px] uppercase tracking-tight font-bold">Menu</button>
     </div>
 </nav>
 
@@ -139,65 +138,74 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
 <script>
-    // 1. DYNAMIC STATUS CHECK
-    async function checkStatus() {
-        const container = document.getElementById('status-container');
-        try {
-            const res = await fetch('/api/staff/status');
-            if(res.ok) {
-                const data = await res.json();
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-                if (data.open) {
-                    // OPEN STATE
-                    container.innerHTML = `
-                        <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[21px] font-bold tracking-wide uppercase text-brown">
-                            <span class="w-4 h-4 bg-green-500 rounded-full mr-2 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
-                            OPEN
-                        </span>
-                    `;
-                } else {
-                    // CLOSED STATE
-                    container.innerHTML = `
-                        <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-300 text-[21px] font-bold tracking-wide uppercase text-gray-400 bg-gray-50">
-                            <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
-                            CLOSED
-                        </span>
-                    `;
-                }
-            }
-        } catch(e) { console.error("Status check failed"); }
-    }
-
-    // 2. MEMBERSHIP CHECK (Connects to Real Backend now)
-    async function checkMember() {
-        const phone = document.getElementById('phoneInput').value;
-        if(!phone) return;
-
-        document.getElementById('login-form').classList.add('hidden');
-        document.getElementById('member-card').classList.remove('hidden');
-
-        JsBarcode("#barcode", phone, { format: "CODE128", displayValue: false, lineColor: "#000", width: 2, height: 50, margin: 0 });
-
-        try {
-            const res = await fetch(`/api/customers/${phone}`);
-            if (res.ok) {
-                const data = await res.json();
-                // Format with commas (e.g., 5,200)
-                const fmt = new Intl.NumberFormat('ko-KR').format(data.points);
-                document.getElementById('pointsDisplay').innerText = `${fmt} P`;
-            } else {
-                document.getElementById('pointsDisplay').innerText = "0 P";
-            }
-        } catch(e) {
-            console.error("Connection Error");
-            document.getElementById('pointsDisplay').innerText = "-";
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
         }
-    }
 
-    // INIT
-    document.addEventListener("DOMContentLoaded", () => {
-        checkStatus();
-    });
+        // 1. DYNAMIC STATUS CHECK
+        async function checkStatus() {
+            const container = document.getElementById('status-container');
+            try {
+                const res = await fetch('/api/staff/status');
+                if(res.ok) {
+                    const data = await res.json();
+
+                    if (data.open) {
+                        // OPEN STATE
+                        container.innerHTML = `
+                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[21px] font-bold tracking-wide uppercase text-brown">
+                                <span class="w-4 h-4 bg-green-500 rounded-full mr-2 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                                OPEN
+                            </span>
+                        `;
+                    } else {
+                        // CLOSED STATE
+                        container.innerHTML = `
+                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-300 text-[21px] font-bold tracking-wide uppercase text-gray-400 bg-gray-50">
+                                <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                                CLOSED
+                            </span>
+                        `;
+                    }
+                }
+            } catch(e) { console.error("Status check failed"); }
+        }
+
+        // 2. MEMBERSHIP CHECK (Connects to Real Backend now)
+        async function checkMember() {
+            const phone = document.getElementById('phoneInput').value;
+            if(!phone) return;
+
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('member-card').classList.remove('hidden');
+
+            JsBarcode("#barcode", phone, { format: "CODE128", displayValue: false, lineColor: "#000", width: 2, height: 50, margin: 0 });
+
+            try {
+                const res = await fetch(`/api/customers/${phone}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    // Format with commas (e.g., 5,200)
+                    const fmt = new Intl.NumberFormat('ko-KR').format(data.points);
+                    document.getElementById('pointsDisplay').innerText = `${fmt} P`;
+                } else {
+                    document.getElementById('pointsDisplay').innerText = "0 P";
+                }
+            } catch(e) {
+                console.error("Connection Error");
+                document.getElementById('pointsDisplay').innerText = "-";
+            }
+        }
+
+        // INIT
+        document.addEventListener("DOMContentLoaded", () => {
+            checkStatus();
+        });
 </script>
 </body>
 </html>
