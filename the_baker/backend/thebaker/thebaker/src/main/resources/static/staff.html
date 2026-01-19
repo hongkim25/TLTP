@@ -31,13 +31,14 @@
         }
     </script>
 </head>
+
 <body class="bg-cream text-black font-sans h-screen flex flex-col overflow-hidden">
 
-<header class="h-14 border-b border-black flex justify-between items-center px-6 bg-white shrink-0">
+<header class="h-14 border-b border-black flex justify-between items-center px-4 md:px-6 bg-white shrink-0">
     <div class="flex items-center space-x-4">
         <button id="statusBtn" onclick="toggleShop()" class="flex items-center space-x-2 px-3 py-1 rounded-full border border-transparent hover:border-black transition">
             <div id="statusDot" class="w-3 h-3 bg-gray-400 rounded-full"></div>
-            <span id="statusText" class="text-xs font-bold tracking-[0.2em] uppercase">Checking...</span>
+            <span id="statusText" class="text-xs font-bold tracking-[0.2em] uppercase hidden md:inline">확인중...</span>
         </button>
     </div>
     <div class="flex items-center space-x-4">
@@ -48,17 +49,16 @@
     </div>
 </header>
 
-<main class="flex-1 flex overflow-hidden">
+<main class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
 
-    <section class="flex-1 overflow-y-auto p-6 space-y-8">
-
+    <section class="flex-1 overflow-y-auto p-4 md:p-6 space-y-8">
         <div>
             <div class="flex justify-between items-end mb-4">
                 <h2 class="text-lg font-bold tracking-tight uppercase text-brown">재고 현황</h2>
                 <button onclick="loadInventory()" class="text-[11px] uppercase tracking-tight text-gray-500 hover:text-black">새로고침</button>
             </div>
-            <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            </div>
+            <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-24 md:pb-0">
+                </div>
         </div>
 
         <div>
@@ -70,11 +70,11 @@
                 <div class="text-gray-400 text-sm">새로운 주문이 없습니다.</div>
             </div>
         </div>
-
     </section>
 
-    <aside class="w-80 border-l border-black bg-white flex flex-col shrink-0">
-        <div class="p-6 border-b border-black">
+    <aside class="w-full md:w-80 border-t md:border-t-0 md:border-l border-black bg-white flex flex-col shrink-0 h-auto md:h-full">
+        
+        <div class="p-6 border-b border-black bg-white">
             <h3 class="text-xs font-bold tracking-tight uppercase text-gray-800 mb-4">결제 및 포인트 적립</h3>
             <div class="space-y-3">
                 <input type="tel" id="phone" placeholder="핸드폰 번호 (010-0000-0000)"
@@ -105,7 +105,8 @@
                 <p id="pointMsg" class="text-center text-xs font-mono h-4 text-success mt-2"></p>
             </div>
         </div>
-        <div class="flex-1 p-4 bg-gray-50 overflow-y-auto">
+
+        <div class="hidden md:block flex-1 p-4 bg-gray-50 overflow-y-auto">
             <h3 class="text-xs font-bold tracking-tight uppercase text-gray-500 mb-4">시스템 기록</h3>
             <div id="logs" class="space-y-2"></div>
         </div>
@@ -116,27 +117,25 @@
 <div id="product-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm">
     <div class="bg-white p-8 w-96 shadow-2xl relative">
         <button onclick="closeProductModal()" class="absolute top-4 right-4 text-xl font-bold">&times;</button>
-        <h2 class="text-xl font-bold mb-6">Add New Product</h2>
+        <h2 class="text-xl font-bold mb-6">새 상품 등록</h2>
         <div class="space-y-4">
             <input id="new-name" placeholder="제품명 (예: 소금빵)" class="w-full border-b border-black p-2 outline-none">
             <input id="new-price" type="number" placeholder="가격 (₩)" class="w-full border-b border-black p-2 outline-none">
-
+            
             <label class="block text-sm font-bold text-gray-500">제품 이미지</label>
             <input id="new-image" type="file" accept="image/*" class="w-full text-sm text-gray-500">
 
             <select id="new-category" class="w-full border-b border-black p-2 outline-none bg-white">
-                <option value="HARD">하드계열 (목요일-토요일)</option>
-                <option value="SOFT">베이글 (일요일-수요일)</option>
+                <option value="HARD">하드계열 (목-토)</option>
+                <option value="SOFT">베이글 (일-수)</option>
                 <option value="ALL">매일</option>
             </select>
-            <input id="new-stock" type="number" placeholder="제품 개수" class="w-full border-b border-black p-2 outline-none">
+            <input id="new-stock" type="number" placeholder="초기 수량" class="w-full border-b border-black p-2 outline-none">
             <button onclick="createNewProduct()" class="w-full bg-brown text-white py-3 font-bold mt-4">생성하기</button>
         </div>
     </div>
 </div>
 
-<button onclick="showPrediction(${p.id})" class="mt-2 text-[10px] bg-brown text-white px-2 py-1 rounded font-bold w-full">Ask AI</button>
-<div id="ai-result-${p.id}" class="text-[10px] text-blue-600 font-bold mt-1 hidden"></div>
 
 <script>
     // --- 1. CLOCK ---
