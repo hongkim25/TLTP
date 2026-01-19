@@ -34,21 +34,14 @@
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
-        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-
-        html {
-            overflow-y: scroll;
-        }
+        html { overflow-y: scroll; }
     </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased overflow-x-hidden">
 
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
     <div class="max-w-screen-xl mx-auto px-4 md:px-6 h-16 flex justify-between items-center">
-
         <a href="index.html" class="text-[20px] md:text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
-
         <div class="flex space-x-4 md:space-x-8 text-[14px] md:text-[15px] font-bold tracking-tight md:tracking-wider">
             <a href="about.html" class="hover:text-brown transition">소개</a>
             <a href="menu.html" class="hover:text-brown transition">메뉴</a>
@@ -73,7 +66,7 @@
     </div>
 
     <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="animate-pulse text-gray-300 font-bold text-xl">로딩중입니다...</div>
+        <div class="animate-pulse text-gray-300 font-bold text-xl">메뉴 불러오는 중...</div>
     </div>
 </main>
 
@@ -93,56 +86,56 @@
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     document.getElementById('date-display').innerText = today.toLocaleDateString('ko-KR', options);
 
-    // 2. Fetch Data
+    // 2. Fetch Data & Sort
     async function loadMenu() {
         try {
-            const response = await fetch('/api/products');
+            const response = await fetch('/api/products'); 
             const products = await response.json();
 
             const grid = document.getElementById('menu-grid');
             grid.innerHTML = '';
 
             if (products.length === 0) {
-                grid.innerHTML = '<p class="text-gray-400 col-span-full text-center">현재 준비된 메뉴가 없습니다.</p>';
+                grid.innerHTML = '<p class="text-gray-400 col-span-full text-center">현재 주문 가능한 상품이 없습니다.</p>';
                 return;
             }
 
+            // --- SORTING LOGIC: Descending Order (High Stock -> Low Stock) ---
+            products.sort((a, b) => b.stockQuantity - a.stockQuantity);
+
+            // 3. Render items
             products.forEach(p => {
                 const formattedPrice = new Intl.NumberFormat('ko-KR').format(p.price);
 
-                // LOGIC: Check Stock Status
-                let stockBadge = '';
-                let imageClass = 'w-full h-full object-cover'; // Default image style
-                
+                // STATUS TEXT LOGIC
+                let statusHtml = '';
                 if (p.stockQuantity <= 0) {
-                    // SOLD OUT: Grayscale image + Red Badge
-                    stockBadge = `<div class="absolute inset-0 bg-white/60 flex items-center justify-center backdrop-blur-[2px]">
-                                    <span class="text-red-500 font-black text-xl border-4 border-red-500 px-4 py-2 transform -rotate-12 uppercase tracking-widest">Sold Out</span>
-                                  </div>`;
-                    imageClass += ' grayscale opacity-50'; 
+                    statusHtml = `<span class="text-red-500 font-black tracking-widest uppercase">SOLD OUT</span>`;
                 } else if (p.stockQuantity <= 5) {
-                    // LOW STOCK: Orange Text
-                    stockBadge = `<div class="absolute bottom-2 right-2 bg-white/90 px-2 py-1 rounded text-[10px] font-bold text-brown border border-brown shadow-sm">
-                                    품절 임박 (${p.stockQuantity}개)
-                                  </div>`;
+                    statusHtml = `<span class="text-brown font-bold text-sm">남은 수량: ${p.stockQuantity}개</span>`;
+                } else {
+                    statusHtml = `<span class="text-gray-400 font-bold text-sm">남은 수량: ${p.stockQuantity}개</span>`;
                 }
 
-                // Image Setup
+                // IMAGE LOGIC (No Grayscale!)
                 const imageHtml = p.imageBase64
-                    ? `<img src="${p.imageBase64}" class="${imageClass}">`
-                    : `<span class="text-6xl grayscale">🍞</span>`;
+                    ? `<img src="${p.imageBase64}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">`
+                    : `<span class="text-6xl">🍞</span>`;
 
                 const card = `
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-full relative group">
-                        
+
                         <div class="h-48 bg-gray-50 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
                             ${imageHtml}
-                            ${stockBadge}
                         </div>
 
                         <div class="text-center">
                             <h3 class="font-bold text-lg text-black mb-1">${p.name}</h3>
-                            <div class="font-mono font-bold text-brown text-lg">₩${formattedPrice}</div>
+                            <div class="font-mono font-bold text-brown text-lg mb-2">₩${formattedPrice}</div>
+                            
+                            <div class="pt-2 border-t border-gray-50">
+                                ${statusHtml}
+                            </div>
                         </div>
 
                     </div>
@@ -153,7 +146,7 @@
 
         } catch (error) {
             console.error('Error:', error);
-            document.getElementById('menu-grid').innerHTML = '<p class="text-red-500 text-center col-span-full">서버 연결에 실패했습니다.</p>';
+            document.getElementById('menu-grid').innerHTML = '<p class="text-red-500 col-span-full text-center">메뉴 로딩에 실패했습니다.</p>';
         }
     }
 
