@@ -66,17 +66,19 @@
     });
 </script>
 
-<main class="pt-32 pb-24 px-6 max-w-screen-xl mx-auto">
-    <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase">당일 예약</h1>
+<main class="pt-28 pb-24 px-4 md:px-6 max-w-screen-xl mx-auto overflow-hidden">
+    <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase mt-4">당일 예약</h1>
 
-    <div class="space-y-6 mb-12 pb-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-                <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 날짜</label>
-                <input type="date" id="datePicker" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none">            </div>
-            <div>
-                <label class="block text-[14px] font-bold mb-2 uppercase tracking-wide text-gray-400">시간</label>
-                <select class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none">
+    <div class="space-y-4 mb-8 pb-8 border-b border-gray-100">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col">
+                <label class="text-[12px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 날짜</label>
+                <input type="date" id="datePicker" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none min-w-0 appearance-none">
+            </div>
+            <div class="flex flex-col">
+                <label class="text-[12px] font-bold mb-2 uppercase tracking-wide text-gray-400">시간</label>
+                <select class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none appearance-none">
                     <option>11:00 AM</option>
                     <option>12:00 PM</option>
                     <option>1:00 PM</option>
@@ -86,36 +88,45 @@
                 </select>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="text" id="custName" placeholder="성함" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
-            <input type="tel" id="custPhone" placeholder="핸드폰 번호" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <input type="text" id="custName" placeholder="성함" class="w-full bg-white border-b border-gray-300 py-3 text-sm focus:outline-none focus:border-black transition rounded-none">
+            <input type="tel" id="custPhone" placeholder="핸드폰 번호" class="w-full bg-white border-b border-gray-300 py-3 text-sm focus:outline-none focus:border-black transition rounded-none">
         </div>
     </div>
 
     <div class="mb-12">
-        <h3 class="text-xl font-bold mb-6">메뉴</h3>
-        <div id="menu-list" class="space-y-4">
-            <div class="text-gray-400 text-sm">메뉴를 보시기 위해 날짜를 선택해주세요.</div>
+        <h3 class="text-xl font-bold mb-6 flex items-center justify-between">
+            <span>메뉴 선택</span>
+            <span class="text-xs text-gray-400 font-normal">* 날짜를 선택하면 메뉴가 나옵니다</span>
+        </h3>
+        <div id="menu-list" class="space-y-4 min-h-[100px]">
+            <div class="text-gray-300 text-sm py-4 text-center border border-dashed border-gray-200 rounded">
+                📅 위에서 날짜를 먼저 선택해주세요.
+            </div>
         </div>
     </div>
 
-    <div class="bg-gray-50 p-6 rounded-lg">
+    <div class="bg-gray-50 p-6 rounded-xl shadow-inner">
         <div class="flex justify-between items-center mb-6">
-            <span class="text-xl font-bold uppercase tracking-wide text-gray-400">총 금액</span>
+            <span class="text-sm font-bold uppercase tracking-wide text-gray-400">총 결제금액</span>
             <span class="text-2xl font-black text-black" id="totalPrice">0 원</span>
         </div>
-        <div class="flex items-start space-x-3 mb-6 bg-yellow-50 p-4 border border-yellow-100 rounded">
-            <input type="checkbox" id="marketingConsent" class="mt-1 w-4 h-4 accent-brown">
-            <label for="marketingConsent" class="text-xs text-gray-600 leading-tight">
-                <span class="font-bold text-brown uppercase block mb-1">마케팅 수신 동의</span>
+        
+        <div class="flex items-start space-x-3 mb-6 bg-white p-4 border border-gray-100 rounded-lg">
+            <input type="checkbox" id="marketingConsent" class="mt-1 w-4 h-4 accent-brown shrink-0">
+            <label for="marketingConsent" class="text-xs text-gray-500 leading-tight">
+                <span class="font-bold text-brown uppercase block mb-1">마케팅 수신 동의 (선택)</span>
                 더베이커 마케팅 수신에 동의하시면 체크해주세요.
             </label>
         </div>
-        <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition">
+
+        <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition rounded shadow-lg shadow-brown/20">
             예약 완료하기
         </button>
-        <p class="text-[16px] text-gray-400 mt-4 text-center">
-            * 20개 제품 이상의 대량 주문이실 경우에는 더베이커로 직접 연락 부탁드립니다.
+        <p class="text-[11px] text-gray-400 mt-4 text-center leading-relaxed">
+            * 20개 이상 대량 주문은 매장으로 직접 전화 부탁드립니다.<br>
+            * 노쇼 방지를 위해 선입금을 원칙으로 합니다.
         </p>
     </div>
 </main>

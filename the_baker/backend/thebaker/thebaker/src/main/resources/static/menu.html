@@ -93,38 +93,54 @@
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     document.getElementById('date-display').innerText = today.toLocaleDateString('ko-KR', options);
 
-    // 2. Fetch Data from Java Backend
+    // 2. Fetch Data
     async function loadMenu() {
         try {
-            const response = await fetch('/api/products'); // Calls your ProductController
+            const response = await fetch('/api/products');
             const products = await response.json();
 
             const grid = document.getElementById('menu-grid');
             grid.innerHTML = '';
 
             if (products.length === 0) {
-                grid.innerHTML = '<p class="text-gray-400">현재 주문 가능한 상품이 없습니다..</p>';
+                grid.innerHTML = '<p class="text-gray-400 col-span-full text-center">현재 준비된 메뉴가 없습니다.</p>';
                 return;
             }
 
-            // 3. Create HTML for each product
             products.forEach(p => {
                 const formattedPrice = new Intl.NumberFormat('ko-KR').format(p.price);
 
-                // Image Logic (Showcase Mode)
+                // LOGIC: Check Stock Status
+                let stockBadge = '';
+                let imageClass = 'w-full h-full object-cover'; // Default image style
+                
+                if (p.stockQuantity <= 0) {
+                    // SOLD OUT: Grayscale image + Red Badge
+                    stockBadge = `<div class="absolute inset-0 bg-white/60 flex items-center justify-center backdrop-blur-[2px]">
+                                    <span class="text-red-500 font-black text-xl border-4 border-red-500 px-4 py-2 transform -rotate-12 uppercase tracking-widest">Sold Out</span>
+                                  </div>`;
+                    imageClass += ' grayscale opacity-50'; 
+                } else if (p.stockQuantity <= 5) {
+                    // LOW STOCK: Orange Text
+                    stockBadge = `<div class="absolute bottom-2 right-2 bg-white/90 px-2 py-1 rounded text-[10px] font-bold text-brown border border-brown shadow-sm">
+                                    품절 임박 (${p.stockQuantity}개)
+                                  </div>`;
+                }
+
+                // Image Setup
                 const imageHtml = p.imageBase64
-                    ? `<img src="${p.imageBase64}" class="w-full h-full object-cover">`
-                    : `<span class="text-6xl">🍞</span>`;
+                    ? `<img src="${p.imageBase64}" class="${imageClass}">`
+                    : `<span class="text-6xl grayscale">🍞</span>`;
 
                 const card = `
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-full">
-
-                        <div class="h-48 bg-gray-50 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-full relative group">
+                        
+                        <div class="h-48 bg-gray-50 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
                             ${imageHtml}
+                            ${stockBadge}
                         </div>
 
                         <div class="text-center">
-<!--                        <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block mb-1">${p.category}</span>-->
                             <h3 class="font-bold text-lg text-black mb-1">${p.name}</h3>
                             <div class="font-mono font-bold text-brown text-lg">₩${formattedPrice}</div>
                         </div>
@@ -137,11 +153,10 @@
 
         } catch (error) {
             console.error('Error:', error);
-            document.getElementById('menu-grid').innerHTML = '<p class="text-red-500">메뉴 로딩에 실패했습니다. 서버 문제가 있나요?</p>';
+            document.getElementById('menu-grid').innerHTML = '<p class="text-red-500 text-center col-span-full">서버 연결에 실패했습니다.</p>';
         }
     }
 
-    // Run on load
     document.addEventListener('DOMContentLoaded', loadMenu);
 </script>
 </body>
