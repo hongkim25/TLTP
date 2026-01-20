@@ -1,0 +1,21 @@
+{
+  "short_name": "더베이커",
+  "name": "더베이커 사이트",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f9f7f2",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#6B4423"
+}

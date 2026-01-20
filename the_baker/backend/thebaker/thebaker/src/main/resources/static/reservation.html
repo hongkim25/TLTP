@@ -343,6 +343,19 @@
                 alert("Server error.");
             }
         }
+
+        // --- PWA INSTALLATION ENGINE ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('App Ready: Service Worker registered');
+                    })
+                    .catch(err => {
+                        console.log('App Error: Service Worker failed', err);
+                    });
+            });
+        }
 </script>
 
 </body>
