@@ -28,24 +28,30 @@ public class PredictionService {
 
             while ((line = reader.readLine()) != null) {
                 try {
+                    // Split by comma
                     String[] parts = line.split(",");
 
-                    // index 1: weather (Sunny, Rain, etc.)
-                    String weather = parts[1].trim();
+                    // Index 1: Product Name
+                    String rawName = parts[1].trim().replace(" ", "");
 
-                    // index 2: average temperature (temp_avg)
-                    double temp = Double.parseDouble(parts[2].trim());
+                    // Index 2: Quantity
+                    int qty = Integer.parseInt(parts[2].trim());
 
-                    // index 5: product (Raw Korean Name)
-                    // We remove spaces to make matching safer (e.g., "소금 빵" == "소금빵")
-                    String rawName = parts[5].trim().replace(" ", "");
-                    System.out.println("DEBUG: Loaded [" + rawName + "]");
-                    // index 6: quantity
-                    int qty = Integer.parseInt(parts[6].trim());
+                    // Index 3 is Revenue (skipped)
+
+                    // Index 4: Weather
+                    String weather = parts[4].trim();
+
+                    // Index 5: Temp
+                    double temp = Double.parseDouble(parts[5].trim());
+
+                    // DEBUG: See the clean data
+                    System.out.println("✅ Loaded: " + rawName + " | Qty: " + qty + " | W: " + weather);
 
                     history.add(new SalesRecord(weather, temp, rawName, qty));
                 } catch (Exception e) {
-                    // Skip bad rows
+                    // Helpful error log to find bad rows
+                    System.err.println("⚠️ Skipping bad row: " + line);
                 }
             }
             System.out.println("✅ AI ENGINE: Loaded " + history.size() + " records (Korean Exact Match).");
