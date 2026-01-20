@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,10 +70,49 @@
                 <div class="text-gray-400 text-sm">새로운 주문이 없습니다.</div>
             </div>
         </div>
+
+        <div>
+            <div class="flex justify-between items-end mb-4 pt-8 border-t border-black/10">
+                <h2 class="text-lg font-bold tracking-tight uppercase text-brown">오늘의 계획</h2>
+                <div class="text-right flex items-center space-x-2">
+                    <span class="text-2xl">☁️</span>
+                    <span class="text-xs font-mono text-gray-500">Cloudy 2.0°C</span>
+                </div>
+            </div>
+
+            <div class="bg-white border border-black/10 shadow-sm p-6">
+                <table class="w-full text-sm text-left font-sans">
+                    <thead class="text-xs text-gray-500 uppercase bg-cream border-b border-black/10">
+                    <tr>
+                        <th class="px-4 py-3">메뉴</th>
+                        <th class="px-4 py-3">레퍼런스</th>
+                        <th class="px-4 py-3">평균</th>
+                        <th class="px-4 py-3 text-danger">목표</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                    <tr th:each="item : ${report}" class="hover:bg-gray-50 transition">
+                        <td class="px-4 py-3 font-bold text-black" th:text="${item.productName}">Bagel</td>
+                        <td class="px-4 py-3 text-gray-500">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-[10px]" th:text="${item.dataPoints} + '건'">7건</span>
+                        </td>
+                        <td class="px-4 py-3 text-gray-600" th:text="${#numbers.formatDecimal(item.avgSales, 1, 1)}">14.0</td>
+                        <td class="px-4 py-3 text-danger font-bold text-base" th:text="${item.recommended}">16</td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(report)}">
+                        <td colspan="4" class="px-4 py-8 text-center text-gray-400 italic">
+                            데이터가 부족합니다.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </section>
 
     <aside class="w-full md:w-80 border-t md:border-t-0 md:border-l border-black bg-white flex flex-col shrink-0 h-auto md:h-full">
-        
+
         <div class="p-6 border-b border-black bg-white">
             <h3 class="text-xs font-bold tracking-tight uppercase text-gray-800 mb-4">결제 및 포인트 적립</h3>
             <div class="space-y-3">
@@ -211,10 +250,6 @@
                 </div>
 
                 <div class="pt-2 border-t border-gray-100 w-full">
-                    <button onclick="askAI(${p.id}, '${p.name}')"
-                            class="w-full py-2 bg-blue-50 text-blue-600 text-[10px] font-bold rounded flex justify-center items-center gap-1 hover:bg-blue-100 transition">
-                        <span>AI 예측</span>
-                    </button>
                     <div id="ai-result-${p.id}" class="hidden mt-2 text-[10px] bg-gray-50 p-2 rounded text-left leading-tight"></div>
                 </div>
             </div>
