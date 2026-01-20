@@ -1,78 +1,140 @@
 package com.hong.thebaker.service;
 
+import jakarta.annotation.PostConstruct;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import java.util.Map;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PredictionService {
 
-    private final String API_KEY = "02ec4d898ed95bf738ed07f711308891";
-    private final String CITY = "Daejeon";
+    private List<SalesRecord> history = new ArrayList<>();
 
-    // This is the method the Controller is calling
-    public String predictSales(String productName) {
+    // 1. LOAD DATA (Raw Korean Names)
+    @PostConstruct
+    public void loadData() {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    new ClassPathResource("history.csv").getInputStream(), StandardCharsets.UTF_8));
 
-        // 1. Get Real Weather Data
-        double weatherFactor = getWeatherFactor();
-        String weatherEmoji = (weatherFactor >= 1.0) ? "☀️ (맑음)" : "🌧️ (비/흐림)";
+            String line;
+            reader.readLine(); // Skip header
 
-        // 2. Analyze Product Name (The "Smart" Logic)
-        String name = (productName != null) ? productName.toLowerCase() : "";
-        String insight;
+            while ((line = reader.readLine()) != null) {
+                try {
+                    String[] parts = line.split(",");
 
-        if (name.contains("bagel") || name.contains("베이글")) {
-            if (weatherFactor >= 1.0) {
-                insight = "날씨가 좋아 브런치 수요가 높습니다. 재고를 20% 늘리세요.";
-            } else {
-                insight = "비오는 날은 베이글 배달 주문이 15% 증가합니다.";
+                    // index 1: weather (Sunny, Rain, etc.)
+                    String weather = parts[1].trim();
+
+                    // index 2: average temperature (temp_avg)
+                    double temp = Double.parseDouble(parts[2].trim());
+
+                    // index 5: product (Raw Korean Name)
+                    // We remove spaces to make matching safer (e.g., "소금 빵" == "소금빵")
+                    String rawName = parts[5].trim().replace(" ", "");
+
+                    // index 6: quantity
+                    int qty = Integer.parseInt(parts[6].trim());
+
+                    history.add(new SalesRecord(weather, temp, rawName, qty));
+                } catch (Exception e) {
+                    // Skip bad rows
+                }
             }
+            System.out.println("✅ AI ENGINE: Loaded " + history.size() + " records (Korean Exact Match).");
+        } catch (Exception e) {
+            System.err.println("❌ AI ENGINE: history.csv not found.");
         }
-        else if (name.contains("salt") || name.contains("소금")) {
-            insight = "현재 검색량 급상승 트렌드 상품입니다. 조기 품절 주의.";
-        }
-        else if (name.contains("sandwich") || name.contains("샌드위치")) {
-            if (weatherFactor >= 1.0) {
-                insight = "나들이객 증가로 점심시간 완판이 예상됩니다.";
-            } else {
-                insight = "유동인구 감소로 평소보다 10% 적게 준비하세요.";
-            }
-        }
-        else {
-            insight = "지난 4주간의 판매 데이터와 유사한 흐름이 예상됩니다.";
-        }
-
-        // 3. Combine for the Staff
-        return String.format("[%s] %s %s", weatherEmoji, insight, (weatherFactor > 1.0 ? "📈" : "📉"));
     }
 
-    // --- YOUR EXISTING WEATHER LOGIC (KEPT INTACT) ---
-    private double getWeatherFactor() {
-        try {
-            if (API_KEY.equals("YOUR_OPENWEATHER_API_KEY")) {
-                System.out.println("⚠️ API Key is missing!");
-                return 1.0; // Default if key is missing
-            }
+    // 2. PREDICTION LOGIC (Cascade Strategy)
+    public String predictSales(String productName) {
+        // Prepare Input: Remove spaces to match the loaded data
+        String target = productName.trim().replace(" ", "");
 
-            String url = "https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&appid=" + API_KEY;
-            RestTemplate restTemplate = new RestTemplate();
-            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+        // Mock Weather (You can change this to test different conditions)
+        WeatherState current = new WeatherState("Cloudy", 2.0);
 
-            // Parse Weather Condition
-            List<Map<String, Object>> weatherList = (List) response.get("weather");
-            String main = (String) weatherList.get(0).get("main"); // "Rain", "Clear", "Clouds"
+        // --- LEVEL 1: The "Perfect Match" (Same Weather + Temp +/- 5) ---
+        List<SalesRecord> matches = history.stream()
+                .filter(r -> r.product.equalsIgnoreCase(target))
+                .filter(r -> r.weather.equalsIgnoreCase(current.condition))
+                .filter(r -> Math.abs(r.temp - current.temp) <= 5.0)
+                .collect(Collectors.toList());
 
-            // Debug log to console
-            System.out.println("Current Weather in " + CITY + ": " + main);
+        // --- LEVEL 2: The "Weather Match" (Ignore Temp) ---
+        // If it's winter but your data is from summer, Level 1 fails.
+        // So we try matching just "Rainy" or "Sunny" regardless of temp.
+        if (matches.isEmpty()) {
+            matches = history.stream()
+                    .filter(r -> r.product.equalsIgnoreCase(target))
+                    .filter(r -> r.weather.equalsIgnoreCase(current.condition))
+                    .collect(Collectors.toList());
+        }
 
-            if ("Rain".equalsIgnoreCase(main) || "Drizzle".equalsIgnoreCase(main) || "Thunderstorm".equalsIgnoreCase(main)) {
-                return 0.85; // Sell 15% less if raining
-            }
-            return 1.1; // Sell 10% more if clear/clouds
-        } catch (Exception e) {
-            System.out.println("Weather API Failed: " + e.getMessage());
-            return 1.0; // Default to normal if API fails
+        // --- LEVEL 3: The "Product Only" (Ignore Weather) ---
+        // If we have NO data for "Rainy" days for this item, just give the global average.
+        // This ensures the button ALWAYS works.
+        if (matches.isEmpty()) {
+            matches = history.stream()
+                    .filter(r -> r.product.equalsIgnoreCase(target))
+                    .collect(Collectors.toList());
+        }
+
+        // Final Check
+        if (matches.isEmpty()) {
+            return "데이터 없음 (New Item)";
+        }
+
+        double average = matches.stream().mapToInt(r -> r.quantity).average().orElse(0);
+        int recommended = (int) Math.ceil(average * 1.1); // +10% Buffer
+
+        return String.format(
+                "%s [AI 분석] 현재: %.1f°C (%s)\n" +
+                        "• 참조 데이터: %d건\n" +
+                        "• 평균 판매: %.1f개\n" +
+                        "• 🔥 추천: %d개",
+                getEmoji(current.condition), current.temp, current.condition,
+                matches.size(), average, recommended
+        );
+    }
+
+    // --- HELPER METHODS ---
+
+    private String getEmoji(String weather) {
+        if (weather.contains("Rain")) return "🌧️";
+        if (weather.contains("Snow")) return "❄️";
+        if (weather.contains("Sunny")) return "☀️";
+        return "☁️";
+    }
+
+    private static class SalesRecord {
+        String weather;
+        double temp;
+        String product;
+        int quantity;
+
+        public SalesRecord(String w, double t, String p, int q) {
+            this.weather = w;
+            this.temp = t;
+            this.product = p;
+            this.quantity = q;
+        }
+    }
+
+    private static class WeatherState {
+        String condition;
+        double temp;
+        public WeatherState(String c, double t) {
+            this.condition = c;
+            this.temp = t;
         }
     }
 }
