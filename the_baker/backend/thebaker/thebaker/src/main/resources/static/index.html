@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/icon-192.png" type="image/png">
     <title>THE BAKER</title>
 
     <link rel="manifest" href="/manifest.json">
@@ -11,6 +12,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,6 +24,7 @@
                         sans: ['Arial', 'sans-serif'],
                         serif: ['Pretendard', 'sans-serif'],
                         nav: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
                     },
                     colors: {
                         brown: '#6B4423',
@@ -90,7 +95,7 @@
 </script>
 
 <section class="h-screen flex flex-col justify-center items-center px-6 pt-16 text-center">
-    <p class="text-[28px] uppercase tracking-[-0.03em] mb-12 text-gray-500 blur-in font-bold" style="animation-delay: 0.1s">NOT ONE OF THE BAKERS,</p>
+    <p class="text-[clamp(18px,3.2vw,32px)] whitespace-nowrap uppercase tracking-[-0.03em] mb-12 text-gray-500 blur-in font-bold" style="animation-delay: 0.1s">NOT ONE OF THE BAKERS,</p>
 
     <h1 class="text-6xl md:text-9xl font-semibold mb-10 tracking-[-0.03em] blur-in" style="animation-delay: 0.3s">
         THE BAKER
@@ -164,15 +169,15 @@
                     if (data.open) {
                         // OPEN STATE
                         container.innerHTML = `
-                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[21px] font-bold tracking-wide uppercase text-brown">
-                                <span class="w-4 h-4 bg-green-500 rounded-full mr-2 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[clamp(18px,2.5vw,40px)] font-mono font-bold tracking-wide uppercase text-brown">
+                                <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span>
                                 OPEN
                             </span>
                         `;
                     } else {
                         // CLOSED STATE
                         container.innerHTML = `
-                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-300 text-[21px] font-bold tracking-wide uppercase text-gray-400 bg-gray-50">
+                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-300 text-[clamp(18px,2.5vw,40px)] font-mono font-bold tracking-wide uppercase text-gray-400 bg-gray-50">
                                 <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
                                 CLOSED
                             </span>
