@@ -107,11 +107,4 @@ public class ProductController {
 
     @Autowired
     private PredictionService predictionService;
-
-    @GetMapping("/{id}/prediction")
-    public ResponseEntity<String> getPrediction(@PathVariable Long id) {
-        Product product = productRepository.findById(id).orElseThrow();
-        String prediction = predictionService.predictSales(product.getName());
-        return ResponseEntity.ok(prediction);
-    }
 }

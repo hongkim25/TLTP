@@ -60,24 +60,21 @@ public class PredictionService {
         }
     }
 
-    // 2. PREDICTION LOGIC (Cascade Strategy)
-    public String predictSales(String productName) {
-        // Prepare Input: Remove spaces to match the loaded data
+    public PredictionResult getPrediction(String productName, String weatherCondition, double temp) {
+        // 1. Prepare the inputs
         String target = productName.trim().replace(" ", "");
 
-        // Mock Weather (You can change this to test different conditions)
-        WeatherState current = new WeatherState("Cloudy", 2.0);
+        // Use the weather passed from the Controller (God Mode)
+        WeatherState current = new WeatherState(weatherCondition, temp);
 
-        // --- LEVEL 1: The "Perfect Match" (Same Weather + Temp +/- 5) ---
+        // 2. Level 1: Perfect Match (Name + Weather + Temp +/- 5)
         List<SalesRecord> matches = history.stream()
                 .filter(r -> r.product.equalsIgnoreCase(target))
                 .filter(r -> r.weather.equalsIgnoreCase(current.condition))
                 .filter(r -> Math.abs(r.temp - current.temp) <= 5.0)
                 .collect(Collectors.toList());
 
-        // --- LEVEL 2: The "Weather Match" (Ignore Temp) ---
-        // If it's winter but your data is from summer, Level 1 fails.
-        // So we try matching just "Rainy" or "Sunny" regardless of temp.
+        // 3. Level 2: Weather Match Only (Ignore Temp)
         if (matches.isEmpty()) {
             matches = history.stream()
                     .filter(r -> r.product.equalsIgnoreCase(target))
@@ -85,31 +82,24 @@ public class PredictionService {
                     .collect(Collectors.toList());
         }
 
-        // --- LEVEL 3: The "Product Only" (Ignore Weather) ---
-        // If we have NO data for "Rainy" days for this item, just give the global average.
-        // This ensures the button ALWAYS works.
+        // 4. Level 3: Product Match Only (Ignore Weather)
+        // This ensures you see data even if today's weather is unique
         if (matches.isEmpty()) {
             matches = history.stream()
                     .filter(r -> r.product.equalsIgnoreCase(target))
                     .collect(Collectors.toList());
         }
 
-        // Final Check
+        // 5. Final Result
         if (matches.isEmpty()) {
-            return "데이터 없음 (New Item)";
+            // "No Data" status
+            return new PredictionResult(productName, 0, 0, 0, "No Data");
         }
 
-        double average = matches.stream().mapToInt(r -> r.quantity).average().orElse(0);
-        int recommended = (int) Math.ceil(average * 1.1); // +10% Buffer
+        double avg = matches.stream().mapToInt(r -> r.quantity).average().orElse(0);
+        int rec = (int) Math.ceil(avg * 1.1);
 
-        return String.format(
-                "%s [AI 분석] 현재: %.1f°C (%s)\n" +
-                        "• 참조 데이터: %d건\n" +
-                        "• 평균 판매: %.1f개\n" +
-                        "• 🔥 추천: %d개",
-                getEmoji(current.condition), current.temp, current.condition,
-                matches.size(), average, recommended
-        );
+        return new PredictionResult(productName, avg, rec, matches.size(), "OK");
     }
 
     // --- HELPER METHODS ---
@@ -141,6 +131,22 @@ public class PredictionService {
         public WeatherState(String c, double t) {
             this.condition = c;
             this.temp = t;
+        }
+    }
+
+    public static class PredictionResult {
+        public String productName;
+        public double avgSales;
+        public int recommended;
+        public int dataPoints; // How many past days we found
+        public String status;  // e.g., "Enough Data" or "New Item"
+
+        public PredictionResult(String name, double avg, int rec, int points, String stat) {
+            this.productName = name;
+            this.avgSales = avg;
+            this.recommended = rec;
+            this.dataPoints = points;
+            this.status = stat;
         }
     }
 }
