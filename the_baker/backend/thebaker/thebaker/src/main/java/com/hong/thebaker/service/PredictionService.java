@@ -39,7 +39,7 @@ public class PredictionService {
                     // index 5: product (Raw Korean Name)
                     // We remove spaces to make matching safer (e.g., "소금 빵" == "소금빵")
                     String rawName = parts[5].trim().replace(" ", "");
-
+                    System.out.println("DEBUG: Loaded [" + rawName + "]");
                     // index 6: quantity
                     int qty = Integer.parseInt(parts[6].trim());
 
