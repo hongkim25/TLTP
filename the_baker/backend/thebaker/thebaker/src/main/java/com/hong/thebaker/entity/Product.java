@@ -28,7 +28,7 @@ public class Product {
     }
 
     @Lob // Large Object
-    @Column(columnDefinition = "MEDIUMTEXT") // Allows larger base64 strings
+    @Column(columnDefinition = "TEXT") // Allows larger base64 strings
     private String imageBase64;
 
     // Getter and Setter
