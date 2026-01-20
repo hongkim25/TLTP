@@ -2,7 +2,7 @@ package com.hong.thebaker.controller;
 
 import com.hong.thebaker.entity.Product;
 import com.hong.thebaker.repository.ProductRepository;
-import com.hong.thebaker.service.PredictionService; 
+import com.hong.thebaker.service.PredictionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

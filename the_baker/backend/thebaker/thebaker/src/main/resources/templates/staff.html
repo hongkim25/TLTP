@@ -249,11 +249,24 @@
 
     function renderGrid(products) {
         const container = document.getElementById('inventory-grid');
+
         container.innerHTML = products.map(p => `
             <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-auto flex flex-col">
-                <button onclick="deleteProduct(${p.id})" class="absolute top-2 right-2 text-gray-300 hover:text-red-500 font-bold px-2 text-lg z-10">&times;</button>
 
-                <div class="flex-1 flex flex-col justify-center items-center text-center mt-4 mb-2">
+                <div class="absolute top-2 right-2 flex items-center space-x-2 z-10">
+
+                    <div class="absolute top-2 right-2 flex items-center space-x-2 z-10 bg-white/80 px-1 rounded">
+
+                        <a href="/product/edit/${p.id}" class="text-[10px] text-gray-400 hover:text-black font-bold uppercase transition border-r border-gray-300 pr-2">
+                            수정
+                        </a>
+
+                        <button onclick="deleteProduct(${p.id})" class="text-[10px] text-gray-400 hover:text-danger font-bold uppercase transition pl-0.5">
+                            삭제
+                        </button>
+                    </div>
+
+                <div class="flex-1 flex flex-col justify-center items-center text-center mt-6 mb-2">
                     <span class="text-sm font-bold text-gray-500 uppercase tracking-tight mb-1">${p.name}</span>
                     <span class="font-mono text-xl font-black text-black" id="display-${p.id}">${p.stockQuantity}</span>
                 </div>
@@ -263,18 +276,14 @@
                     <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">+</button>
                 </div>
 
-                <div class="flex justify-between items-center mt-4">
-                    <span class="font-bold text-lg">${product.price}₩</span>
-
-                    <div class="flex space-x-2">
-                        <a href="/product/edit/${product.id}" class="px-3 py-1 border border-black text-xs font-bold hover:bg-black hover:text-white transition">EDIT</a>
-
-                        <button onclick="deleteProduct(${product.id})" ... >DEL</button>
-                    </div>
+                <div class="text-center pb-2">
+                    <span class="font-bold font-mono text-lg text-brown">${p.price}₩</span>
+                </div>
 
                 <div class="pt-2 border-t border-gray-100 w-full">
                     <div id="ai-result-${p.id}" class="hidden mt-2 text-[10px] bg-gray-50 p-2 rounded text-left leading-tight"></div>
                 </div>
+
             </div>
         `).join('');
     }
