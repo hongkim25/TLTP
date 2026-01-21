@@ -121,6 +121,18 @@
             </label>
         </div>
 
+        <div class="grid grid-cols-2 gap-3 mb-4">
+            <label class="cursor-pointer border border-gray-200 rounded p-3 flex items-center justify-between hover:bg-gray-50">
+                <span class="text-xs font-bold text-gray-600">포장 여부 </span>
+                <input type="checkbox" id="optTakeaway" class="accent-brown w-4 h-4">
+            </label>
+
+            <label class="cursor-pointer border border-gray-200 rounded p-3 flex items-center justify-between hover:bg-gray-50">
+                <span class="text-xs font-bold text-gray-600">컷팅 여부 </span>
+                <input type="checkbox" id="optCut" class="accent-brown w-4 h-4">
+            </label>
+        </div>
+
         <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition rounded shadow-lg shadow-brown/20">
             예약 완료하기
         </button>
@@ -302,6 +314,8 @@
             const name = document.getElementById('custName').value;
             const phone = document.getElementById('custPhone').value;
             const consent = document.getElementById('marketingConsent').checked;
+            const isTakeaway = document.getElementById('optTakeaway').checked;
+            const wantsCut = document.getElementById('optCut').checked;
 
             // 1. Build the Item List from the Cart
             const items = [];
@@ -321,6 +335,8 @@
                 customerName: name,
                 phoneNumber: phone,
                 marketingConsent: consent,
+                isTakeaway: isTakeaway,
+                wantsCut: wantsCut,
                 items: items
             };
 
@@ -333,10 +349,10 @@
                 });
 
                 if (response.ok) {
-                    alert("예약이 성공적으로 접수되었습니다! (Order Received)");
+                    alert("예약이 성공적으로 접수되었습니다!");
                     location.href = "index.html";
                 } else {
-                    alert("Order failed. Please try again.");
+                    alert("예약에 실패했습니다. 다시 시도해주세요.");
                 }
             } catch (error) {
                 console.error("Error:", error);

@@ -29,6 +29,12 @@ public class Order {
     private int pointsUsed;
     private int pointsEarned;
 
+    @Column(name = "is_takeaway")
+    private boolean isTakeaway; // true = To Go
+
+    @Column(name = "wants_cut")
+    private boolean wantsCut;   // true = Cut
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 

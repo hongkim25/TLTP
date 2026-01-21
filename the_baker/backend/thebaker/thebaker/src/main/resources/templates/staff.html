@@ -352,6 +352,20 @@ function renderGrid(products) {
                     `<span class="mr-2 text-black font-bold">${i.product ? i.product.name : 'Item'} (${i.quantity})</span>`
                 ).join(', ');
 
+                let badgesHtml = '';
+
+                // Check for Takeaway (JSON field is usually 'takeaway' for boolean isTakeaway)
+                if (order.takeaway) {
+                    badgesHtml += `<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded mr-1">🥡포장</span>`;
+                } else {
+                    badgesHtml += `<span class="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded mr-1">🍽매장내 식사</span>`;
+                }
+
+                // Check for Cut
+                if (order.wantsCut) {
+                    badgesHtml += `<span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded">✂️컷팅</span>`;
+                }
+
                 return `
                     <div class="bg-white border border-gray-200 p-4 flex justify-between items-center shadow-sm">
                         <div>

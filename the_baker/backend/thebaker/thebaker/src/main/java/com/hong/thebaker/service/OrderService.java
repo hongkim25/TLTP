@@ -46,6 +46,9 @@ public class OrderService {
         order.setOrderDate(java.time.LocalDateTime.now());
         order.setStatus(OrderStatus.COMPLETED);
 
+        order.setTakeaway(request.isTakeaway());
+        order.setWantsCut(request.isWantsCut());
+
         BigDecimal totalAmount = BigDecimal.ZERO;
         List<OrderItem> orderItems = new ArrayList<>();
 
@@ -103,7 +106,6 @@ public class OrderService {
         }
 
         // C. Handle Point Earning based on Payment Method
-        // Default to CARD (1%) if null, or strict check if preferred
         PaymentMethod method = request.getPaymentMethod();
 
         if (method == null) {

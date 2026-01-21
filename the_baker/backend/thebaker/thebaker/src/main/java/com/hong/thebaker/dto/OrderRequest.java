@@ -13,6 +13,8 @@ public class OrderRequest {
     private boolean marketingConsent;
     private int pointsToUse;
     private PaymentMethod paymentMethod;
+    private boolean isTakeaway;
+    private boolean wantsCut;
 
     @Data
     public static class OrderItemRequest {
