@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Staff Login - The Baker</title>
+    <title>더베이커 직원 페이지</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,8 +21,8 @@
 
 <div class="w-full max-w-sm bg-white border border-black/10 shadow-xl p-8 relative">
     <div class="text-center mb-8">
-        <div class="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-2">더베이커 직원 페이지</div>
-        <h1 class="text-3xl font-black text-brown tracking-tighter">THE BAKER</h1>
+        <div class="text-sm font-bold text-gray-400 uppercase mb-1.5">더베이커 직원 페이지</div>
+        <h1 class="text-4xl font-bold text-brown tracking-tighter">THE BAKER</h1>
     </div>
 
     <form th:action="@{/login}" method="post" class="space-y-4">
@@ -45,7 +45,7 @@
         </div>
 
         <button type="submit"
-                class="w-full bg-brown text-white font-bold py-4 text-sm uppercase tracking-widest hover:bg-[#47280e] transition shadow-lg mt-4">
+                class="w-full bg-brown text-white font-bold py-4 text-base uppercase tracking-normal hover:bg-[#47280e] transition mt-4">
             로그인
         </button>
     </form>
