@@ -3,6 +3,7 @@ package com.hong.thebaker.dto;
 import com.hong.thebaker.entity.PaymentMethod;
 import lombok.Data;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Data
 public class OrderRequest {
@@ -15,7 +16,11 @@ public class OrderRequest {
     private int pointsToUse;
     private String pickupTime;
     private PaymentMethod paymentMethod;
+
+    @JsonProperty("Takeaway")
     private boolean isTakeaway;
+
+    @JsonProperty("wantsCut")
     private boolean wantsCut;
 
     @Data

@@ -117,7 +117,7 @@ public class OrderService {
         PaymentMethod method = request.getPaymentMethod();
 
         if (method == null) {
-            method = PaymentMethod.CARD; // 기본값 카드
+            method = PaymentMethod.CASH; // 기본값 카드
         }
 
         int pointsEarned = method.calculatePoints(netPayAmount);

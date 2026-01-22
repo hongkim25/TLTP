@@ -312,8 +312,8 @@
         const phone = document.getElementById('custPhone').value;
         const memo = document.getElementById('orderMemo') ? document.getElementById('orderMemo').value : "";
         const consent = document.getElementById('marketingConsent') ? document.getElementById('marketingConsent').checked : false;
-        const isTakeaway = document.getElementById('optTakeaway') ? document.getElementById('optTakeaway').checked : true;
-        const wantsCut = document.getElementById('optCut') ? document.getElementById('optCut').checked : false;
+        const isTakeawayVal = document.getElementById('takeaway').checked;
+        const wantsCutVal = document.getElementById('cut').checked;
 
         // Build Items
         const items = [];
@@ -335,8 +335,8 @@
             pickupTime: document.getElementById('pickup-time').value,
             memo: memo,
             marketingConsent: consent,
-            isTakeaway: isTakeaway,
-            wantsCut: wantsCut
+            Takeaway: isTakeawayVal,
+            wantsCut: wantsCutVal
         };
 
         try {
