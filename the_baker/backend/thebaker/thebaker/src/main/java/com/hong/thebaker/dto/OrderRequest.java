@@ -13,6 +13,7 @@ public class OrderRequest {
     private List<OrderItemRequest> items;
     private boolean marketingConsent;
     private int pointsToUse;
+    private String pickupTime;
     private PaymentMethod paymentMethod;
     private boolean isTakeaway;
     private boolean wantsCut;

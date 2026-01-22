@@ -30,6 +30,9 @@ public class Order {
     private int pointsEarned;
     private String memo;
 
+    @Column(name = "pickup_time")
+    private String pickupTime; // Stores "12:00 PM", "1:00 PM" etc.
+
     @Column(name = "is_takeaway")
     private boolean isTakeaway; // true = To Go
 

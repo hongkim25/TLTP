@@ -31,11 +31,18 @@ public class OrderService {
         Customer customer = customerRepository.findByPhone(request.getPhoneNumber())
                 .orElseGet(() -> {
                     Customer newCustomer = new Customer();
-                    newCustomer.setName(request.getCustomerName() != null ? request.getCustomerName() : "Guest");
                     newCustomer.setPhone(request.getPhoneNumber());
                     newCustomer.setPoints(0);
-                    return newCustomer; // Don't save yet, we will save below
+                    return newCustomer;
                 });
+
+        // --- FIX 1: UPDATE NAME CORRECTLY ---
+        // If a name is provided in the request, ALWAYS update the customer's name. This fixes the "GUEST" issue.
+        if (request.getCustomerName() != null && !request.getCustomerName().isEmpty()) {
+            customer.setName(request.getCustomerName());
+        } else if (customer.getName() == null) {
+            customer.setName("Guest");
+        }
 
         // ALWAYS update the consent based on the latest order
         customer.setMarketingConsent(request.isMarketingConsent());
@@ -43,11 +50,10 @@ public class OrderService {
 
         Order order = new Order();
         order.setCustomer(customer);
-        order.setOrderDate(java.time.LocalDateTime.now());
+        order.setOrderDate(java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Seoul")).toLocalDateTime());
         order.setStatus(OrderStatus.COMPLETED);
-
         order.setMemo(request.getMemo());
-
+        order.setPickupTime(request.getPickupTime());
         order.setTakeaway(request.isTakeaway());
         order.setWantsCut(request.isWantsCut());
 

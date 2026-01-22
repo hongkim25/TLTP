@@ -70,7 +70,7 @@
         </div>
         <div class="flex flex-col max-w-ws">
             <label class="text-sm font-bold mb-1 uppercase tracking-wide text-gray-700">픽업 시간</label>
-            <select class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none appearance-none">
+            <select id="pickup-time" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none appearance-none">
                 <option>12:00 PM</option>
                 <option>1:00 PM</option>
                 <option>2:00 PM</option>
@@ -310,8 +310,6 @@
     async function finishReservation() {
         const name = document.getElementById('custName').value;
         const phone = document.getElementById('custPhone').value;
-
-        // Get New Fields
         const memo = document.getElementById('orderMemo') ? document.getElementById('orderMemo').value : "";
         const consent = document.getElementById('marketingConsent') ? document.getElementById('marketingConsent').checked : false;
         const isTakeaway = document.getElementById('optTakeaway') ? document.getElementById('optTakeaway').checked : true;
@@ -334,6 +332,7 @@
             customerName: name,
             phoneNumber: phone,
             items: items,
+            pickupTime: document.getElementById('pickup-time').value,
             memo: memo,
             marketingConsent: consent,
             isTakeaway: isTakeaway,

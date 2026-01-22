@@ -248,42 +248,38 @@
         } catch(e) { console.error(e); }
     }
 
-function renderGrid(products) {
+    function renderGrid(products) {
         const container = document.getElementById('inventory-grid');
+        // Sort: Drinks last, then by ID
+        products.sort((a,b) => {
+             const drinks = ["Coffee", "Latte", "Tea", "Americano", "커피", "라떼", "아메리카노", "에이드"];
+             const isA = drinks.some(k => a.name.includes(k));
+             const isB = drinks.some(k => b.name.includes(k));
+             if(isA && !isB) return 1;
+             if(!isA && isB) return -1;
+             return a.id - b.id;
+        });
 
         container.innerHTML = products.map(p => `
             <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-auto flex flex-col">
-
                 <div class="absolute top-2 right-2 flex items-center space-x-2 z-10 bg-white/90 px-1">
-
-                    <a href="/product/edit/${p.id}" class="text-[10px] text-gray-400 hover:text-black font-bold uppercase transition pr-1">
-                        수정
-                    </a>
-
-                    <button onclick="deleteProduct(${p.id})" class="text-[10px] text-gray-400 hover:text-danger font-bold uppercase transition pl-0">
-                        삭제
-                    </button>
-
+                    <a href="/product/edit/${p.id}" class="text-[10px] text-gray-400 hover:text-black font-bold uppercase transition pr-1">수정</a>
+                    <button onclick="deleteProduct(${p.id})" class="text-[10px] text-gray-400 hover:text-danger font-bold uppercase transition pl-0">삭제</button>
                 </div>
-
                 <div class="flex-1 flex flex-col justify-center items-center text-center mt-8 mb-2">
                     <span class="text-sm font-bold text-gray-500 uppercase tracking-tight mb-1">${p.name}</span>
                     <span class="font-mono text-xl font-black text-black" id="display-${p.id}">${p.stockQuantity}</span>
                 </div>
-
                 <div class="flex space-x-2 w-full mb-3">
                     <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">-</button>
                     <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">+</button>
                 </div>
-
                 <div class="text-center pb-2">
                     <span class="font-bold font-mono text-lg text-brown">${Math.floor(p.price)}₩</span>
                 </div>
-
                 <div class="pt-2 border-t border-gray-100 w-full">
                     <div id="ai-result-${p.id}" class="hidden mt-2 text-[10px] bg-gray-50 p-2 rounded text-left leading-tight"></div>
                 </div>
-
             </div> `).join('');
     }
 
@@ -302,40 +298,11 @@ function renderGrid(products) {
         } catch(e) { console.error("Stock Update Error"); }
     }
 
-    // --- AI LOGIC (NEW) ---
-    async function askAI(id, name) {
-        const resultDiv = document.getElementById(`ai-result-${id}`);
-
-        // 1. Show "Loading"
-        resultDiv.classList.remove('hidden');
-        resultDiv.innerHTML = `<span class="animate-pulse text-blue-400">🤖 데이터 분석중...</span>`;
-
-        try {
-            // 2. Call Backend
-            const response = await fetch(`/api/products/${id}/prediction`);
-
-            if (response.ok) {
-                const text = await response.text();
-                // 3. Show Result
-                resultDiv.innerHTML = `
-                    <div class="border-l-2 border-blue-500 pl-2">
-                        <div class="text-[9px] text-gray-400 font-bold mb-1">AI ANALYTICS</div>
-                        <div class="text-blue-900 font-medium">${text}</div>
-                    </div>`;
-            } else {
-                resultDiv.innerHTML = `<span class="text-red-500">분석 실패</span>`;
-            }
-        } catch (e) {
-            console.error(e);
-            resultDiv.innerHTML = `<span class="text-red-500">서버 연결 오류</span>`;
-        }
-    }
-
-    // --- 4. ORDERS LOGIC ---
+    // --- 4. ORDERS LOGIC (FIXED UX) ---
     async function loadOrders() {
         const list = document.getElementById('order-list');
         try {
-            const res = await fetch('/api/orders'); // This now fetches only active (non-archived) orders
+            const res = await fetch('/api/orders');
             const orders = await res.json();
 
             if(orders.length === 0) {
@@ -346,43 +313,71 @@ function renderGrid(products) {
             list.innerHTML = orders.map(order => {
                 if (!order.items || order.items.length === 0) return '';
 
-                const date = new Date(order.orderDate).toLocaleString('ko-KR', { hour: '2-digit', minute:'2-digit', month:'numeric', day:'numeric' });
+                // Date is now saved in KST by backend, so we just format it nicely
+                // We show "Order Time" clearly
+                const dateObj = new Date(order.orderDate);
+                const timeStr = dateObj.toLocaleTimeString('ko-KR', { hour: '2-digit', minute:'2-digit', hour12: false });
+                const dateStr = dateObj.toLocaleDateString('ko-KR', { month:'numeric', day:'numeric'});
 
                 const itemsHtml = order.items.map(i =>
-                    `<span class="mr-2 text-black font-bold">${i.product ? i.product.name : 'Item'} (${i.quantity})</span>`
-                ).join(', ');
+                    `<div class="flex justify-between w-full mb-1">
+                        <span class="text-black font-bold text-sm">${i.product ? i.product.name : 'Item'}</span>
+                        <span class="font-mono text-sm">x${i.quantity}</span>
+                    </div>`
+                ).join('');
 
-                // --- BADGES ---
-                let badgesHtml = '';
-                if (order.takeaway) badgesHtml += `<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded mr-1">🥡포장</span>`;
-                else badgesHtml += `<span class="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded mr-1">🍽매장</span>`;
+                // --- FIX 2: O/X LOGIC ---
+                // We make it VERY visual.
+                // Circle O (Blue/Red) vs Gray X
+                const isTakeaway = order.takeaway;
+                const isCut = order.wantsCut;
 
-                if (order.wantsCut) badgesHtml += `<span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded">✂️컷팅</span>`;
+                const takeawayUI = isTakeaway
+                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-500 mb-1">포장</span><span class="text-xl font-black text-blue-600 border-2 border-blue-600 rounded-full w-8 h-8 flex items-center justify-center">O</span></div>`
+                    : `<div class="flex flex-col items-center"><span class="text-xs text-gray-300 mb-1">포장</span><span class="text-xl font-bold text-gray-300">X</span></div>`;
 
-                // --- ARCHIVE BUTTON LOGIC ---
-                // Only show if order is done (Completed or Cancelled)
+                const cutUI = isCut
+                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-500 mb-1">컷팅</span><span class="text-xl font-black text-red-500 border-2 border-red-500 rounded-full w-8 h-8 flex items-center justify-center">O</span></div>`
+                    : `<div class="flex flex-col items-center"><span class="text-xs text-gray-300 mb-1">컷팅</span><span class="text-xl font-bold text-gray-300">X</span></div>`;
+
+
+                // Archive Button
                 const isDone = order.status === 'COMPLETED' || order.status === 'CANCELLED';
                 const archiveBtn = isDone
-                    ? `<button onclick="archiveOrder(${order.id})" class="mt-2 text-[10px] bg-gray-200 text-gray-600 px-3 py-1 rounded hover:bg-gray-300 font-bold transition">Archive 📂</button>`
+                    ? `<button onclick="archiveOrder(${order.id})" class="mt-4 w-full text-[10px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">ARCHIVE (숨기기)</button>`
                     : '';
 
                 return `
-                    <div class="bg-white border border-gray-200 p-4 flex justify-between items-start shadow-sm mb-3 rounded-lg">
-                        <div class="w-2/3">
-                            <div class="flex items-center space-x-2 mb-1">
-                                <span class="text-xs font-bold text-brown uppercase">${order.customer ? order.customer.name : 'Guest'}</span>
-                                <span class="text-[10px] text-gray-400 font-mono">${order.customer ? order.customer.phone : ''}</span>
+                    <div class="bg-white border border-gray-200 p-5 shadow-sm rounded-lg relative overflow-hidden">
+
+                        <div class="flex justify-between items-start border-b border-gray-100 pb-3 mb-3">
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-base font-black text-brown uppercase">${order.customer ? order.customer.name : 'Guest'}</span>
+                                    <span class="text-[10px] text-gray-400 font-mono tracking-tighter">${order.customer ? order.customer.phone.substring(7) : ''}</span>
+                                </div>
+                                <div class="text-xs font-bold text-blue-600 mt-1 bg-blue-50 inline-block px-2 py-1 rounded">
+                                    ⏰ 픽업 시간: ${order.pickupTime ? order.pickupTime : 'Not Specified'}
+                                </div>
                             </div>
-                            <div class="text-sm mb-2">${itemsHtml}</div>
-                            <div>${badgesHtml}</div>
-                            ${order.memo ? `<div class="mt-2 text-xs text-gray-500 bg-gray-50 p-1 rounded">📝 ${order.memo}</div>` : ''}
+                            <div class="text-right">
+                                <div class="font-mono font-bold text-lg">₩${order.totalAmount.toLocaleString()}</div>
+                                <div class="text-[10px] text-gray-400 mt-1">Ordered: ${dateStr} ${timeStr}</div>
+                            </div>
                         </div>
 
-                        <div class="w-1/3 text-right flex flex-col items-end">
-                            <div class="font-mono font-bold text-lg">₩${order.totalAmount.toLocaleString()}</div>
-                            <div class="text-[10px] text-gray-400">${date}</div>
-                            <div class="text-[10px] font-bold text-brown mt-1">${order.status}</div>
-                            ${archiveBtn} </div>
+                        <div class="mb-4">
+                            ${itemsHtml}
+                        </div>
+
+                        <div class="flex justify-center space-x-8 bg-gray-50 p-2 rounded mb-2">
+                            ${takeawayUI}
+                            ${cutUI}
+                        </div>
+
+                        ${order.memo ? `<div class="mt-2 text-xs text-gray-600 bg-yellow-50 border border-yellow-100 p-2 rounded"><strong>📝 요청:</strong> ${order.memo}</div>` : ''}
+
+                        ${archiveBtn}
                     </div>
                 `;
             }).join('');
@@ -407,17 +402,9 @@ function renderGrid(products) {
         formData.append('price', price);
         formData.append('category', category);
         formData.append('stockQuantity', stock);
+        if(imageInput.files[0]) formData.append('image', imageInput.files[0]);
 
-        if(imageInput.files[0]) {
-            formData.append('image', imageInput.files[0]);
-        }
-
-        // Send (Notice: NO 'Content-Type': 'application/json' header. Browser handles it.)
-        await fetch('/api/products', {
-            method: 'POST',
-            body: formData
-        });
-
+        await fetch('/api/products', { method: 'POST', body: formData });
         closeProductModal();
         loadInventory();
         addLog(`신규 상품 등록: ${name}`);
@@ -431,10 +418,7 @@ function renderGrid(products) {
         const paymentMethod = document.getElementById('paymentMethod').value;
         const msg = document.getElementById('pointMsg');
 
-        if(!phone || !amount) {
-            alert("핸드폰 번호와 금액을 입력해주세요.");
-            return;
-        }
+        if(!phone || !amount) { alert("핸드폰 번호와 금액을 입력해주세요."); return; }
 
         const payload = {
             phoneNumber: phone,
@@ -445,39 +429,25 @@ function renderGrid(products) {
 
         try {
             const res = await fetch('/api/points/pay', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(payload)
+                method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
             });
 
             if (res.ok) {
-                msg.innerText = "성공적으로 처리되었습니다!";
-                msg.classList.remove('text-danger');
-                msg.classList.add('text-success');
-
-                addLog(`결제 완료: ₩${amount} (${paymentMethod}) - ${phone.substring(7)}`);
-
-                // Clear inputs
+                msg.innerText = "처리 완료!";
+                msg.classList.replace('text-danger', 'text-success');
+                addLog(`결제 완료: ₩${amount}`);
                 document.getElementById('amount').value = '';
-                document.getElementById('usePoints').value = '0';
                 document.getElementById('phone').value = '';
-                // Refocus on phone for next customer
                 document.getElementById('phone').focus();
-
                 setTimeout(() => msg.innerText = '', 3000);
             } else {
-                const errorText = await res.text();
-                msg.innerText = "Error: " + errorText;
-                msg.classList.remove('text-success');
-                msg.classList.add('text-danger');
+                msg.innerText = "Error: " + await res.text();
+                msg.classList.replace('text-success', 'text-danger');
             }
-        } catch(e) {
-            console.error(e);
-            msg.innerText = "System Error!";
-        }
+        } catch(e) { console.error(e); msg.innerText = "System Error!"; }
     }
 
-    // --- 7. LOGS & DELETE ---
+    // --- 7. UTILS ---
     function addLog(text) {
         const logs = document.getElementById('logs');
         const now = new Date().toLocaleTimeString('en-US', {hour12:false, hour:'2-digit', minute:'2-digit'});
@@ -485,59 +455,35 @@ function renderGrid(products) {
     }
 
     async function deleteProduct(id) {
-        if(!confirm("정말 이 상품을 삭제하시겠습니까? (Really delete?)")) return;
+        if(!confirm("삭제하시겠습니까?")) return;
         await fetch(`/api/products/${id}`, { method: 'DELETE' });
         loadInventory();
     }
 
-    // --- 8. INITIALIZATION (CLEANED UP) ---
+    // --- FIXED SCOPE: Archive needs to be global ---
+    async function archiveOrder(id) {
+        if(!confirm("목록에서 숨기시겠습니까?")) return;
+        try {
+            const res = await fetch(`/api/orders/${id}/archive`, { method: 'PUT' });
+            if(res.ok) loadOrders();
+        } catch(e) { console.error(e); }
+    }
+
+    // --- 8. INITIALIZATION ---
     document.addEventListener('DOMContentLoaded', () => {
-        // A. Load Initial Data
         loadStatus();
         loadInventory();
         loadOrders();
         setInterval(loadOrders, 30000);
 
-        // B. Setup Barcode Scanner (Enter Key Listener)
-        const phoneInput = document.getElementById('phone');
-        if(phoneInput) {
-            phoneInput.addEventListener("keypress", function(event) {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    document.getElementById('amount').focus(); // Jump to Amount
-                }
-            });
-        }
-
-        // C. Setup Amount Enter Key: Allows hitting Enter on amount to submit immediately
-        const amountInput = document.getElementById('amount');
-        if(amountInput) {
-            amountInput.addEventListener("keypress", function(event) {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    processTransaction();
-                }
-            });
-        }
-
-    // Archive Order
-        async function archiveOrder(id) {
-        if(!confirm("이 주문을 목록에서 숨기시겠습니까? (DB에서는 삭제되지 않습니다)")) return;
-
-        try {
-            const res = await fetch(`/api/orders/${id}/archive`, { method: 'PUT' });
-            if(res.ok) {
-                // Reload the list to make the item disappear
-                loadOrders();
-            } else {
-                alert("Archive failed. Please check server logs.");
-            }
-        } catch(e) {
-            console.error("Archive Error:", e);
-        }
-    }
+        // Enter Key Handlers
+        document.getElementById('phone')?.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") { e.preventDefault(); document.getElementById('amount').focus(); }
+        });
+        document.getElementById('amount')?.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") { e.preventDefault(); processTransaction(); }
+        });
     });
 </script>
-
 </body>
 </html>
