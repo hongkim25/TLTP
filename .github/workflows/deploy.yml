@@ -1,0 +1,15 @@
+name: Deploy The Baker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'the_baker/**'  # 👈 Updates only trigger if you touch this folder!
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deploy
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
