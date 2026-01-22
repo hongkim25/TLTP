@@ -57,14 +57,7 @@
     </div>
 </nav>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const path = window.location.pathname;
-        if (path.includes("about")) document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
-        else if (path.includes("menu")) document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
-        else if (path.includes("reservation")) document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
-    });
-</script>
+
 
 <main class="pt-28 pb-24 px-4 md:px-6 max-w-screen-xl mx-auto overflow-hidden">
     <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase mt-4">당일 예약</h1>
@@ -72,9 +65,9 @@
     <div class="space-y-4 mb-8 pb-8 border-b border-gray-100">
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="flex flex-col">
-                <label class="text-[12px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 날짜</label>
-                <input type="date" id="datePicker" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none min-w-0 appearance-none">
+            <div class="mb-4 bg-gray-50 p-3 rounded text-center border border-gray-200">
+                <span class="text-xs text-gray-500 block">픽업 날짜 (Pickup Date)</span>
+                <span class="text-lg font-bold text-brown" id="displayDate">Today</span>
             </div>
             <div class="flex flex-col">
                 <label class="text-[12px] font-bold mb-2 uppercase tracking-wide text-gray-400">시간</label>
@@ -133,12 +126,20 @@
             </label>
         </div>
 
+        <div class="mb-4">
+            <label class="block text-sm font-bold text-gray-700 mb-1">요청사항</label>
+            <textarea id="orderMemo" rows="2"
+                      class="w-full border border-gray-300 rounded p-2 text-sm focus:outline-none focus:border-brown"
+                      placeholder="추가적인 요청사항이 있으시면 말씀해주세요. (선택사항)"></textarea>
+        </div>
+
         <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-black transition rounded shadow-lg shadow-brown/20">
             예약 완료하기
         </button>
-        <p class="text-[14px] text-gray-400 mt-4 text-center leading-relaxed">
+        <p class="text-[16px] text-gray-400 mt-4 text-center leading-relaxed">
             * 20개 이상 대량 주문은 매장으로 직접 전화 부탁드립니다.<br>
-            * 노쇼 방지를 위해 선입금을 원칙으로 합니다.
+            * 노쇼 방지를 위해 선입금을 원칙으로 합니다.<br>
+            * 예약은 오후 12시부터 매장 운영중인 시간에만 가능합니다.
         </p>
     </div>
 </main>
@@ -173,205 +174,200 @@
 </div>
 
 <script>
-        // --- SMART DATE LOGIC ---
-        const dateInput = document.getElementById('datePicker');
+    // --- 1. DATE DISPLAY (Keep this) ---
+    document.getElementById('displayDate').innerText = new Date().toLocaleDateString('ko-KR', {
+        year: 'numeric', month: 'long', day: 'numeric', weekday: 'short'
+    });
 
-        // 1. Set MIN Date (Today)
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        dateInput.min = `${yyyy}-${mm}-${dd}`;
+    // --- 2. GLOBAL VARIABLES ---
+    let cart = {};
+    let productData = []; // Stores live stock data
 
-        // 2. Set MAX Date (Next 14 Days)
-        const maxDate = new Date();
-        maxDate.setDate(today.getDate() + 14);
-        dateInput.max = maxDate.toISOString().split("T")[0];
+    // --- 3. FETCH MENU & SHOW STOCK (New Logic) ---
+    async function fetchMenuForDate() {
+        const list = document.getElementById('menu-list');
+        list.innerHTML = '<div class="animate-pulse text-gray-300">잠시만 기다려주세요... (Checking Stock)</div>';
 
-        // 3. Set Default Date (Tomorrow, Skip Tuesday)
-        let defaultDate = new Date();
-        defaultDate.setDate(defaultDate.getDate() + 1);
-        while(defaultDate.getDay() === 2) { // If Tuesday (2), skip to Wednesday
-            defaultDate.setDate(defaultDate.getDate() + 1);
-        }
-        dateInput.valueAsDate = defaultDate;
+        try {
+            // Fetch Live Stock (No date parameter needed anymore)
+            const res = await fetch(`/api/products`);
+            productData = await res.json();
 
-        // 4. EVENT LISTENER (Blocks Tuesday & Updates Menu)
-        dateInput.addEventListener('change', function() {
-            const selected = new Date(this.value);
-            if(selected.getDay() === 2) { // 2 = Tuesday
-                alert("죄송합니다. 화요일은 정기 휴무일입니다.\n(We are closed on Tuesdays.)");
-                this.value = ""; // Clear the input
-                document.getElementById('menu-list').innerHTML = ''; // Clear menu
-                document.getElementById('totalPrice').innerText = "0 원";
-                cart = {}; // Reset cart
-            } else {
-                fetchMenuForDate(); // Load menu if valid
-            }
-        });
+            list.innerHTML = '';
 
-        // Store current cart state { productId: quantity }
-        let cart = {};
-        let productData = []; // Store fetched products to look up prices later
-
-        async function fetchMenuForDate() {
-            const date = dateInput.value;
-            if(!date) return;
-
-            // Reset Cart
-            cart = {};
-            updateTotal();
-
-            const list = document.getElementById('menu-list');
-            list.innerHTML = '<div class="animate-pulse text-gray-300">Checking Menu...</div>';
-
-            try {
-                // Call Backend with ?date=YYYY-MM-DD
-                const res = await fetch(`/api/products?date=${date}`);
-                productData = await res.json();
-
-                list.innerHTML = '';
-
-                if(productData.length === 0) {
-                    list.innerHTML = '<div class="text-red-400 font-bold">Sorry, we are closed on this day.</div>';
-                    return;
-                }
-
-                // Render Items
-                productData.forEach(p => {
-                    const priceFmt = new Intl.NumberFormat('ko-KR').format(p.price);
-
-                    const itemHTML = `
-                        <div class="flex justify-between items-center border border-gray-100 p-4 rounded-lg bg-white shadow-sm">
-                            <div>
-                                <h4 class="font-bold text-lg">${p.name}</h4>
-                                <p class="text-sm text-gray-500">₩${priceFmt}</p>
-                            </div>
-
-                            <div class="flex items-center space-x-3">
-                                <button onclick="updateQty(${p.id}, -1)" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 font-bold">-</button>
-                                <span id="qty-${p.id}" class="w-4 text-center font-bold">0</span>
-                                <button onclick="updateQty(${p.id}, 1)" class="w-8 h-8 rounded-full bg-black text-white hover:bg-brown font-bold">+</button>
-                            </div>
-                        </div>
-                    `;
-                    list.insertAdjacentHTML('beforeend', itemHTML);
-                });
-
-            } catch(e) {
-                console.error(e);
-                list.innerHTML = 'Error loading menu.';
-            }
-        }
-
-        function updateQty(id, change) {
-            if(!cart[id]) cart[id] = 0;
-            cart[id] += change;
-            if(cart[id] < 0) cart[id] = 0;
-
-            // Update UI Number
-            document.getElementById(`qty-${id}`).innerText = cart[id];
-            updateTotal();
-        }
-
-        function updateTotal() {
-            let total = 0;
-            // Loop through cart and find price from productData
-            for (const [id, qty] of Object.entries(cart)) {
-                const product = productData.find(p => p.id == id);
-                if(product) {
-                    total += product.price * qty;
-                }
-            }
-
-            const fmt = new Intl.NumberFormat('ko-KR').format(total) + " 원";
-            document.getElementById('totalPrice').innerText = fmt;
-            document.getElementById('modalTotal').innerText = fmt; // Update Modal too
-        }
-
-        // Initialize
-        fetchMenuForDate(); // Load tomorrow's menu on start
-
-        // Payment Logic
-        function openPayment() {
-            const name = document.getElementById('custName').value;
-            const totalText = document.getElementById('totalPrice').innerText;
-
-            // Basic validation
-            if(!name) { alert("성함을 적어주세요."); return; }
-            if(totalText === "0 원") { alert("최소 한 개 이상의 제품을 선택해주세요."); return; }
-
-            document.getElementById('bank-modal').classList.remove('hidden');
-        }
-
-        function closeModal() { document.getElementById('bank-modal').classList.add('hidden'); }
-        function copyAccount() {
-            navigator.clipboard.writeText("1234-56-789012");
-            alert("Copied!");
-        }
-
-        async function finishReservation() {
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const consent = document.getElementById('marketingConsent').checked;
-            const isTakeaway = document.getElementById('optTakeaway').checked;
-            const wantsCut = document.getElementById('optCut').checked;
-
-            // 1. Build the Item List from the Cart
-            const items = [];
-            for (const [id, qty] of Object.entries(cart)) {
-                if (qty > 0) {
-                    items.push({ productId: parseInt(id), quantity: qty });
-                }
-            }
-
-            if (items.length === 0) {
-                alert("Cart is empty!");
+            if(productData.length === 0) {
+                list.innerHTML = '<div class="text-red-400 font-bold">현재 예약 가능한 제품이 없습니다.</div>';
                 return;
             }
 
-            // 2. Create the Payload
-            const payload = {
-                customerName: name,
-                phoneNumber: phone,
-                marketingConsent: consent,
-                isTakeaway: isTakeaway,
-                wantsCut: wantsCut,
-                items: items
-            };
+            // Render Items
+            productData.forEach(p => {
+                const priceFmt = new Intl.NumberFormat('ko-KR').format(p.price);
 
-            // 3. Send to Backend
-            try {
-                const response = await fetch('/api/orders', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+                // LOGIC: Check Stock
+                const isSoldOut = p.stockQuantity <= 0;
+                const stockText = isSoldOut ? '(품절 - Sold Out)' : `(${p.stockQuantity}개 남음)`;
+                const btnDisabled = isSoldOut ? 'disabled class="w-8 h-8 rounded-full bg-gray-200 text-gray-400 cursor-not-allowed"' : 'class="w-8 h-8 rounded-full bg-black text-white hover:bg-brown font-bold"';
+                const opacity = isSoldOut ? 'opacity-50' : '';
 
-                if (response.ok) {
-                    alert("예약이 성공적으로 접수되었습니다!");
-                    location.href = "index.html";
-                } else {
-                    alert("예약에 실패했습니다. 다시 시도해주세요.");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Server error.");
+                const itemHTML = `
+                    <div class="flex justify-between items-center border border-gray-100 p-4 rounded-lg bg-white shadow-sm ${opacity}">
+                        <div>
+                            <h4 class="font-bold text-lg">${p.name}</h4>
+                            <p class="text-sm text-gray-500">₩${priceFmt} <span class="text-red-500 text-xs font-bold">${stockText}</span></p>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <button onclick="updateQty(${p.id}, -1)" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 font-bold">-</button>
+                            <span id="qty-${p.id}" class="w-4 text-center font-bold">0</span>
+                            <button onclick="updateQty(${p.id}, 1)" ${btnDisabled}>+</button>
+                        </div>
+                    </div>
+                `;
+                list.insertAdjacentHTML('beforeend', itemHTML);
+            });
+
+        } catch(e) {
+            console.error(e);
+            list.innerHTML = 'Error loading menu.';
+        }
+    }
+
+    // --- 4. UPDATE QUANTITY (With Protection) ---
+    function updateQty(id, change) {
+        if(!cart[id]) cart[id] = 0;
+
+        // FIND PRODUCT TO CHECK LIMIT
+        const product = productData.find(p => p.id === id);
+
+        // IF ADDING (+), CHECK STOCK LIMIT
+        if (change > 0) {
+            if (cart[id] >= product.stockQuantity) {
+                alert(`죄송합니다. 현재 재고가 ${product.stockQuantity}개 뿐입니다.`);
+                return; // STOP! Do not add.
             }
         }
 
-        // --- PWA INSTALLATION ENGINE ---
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('App Ready: Service Worker registered');
-                    })
-                    .catch(err => {
-                        console.log('App Error: Service Worker failed', err);
-                    });
-            });
+        cart[id] += change;
+        if(cart[id] < 0) cart[id] = 0;
+
+        // Update UI Number
+        document.getElementById(`qty-${id}`).innerText = cart[id];
+        updateTotal();
+    }
+
+    // --- 5. UPDATE TOTAL ---
+    function updateTotal() {
+        let total = 0;
+        for (const [id, qty] of Object.entries(cart)) {
+            const product = productData.find(p => p.id == id);
+            if(product) {
+                total += product.price * qty;
+            }
         }
+        const fmt = new Intl.NumberFormat('ko-KR').format(total) + " 원";
+        document.getElementById('totalPrice').innerText = fmt;
+
+        // Update Modal Total if exists
+        const modalTotal = document.getElementById('modalTotal');
+        if(modalTotal) modalTotal.innerText = fmt;
+    }
+
+    // --- 6. MODAL UTILS ---
+    function openPayment() {
+        const name = document.getElementById('custName').value;
+        const totalText = document.getElementById('totalPrice').innerText;
+
+        if(!name) { alert("성함을 적어주세요."); return; }
+        if(totalText === "0 원") { alert("최소 한 개 이상의 제품을 선택해주세요."); return; }
+
+        document.getElementById('bank-modal').classList.remove('hidden');
+    }
+
+    function closeModal() { document.getElementById('bank-modal').classList.add('hidden'); }
+
+    function copyAccount() {
+        navigator.clipboard.writeText("1234-56-789012");
+        alert("계좌번호가 복사되었습니다!");
+    }
+
+    // --- 7. FINISH RESERVATION ---
+    async function finishReservation() {
+        const name = document.getElementById('custName').value;
+        const phone = document.getElementById('custPhone').value;
+
+        // Get New Fields
+        const memo = document.getElementById('orderMemo') ? document.getElementById('orderMemo').value : "";
+        const consent = document.getElementById('marketingConsent') ? document.getElementById('marketingConsent').checked : false;
+        const isTakeaway = document.getElementById('optTakeaway') ? document.getElementById('optTakeaway').checked : true;
+        const wantsCut = document.getElementById('optCut') ? document.getElementById('optCut').checked : false;
+
+        // Build Items
+        const items = [];
+        for (const [id, qty] of Object.entries(cart)) {
+            if (qty > 0) {
+                items.push({ productId: parseInt(id), quantity: qty });
+            }
+        }
+
+        if (items.length === 0) {
+            alert("장바구니가 비어있습니다.");
+            return;
+        }
+
+        const payload = {
+            customerName: name,
+            phoneNumber: phone,
+            items: items,
+            memo: memo,
+            marketingConsent: consent,
+            isTakeaway: isTakeaway,
+            wantsCut: wantsCut
+        };
+
+        try {
+            const response = await fetch('/api/orders', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                alert("예약이 성공적으로 접수되었습니다!");
+                location.href = "index.html"; // Or reload
+            } else {
+                const err = await response.text();
+                alert("예약 실패: " + err);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Server error.");
+        }
+    }
+
+    // --- 8. INITIALIZE ---
+    fetchMenuForDate();
+
+    // --- 9. Navigation Highlight ---
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname;
+        if (path.includes("about")) document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
+        else if (path.includes("menu")) document.getElementById("link-menu").classList.add("opacity-50", "pointer-events-none");
+        else if (path.includes("reservation")) document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
+    });
+
+    // --- 10. PWA INSTALLATION ---
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('App Ready: Service Worker registered');
+                })
+                .catch(err => {
+                    console.log('App Error: Service Worker failed', err);
+                });
+        });
+    }
 </script>
 
 </body>

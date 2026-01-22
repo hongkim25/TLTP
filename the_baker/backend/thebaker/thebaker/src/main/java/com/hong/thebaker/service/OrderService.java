@@ -46,6 +46,8 @@ public class OrderService {
         order.setOrderDate(java.time.LocalDateTime.now());
         order.setStatus(OrderStatus.COMPLETED);
 
+        order.setMemo(request.getMemo());
+
         order.setTakeaway(request.isTakeaway());
         order.setWantsCut(request.isWantsCut());
 

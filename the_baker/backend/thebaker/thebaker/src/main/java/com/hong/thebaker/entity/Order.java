@@ -28,6 +28,7 @@ public class Order {
     private BigDecimal totalAmount;
     private int pointsUsed;
     private int pointsEarned;
+    private String memo;
 
     @Column(name = "is_takeaway")
     private boolean isTakeaway; // true = To Go

@@ -9,6 +9,7 @@ public class OrderRequest {
     private Long customerId;
     private String customerName;
     private String phoneNumber;
+    private String memo;
     private List<OrderItemRequest> items;
     private boolean marketingConsent;
     private int pointsToUse;
