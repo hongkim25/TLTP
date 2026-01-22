@@ -65,12 +65,11 @@
 
     <div class="space-y-4 mb-8 pb-8 border-b border-gray-100">
 
-        <div class="mb-4 p-3 rounded text-lg text-center flex justify-center items-center">
-            <span class="text-gray-500">픽업 날짜: </span>
-            <span class="font-bold text-brown" id="displayDate">Today</span>
+        <div class="mb-8 text-lg">
+            픽업 날짜: <span class="font-bold" id="displayDate">Today</span>
         </div>
         <div class="flex flex-col max-w-ws">
-            <label class="text-[12px] font-bold mb-2 uppercase tracking-wide text-gray-400">픽업 시간</label>
+            <label class="text-sm font-bold mb-1 uppercase tracking-wide text-gray-700">픽업 시간</label>
             <select class="w-full bg-gray-50 border border-gray-200 p-3 rounded-sm font-bold text-black focus:border-brown focus:outline-none appearance-none">
                 <option>12:00 PM</option>
                 <option>1:00 PM</option>
@@ -81,21 +80,17 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            <input type="text" id="custName" placeholder="성함" class="w-full bg-white border-b border-gray-300 py-3 text-sm focus:outline-none focus:border-black transition rounded-none">
-            <input type="tel" id="custPhone" placeholder="핸드폰 번호" class="w-full bg-white border-b border-gray-300 py-3 text-sm focus:outline-none focus:border-black transition rounded-none">
+            <input type="text" id="custName" placeholder="성함" class="w-full bg-white border-b border-gray-300 py-2 text-base focus:outline-none focus:border-black transition rounded-none">
+            <input type="tel" id="custPhone" placeholder="핸드폰 번호" class="w-full bg-white border-b border-gray-300 py-2 text-base focus:outline-none focus:border-black transition rounded-none">
         </div>
     </div>
 
     <div class="mb-12">
-        <h3 class="text-xl font-bold mb-6 flex items-center justify-between">
+        <h3 class="text-lg font-bold mb-3 flex items-center justify-between">
             <span>메뉴 선택</span>
-            <span class="text-xs text-gray-400 font-normal">* 날짜를 선택하면 메뉴가 나옵니다</span>
+            <span class="text-base text-gray-400 font-normal">* 예약은 당일 오후 12시부터 매장 운영 마감 시간까지만 가능합니다. </span>
         </h3>
-        <div id="menu-list" class="space-y-4 min-h-[100px]">
-            <div class="text-gray-300 text-sm py-4 text-center border border-dashed border-gray-200 rounded">
-                📅 위에서 날짜를 먼저 선택해주세요.
-            </div>
-        </div>
+        <div id="menu-list" class="space-y-4 min-h-[100px]"></div>
     </div>
 
     <div class="bg-gray-50 p-6 rounded-xl shadow-inner">
@@ -137,7 +132,6 @@
         <p class="text-[16px] text-gray-400 mt-4 text-center leading-relaxed">
             * 20개 이상 대량 주문은 매장으로 직접 전화 부탁드립니다.<br>
             * 노쇼 방지를 위해 선입금을 원칙으로 합니다.<br>
-            * 예약은 오후 12시부터 매장 운영중인 시간에만 가능합니다.
         </p>
     </div>
 </main>
@@ -241,7 +235,7 @@
         // IF ADDING (+), CHECK STOCK LIMIT
         if (change > 0) {
             if (cart[id] >= product.stockQuantity) {
-                alert(`죄송합니다. 현재 재고가 ${product.stockQuantity}개 뿐입니다.`);
+                alert(`죄송합니다. 현재 재고가 ${product.stockQuantity}개만 있습니다.`);
                 return; // STOP! Do not add.
             }
         }
