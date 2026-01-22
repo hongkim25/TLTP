@@ -95,9 +95,9 @@
         <a href="index.html" class="text-[20px] md:text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
 
         <div class="flex space-x-4 md:space-x-8 text-[14px] md:text-[15px] font-bold tracking-tight md:tracking-wider">
-            <a href="about.html" class="hover:text-brown transition">소개</a>
-            <a href="menu.html" class="hover:text-brown transition">메뉴</a>
-            <a href="reservation.html" class="hover:text-brown transition">예약</a>
+            <a href="about.html" class="hover:text-brown transition" data-key="about-btn">소개</a>
+            <a href="menu.html" class="hover:text-brown transition" data-key="menu-btn">메뉴</a>
+            <a href="reservation.html" class="hover:text-brown transition" data-key="reserve-btn">예약</a>
         </div>
     </div>
 </nav>
@@ -160,6 +160,9 @@
         <div class="space-x-6 mt-4 md:mt-0 font-bold">
             <a href="#">인스타그램</a>
             <a href="#">개인정보</a>
+            <button onclick="toggleLanguage()" class="hover:text-black transition cursor-pointer">
+                ENGLISH
+            </button>
         </div>
     </div>
 </footer>
@@ -234,6 +237,41 @@
         document.addEventListener("DOMContentLoaded", () => {
             checkStatus();
         });
+
+    // 1. The Dictionary (Add all your text here)
+    const translations = {
+        en: {
+            "main-title": "THE BAKER",
+            "about-btn": "ABOUT",
+            "reserve-btn": "RESERVE",
+            "menu-btn": "MENU",
+            "login-btn": "MY ORDERS"
+        },
+        ko: {
+            "main-title": "더베이커",
+            "about-btn": "소개",
+            "reserve-btn": "예약",
+            "menu-btn": "메뉴",
+            "login-btn": "내 주문 확인"
+        }
+    };
+
+    // 2. Current Language State (Default to English or Korean)
+    let currentLang = 'ko';
+
+    // 3. The Smart Toggle Function
+    function toggleLanguage() {
+        // Switch state
+        currentLang = currentLang === 'ko' ? 'en' : 'ko';
+
+        // Update every element with a 'data-key'
+        document.querySelectorAll('[data-key]').forEach(element => {
+            const key = element.getAttribute('data-key');
+            if (translations[currentLang][key]) {
+                element.innerText = translations[currentLang][key];
+            }
+        });
+    }
 </script>
 </body>
 </html>
