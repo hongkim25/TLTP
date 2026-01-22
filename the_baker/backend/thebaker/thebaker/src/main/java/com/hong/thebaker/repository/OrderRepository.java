@@ -16,5 +16,5 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByIsArchivedFalseOrderByOrderDateDesc();
 
     // 3. My Page Search "Find orders by the phone number stored in the Customer entity"
-    List<Order> findByCustomerPhoneNumberOrderByOrderDateDesc(String phoneNumber);
+    List<Order> findByCustomerPhoneNumberOrderByOrderDateDesc(String phone);
 }

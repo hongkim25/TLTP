@@ -122,8 +122,30 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
+    @Transactional
+    public void cancelOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+
+        if (order.getStatus() == OrderStatus.CANCELLED) {
+            throw new RuntimeException("Already cancelled");
+        }
+
+        // 1. Restore Stock
+        for (OrderItem item : order.getItems()) {
+            Product product = item.getProduct();
+            product.setStockQuantity(product.getStockQuantity() + item.getQuantity());
+            productRepository.save(product);
+        }
+
+        // 2. Change Status
+        order.setStatus(OrderStatus.CANCELLED);
+        orderRepository.save(order);
+    }
+
+
     public List<Order> getAllOrders() {
-        return orderRepository.findAll();
+        return orderRepository.findByIsArchivedFalseOrderByOrderDateDesc();
     }
 
     // Logic for Sidebar Quick Payment
@@ -164,5 +186,18 @@ public class OrderService {
 
         customer.setPoints(customer.getPoints() + pointsEarned);
         customerRepository.save(customer);
+    }
+
+    // Archive Order
+    public void archiveOrder(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+        order.setArchived(true);
+        orderRepository.save(order);
+    }
+
+    // Find My Orders
+    public List<Order> findMyOrders(String phone) {
+        return orderRepository.findByCustomerPhoneOrderByOrderDateDesc(phone);
     }
 }

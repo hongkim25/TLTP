@@ -3,6 +3,7 @@ package com.hong.thebaker.controller;
 import com.hong.thebaker.dto.OrderRequest;
 import com.hong.thebaker.entity.Order;
 import com.hong.thebaker.service.OrderService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,35 +11,44 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
-// @CrossOrigin logic will be needed later for Frontend
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
 
-    // POST /api/orders
-    // Receives JSON: { "phoneNumber": "...", "customerName": "...", "items": [...] }
+    // 1. Create Order
     @PostMapping
     public Order createOrder(@RequestBody OrderRequest request) {
         return orderService.createOrder(request);
     }
 
-    // GET /api/orders (For the Staff Page)
+    // 2. Get All (Active) Orders
     @GetMapping
     public List<Order> getAllOrders() {
-        // Was: return orderRepository.findAllByOrderByOrderDateDesc();
-        return orderRepository.findByIsArchivedFalseOrderByOrderDateDesc();
+        return orderService.getAllOrders();
     }
 
-    // the Archive Endpoint
+    // 3. Archive Order (Delegates to Service)
     @PutMapping("/{id}/archive")
     public ResponseEntity<Void> archiveOrder(@PathVariable Long id) {
-        return orderRepository.findById(id)
-                .map(order -> {
-                    order.setArchived(true); // Hide it
-                    orderRepository.save(order);
-                    return ResponseEntity.ok().<Void>build();
-                })
-                .orElse(ResponseEntity.notFound().build());
+        orderService.archiveOrder(id);
+        return ResponseEntity.ok().build();
+    }
+
+    // 4. Cancel Order (Delegates to Service)
+    @PostMapping("/{id}/cancel")
+    public ResponseEntity<String> cancelOrder(@PathVariable Long id) {
+        try {
+            orderService.cancelOrder(id);
+            return ResponseEntity.ok("Order cancelled and stock restored");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    // 5. Search My Orders (Delegates to Service)
+    @GetMapping("/search")
+    public List<Order> findMyOrders(@RequestParam String phone) {
+        return orderService.findMyOrders(phone);
     }
 }

@@ -17,12 +17,10 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
 
     @Column(unique = true) // No two people can have the same phone
     private String phone;
-
     private int points;
 
     @Column(unique = true)

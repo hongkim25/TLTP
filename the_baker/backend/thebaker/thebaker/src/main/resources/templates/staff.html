@@ -335,50 +335,54 @@ function renderGrid(products) {
     async function loadOrders() {
         const list = document.getElementById('order-list');
         try {
-            const res = await fetch('/api/orders');
+            const res = await fetch('/api/orders'); // This now fetches only active (non-archived) orders
             const orders = await res.json();
 
             if(orders.length === 0) {
-                list.innerHTML = '<div class="text-gray-400 text-sm">새로운 예약이 없습니다.</div>';
+                list.innerHTML = '<div class="text-gray-400 text-sm text-center py-4">새로운 예약이 없습니다.</div>';
                 return;
             }
-            orders.reverse();
 
             list.innerHTML = orders.map(order => {
                 if (!order.items || order.items.length === 0) return '';
+
                 const date = new Date(order.orderDate).toLocaleString('ko-KR', { hour: '2-digit', minute:'2-digit', month:'numeric', day:'numeric' });
 
                 const itemsHtml = order.items.map(i =>
                     `<span class="mr-2 text-black font-bold">${i.product ? i.product.name : 'Item'} (${i.quantity})</span>`
                 ).join(', ');
 
+                // --- BADGES ---
                 let badgesHtml = '';
+                if (order.takeaway) badgesHtml += `<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded mr-1">🥡포장</span>`;
+                else badgesHtml += `<span class="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded mr-1">🍽매장</span>`;
 
-                // Check for Takeaway (JSON field is usually 'takeaway' for boolean isTakeaway)
-                if (order.takeaway) {
-                    badgesHtml += `<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded mr-1">🥡포장</span>`;
-                } else {
-                    badgesHtml += `<span class="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded mr-1">🍽매장내 식사</span>`;
-                }
+                if (order.wantsCut) badgesHtml += `<span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded">✂️컷팅</span>`;
 
-                // Check for Cut
-                if (order.wantsCut) {
-                    badgesHtml += `<span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded">✂️컷팅</span>`;
-                }
+                // --- ARCHIVE BUTTON LOGIC ---
+                // Only show if order is done (Completed or Cancelled)
+                const isDone = order.status === 'COMPLETED' || order.status === 'CANCELLED';
+                const archiveBtn = isDone
+                    ? `<button onclick="archiveOrder(${order.id})" class="mt-2 text-[10px] bg-gray-200 text-gray-600 px-3 py-1 rounded hover:bg-gray-300 font-bold transition">Archive 📂</button>`
+                    : '';
 
                 return `
-                    <div class="bg-white border border-gray-200 p-4 flex justify-between items-center shadow-sm">
-                        <div>
+                    <div class="bg-white border border-gray-200 p-4 flex justify-between items-start shadow-sm mb-3 rounded-lg">
+                        <div class="w-2/3">
                             <div class="flex items-center space-x-2 mb-1">
                                 <span class="text-xs font-bold text-brown uppercase">${order.customer ? order.customer.name : 'Guest'}</span>
                                 <span class="text-[10px] text-gray-400 font-mono">${order.customer ? order.customer.phone : ''}</span>
                             </div>
-                            <div class="text-sm">${itemsHtml}</div>
+                            <div class="text-sm mb-2">${itemsHtml}</div>
+                            <div>${badgesHtml}</div>
+                            ${order.memo ? `<div class="mt-2 text-xs text-gray-500 bg-gray-50 p-1 rounded">📝 ${order.memo}</div>` : ''}
                         </div>
-                        <div class="text-right">
-                            <div class="font-mono font-bold text-lg">₩${order.totalAmount}</div>
+
+                        <div class="w-1/3 text-right flex flex-col items-end">
+                            <div class="font-mono font-bold text-lg">₩${order.totalAmount.toLocaleString()}</div>
                             <div class="text-[10px] text-gray-400">${date}</div>
-                        </div>
+                            <div class="text-[10px] font-bold text-brown mt-1">${order.status}</div>
+                            ${archiveBtn} </div>
                     </div>
                 `;
             }).join('');
@@ -515,6 +519,23 @@ function renderGrid(products) {
                 }
             });
         }
+
+    // Archive Order
+        async function archiveOrder(id) {
+        if(!confirm("이 주문을 목록에서 숨기시겠습니까? (DB에서는 삭제되지 않습니다)")) return;
+
+        try {
+            const res = await fetch(`/api/orders/${id}/archive`, { method: 'PUT' });
+            if(res.ok) {
+                // Reload the list to make the item disappear
+                loadOrders();
+            } else {
+                alert("Archive failed. Please check server logs.");
+            }
+        } catch(e) {
+            console.error("Archive Error:", e);
+        }
+    }
     });
 </script>
 
