@@ -26,6 +26,19 @@ public class OrderController {
     // GET /api/orders (For the Staff Page)
     @GetMapping
     public List<Order> getAllOrders() {
-        return orderService.getAllOrders(); // We need to ensure Service has this method
+        // Was: return orderRepository.findAllByOrderByOrderDateDesc();
+        return orderRepository.findByIsArchivedFalseOrderByOrderDateDesc();
+    }
+
+    // the Archive Endpoint
+    @PutMapping("/{id}/archive")
+    public ResponseEntity<Void> archiveOrder(@PathVariable Long id) {
+        return orderRepository.findById(id)
+                .map(order -> {
+                    order.setArchived(true); // Hide it
+                    orderRepository.save(order);
+                    return ResponseEntity.ok().<Void>build();
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 }

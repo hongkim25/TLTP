@@ -36,6 +36,9 @@ public class Order {
     @Column(name = "wants_cut")
     private boolean wantsCut;   // true = Cut
 
+    @Column(name = "is_archived")
+    private boolean isArchived = false;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 

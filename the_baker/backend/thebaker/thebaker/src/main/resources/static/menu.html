@@ -100,8 +100,21 @@
                 return;
             }
 
-            // --- SORTING LOGIC: Descending Order (High Stock -> Low Stock) ---
-            products.sort((a, b) => b.stockQuantity - a.stockQuantity);
+            // --- SORTING LOGIC: Bread First, Coffee Last, then by Stock ---
+            products.sort((a, b) => {
+                // 1. Identify Drinks
+                const drinkKeywords = ["라떼", "아메리카노"];
+
+                const isDrinkA = drinkKeywords.some(k => a.name.includes(k));
+                const isDrinkB = drinkKeywords.some(k => b.name.includes(k));
+
+                // 2. Push Drinks to Bottom
+                if (isDrinkA && !isDrinkB) return 1;  // A is drink -> move down
+                if (!isDrinkA && isDrinkB) return -1; // B is drink -> move A up
+
+                // 3. Sort remaining by Stock (High -> Low)
+                return b.stockQuantity - a.stockQuantity;
+            });
 
             // 3. Render items
             products.forEach(p => {

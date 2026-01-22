@@ -185,6 +185,25 @@
             const res = await fetch(`/api/products`);
             productData = await res.json();
 
+            productData.sort((a, b) => {
+                // 1. Define what counts as "Coffee/Drink"
+                // Add any keyword that identifies a drink in your menu
+                const drinkKeywords = ["라떼", "아메리카노"];
+
+                const isDrinkA = drinkKeywords.some(k => a.name.includes(k));
+                const isDrinkB = drinkKeywords.some(k => b.name.includes(k));
+
+                // 2. Separate Drinks from Bread
+                // If A is Drink and B is Bread -> A goes down (1)
+                if (isDrinkA && !isDrinkB) return 1;
+                // If A is Bread and B is Drink -> A goes up (-1)
+                if (!isDrinkA && isDrinkB) return -1;
+
+                // 3. Sort by Stock (Descending)
+                // If both are Bread (or both Drinks), sort by Quantity
+                return b.stockQuantity - a.stockQuantity;
+            });
+
             list.innerHTML = '';
 
             if(productData.length === 0) {
