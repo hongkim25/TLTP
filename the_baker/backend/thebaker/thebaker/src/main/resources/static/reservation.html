@@ -306,56 +306,81 @@
         alert("계좌번호가 복사되었습니다!");
     }
 
-    // --- 7. FINISH RESERVATION ---
+    // --- 7. FINISH RESERVATION (SAFE VERSION) ---
     async function finishReservation() {
-        const name = document.getElementById('custName').value;
-        const phone = document.getElementById('custPhone').value;
-        const memo = document.getElementById('orderMemo') ? document.getElementById('orderMemo').value : "";
-        const consent = document.getElementById('marketingConsent') ? document.getElementById('marketingConsent').checked : false;
-        const isTakeawayVal = document.getElementById('takeaway').checked;
-        const wantsCutVal = document.getElementById('cut').checked;
-
-        // Build Items
-        const items = [];
-        for (const [id, qty] of Object.entries(cart)) {
-            if (qty > 0) {
-                items.push({ productId: parseInt(id), quantity: qty });
-            }
-        }
-
-        if (items.length === 0) {
-            alert("장바구니가 비어있습니다.");
-            return;
-        }
-
-        const payload = {
-            customerName: name,
-            phoneNumber: phone,
-            items: items,
-            pickupTime: document.getElementById('pickup-time').value,
-            memo: memo,
-            marketingConsent: consent,
-            Takeaway: isTakeawayVal,
-            wantsCut: wantsCutVal
-        };
+        console.log("Submit button clicked..."); // Debug log
 
         try {
-            const response = await fetch('/api/orders', {
+            // 1. Safe Value Extraction (Prevents crashes if IDs are missing)
+            const nameEl = document.getElementById('custName');
+            const phoneEl = document.getElementById('custPhone');
+            const pickupEl = document.getElementById('pickup-time');
+            const takeawayEl = document.getElementById('optTakeaway');
+            const cutEl = document.getElementById('optCut');
+            const memoEl = document.getElementById('orderMemo');
+            const consentEl = document.getElementById('marketingConsent');
+
+            // Validation: Check if critical elements exist
+            if (!nameEl || !phoneEl) {
+                alert("Error: Name or Phone input missing in HTML");
+                return;
+            }
+
+            const name = nameEl.value;
+            const phone = phoneEl.value;
+            const memo = memoEl ? memoEl.value : "";
+            const consent = consentEl ? consentEl.checked : false;
+
+            // SAFE FALLBACKS: If element is missing, default to false/default string
+            const pickupTime = pickupEl ? pickupEl.value : "12:00 PM";
+            const isTakeawayVal = takeawayEl ? takeawayEl.checked : false;
+            const wantsCutVal = cutEl ? cutEl.checked : false;
+
+            // 2. Build Items
+            const items = [];
+            if (typeof cart !== 'undefined') {
+                for (const [id, qty] of Object.entries(cart)) {
+                    if (qty > 0) items.push({ productId: parseInt(id), quantity: qty });
+                }
+            }
+
+            if (items.length === 0) {
+                alert("Cart is empty (장바구니가 비어있습니다).");
+                return;
+            }
+
+            // 3. Payload (Using "takeaway" key for Java)
+            const payload = {
+                customerName: name,
+                phoneNumber: phone,
+                items: items,
+                pickupTime: pickupTime,
+                memo: memo,
+                marketingConsent: consent,
+                takeaway: isTakeawayVal,
+                wantsCut: wantsCutVal
+            };
+
+            console.log("Sending Payload:", payload); // Verify data in Console
+
+            // 4. Send to Backend
+            const res = await fetch('/api/orders', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(payload)
             });
 
-            if (response.ok) {
-                alert("예약이 성공적으로 접수되었습니다!");
-                location.href = "index.html"; // Or reload
+            if (res.ok) {
+                alert("Reservation Successful! (예약이 완료되었습니다)");
+                location.reload();
             } else {
-                const err = await response.text();
-                alert("예약 실패: " + err);
+                const errorText = await res.text();
+                alert("Reservation Failed: " + errorText);
             }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Server error.");
+
+        } catch (e) {
+            console.error("Critical Error:", e);
+            alert("System Error: " + e.message); // Now you will see WHY it failed
         }
     }
 
