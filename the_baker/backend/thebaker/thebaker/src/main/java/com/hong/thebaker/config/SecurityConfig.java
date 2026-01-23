@@ -20,7 +20,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
 
                         .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
-                        .requestMatchers("/", "/index.html", "/menu.html", "/reservation.html").permitAll()
+                        .requestMatchers("/", "/about.html", "/index.html", "/menu.html", "/reservation.html").permitAll()
                         .requestMatchers("/manifest.json", "/sw.js", "/icon-*.png").permitAll() // Static assets
 
                         // 2. PUBLIC APIs (So customers can check menu & order)
