@@ -39,7 +39,7 @@
     <div class="flex items-center space-x-4">
         <button id="statusBtn" onclick="toggleShop()" class="flex items-center space-x-2 px-3 py-1 rounded-full border border-transparent hover:border-black transition">
             <div id="statusDot" class="w-3 h-3 bg-gray-400 rounded-full"></div>
-            <span id="statusText" class="text-xs font-bold tracking-[0.2em] uppercase hidden md:inline">확인중...</span>
+            <span id="statusText" class="text-lg tracking-normal font-bold tracking-[0.2em] uppercase hidden md:inline">확인중...</span>
         </button>
     </div>
     <div class="flex items-center space-x-4">
@@ -74,12 +74,12 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
-            <div class="bg-gray-900 text-white p-4 rounded-t-xl flex justify-between items-center mb-0">
-                <div class="bg-gray-900 text-white p-4 rounded-t-xl flex justify-between items-center mb-0">
+            <div class="bg-darkbrown text-white p-4 rounded-xl flex justify-between items-center mb-0">
+                <div class="bg-darkbrown text-white p-4 rounded-xl flex justify-between items-center mb-0">
                     <div>
-                        <div class="text-xs text-gray-400 uppercase tracking-widest">분석 도구</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wide">분석 도구</div>
                         <div class="font-bold text-lg">
-                            타겟: <span class="text-yellow-400" th:text="'(' + ${targetDay} + ')'">내일</span>
+                            타겟: <span class="text-white-400" th:text="'(' + ${targetDay} + ')'">내일</span>
                         </div>
                     </div>
                 </div>
@@ -89,31 +89,30 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-50 p-6 rounded-b-xl border border-gray-200">
-            </div>
+
 
             <div th:each="item : ${report}" class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm relative overflow-hidden group hover:border-brown transition">
 
                 <div class="flex justify-between items-start mb-3">
                     <div>
                         <h3 class="font-bold text-lg" th:text="${item.productName}">Bagel</h3>
-                        <span class="text-xs text-gray-400 font-mono">Data Points: <span th:text="${item.dataPoints}">12</span> days</span>
+                        <span class="text-xs text-gray-400">해당 날짜: <span th:text="${item.dataPoints}">12</span> 일</span>
                     </div>
 
                     <span th:classappend="${item.status.contains('Boost')} ? 'bg-red-100 text-red-600 border-red-200' :
                                  (${item.status.contains('Reduc')} ? 'bg-blue-100 text-blue-600 border-blue-200' : 'bg-gray-100 text-gray-500 border-gray-200')"
                           class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide border flex items-center gap-1">
-                <span th:text="${item.status}">Normal</span>
+<!--                // 이거 나중에 고쳐야됨 <span th:text="${item.status}">Normal</span>-->
             </span>
                 </div>
 
                 <div class="flex items-baseline gap-2 mb-4">
                     <span class="text-4xl font-black text-brown" th:text="${item.recommended}">0</span>
-                    <span class="text-sm font-bold text-gray-400">units recommended</span>
+                    <span class="text-sm font-bold text-gray-400">개 추천</span>
                 </div>
 
                 <div class="pt-3 border-t border-gray-50 flex justify-between text-sm text-gray-500">
-                    <span>Base Avg:</span>
+                    <span>해당 날짜 평균 판매량:</span>
                     <span class="font-mono font-bold" th:text="${#numbers.formatDecimal(item.avgSales, 1, 1)}">0.0</span>
                 </div>
 
@@ -247,7 +246,7 @@
         const container = document.getElementById('inventory-grid');
         // Sort: Drinks last, then by ID
         products.sort((a,b) => {
-             const drinks = ["Coffee", "Latte", "Tea", "Americano", "커피", "라떼", "아메리카노", "에이드"];
+             const drinks = ["커피", "라떼", "아메리카노"];
              const isA = drinks.some(k => a.name.includes(k));
              const isB = drinks.some(k => b.name.includes(k));
              if(isA && !isB) return 1;
@@ -317,12 +316,11 @@
                 const itemsHtml = order.items.map(i =>
                     `<span class="inline-flex items-center bg-gray-50 border border-gray-200 rounded px-2 py-1 mr-2 mb-2">
                         <span class="text-black font-bold text-sm mr-2">${i.product ? i.product.name : 'Item'}</span>
-                        <span class="font-mono text-sm text-brown font-black bg-yellow-100 px-1 rounded">x${i.quantity}</span>
+                        <span class="font-mono text-sm text-brown font-black bg-white-100 px-1 rounded">x${i.quantity}</span>
                     </span>`
                 ).join('');
 
                 // --- O/X LOGIC ---
-                // We make it VERY visual.
                 // Circle O (Blue/Red) vs Gray X
                 const isTakeaway = order.takeaway;
                 const isCut = order.wantsCut;
