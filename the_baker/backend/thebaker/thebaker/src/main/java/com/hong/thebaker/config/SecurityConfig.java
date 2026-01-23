@@ -20,12 +20,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
 
                         .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
-                        .requestMatchers("/", "/about.html", "/index.html", "/menu.html", "/reservation.html").permitAll()
+                        .requestMatchers("/", "/privacy.html", "/about.html", "/index.html", "/menu.html", "/reservation.html").permitAll()
                         .requestMatchers("/manifest.json", "/sw.js", "/icon-*.png").permitAll() // Static assets
 
                         // 2. PUBLIC APIs (So customers can check menu & order)
                         .requestMatchers("/api/products/**", "/api/orders/**").permitAll() // *Note: detailed locking comes later
-
+                        .requestMatchers("/api/staff/status").permitAll()
                         // 3. SECURED PAGES (Staff) - Everything else requires login
                         .requestMatchers("/staff/**").authenticated()
                         .anyRequest().authenticated()
