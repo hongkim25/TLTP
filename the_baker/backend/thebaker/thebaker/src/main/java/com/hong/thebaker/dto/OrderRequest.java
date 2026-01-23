@@ -1,9 +1,10 @@
 package com.hong.thebaker.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hong.thebaker.entity.PaymentMethod;
 import lombok.Data;
+
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Data
 public class OrderRequest {

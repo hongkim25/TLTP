@@ -19,7 +19,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
 
-                        .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/login", "/css/**", "/js/**", "/images/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/", "/privacy", "/about.html", "/index.html", "/menu.html", "/reservation.html").permitAll()
                         .requestMatchers("/manifest.json", "/sw.js", "/icon-*.png").permitAll() // Static assets
 

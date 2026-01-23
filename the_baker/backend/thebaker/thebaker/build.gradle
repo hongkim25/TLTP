@@ -33,6 +33,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
     runtimeOnly 'org.postgresql:postgresql'

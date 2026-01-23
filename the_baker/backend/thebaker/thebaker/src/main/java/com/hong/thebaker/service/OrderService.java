@@ -2,7 +2,9 @@ package com.hong.thebaker.service;
 
 import com.hong.thebaker.dto.OrderRequest;
 import com.hong.thebaker.entity.*;
-import com.hong.thebaker.repository.*;
+import com.hong.thebaker.repository.CustomerRepository;
+import com.hong.thebaker.repository.OrderRepository;
+import com.hong.thebaker.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

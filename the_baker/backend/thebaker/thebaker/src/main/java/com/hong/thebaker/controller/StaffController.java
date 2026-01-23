@@ -2,10 +2,10 @@ package com.hong.thebaker.controller;
 
 import com.hong.thebaker.entity.Customer;
 import com.hong.thebaker.entity.Order;
-import com.hong.thebaker.entity.OrderStatus; // Needed for the Enum
+import com.hong.thebaker.entity.OrderStatus;
 import com.hong.thebaker.repository.CustomerRepository;
 import com.hong.thebaker.repository.OrderRepository;
-import com.hong.thebaker.repository.ProductRepository; // <--- NEW TOOL ADDED
+import com.hong.thebaker.repository.ProductRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

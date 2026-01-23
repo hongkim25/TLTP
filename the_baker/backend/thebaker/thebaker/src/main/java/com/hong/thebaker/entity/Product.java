@@ -3,7 +3,8 @@ package com.hong.thebaker.entity; // PACKAGED AS ENTITY
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.math.BigDecimal; // Money
+
+import java.math.BigDecimal;
 
 @Entity
 @Getter @Setter
