@@ -72,58 +72,53 @@
             </div>
         </div>
 
-        <div>
-            <div class="flex justify-between items-end mb-4 pt-8 border-t border-black/10">
-                <h2 class="text-lg font-bold tracking-tight uppercase text-brown">오늘의 계획</h2>
-                <div class="text-right">
-                    <form action="/staff" method="get" class="flex items-center space-x-2">
-                        <select name="w" onchange="this.form.submit()"
-                                class="bg-transparent font-bold text-xl text-right appearance-none cursor-pointer focus:outline-none hover:text-brown">
-                            <option value="Sunny" th:selected="${currentWeather == 'Sunny'}">☀️ 화창</option>
-                            <option value="Cloudy" th:selected="${currentWeather == 'Cloudy'}">☁️ 흐림</option>
-                            <option value="Rain" th:selected="${currentWeather == 'Rain'}">🌧️ 비</option>
-                            <option value="Snow" th:selected="${currentWeather == 'Snow'}">❄️ 눈</option>
-                        </select>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
-                        <div class="flex items-center">
-                            <input type="number" name="t" step="0.1" th:value="${currentTemp}"
-                                   class="w-12 bg-transparent text-sm text-gray-500 text-right focus:outline-none border-b border-gray-300"
-                                   onchange="this.form.submit()">
-                            <span class="text-sm text-gray-500 ml-1">°C</span>
+            <div class="bg-gray-900 text-white p-4 rounded-t-xl flex justify-between items-center mb-0">
+                <div class="bg-gray-900 text-white p-4 rounded-t-xl flex justify-between items-center mb-0">
+                    <div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">Analysis Context</div>
+                        <div class="font-bold text-lg">
+                            타겟: <span class="text-yellow-400" th:text="'내일 (' + ${targetDay} + ')'">내일</span>
                         </div>
-                    </form>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-xs text-gray-400 uppercase tracking-widest">정확도</div>
+                    <div class="text-xs font-bold">이전 판매량 기반</div>
                 </div>
             </div>
 
-            <div class="bg-white border border-black/10 shadow-sm p-6">
-                <table class="w-full text-sm text-left font-sans">
-                    <thead class="text-xs text-gray-500 uppercase bg-cream border-b border-black/10">
-                    <tr>
-                        <th class="px-4 py-3">메뉴</th>
-                        <th class="px-4 py-3">레퍼런스</th>
-                        <th class="px-4 py-3">평균</th>
-                        <th class="px-4 py-3 text-danger">목표</th>
-                    </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100">
-                    <tr th:each="item : ${report}" class="hover:bg-gray-50 transition">
-                        <td class="px-4 py-3 font-bold text-black" th:text="${item.productName}">Bagel</td>
-                        <td class="px-4 py-3 text-gray-500">
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-[10px]" th:text="${item.dataPoints} + '건'">7건</span>
-                        </td>
-                        <td class="px-4 py-3 text-gray-600" th:text="${#numbers.formatDecimal(item.avgSales, 1, 1)}">14.0</td>
-                        <td class="px-4 py-3 text-danger font-bold text-base" th:text="${item.recommended}">16</td>
-                    </tr>
-                    <tr th:if="${#lists.isEmpty(report)}">
-                        <td colspan="4" class="px-4 py-8 text-center text-gray-400 italic">
-                            데이터가 부족합니다.
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-50 p-6 rounded-b-xl border border-gray-200">
+            </div>
+
+            <div th:each="item : ${report}" class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm relative overflow-hidden group hover:border-brown transition">
+
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-bold text-lg" th:text="${item.productName}">Bagel</h3>
+                        <span class="text-xs text-gray-400 font-mono">Data Points: <span th:text="${item.dataPoints}">12</span> days</span>
+                    </div>
+
+                    <span th:classappend="${item.status.contains('Boost')} ? 'bg-red-100 text-red-600 border-red-200' :
+                                 (${item.status.contains('Reduc')} ? 'bg-blue-100 text-blue-600 border-blue-200' : 'bg-gray-100 text-gray-500 border-gray-200')"
+                          class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide border flex items-center gap-1">
+                <span th:text="${item.status}">Normal</span>
+            </span>
+                </div>
+
+                <div class="flex items-baseline gap-2 mb-4">
+                    <span class="text-4xl font-black text-brown" th:text="${item.recommended}">0</span>
+                    <span class="text-sm font-bold text-gray-400">units recommended</span>
+                </div>
+
+                <div class="pt-3 border-t border-gray-50 flex justify-between text-sm text-gray-500">
+                    <span>Base Avg:</span>
+                    <span class="font-mono font-bold" th:text="${#numbers.formatDecimal(item.avgSales, 1, 1)}">0.0</span>
+                </div>
+
             </div>
         </div>
-
     </section>
 
     <aside class="w-full md:w-80 border-t md:border-t-0 md:border-l border-black bg-white flex flex-col shrink-0 h-auto md:h-full">

@@ -1,0 +1,902 @@
+{
+    "감자치즈": {
+        "base_avg": 9.5,
+        "factors": {
+            "Monday": 0.11,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.9,
+            "Friday": 0.9,
+            "Saturday": 1.22,
+            "Sunday": 1.0
+        }
+    },
+    "감자치즈베이글": {
+        "base_avg": 10.8,
+        "factors": {
+            "Monday": 0.95,
+            "Tuesday": 1.0,
+            "Wednesday": 0.93,
+            "Thursday": 0.93,
+            "Friday": 0.0,
+            "Saturday": 1.0,
+            "Sunday": 1.14
+        }
+    },
+    "고구마크림치즈사워도우": {
+        "base_avg": 6.3,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.08,
+            "Thursday": 0.88,
+            "Friday": 0.92,
+            "Saturday": 1.23,
+            "Sunday": 1.0
+        }
+    },
+    "고메버터스콘": {
+        "base_avg": 7.7,
+        "factors": {
+            "Monday": 0.85,
+            "Tuesday": 1.0,
+            "Wednesday": 0.86,
+            "Thursday": 0.91,
+            "Friday": 1.0,
+            "Saturday": 1.26,
+            "Sunday": 1.1
+        }
+    },
+    "단팥빵": {
+        "base_avg": 7.9,
+        "factors": {
+            "Monday": 0.91,
+            "Tuesday": 1.0,
+            "Wednesday": 0.83,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.25
+        }
+    },
+    "단호박크림치즈": {
+        "base_avg": 7.3,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.07,
+            "Thursday": 0.89,
+            "Friday": 0.96,
+            "Saturday": 1.18,
+            "Sunday": 1.0
+        }
+    },
+    "닭가슴살포카치아": {
+        "base_avg": 1.0,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.0
+        }
+    },
+    "당근라페베이컨샌드위치": {
+        "base_avg": 14.2,
+        "factors": {
+            "Monday": 1.02,
+            "Tuesday": 1.0,
+            "Wednesday": 0.87,
+            "Thursday": 1.0,
+            "Friday": 0.46,
+            "Saturday": 0.71,
+            "Sunday": 1.14
+        }
+    },
+    "당근라페치아바타샌드위치": {
+        "base_avg": 20.4,
+        "factors": {
+            "Monday": 0.15,
+            "Tuesday": 1.0,
+            "Wednesday": 0.04,
+            "Thursday": 0.9,
+            "Friday": 0.97,
+            "Saturday": 1.35,
+            "Sunday": 0.1
+        }
+    },
+    "대파사워도우": {
+        "base_avg": 3.0,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.94,
+            "Friday": 0.98,
+            "Saturday": 1.07,
+            "Sunday": 1.0
+        }
+    },
+    "더블초코스콘": {
+        "base_avg": 5.3,
+        "factors": {
+            "Monday": 0.82,
+            "Tuesday": 1.0,
+            "Wednesday": 0.83,
+            "Thursday": 0.93,
+            "Friday": 1.03,
+            "Saturday": 1.27,
+            "Sunday": 1.09
+        }
+    },
+    "마르티넬리애플주스": {
+        "base_avg": 1.6,
+        "factors": {
+            "Monday": 0.84,
+            "Tuesday": 1.0,
+            "Wednesday": 0.92,
+            "Thursday": 0.86,
+            "Friday": 1.51,
+            "Saturday": 0.9,
+            "Sunday": 0.95
+        }
+    },
+    "맘모스": {
+        "base_avg": 8.6,
+        "factors": {
+            "Monday": 0.87,
+            "Tuesday": 1.0,
+            "Wednesday": 0.82,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.31
+        }
+    },
+    "모짜렐라바질토마토": {
+        "base_avg": 4.4,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.81,
+            "Friday": 0.94,
+            "Saturday": 1.23,
+            "Sunday": 1.0
+        }
+    },
+    "모짜렐라살라미치즈": {
+        "base_avg": 10.1,
+        "factors": {
+            "Monday": 0.1,
+            "Tuesday": 1.0,
+            "Wednesday": 0.08,
+            "Thursday": 0.86,
+            "Friday": 0.94,
+            "Saturday": 1.38,
+            "Sunday": 0.1
+        }
+    },
+    "모찌모찌식빵": {
+        "base_avg": 7.3,
+        "factors": {
+            "Monday": 0.98,
+            "Tuesday": 1.0,
+            "Wednesday": 0.97,
+            "Thursday": 0.27,
+            "Friday": 0.27,
+            "Saturday": 0.14,
+            "Sunday": 1.12
+        }
+    },
+    "몽블랑": {
+        "base_avg": 3.7,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.83,
+            "Friday": 1.07,
+            "Saturday": 1.1,
+            "Sunday": 1.0
+        }
+    },
+    "무화과베이글": {
+        "base_avg": 7.7,
+        "factors": {
+            "Monday": 0.99,
+            "Tuesday": 1.0,
+            "Wednesday": 0.94,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.07
+        }
+    },
+    "무화과크림치즈사워도우": {
+        "base_avg": 6.4,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.08,
+            "Thursday": 0.9,
+            "Friday": 0.9,
+            "Saturday": 1.24,
+            "Sunday": 1.0
+        }
+    },
+    "미니페스츄리식빵": {
+        "base_avg": 5.2,
+        "factors": {
+            "Monday": 2.32,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.81,
+            "Friday": 0.85,
+            "Saturday": 1.3,
+            "Sunday": 1.0
+        }
+    },
+    "바게트": {
+        "base_avg": 3.6,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.28,
+            "Thursday": 1.0,
+            "Friday": 0.88,
+            "Saturday": 1.13,
+            "Sunday": 1.0
+        }
+    },
+    "바게트잠봉": {
+        "base_avg": 9.7,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.08,
+            "Thursday": 0.9,
+            "Friday": 0.97,
+            "Saturday": 1.23,
+            "Sunday": 1.0
+        }
+    },
+    "바닐라까눌레": {
+        "base_avg": 8.0,
+        "factors": {
+            "Monday": 0.81,
+            "Tuesday": 1.0,
+            "Wednesday": 0.88,
+            "Thursday": 0.98,
+            "Friday": 1.1,
+            "Saturday": 1.19,
+            "Sunday": 1.02
+        }
+    },
+    "바닐라빈라떼HOT": {
+        "base_avg": 1.4,
+        "factors": {
+            "Monday": 0.97,
+            "Tuesday": 1.0,
+            "Wednesday": 0.9,
+            "Thursday": 0.99,
+            "Friday": 1.16,
+            "Saturday": 1.01,
+            "Sunday": 0.96
+        }
+    },
+    "바닐라빈라떼ICE": {
+        "base_avg": 2.8,
+        "factors": {
+            "Monday": 0.89,
+            "Tuesday": 1.0,
+            "Wednesday": 1.14,
+            "Thursday": 0.89,
+            "Friday": 1.02,
+            "Saturday": 0.99,
+            "Sunday": 1.04
+        }
+    },
+    "바질살라미모짜렐라": {
+        "base_avg": 13.4,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.85,
+            "Thursday": 1.0,
+            "Friday": 0.74,
+            "Saturday": 1.0,
+            "Sunday": 1.15
+        }
+    },
+    "바질잠봉(루꼴라)": {
+        "base_avg": 11.8,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.08,
+            "Thursday": 0.81,
+            "Friday": 0.97,
+            "Saturday": 1.25,
+            "Sunday": 0.51
+        }
+    },
+    "바질토마토크림치즈": {
+        "base_avg": 2.8,
+        "factors": {
+            "Monday": 1.11,
+            "Tuesday": 1.0,
+            "Wednesday": 0.83,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 0.46,
+            "Sunday": 1.18
+        }
+    },
+    "블랙어니언베이글": {
+        "base_avg": 3.7,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 1.0,
+            "Friday": 1.09,
+            "Saturday": 1.0,
+            "Sunday": 0.95
+        }
+    },
+    "블루베리베이글": {
+        "base_avg": 7.9,
+        "factors": {
+            "Monday": 0.97,
+            "Tuesday": 1.0,
+            "Wednesday": 0.96,
+            "Thursday": 1.26,
+            "Friday": 0.5,
+            "Saturday": 1.0,
+            "Sunday": 1.07
+        }
+    },
+    "블루베리크림치즈": {
+        "base_avg": 2.6,
+        "factors": {
+            "Monday": 0.93,
+            "Tuesday": 1.0,
+            "Wednesday": 0.7,
+            "Thursday": 0.39,
+            "Friday": 1.0,
+            "Saturday": 0.58,
+            "Sunday": 1.35
+        }
+    },
+    "뺑오쇼콜라": {
+        "base_avg": 5.9,
+        "factors": {
+            "Monday": 0.17,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.93,
+            "Friday": 0.86,
+            "Saturday": 1.22,
+            "Sunday": 1.0
+        }
+    },
+    "사워도우": {
+        "base_avg": 2.0,
+        "factors": {
+            "Monday": 0.5,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.83,
+            "Friday": 0.89,
+            "Saturday": 1.28,
+            "Sunday": 1.0
+        }
+    },
+    "생식빵": {
+        "base_avg": 5.9,
+        "factors": {
+            "Monday": 1.01,
+            "Tuesday": 1.0,
+            "Wednesday": 0.88,
+            "Thursday": 0.34,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.13
+        }
+    },
+    "샷추가": {
+        "base_avg": 1.0,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.0
+        }
+    },
+    "소금베이글": {
+        "base_avg": 1.0,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.0
+        }
+    },
+    "소금빵": {
+        "base_avg": 16.6,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.98,
+            "Friday": 0.99,
+            "Saturday": 1.04,
+            "Sunday": 0.3
+        }
+    },
+    "소세지빵": {
+        "base_avg": 7.6,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.93,
+            "Friday": 0.94,
+            "Saturday": 1.12,
+            "Sunday": 1.0
+        }
+    },
+    "소프트소금빵": {
+        "base_avg": 17.2,
+        "factors": {
+            "Monday": 0.97,
+            "Tuesday": 1.0,
+            "Wednesday": 0.95,
+            "Thursday": 0.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.11
+        }
+    },
+    "솔티드초코휘낭시에": {
+        "base_avg": 3.8,
+        "factors": {
+            "Monday": 0.91,
+            "Tuesday": 1.0,
+            "Wednesday": 0.89,
+            "Thursday": 0.81,
+            "Friday": 1.02,
+            "Saturday": 1.38,
+            "Sunday": 0.94
+        }
+    },
+    "쉬림프과카몰리샌드위치": {
+        "base_avg": 17.1,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.08,
+            "Thursday": 0.82,
+            "Friday": 0.86,
+            "Saturday": 1.37,
+            "Sunday": 1.0
+        }
+    },
+    "썬드라이바질토마토": {
+        "base_avg": 7.8,
+        "factors": {
+            "Monday": 1.22,
+            "Tuesday": 1.0,
+            "Wednesday": 0.68,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.09
+        }
+    },
+    "아메리카노HOT": {
+        "base_avg": 7.9,
+        "factors": {
+            "Monday": 0.89,
+            "Tuesday": 1.0,
+            "Wednesday": 0.78,
+            "Thursday": 1.07,
+            "Friday": 0.97,
+            "Saturday": 1.38,
+            "Sunday": 0.89
+        }
+    },
+    "아메리카노ICE": {
+        "base_avg": 15.5,
+        "factors": {
+            "Monday": 0.95,
+            "Tuesday": 1.0,
+            "Wednesday": 0.84,
+            "Thursday": 1.03,
+            "Friday": 1.04,
+            "Saturday": 1.22,
+            "Sunday": 0.89
+        }
+    },
+    "아몬드크로와상": {
+        "base_avg": 1.0,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 1.33,
+            "Friday": 0.0,
+            "Saturday": 1.0,
+            "Sunday": 1.0
+        }
+    },
+    "앙버터": {
+        "base_avg": 7.8,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.0,
+            "Thursday": 0.82,
+            "Friday": 0.86,
+            "Saturday": 1.33,
+            "Sunday": 1.0
+        }
+    },
+    "애플키위믹스": {
+        "base_avg": 1.5,
+        "factors": {
+            "Monday": 0.92,
+            "Tuesday": 1.0,
+            "Wednesday": 0.92,
+            "Thursday": 1.01,
+            "Friday": 1.05,
+            "Saturday": 1.01,
+            "Sunday": 1.1
+        }
+    },
+    "에그타르트": {
+        "base_avg": 12.9,
+        "factors": {
+            "Monday": 0.79,
+            "Tuesday": 1.0,
+            "Wednesday": 0.78,
+            "Thursday": 0.84,
+            "Friday": 1.0,
+            "Saturday": 1.51,
+            "Sunday": 1.05
+        }
+    },
+    "연하게": {
+        "base_avg": 2.0,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.5,
+            "Thursday": 1.0,
+            "Friday": 0.5,
+            "Saturday": 1.0,
+            "Sunday": 1.0
+        }
+    },
+    "올리브베이글": {
+        "base_avg": 8.1,
+        "factors": {
+            "Monday": 0.98,
+            "Tuesday": 1.0,
+            "Wednesday": 0.96,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.05
+        }
+    },
+    "올리브치즈치아바타": {
+        "base_avg": 7.1,
+        "factors": {
+            "Monday": 0.14,
+            "Tuesday": 1.0,
+            "Wednesday": 0.14,
+            "Thursday": 0.97,
+            "Friday": 1.02,
+            "Saturday": 1.06,
+            "Sunday": 0.28
+        }
+    },
+    "우유크림소금빵": {
+        "base_avg": 9.9,
+        "factors": {
+            "Monday": 1.07,
+            "Tuesday": 1.0,
+            "Wednesday": 0.99,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 0.93
+        }
+    },
+    "잠봉베이글샌드위치": {
+        "base_avg": 14.3,
+        "factors": {
+            "Monday": 1.02,
+            "Tuesday": 1.0,
+            "Wednesday": 0.84,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 0.7,
+            "Sunday": 1.14
+        }
+    },
+    "쪽파베이글샌드위치": {
+        "base_avg": 7.6,
+        "factors": {
+            "Monday": 0.95,
+            "Tuesday": 1.0,
+            "Wednesday": 0.9,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.15
+        }
+    },
+    "착즙애플": {
+        "base_avg": 1.6,
+        "factors": {
+            "Monday": 0.83,
+            "Tuesday": 1.0,
+            "Wednesday": 0.75,
+            "Thursday": 0.79,
+            "Friday": 1.03,
+            "Saturday": 1.29,
+            "Sunday": 1.01
+        }
+    },
+    "착즙오렌지": {
+        "base_avg": 1.9,
+        "factors": {
+            "Monday": 0.61,
+            "Tuesday": 1.0,
+            "Wednesday": 0.68,
+            "Thursday": 1.49,
+            "Friday": 0.98,
+            "Saturday": 1.08,
+            "Sunday": 0.88
+        }
+    },
+    "초코베이글": {
+        "base_avg": 10.0,
+        "factors": {
+            "Monday": 0.9,
+            "Tuesday": 1.0,
+            "Wednesday": 0.8,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.31
+        }
+    },
+    "치아바타": {
+        "base_avg": 3.1,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 1.06,
+            "Friday": 0.9,
+            "Saturday": 1.04,
+            "Sunday": 1.0
+        }
+    },
+    "치아바타샌드위치": {
+        "base_avg": 17.7,
+        "factors": {
+            "Monday": 8.45,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.78,
+            "Friday": 0.84,
+            "Saturday": 1.21,
+            "Sunday": 1.0
+        }
+    },
+    "치즈베이글": {
+        "base_avg": 1.0,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.0
+        }
+    },
+    "카야버터프레첼베이글": {
+        "base_avg": 9.6,
+        "factors": {
+            "Monday": 0.97,
+            "Tuesday": 1.0,
+            "Wednesday": 0.9,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.12
+        }
+    },
+    "카페라떼HOT": {
+        "base_avg": 2.4,
+        "factors": {
+            "Monday": 1.04,
+            "Tuesday": 1.0,
+            "Wednesday": 0.83,
+            "Thursday": 1.07,
+            "Friday": 0.93,
+            "Saturday": 1.14,
+            "Sunday": 0.94
+        }
+    },
+    "카페라떼ICE": {
+        "base_avg": 4.5,
+        "factors": {
+            "Monday": 1.05,
+            "Tuesday": 1.0,
+            "Wednesday": 0.97,
+            "Thursday": 0.89,
+            "Friday": 1.08,
+            "Saturday": 1.1,
+            "Sunday": 0.9
+        }
+    },
+    "크렌베리닭가슴살샌드위치": {
+        "base_avg": 8.6,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.12,
+            "Thursday": 0.85,
+            "Friday": 0.88,
+            "Saturday": 1.28,
+            "Sunday": 1.0
+        }
+    },
+    "크로와상": {
+        "base_avg": 4.7,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 1.0,
+            "Thursday": 0.86,
+            "Friday": 0.91,
+            "Saturday": 1.23,
+            "Sunday": 1.0
+        }
+    },
+    "크림치즈": {
+        "base_avg": 3.0,
+        "factors": {
+            "Monday": 0.84,
+            "Tuesday": 1.0,
+            "Wednesday": 0.92,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 0.33,
+            "Sunday": 1.27
+        }
+    },
+    "통밀잡곡식빵": {
+        "base_avg": 5.3,
+        "factors": {
+            "Monday": 0.95,
+            "Tuesday": 1.0,
+            "Wednesday": 0.91,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 0.38,
+            "Sunday": 1.16
+        }
+    },
+    "플레인베이글": {
+        "base_avg": 9.5,
+        "factors": {
+            "Monday": 0.96,
+            "Tuesday": 1.0,
+            "Wednesday": 0.99,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 0.32,
+            "Sunday": 1.06
+        }
+    },
+    "플레인햄치즈샌드위치": {
+        "base_avg": 10.0,
+        "factors": {
+            "Monday": 1.01,
+            "Tuesday": 1.0,
+            "Wednesday": 0.96,
+            "Thursday": 1.0,
+            "Friday": 0.65,
+            "Saturday": 1.0,
+            "Sunday": 1.05
+        }
+    },
+    "플레인휘낭시에": {
+        "base_avg": 3.5,
+        "factors": {
+            "Monday": 0.97,
+            "Tuesday": 1.0,
+            "Wednesday": 1.04,
+            "Thursday": 0.96,
+            "Friday": 0.89,
+            "Saturday": 1.16,
+            "Sunday": 0.97
+        }
+    },
+    "피스타치오햄바게트": {
+        "base_avg": 7.9,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.13,
+            "Thursday": 0.81,
+            "Friday": 0.93,
+            "Saturday": 1.32,
+            "Sunday": 1.0
+        }
+    },
+    "피칸카라멜휘낭시에": {
+        "base_avg": 4.6,
+        "factors": {
+            "Monday": 0.97,
+            "Tuesday": 1.0,
+            "Wednesday": 0.9,
+            "Thursday": 0.86,
+            "Friday": 0.97,
+            "Saturday": 1.24,
+            "Sunday": 1.06
+        }
+    },
+    "호두크랜베리베이글": {
+        "base_avg": 7.3,
+        "factors": {
+            "Monday": 0.95,
+            "Tuesday": 1.0,
+            "Wednesday": 0.98,
+            "Thursday": 1.37,
+            "Friday": 0.0,
+            "Saturday": 1.0,
+            "Sunday": 1.08
+        }
+    },
+    "호두크랜베리사워도우": {
+        "base_avg": 2.6,
+        "factors": {
+            "Monday": 1.0,
+            "Tuesday": 1.0,
+            "Wednesday": 0.0,
+            "Thursday": 0.95,
+            "Friday": 0.99,
+            "Saturday": 1.08,
+            "Sunday": 1.0
+        }
+    },
+    "후추소금빵": {
+        "base_avg": 7.7,
+        "factors": {
+            "Monday": 0.95,
+            "Tuesday": 1.0,
+            "Wednesday": 0.97,
+            "Thursday": 1.0,
+            "Friday": 1.0,
+            "Saturday": 1.0,
+            "Sunday": 1.09
+        }
+    }
+}

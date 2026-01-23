@@ -1,25 +1,33 @@
 package com.hong.thebaker.service;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service
 public class PredictionService {
 
     private List<SalesRecord> history = new ArrayList<>();
+    private JsonNode seasonalityData;
 
-    // 1. LOAD DATA (Raw Korean Names)
+    // 1. LOAD DATA (Raw CSV History)
     @PostConstruct
     public void loadData() {
         try {
+            // Load CSV
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     new ClassPathResource("history.csv").getInputStream(), StandardCharsets.UTF_8));
 
@@ -28,87 +36,99 @@ public class PredictionService {
 
             while ((line = reader.readLine()) != null) {
                 try {
-                    // Split by comma
                     String[] parts = line.split(",");
-
-                    // Index 1: Product Name
-                    String rawName = parts[1].trim().replace(" ", "");
-
-                    // Index 2: Quantity
-                    int qty = Integer.parseInt(parts[2].trim());
-
-                    // Index 3 is Revenue (skipped)
-
-                    // Index 4: Weather
-                    String weather = parts[4].trim();
-
-                    // Index 5: Temp
-                    double temp = Double.parseDouble(parts[5].trim());
-
-                    // DEBUG: See the clean data
-                    System.out.println("✅ Loaded: " + rawName + " | Qty: " + qty + " | W: " + weather);
+                    // --- YOUR EXACT INDICES ---
+                    String rawName = parts[1].trim().replace(" ", ""); // Name
+                    int qty = Integer.parseInt(parts[2].trim());       // Quantity
+                    String weather = parts[4].trim();                  // Weather
+                    double temp = Double.parseDouble(parts[5].trim()); // Temp
 
                     history.add(new SalesRecord(weather, temp, rawName, qty));
                 } catch (Exception e) {
-                    // Helpful error log to find bad rows
-                    System.err.println("⚠️ Skipping bad row: " + line);
+                    System.err.println("⚠️ Skipping bad CSV row: " + line);
                 }
             }
-            System.out.println("✅ AI ENGINE: Loaded " + history.size() + " records (Korean Exact Match).");
+            System.out.println("✅ HISTORY LOADED: " + history.size() + " records.");
+
+            // Load Seasonality (JSON)
+            ObjectMapper mapper = new ObjectMapper();
+            InputStream is = new ClassPathResource("seasonality.json").getInputStream();
+            seasonalityData = mapper.readTree(is);
+            System.out.println("✅ INTELLIGENCE LOADED: Seasonality Factors Ready.");
+
         } catch (Exception e) {
-            System.err.println("❌ AI ENGINE: history.csv not found.");
+            System.err.println("❌ Error loading data: " + e.getMessage());
         }
     }
 
     public PredictionResult getPrediction(String productName, String weatherCondition, double temp) {
-        // 1. Prepare the inputs
         String target = productName.trim().replace(" ", "");
+        String category = mapProductToCategory(target); // For JSON lookup
 
-        // Use the weather passed from the Controller (God Mode)
-        WeatherState current = new WeatherState(weatherCondition, temp);
-
-        // 2. Level 1: Perfect Match (Name + Weather + Temp +/- 5)
+        // --- STEP 1: BASELINE (From CSV History) ---
+        // Level 1: Perfect Match (Weather + Temp +/- 5)
         List<SalesRecord> matches = history.stream()
                 .filter(r -> r.product.equalsIgnoreCase(target))
-                .filter(r -> r.weather.equalsIgnoreCase(current.condition))
-                .filter(r -> Math.abs(r.temp - current.temp) <= 5.0)
+                .filter(r -> r.weather.equalsIgnoreCase(weatherCondition))
+                .filter(r -> Math.abs(r.temp - temp) <= 5.0)
                 .collect(Collectors.toList());
 
-        // 3. Level 2: Weather Match Only (Ignore Temp)
+        // Level 2: Weather Match Only
         if (matches.isEmpty()) {
             matches = history.stream()
                     .filter(r -> r.product.equalsIgnoreCase(target))
-                    .filter(r -> r.weather.equalsIgnoreCase(current.condition))
+                    .filter(r -> r.weather.equalsIgnoreCase(weatherCondition))
                     .collect(Collectors.toList());
         }
 
-        // 4. Level 3: Product Match Only (Ignore Weather)
-        // This ensures you see data even if today's weather is unique
+        // Level 3: Product Match Only (Panic Fallback)
         if (matches.isEmpty()) {
             matches = history.stream()
                     .filter(r -> r.product.equalsIgnoreCase(target))
                     .collect(Collectors.toList());
         }
 
-        // 5. Final Result
         if (matches.isEmpty()) {
-            // "No Data" status
-            return new PredictionResult(productName, 0, 0, 0, "No Data");
+            return new PredictionResult(productName, 0, 0, 0, "데이터 부족");
         }
 
-        double avg = matches.stream().mapToInt(r -> r.quantity).average().orElse(0);
-        int rec = (int) Math.ceil(avg * 1.1);
+        double baseAvg = matches.stream().mapToInt(r -> r.quantity).average().orElse(0);
 
-        return new PredictionResult(productName, avg, rec, matches.size(), "OK");
+        // --- STEP 2: INTELLIGENCE UPGRADE (From JSON) ---
+        double finalPrediction = baseAvg;
+        String reason = "OK";
+
+        // Get Tomorrow's Day Factor
+        LocalDate tomorrow = LocalDate.now().plusDays(1);
+        String dayName = tomorrow.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH); // e.g. "Saturday"
+
+        if (seasonalityData != null && seasonalityData.has(category)) {
+            JsonNode productNode = seasonalityData.get(category);
+            if (productNode.get("factors").has(dayName)) {
+                double factor = productNode.get("factors").get(dayName).asDouble();
+
+                // Apply the Boost
+                finalPrediction = baseAvg * factor;
+
+                // Format reason for UI
+                if (factor > 1.05) reason = String.format("Boosted x%.2f (%s)", factor, dayName);
+                else if (factor < 0.95) reason = String.format("Reduced x%.2f (%s)", factor, dayName);
+            }
+        }
+
+        int recommended = (int) Math.ceil(finalPrediction * 1.1); // +10% Safety
+
+        return new PredictionResult(productName, baseAvg, recommended, matches.size(), reason);
     }
 
     // --- HELPER METHODS ---
 
-    private String getEmoji(String weather) {
-        if (weather.contains("Rain")) return "🌧️";
-        if (weather.contains("Snow")) return "❄️";
-        if (weather.contains("Sunny")) return "☀️";
-        return "☁️";
+    private String mapProductToCategory(String name) {
+        name = name.toLowerCase();
+        if (name.contains("bagel") || name.contains("베이글")) return "bagel";
+        if (name.contains("salt") || name.contains("소금")) return "salt";
+        if (name.contains("sand") || name.contains("샌드")) return "sandwich";
+        return "bagel";
     }
 
     private static class SalesRecord {
@@ -116,21 +136,8 @@ public class PredictionService {
         double temp;
         String product;
         int quantity;
-
         public SalesRecord(String w, double t, String p, int q) {
-            this.weather = w;
-            this.temp = t;
-            this.product = p;
-            this.quantity = q;
-        }
-    }
-
-    private static class WeatherState {
-        String condition;
-        double temp;
-        public WeatherState(String c, double t) {
-            this.condition = c;
-            this.temp = t;
+            this.weather = w; this.temp = t; this.product = p; this.quantity = q;
         }
     }
 
@@ -138,8 +145,8 @@ public class PredictionService {
         public String productName;
         public double avgSales;
         public int recommended;
-        public int dataPoints; // How many past days we found
-        public String status;  // e.g., "Enough Data" or "New Item"
+        public int dataPoints;
+        public String status;
 
         public PredictionResult(String name, double avg, int rec, int points, String stat) {
             this.productName = name;
