@@ -6,146 +6,104 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.TextStyle;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class PredictionService {
 
-    private List<SalesRecord> history = new ArrayList<>();
-    private JsonNode seasonalityData;
+    // The "Brain" (Holds the weights for each product)
+    private final Map<String, ModelData> productModels = new HashMap<>();
 
-    // 1. LOAD DATA (Raw CSV History)
+    private static class ModelData {
+        double baseBias;
+        double weekendImpact;
+        double rainImpact;
+        double tempImpact;
+    }
+
+    // 1. LOAD AI MODEL (Replaces CSV loading)
     @PostConstruct
-    public void loadData() {
+    public void loadModel() {
         try {
-            // Load CSV
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    new ClassPathResource("history.csv").getInputStream(), StandardCharsets.UTF_8));
-
-            String line;
-            reader.readLine(); // Skip header
-
-            while ((line = reader.readLine()) != null) {
-                try {
-                    String[] parts = line.split(",");
-                    // --- YOUR EXACT INDICES ---
-                    String rawName = parts[1].trim().replace(" ", ""); // Name
-                    int qty = Integer.parseInt(parts[2].trim());       // Quantity
-                    String weather = parts[4].trim();                  // Weather
-                    double temp = Double.parseDouble(parts[5].trim()); // Temp
-
-                    history.add(new SalesRecord(weather, temp, rawName, qty));
-                } catch (Exception e) {
-                    System.err.println("⚠️ Skipping bad CSV row: " + line);
-                }
-            }
-            System.out.println("✅ HISTORY LOADED: " + history.size() + " records.");
-
-            // Load Seasonality (JSON)
+            InputStream is = new ClassPathResource("ml_model.json").getInputStream();
             ObjectMapper mapper = new ObjectMapper();
-            InputStream is = new ClassPathResource("seasonality.json").getInputStream();
-            seasonalityData = mapper.readTree(is);
-            System.out.println("✅ INTELLIGENCE LOADED: Seasonality Factors Ready.");
+            JsonNode root = mapper.readTree(is);
+
+            root.fields().forEachRemaining(entry -> {
+                String productName = entry.getKey();
+                JsonNode data = entry.getValue();
+
+                ModelData model = new ModelData();
+                model.baseBias = data.get("base_bias").asDouble();
+
+                JsonNode weights = data.get("weights");
+                model.weekendImpact = weights.get("weekend_impact").asDouble();
+                model.rainImpact = weights.get("rain_impact").asDouble();
+                model.tempImpact = weights.get("temp_impact").asDouble();
+
+                // Clean name for lookup (remove spaces, match your old logic)
+                String key = productName.replace(" ", "").trim();
+                productModels.put(key, model);
+            });
+
+            System.out.println("✅ AI Model Loaded: " + productModels.size() + " formulas ready.");
 
         } catch (Exception e) {
-            System.err.println("❌ Error loading data: " + e.getMessage());
+            System.err.println("⚠️ AI Model Load Failed (Is train_model.py run?): " + e.getMessage());
         }
     }
 
-    public PredictionResult getPrediction(String productName, String weatherCondition, double temp) {
-        String target = productName.trim().replace(" ", "");
-        String category = mapProductToCategory(target); // For JSON lookup
+    // 2. PREDICT (Uses y = mx + b)
+    public PredictionResult getPrediction(String productName, String weather, double temp) {
 
-        // --- STEP 1: BASELINE (From CSV History) ---
-        // Level 1: Perfect Match (Weather + Temp +/- 5)
-        List<SalesRecord> matches = history.stream()
-                .filter(r -> r.product.equalsIgnoreCase(target))
-                .filter(r -> r.weather.equalsIgnoreCase(weatherCondition))
-                .filter(r -> Math.abs(r.temp - temp) <= 5.0)
-                .collect(Collectors.toList());
+        // Match the key format (remove spaces)
+        String lookupKey = productName.replace(" ", "").trim();
+        ModelData model = productModels.get(lookupKey);
 
-        // Level 2: Weather Match Only
-        if (matches.isEmpty()) {
-            matches = history.stream()
-                    .filter(r -> r.product.equalsIgnoreCase(target))
-                    .filter(r -> r.weather.equalsIgnoreCase(weatherCondition))
-                    .collect(Collectors.toList());
+        // Fallback if AI has no data for this specific product
+        if (model == null) {
+            return new PredictionResult(productName, 0, 0, 0, "데이터 부족 (AI)");
         }
 
-        // Level 3: Product Match Only (Panic Fallback)
-        if (matches.isEmpty()) {
-            matches = history.stream()
-                    .filter(r -> r.product.equalsIgnoreCase(target))
-                    .collect(Collectors.toList());
-        }
+        // --- THE AI MATH ---
+        boolean isRain = weather.toLowerCase().contains("rain") || weather.toLowerCase().contains("snow");
 
-        if (matches.isEmpty()) {
-            return new PredictionResult(productName, 0, 0, 0, "데이터 부족");
-        }
+        // Target is TOMORROW
+        DayOfWeek tomorrow = LocalDate.now().plusDays(1).getDayOfWeek();
+        boolean isWeekend = (tomorrow == DayOfWeek.SATURDAY || tomorrow == DayOfWeek.SUNDAY);
 
-        double baseAvg = matches.stream().mapToInt(r -> r.quantity).average().orElse(0);
+        // FORMULA: Prediction = Base + (Weekend?) + (Rain?) + (Temp * Weight)
+        double predictedValue = model.baseBias
+                + (isWeekend ? model.weekendImpact : 0)
+                + (isRain ? model.rainImpact : 0)
+                + (temp * model.tempImpact);
 
-        // --- STEP 2: INTELLIGENCE UPGRADE (From JSON) ---
-        double finalPrediction = baseAvg;
-        String reason = "OK";
+        // Safety: No negative sales
+        int recommended = (int) Math.max(0, Math.round(predictedValue));
 
-        // Get Tomorrow's Day Factor
-        LocalDate tomorrow = LocalDate.now().plusDays(1);
-        String dayName = tomorrow.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH); // e.g. "Saturday"
+        // --- CONTEXT GENERATION ---
+        // We explain *why* the number is what it is
+        String status = "Normal";
+        if (isWeekend && model.weekendImpact > 2.0) status = "Weekend Boost";
+        if (isRain && model.rainImpact < -2.0) status = "Rain Drop";
+        if (temp > 25 && model.tempImpact > 0.5) status = "Hot Weather Spike";
 
-        if (seasonalityData != null && seasonalityData.has(category)) {
-            JsonNode productNode = seasonalityData.get(category);
-            if (productNode.get("factors").has(dayName)) {
-                double factor = productNode.get("factors").get(dayName).asDouble();
-
-                // Apply the Boost
-                finalPrediction = baseAvg * factor;
-
-                // Format reason for UI
-                if (factor > 1.05) reason = String.format("Boosted x%.2f (%s)", factor, dayName);
-                else if (factor < 0.95) reason = String.format("Reduced x%.2f (%s)", factor, dayName);
-            }
-        }
-
-        int recommended = (int) Math.ceil(finalPrediction * 1.1); // +10% Safety
-
-        return new PredictionResult(productName, baseAvg, recommended, matches.size(), reason);
+        // Map to the Old Class Structure so HTML doesn't break
+        // baseBias acts as the "Average"
+        // dataPoints is set to 365 (since model trained on full year)
+        return new PredictionResult(productName, model.baseBias, recommended, 365, status);
     }
 
-    // --- HELPER METHODS ---
-
-    private String mapProductToCategory(String name) {
-        name = name.toLowerCase();
-        if (name.contains("bagel") || name.contains("베이글")) return "bagel";
-        if (name.contains("salt") || name.contains("소금")) return "salt";
-        if (name.contains("sand") || name.contains("샌드")) return "sandwich";
-        return "bagel";
-    }
-
-    private static class SalesRecord {
-        String weather;
-        double temp;
-        String product;
-        int quantity;
-        public SalesRecord(String w, double t, String p, int q) {
-            this.weather = w; this.temp = t; this.product = p; this.quantity = q;
-        }
-    }
-
+    // --- DTO (Kept matching your OLD structure) ---
     public static class PredictionResult {
         public String productName;
-        public double avgSales;
-        public int recommended;
-        public int dataPoints;
+        public double avgSales;   // We use Base Bias here
+        public int recommended;   // The AI Prediction
+        public int dataPoints;    // Dummy value (Model represents all data)
         public String status;
 
         public PredictionResult(String name, double avg, int rec, int points, String stat) {
@@ -154,6 +112,13 @@ public class PredictionService {
             this.recommended = rec;
             this.dataPoints = points;
             this.status = stat;
+        }
+
+        // Helper for UI Color (You can add this to HTML: th:classappend="${item.getColor()}")
+        public String getColor() {
+            if (status.contains("Boost") || status.contains("Spike")) return "green";
+            if (status.contains("Drop") || status.contains("Rain")) return "red";
+            return "gray";
         }
     }
 }
