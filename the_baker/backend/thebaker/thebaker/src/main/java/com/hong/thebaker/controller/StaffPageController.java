@@ -1,5 +1,7 @@
 package com.hong.thebaker.controller;
 
+import com.hong.thebaker.entity.Product;
+import com.hong.thebaker.repository.ProductRepository;
 import com.hong.thebaker.service.PredictionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,40 +11,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller // <--- Note: This is NOT RestController. It serves HTML.
+@Controller
 public class StaffPageController {
 
     private final PredictionService predictionService;
+    private final ProductRepository productRepo; // <--- 1. Add Repository
 
-    public StaffPageController(PredictionService predictionService) {
+    // 2. Inject Repository in Constructor
+    public StaffPageController(PredictionService predictionService, ProductRepository productRepo) {
         this.predictionService = predictionService;
+        this.productRepo = productRepo;
     }
 
-    @GetMapping("/staff") // This handles the URL 'thebaker.cc/staff'
+    @GetMapping("/staff")
     public String staffPage(
-            // 1. LISTEN: Catch the manual weather inputs
             @RequestParam(value = "weather", defaultValue = "Sunny") String weather,
             @RequestParam(value = "temp", defaultValue = "20.0") double temp,
             Model model
     ) {
-        // 2. DEFINE PRODUCTS
-        List<String> products = List.of(
-                "Bagel", "SaltBread", "Scone", "Sandwich", "Ciabatta", "Croissant"
-                // Add other product names here exactly as they appear in history.csv
-        );
+        // 3. FETCH REAL PRODUCTS FROM DB
+        List<Product> products = productRepo.findAll();
 
-        // 3. ASK AI: Get predictions based on the inputs
+        // 4. PREDICT FOR EACH REAL PRODUCT
         List<PredictionService.PredictionResult> report = products.stream()
-                .map(product -> predictionService.getPrediction(product, weather, temp))
+                .map(product -> predictionService.getPrediction(product.getName(), weather, temp))
                 .collect(Collectors.toList());
 
-        // 4. SEND TO HTML
         model.addAttribute("report", report);
 
-        // Pass inputs back so the dropdown remembers what you picked
+        // Pass inputs back for the simulation form
         model.addAttribute("currentWeather", weather);
         model.addAttribute("currentTemp", temp);
 
-        return "staff"; // This loads staff.html
+        return "staff";
     }
 }
