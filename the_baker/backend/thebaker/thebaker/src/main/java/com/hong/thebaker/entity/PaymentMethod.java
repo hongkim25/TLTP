@@ -12,7 +12,7 @@ public enum PaymentMethod {
         this.rate = rate;
     }
 
-    // 포인트 계산 로직 (Service가 할 일을 얘가 대신 해줌 -> 객체지향적)
+    // Points calculation logic (Service가 할 일을 얘가 대신 해줌 -> 객체지향적)
     public int calculatePoints(BigDecimal amount) {
         return amount.multiply(BigDecimal.valueOf(this.rate)).intValue();
     }

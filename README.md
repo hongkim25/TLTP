@@ -1,7 +1,7 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 26__ <br>
-23 JAN 2026 - Woke up at 6:40. Restored critical "Live Stock" visibility and sorting logic to the Menu UI, resolved breaking mobile layout issues on the Reservation page, and executed an emergency manual deployment to bypass a corrupted local Git state, continued Algorithms for Coding Tests course (completed 23 out of 56 lectures), reviewed Neetcode 150 (K Closest Points to Origin), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
+23 JAN 2026 - Woke up at 6:40. Engineered the core "Context-Aware" logic by building a cross-language data pipeline (Python-to-Java) to extract seasonality factors from raw CSV history, fixing critical data corruption bugs along the way. Professionalized the backend architecture by implementing JUnit/Mockito testing to verify atomic inventory restoration, securing credentials via Environment Variables, adding legal compliance (Privacy Policy), and deploying Swagger API documentation to standard engineering specifications, continued Algorithms for Coding Tests course (completed 23 out of 56 lectures), reviewed Neetcode 150 (K Closest Points to Origin), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
 
 __WEEK 25__ <br>
 22 JAN 2026 - Woke up at 6:50. Restored critical "Live Stock" visibility and sorting logic to the Menu UI, resolved breaking mobile layout issues on the Reservation page, and executed an emergency manual deployment to bypass a corrupted local Git state, continued Algorithms for Coding Tests course (completed 22 out of 56 lectures), reviewed Neetcode 150 (Walls and Gates), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
@@ -279,7 +279,7 @@ __WEEK 8__ <br>
     Programmers AI Backend Bootcamp: DOM (Document Object Model), Event, BOM (Broswer Object Model)
 
 23 SEP 2025 - Woke up at 7:00. Completed day 10 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
-    Programmers AI Backend Bootcamp: Tools - NoteboomLM, Vite, Vercel. DOM (Document Object Model)
+    Programmers AI Backend Bootcamp: Tools - NoteboomLM, Vite, Vercel, DOM (Document Object Model)
 
 22 SEP 2025 - Woke up at 6:50. Completed day 9 of the Programmers AI Backend bootcamp (Javascript, 09:00-18:00), created a Hashnode blog, talked to Gemini/Claude/ChatGPT, practiced Python on Datacamp/Brilliant, and practiced Spanish on Babbel/Duolingo. <br>
     Programmers AI Backend Bootcamp: Javascript - data structure, array, class
