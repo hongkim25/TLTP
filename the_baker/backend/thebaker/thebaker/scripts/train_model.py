@@ -35,7 +35,15 @@ if len(df) == 0:
     exit()
 
 # 3. FEATURE ENGINEERING
-df['is_weekend'] = df['date'].dt.dayofweek.apply(lambda x: 1 if x >= 5 else 0)
+df['day_name'] = df['date'].dt.day_name()
+days_dummies = pd.get_dummies(df['day_name'], prefix='day')
+df = pd.concat([df, days_dummies], axis=1)
+
+expected_days = ['day_Monday', 'day_Tuesday', 'day_Wednesday', 'day_Thursday', 'day_Friday', 'day_Saturday', 'day_Sunday']
+for day in expected_days:
+    if day not in df.columns:
+        df[day] = 0 # Fill missing days with 0
+
 df['is_rain'] = df['weather'].astype(str).apply(lambda x: 1 if 'Rain' in x or 'Snow' in x else 0)
 
 # 4. TRAIN MODEL
@@ -51,7 +59,7 @@ for p in products:
         print(f"   ⚠️ Skipping {p}: Only {len(subset)} rows (Need 2+)")
         continue
 
-    X = subset[['is_weekend', 'is_rain', 'temp']]
+    X = subset[expected_days + ['is_rain', 'temp']]
     y = subset['qty']
 
     try:
