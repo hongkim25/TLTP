@@ -18,7 +18,6 @@ public class PredictionService {
 
     private final Map<String, ModelData> productModels = new HashMap<>();
 
-    // CHANGED: We now use a Map for weights to handle dynamic keys like "day_Monday"
     private static class ModelData {
         double baseBias;
         Map<String, Double> weights = new HashMap<>();
@@ -38,7 +37,6 @@ public class PredictionService {
                 ModelData model = new ModelData();
                 model.baseBias = data.get("base_bias").asDouble();
 
-                // DYNAMIC LOADING: Read whatever keys Python sent us (day_Mon, rain_impact, etc.)
                 JsonNode weights = data.get("weights");
                 weights.fields().forEachRemaining(w -> {
                     model.weights.put(w.getKey(), w.getValue().asDouble());
@@ -59,55 +57,72 @@ public class PredictionService {
         String lookupKey = productName.replace(" ", "").trim();
         ModelData model = productModels.get(lookupKey);
 
+        // Fallback if no data
         if (model == null) {
-            return new PredictionResult(productName, 0, 0, 0, "데이터 부족");
+            return new PredictionResult(productName, 0.0, 0, "데이터 부족", 0.0, 0.0, 0.0);
         }
 
-        // 1. Get Tomorrow's Day Name (e.g., "day_Saturday")
-        // We match the format used in Python (day_ + Full English Name)
+        // --- 1. DEFINE THE VARIABLES (This was likely missing) ---
         String dayName = LocalDate.now().plusDays(1).getDayOfWeek()
-                .getDisplayName(TextStyle.FULL, Locale.ENGLISH);
-        String dayKey = "day_" + dayName;
+                .getDisplayName(TextStyle.FULL, Locale.ENGLISH); // e.g., "Saturday"
+        String dayKey = "day_" + dayName;                        // e.g., "day_Saturday"
 
-        // 2. Look up the specific weights
+        // --- 2. CALCULATE IMPACTS ---
         double dayEffect = model.weights.getOrDefault(dayKey, 0.0);
-        double rainImpact = model.weights.getOrDefault("is_rain", 0.0); // Make sure Python calls it 'is_rain'
-        double tempImpact = model.weights.getOrDefault("temp", 0.0);
 
+        double rainImpact = 0.0;
         boolean isRain = weather.toLowerCase().contains("rain") || weather.toLowerCase().contains("snow");
+        if (isRain) {
+            rainImpact = model.weights.getOrDefault("is_rain", 0.0);
+        }
 
-        // 3. The Formula
-        double predictedValue = model.baseBias
-                + dayEffect
-                + (isRain ? rainImpact : 0)
-                + (temp * tempImpact);
+        // Ensure 'temp' key matches Python (check if Python saves as 'temp' or 'temp_impact')
+        // Based on your script, Python saves column names like 'temp'.
+        double tempImpact = temp * model.weights.getOrDefault("temp", 0.0);
 
+        // --- 3. THE FORMULA ---
+        double predictedValue = model.baseBias + dayEffect + rainImpact + tempImpact;
         int recommended = (int) Math.max(0, Math.round(predictedValue));
 
-        // 4. Generate Context (Why?)
+        // --- 4. STATUS LOGIC ---
         String status = "Normal";
-        if (dayEffect > 5.0) status = dayName + " Boost"; // e.g., "Saturday Boost"
-        if (dayEffect < -2.0) status = dayName + " Drop"; // e.g., "Monday Drop"
-        if (isRain && rainImpact < -2.0) status = "Rain Drop";
+        if (dayEffect > 3.0) status = dayName + " Boost";
+        else if (dayEffect < -2.0) status = dayName + " Drop";
+
+        if (rainImpact < -2.0) status = "Rain Drop";
         if (temp > 25 && tempImpact > 0.5) status = "Heat Spike";
 
-        return new PredictionResult(productName, model.baseBias, recommended, 365, status);
+        // --- 5. RETURN RESULT ---
+        return new PredictionResult(
+                productName,
+                model.baseBias,
+                recommended,
+                status,
+                dayEffect,
+                rainImpact,
+                tempImpact
+        );
     }
 
-    // Keep the DTO exactly as before so HTML doesn't break
+    // DTO Class
     public static class PredictionResult {
         public String productName;
-        public double avgSales;
+        public double baseScore;
         public int recommended;
-        public int dataPoints;
         public String status;
 
-        public PredictionResult(String name, double avg, int rec, int points, String stat) {
+        public double dayEffect;
+        public double rainEffect;
+        public double tempEffect;
+
+        public PredictionResult(String name, double base, int rec, String stat, double day, double rain, double temp) {
             this.productName = name;
-            this.avgSales = avg;
+            this.baseScore = base;
             this.recommended = rec;
-            this.dataPoints = points;
             this.status = stat;
+            this.dayEffect = day;
+            this.rainEffect = rain;
+            this.tempEffect = temp;
         }
 
         public String getColor() {
