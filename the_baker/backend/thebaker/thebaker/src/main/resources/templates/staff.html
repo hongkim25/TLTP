@@ -92,32 +92,40 @@
 
 
             <div th:each="item : ${report}" class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm relative overflow-hidden group hover:border-brown transition">
-
+    
                 <div class="flex justify-between items-start mb-3">
                     <div>
                         <h3 class="font-bold text-lg" th:text="${item.productName}">Bagel</h3>
-                        <span class="text-xs text-gray-400">해당 날짜: <span th:text="${item.dataPoints}">12</span> 일</span>
+                        <span class="text-[10px] bg-black text-white px-2 py-0.5 rounded-full opacity-60">AI V1.0</span>
                     </div>
 
-                    <span th:classappend="${item.status.contains('Boost')} ? 'bg-red-100 text-red-600 border-red-200' :
-                                 (${item.status.contains('Reduc')} ? 'bg-blue-100 text-blue-600 border-blue-200' : 'bg-gray-100 text-gray-500 border-gray-200')"
-                          class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide border flex items-center gap-1">
-<!--                // 이거 나중에 고쳐야됨 <span th:text="${item.status}">Normal</span>-->
-            </span>
+                    <span th:classappend="${item.getColor() == 'green'} ? 'bg-green-100 text-green-700 border-green-200' :
+                                        (${item.getColor() == 'red'} ? 'bg-red-100 text-red-600 border-red-200' : 'bg-gray-100 text-gray-500 border-gray-200')"
+                        class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide border flex items-center gap-1">
+                        <span th:text="${item.status}">Normal</span>
+                    </span>
                 </div>
 
                 <div class="flex items-baseline gap-2 mb-4">
                     <span class="text-4xl font-black text-brown" th:text="${item.recommended}">0</span>
-                    <span class="text-sm font-bold text-gray-400">개 추천</span>
+                    <span class="text-sm font-bold text-gray-400">개 예측</span>
                 </div>
 
-                <div class="pt-3 border-t border-gray-50 flex justify-between text-sm text-gray-500">
-                    <span>해당 날짜 평균 판매량:</span>
-                    <span class="font-mono font-bold" th:text="${#numbers.formatDecimal(item.avgSales, 1, 1)}">0.0</span>
-                </div>
+                <div class="pt-3 border-t border-gray-50 flex justify-between text-xs text-gray-500">
+                    
+                    <div class="flex flex-col">
+                        <span>기본 판매력 (Base):</span>
+                        <span class="font-mono font-bold text-gray-700" th:text="${#numbers.formatDecimal(item.avgSales, 1, 1)}">0.0</span>
+                    </div>
 
+                    <div class="flex flex-col text-right">
+                        <span>영향 요인:</span>
+                        <span th:if="${item.recommended > item.avgSales}" class="text-green-600 font-bold">▲ 상승 요인 적용</span>
+                        <span th:if="${item.recommended < item.avgSales}" class="text-red-500 font-bold">▼ 하락 요인 적용</span>
+                        <span th:if="${item.recommended == item.avgSales}" class="text-gray-400">- 변동 없음</span>
+                    </div>
+                </div>
             </div>
-        </div>
     </section>
 
     <aside class="w-full md:w-80 border-t md:border-t-0 md:border-l border-black bg-white flex flex-col shrink-0 h-auto md:h-full">
