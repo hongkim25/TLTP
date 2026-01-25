@@ -59,7 +59,7 @@
                 <button onclick="loadInventory()" class="text-[11px] uppercase tracking-tight text-gray-500 hover:text-black">새로고침</button>
             </div>
             <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-24 md:pb-0">
-                </div>
+            </div>
         </div>
 
         <div>
@@ -78,7 +78,6 @@
         <div class="text-brown p-6 rounded-xl mb-2 shadow-lg">
             <form method="get" action="/staff" class="flex flex-wrap items-center gap-4">
 
-                <!-- 내일 날씨 -->
                 <div class="flex flex-col gap-1">
                     <label class="text-xs text-black font-bold uppercase h-4">
                         내일 날씨
@@ -94,7 +93,6 @@
                     </select>
                 </div>
 
-                <!-- 내일 기온 -->
                 <div class="flex flex-col gap-1">
                     <label class="text-xs text-black font-bold uppercase h-4">
                         내일 기온 (°C)
@@ -128,18 +126,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
             <div class="bg-darkbrown text-white p-4 rounded-xl flex justify-between items-center mb-0">
-                <div class="bg-darkbrown text-white p-4 rounded-xl flex justify-between items-center mb-0">
-                    <div>
-                        <div class="text-lg text-white-400 uppercase mb-3">AI 분석</div>
-                        <div class="font-bold text-xl">
-                            내일 타겟: <span class="text-gray-400 mb-6" th:text=" ${targetDay} ">내일</span>
-                        </div>
-                        <div class="text-xs">이전 판매량에 기반한 내일 예측 판매량 </div>
+                <div>
+                    <div class="text-lg text-white-400 uppercase mb-3">AI 분석</div>
+                    <div class="font-bold text-xl">
+                        내일 타겟: <span class="text-gray-400 mb-6" th:text=" ${targetDay} ">내일</span>
                     </div>
+                    <div class="text-xs">Dual-Core AI (판매 예측 + 폐기 위험)</div>
                 </div>
             </div>
-
-
 
             <div th:each="item : ${report}" class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm relative overflow-hidden group hover:border-brown transition">
 
@@ -179,6 +173,23 @@
                         <span class="font-mono font-bold" th:text="${item.tempEffect > 0 ? '+' : ''} + ${#numbers.formatDecimal(item.tempEffect, 1, 1)}">-0.2</span>
                     </div>
 
+                    <div class="pt-2 mt-2 border-t border-gray-200" th:if="${item.wasteRisk > 0.0}">
+                        <div class="flex justify-between items-center text-xs text-red-500 font-bold">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                평균 폐기량
+                            </span>
+                                                <span class="font-mono">
+                                -<span th:text="${#numbers.formatDecimal(item.wasteRisk, 1, 1)}">2.0</span>개
+                            </span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-[10px] text-gray-400 mt-1">
+                                                <span>(평균 생산량 대비)</span>
+                                                <span class="font-mono">
+                                <span th:text="${#numbers.formatDecimal(item.avgMade, 1, 1)}">20.0</span>개 생산 중
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -233,7 +244,7 @@
         <div class="space-y-4">
             <input id="new-name" placeholder="제품명 (예: 소금빵)" class="w-full border-b border-black p-2 outline-none">
             <input id="new-price" type="number" placeholder="가격 (₩)" class="w-full border-b border-black p-2 outline-none">
-            
+
             <label class="block text-sm font-bold text-gray-500">제품 이미지</label>
             <input id="new-image" type="file" accept="image/*" class="w-full text-sm text-gray-500">
 

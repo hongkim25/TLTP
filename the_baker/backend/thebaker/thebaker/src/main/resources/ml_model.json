@@ -1,31 +1,35 @@
 {
     "잠봉 베이글 샌드위치": {
-        "base_bias": 12.82,
+        "base_bias": 12.6,
         "weights": {
-            "day_Monday": 1.29,
+            "day_Monday": 1.13,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -1.47,
-            "day_Thursday": 0.0,
+            "day_Wednesday": -1.16,
+            "day_Thursday": -0.0,
             "day_Friday": -0.0,
-            "day_Saturday": -2.78,
-            "day_Sunday": 2.96,
-            "is_rain": -1.07,
-            "temp": 0.04
-        }
+            "day_Saturday": -2.54,
+            "day_Sunday": 2.57,
+            "is_rain": -0.62,
+            "temp": 0.05
+        },
+        "waste_risk": 0.0,
+        "avg_made": 14.1
     },
     "당근라페베이컨 샌드위치": {
-        "base_bias": 11.62,
+        "base_bias": 11.1,
         "weights": {
-            "day_Monday": 2.41,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": 0.31,
+            "day_Monday": 2.2,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 0.29,
             "day_Thursday": -0.0,
-            "day_Friday": -5.36,
-            "day_Saturday": -1.6,
-            "day_Sunday": 4.22,
-            "is_rain": 0.13,
-            "temp": 0.02
-        }
+            "day_Friday": -5.24,
+            "day_Saturday": -1.05,
+            "day_Sunday": 3.79,
+            "is_rain": 0.14,
+            "temp": 0.05
+        },
+        "waste_risk": 0.0,
+        "avg_made": 13.9
     },
     "바질살라미모짜렐라": {
         "base_bias": 11.94,
@@ -39,63 +43,73 @@
             "day_Sunday": 2.73,
             "is_rain": -0.19,
             "temp": 0.04
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 13.4
     },
     "플레인햄치즈 샌드위치": {
-        "base_bias": 9.6,
+        "base_bias": 9.62,
         "weights": {
-            "day_Monday": 0.91,
+            "day_Monday": 0.98,
             "day_Tuesday": 0.0,
-            "day_Wednesday": 0.34,
+            "day_Wednesday": 0.25,
             "day_Thursday": 0.0,
             "day_Friday": -2.87,
-            "day_Saturday": 0.38,
-            "day_Sunday": 1.24,
-            "is_rain": -0.33,
+            "day_Saturday": 0.36,
+            "day_Sunday": 1.28,
+            "is_rain": -0.19,
             "temp": -0.02
-        }
+        },
+        "waste_risk": 0.1,
+        "avg_made": 9.8
     },
     "아메리카노 ICE": {
-        "base_bias": 7.9,
+        "base_bias": 8.11,
         "weights": {
-            "day_Monday": -0.35,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -2.66,
-            "day_Thursday": 0.35,
-            "day_Friday": 0.7,
-            "day_Saturday": 3.58,
-            "day_Sunday": -1.62,
-            "is_rain": -0.48,
-            "temp": 0.4
-        }
+            "day_Monday": -0.51,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -2.58,
+            "day_Thursday": 0.4,
+            "day_Friday": 0.42,
+            "day_Saturday": 3.64,
+            "day_Sunday": -1.38,
+            "is_rain": -0.28,
+            "temp": 0.38
+        },
+        "waste_risk": 0.0,
+        "avg_made": 14.8
     },
     "소프트소금빵": {
-        "base_bias": 13.0,
+        "base_bias": 17.65,
         "weights": {
-            "day_Monday": 3.87,
+            "day_Monday": -0.78,
             "day_Tuesday": 0.0,
-            "day_Wednesday": 3.68,
-            "day_Thursday": -13.95,
-            "day_Friday": 0.0,
-            "day_Saturday": 0.0,
-            "day_Sunday": 6.4,
-            "is_rain": 1.74,
-            "temp": -0.04
-        }
-    },
-    "카야버터프레첼베이글": {
-        "base_bias": 9.44,
-        "weights": {
-            "day_Monday": -0.26,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -0.94,
+            "day_Wednesday": -0.97,
             "day_Thursday": 0.0,
             "day_Friday": 0.0,
             "day_Saturday": 0.0,
-            "day_Sunday": 1.21,
-            "is_rain": -0.09,
-            "temp": 0.01
-        }
+            "day_Sunday": 1.76,
+            "is_rain": 1.74,
+            "temp": -0.04
+        },
+        "waste_risk": 0.0,
+        "avg_made": 17.0
+    },
+    "카야버터프레첼베이글": {
+        "base_bias": 8.74,
+        "weights": {
+            "day_Monday": -0.15,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -0.95,
+            "day_Thursday": 0.0,
+            "day_Friday": 0.0,
+            "day_Saturday": 0.0,
+            "day_Sunday": 1.1,
+            "is_rain": -0.05,
+            "temp": 0.04
+        },
+        "waste_risk": 0.1,
+        "avg_made": 9.0
     },
     "생식빵": {
         "base_bias": 4.67,
@@ -109,105 +123,121 @@
             "day_Sunday": 1.65,
             "is_rain": 0.26,
             "temp": 0.01
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 5.9
     },
     "초코베이글": {
-        "base_bias": 8.57,
+        "base_bias": 8.71,
         "weights": {
-            "day_Monday": -0.89,
+            "day_Monday": -0.8,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -1.92,
-            "day_Thursday": 0.0,
+            "day_Wednesday": -1.77,
+            "day_Thursday": -0.0,
             "day_Friday": 0.0,
-            "day_Saturday": -0.41,
-            "day_Sunday": 3.22,
-            "is_rain": 0.41,
-            "temp": 0.07
-        }
+            "day_Saturday": -0.39,
+            "day_Sunday": 2.96,
+            "is_rain": 0.39,
+            "temp": 0.06
+        },
+        "waste_risk": 0.0,
+        "avg_made": 9.8
     },
     "감자치즈베이글": {
-        "base_bias": 8.53,
+        "base_bias": 15.64,
         "weights": {
-            "day_Monday": 1.7,
+            "day_Monday": -5.16,
             "day_Tuesday": -0.0,
-            "day_Wednesday": 1.49,
-            "day_Thursday": 1.38,
-            "day_Friday": -8.26,
+            "day_Wednesday": -5.33,
+            "day_Thursday": -5.52,
+            "day_Friday": 19.39,
             "day_Saturday": 0.0,
-            "day_Sunday": 3.7,
-            "is_rain": -0.32,
-            "temp": 0.0
-        }
+            "day_Sunday": -3.38,
+            "is_rain": -0.25,
+            "temp": -0.01
+        },
+        "waste_risk": 0.1,
+        "avg_made": 10.8
     },
     "모찌모찌 식빵": {
-        "base_bias": 4.56,
+        "base_bias": 5.08,
         "weights": {
-            "day_Monday": 2.57,
+            "day_Monday": 2.75,
             "day_Tuesday": 0.0,
-            "day_Wednesday": 2.44,
-            "day_Thursday": -2.06,
-            "day_Friday": -2.73,
-            "day_Saturday": -3.79,
-            "day_Sunday": 3.57,
-            "is_rain": -0.78,
-            "temp": 0.01
-        }
+            "day_Wednesday": 2.33,
+            "day_Thursday": -1.95,
+            "day_Friday": -2.92,
+            "day_Saturday": -3.85,
+            "day_Sunday": 3.64,
+            "is_rain": -0.85,
+            "temp": -0.01
+        },
+        "waste_risk": 0.1,
+        "avg_made": 7.3
     },
     "쪽파베이글 샌드위치": {
-        "base_bias": 7.54,
+        "base_bias": 6.81,
         "weights": {
-            "day_Monday": -0.39,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": -0.76,
+            "day_Monday": -0.27,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -0.72,
             "day_Thursday": 0.0,
             "day_Friday": 0.0,
             "day_Saturday": 0.0,
-            "day_Sunday": 1.15,
+            "day_Sunday": 0.99,
             "is_rain": -0.45,
-            "temp": 0.01
-        }
+            "temp": 0.04
+        },
+        "waste_risk": 0.0,
+        "avg_made": 7.3
     },
     "무화과베이글": {
-        "base_bias": 7.65,
+        "base_bias": 14.54,
         "weights": {
-            "day_Monday": -0.04,
+            "day_Monday": -6.71,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -0.48,
-            "day_Thursday": 0.0,
-            "day_Friday": 0.0,
+            "day_Wednesday": -7.29,
+            "day_Thursday": -0.0,
+            "day_Friday": 20.46,
             "day_Saturday": 0.0,
-            "day_Sunday": 0.52,
-            "is_rain": 0.04,
-            "temp": 0.0
-        }
+            "day_Sunday": -6.46,
+            "is_rain": -0.07,
+            "temp": -0.0
+        },
+        "waste_risk": 0.1,
+        "avg_made": 7.7
     },
     "에그타르트": {
-        "base_bias": 13.43,
+        "base_bias": 13.6,
         "weights": {
-            "day_Monday": -2.66,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -2.8,
-            "day_Thursday": -1.94,
-            "day_Friday": 0.06,
-            "day_Saturday": 6.67,
-            "day_Sunday": 0.67,
-            "is_rain": -0.4,
+            "day_Monday": -2.7,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -2.58,
+            "day_Thursday": -1.96,
+            "day_Friday": -0.03,
+            "day_Saturday": 6.63,
+            "day_Sunday": 0.64,
+            "is_rain": -0.42,
             "temp": -0.03
-        }
+        },
+        "waste_risk": 0.1,
+        "avg_made": 12.6
     },
     "아메리카노 HOT": {
-        "base_bias": 13.43,
+        "base_bias": 12.95,
         "weights": {
-            "day_Monday": -1.08,
+            "day_Monday": -0.85,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -1.43,
-            "day_Thursday": 0.67,
-            "day_Friday": -0.21,
-            "day_Saturday": 2.91,
-            "day_Sunday": -0.86,
-            "is_rain": 0.72,
-            "temp": -0.31
-        }
+            "day_Wednesday": -1.4,
+            "day_Thursday": 0.41,
+            "day_Friday": -0.13,
+            "day_Saturday": 2.78,
+            "day_Sunday": -0.81,
+            "is_rain": 0.87,
+            "temp": -0.29
+        },
+        "waste_risk": 0.0,
+        "avg_made": 8.2
     },
     "후추소금빵": {
         "base_bias": 7.51,
@@ -221,21 +251,25 @@
             "day_Sunday": 0.68,
             "is_rain": 0.14,
             "temp": 0.01
-        }
+        },
+        "waste_risk": 0.1,
+        "avg_made": 7.6
     },
     "플레인베이글": {
-        "base_bias": 8.27,
+        "base_bias": 7.43,
         "weights": {
-            "day_Monday": 1.27,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": 1.57,
+            "day_Monday": 2.51,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 2.53,
             "day_Thursday": 0.0,
-            "day_Friday": 0.0,
-            "day_Saturday": -5.12,
-            "day_Sunday": 2.28,
-            "is_rain": 0.0,
-            "temp": -0.02
-        }
+            "day_Friday": -4.22,
+            "day_Saturday": -4.16,
+            "day_Sunday": 3.33,
+            "is_rain": -0.05,
+            "temp": -0.03
+        },
+        "waste_risk": 0.1,
+        "avg_made": 9.3
     },
     "맘모스": {
         "base_bias": 8.13,
@@ -249,105 +283,121 @@
             "day_Sunday": 2.57,
             "is_rain": -1.07,
             "temp": 0.04
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 8.6
     },
     "호두크랜베리베이글": {
-        "base_bias": 6.54,
+        "base_bias": 13.72,
         "weights": {
-            "day_Monday": 0.56,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": 0.82,
-            "day_Thursday": 3.72,
-            "day_Friday": -6.58,
+            "day_Monday": -6.36,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -6.2,
+            "day_Thursday": -3.3,
+            "day_Friday": 21.39,
             "day_Saturday": 0.0,
-            "day_Sunday": 1.48,
-            "is_rain": 0.2,
-            "temp": -0.01
-        }
+            "day_Sunday": -5.54,
+            "is_rain": 0.08,
+            "temp": -0.02
+        },
+        "waste_risk": 0.1,
+        "avg_made": 7.3
     },
     "통밀잡곡식빵": {
-        "base_bias": 4.31,
+        "base_bias": 4.68,
         "weights": {
-            "day_Monday": 0.58,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": 0.32,
+            "day_Monday": 0.73,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 0.3,
             "day_Thursday": 0.0,
             "day_Friday": 0.0,
-            "day_Saturday": -2.55,
-            "day_Sunday": 1.65,
-            "is_rain": -0.26,
-            "temp": 0.01
-        }
+            "day_Saturday": -2.64,
+            "day_Sunday": 1.61,
+            "is_rain": -0.16,
+            "temp": -0.0
+        },
+        "waste_risk": 0.0,
+        "avg_made": 5.3
     },
     "블루베리 베이글": {
-        "base_bias": 7.95,
+        "base_bias": 8.17,
         "weights": {
-            "day_Monday": 0.07,
+            "day_Monday": 0.13,
             "day_Tuesday": 0.0,
-            "day_Wednesday": 0.07,
-            "day_Thursday": 2.55,
-            "day_Friday": -3.63,
-            "day_Saturday": 0.0,
-            "day_Sunday": 0.93,
-            "is_rain": 0.06,
-            "temp": -0.02
-        }
+            "day_Wednesday": 0.16,
+            "day_Thursday": 2.56,
+            "day_Friday": -3.71,
+            "day_Saturday": -0.0,
+            "day_Sunday": 0.85,
+            "is_rain": 0.04,
+            "temp": -0.03
+        },
+        "waste_risk": 0.1,
+        "avg_made": 7.8
     },
     "고메버터 스콘": {
-        "base_bias": 7.73,
+        "base_bias": 6.83,
         "weights": {
-            "day_Monday": -1.13,
+            "day_Monday": -1.01,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -1.05,
-            "day_Thursday": -0.7,
-            "day_Friday": 0.03,
-            "day_Saturday": 2.01,
-            "day_Sunday": 0.84,
-            "is_rain": 0.41,
-            "temp": -0.01
-        }
+            "day_Wednesday": -0.96,
+            "day_Thursday": -0.69,
+            "day_Friday": -0.08,
+            "day_Saturday": 1.95,
+            "day_Sunday": 0.79,
+            "is_rain": 0.56,
+            "temp": 0.03
+        },
+        "waste_risk": 0.3,
+        "avg_made": 7.2
     },
     "올리브베이글": {
-        "base_bias": 8.34,
+        "base_bias": 8.48,
         "weights": {
-            "day_Monday": -0.12,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -0.33,
+            "day_Monday": -0.04,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -0.23,
             "day_Thursday": 0.0,
             "day_Friday": 0.0,
             "day_Saturday": 0.0,
-            "day_Sunday": 0.45,
-            "is_rain": -0.17,
-            "temp": -0.01
-        }
+            "day_Sunday": 0.27,
+            "is_rain": -0.15,
+            "temp": -0.02
+        },
+        "waste_risk": 0.1,
+        "avg_made": 8.0
     },
     "더블초코스콘": {
-        "base_bias": 5.22,
+        "base_bias": 4.58,
         "weights": {
-            "day_Monday": -0.92,
+            "day_Monday": -0.95,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -0.84,
-            "day_Thursday": -0.37,
-            "day_Friday": 0.19,
-            "day_Saturday": 1.43,
+            "day_Wednesday": -0.75,
+            "day_Thursday": -0.19,
+            "day_Friday": 0.08,
+            "day_Saturday": 1.31,
             "day_Sunday": 0.51,
-            "is_rain": 0.11,
-            "temp": 0.0
-        }
+            "is_rain": 0.16,
+            "temp": 0.03
+        },
+        "waste_risk": 0.2,
+        "avg_made": 4.9
     },
     "바닐라까눌레": {
-        "base_bias": 8.77,
+        "base_bias": 8.07,
         "weights": {
-            "day_Monday": -1.56,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": -0.92,
-            "day_Thursday": -0.11,
-            "day_Friday": 0.89,
-            "day_Saturday": 1.47,
-            "day_Sunday": 0.23,
-            "is_rain": 0.57,
-            "temp": -0.05
-        }
+            "day_Monday": -1.43,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -0.93,
+            "day_Thursday": -0.05,
+            "day_Friday": 0.83,
+            "day_Saturday": 1.48,
+            "day_Sunday": 0.11,
+            "is_rain": 0.56,
+            "temp": -0.02
+        },
+        "waste_risk": 0.2,
+        "avg_made": 7.6
     },
     "단팥빵": {
         "base_bias": 8.76,
@@ -361,133 +411,153 @@
             "day_Sunday": 2.02,
             "is_rain": -0.32,
             "temp": -0.04
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 7.9
     },
     "카페라떼 ICE": {
-        "base_bias": 2.42,
+        "base_bias": 2.68,
         "weights": {
-            "day_Monday": 0.33,
+            "day_Monday": 0.3,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -0.31,
-            "day_Thursday": -0.54,
-            "day_Friday": 0.46,
-            "day_Saturday": 0.53,
-            "day_Sunday": -0.48,
-            "is_rain": -0.31,
-            "temp": 0.11
-        }
+            "day_Wednesday": -0.43,
+            "day_Thursday": -0.53,
+            "day_Friday": 0.36,
+            "day_Saturday": 0.74,
+            "day_Sunday": -0.44,
+            "is_rain": -0.36,
+            "temp": 0.1
+        },
+        "waste_risk": 0.0,
+        "avg_made": 4.4
     },
     "바닐라빈라떼 ICE": {
-        "base_bias": 2.69,
+        "base_bias": 2.66,
         "weights": {
-            "day_Monday": -0.31,
+            "day_Monday": -0.24,
             "day_Tuesday": 0.0,
-            "day_Wednesday": 0.38,
-            "day_Thursday": -0.29,
-            "day_Friday": 0.06,
-            "day_Saturday": 0.03,
+            "day_Wednesday": 0.31,
+            "day_Thursday": -0.28,
+            "day_Friday": 0.08,
+            "day_Saturday": 0.0,
             "day_Sunday": 0.13,
-            "is_rain": -0.26,
+            "is_rain": -0.31,
             "temp": 0.01
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 2.7
     },
     "애플키위믹스": {
-        "base_bias": 1.53,
+        "base_bias": 1.41,
         "weights": {
-            "day_Monday": -0.12,
+            "day_Monday": -0.11,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -0.14,
-            "day_Thursday": 0.01,
-            "day_Friday": 0.05,
-            "day_Saturday": 0.07,
-            "day_Sunday": 0.13,
-            "is_rain": -0.21,
-            "temp": 0.0
-        }
+            "day_Wednesday": -0.15,
+            "day_Thursday": 0.09,
+            "day_Friday": 0.04,
+            "day_Saturday": 0.06,
+            "day_Sunday": 0.06,
+            "is_rain": -0.2,
+            "temp": 0.01
+        },
+        "waste_risk": 0.0,
+        "avg_made": 1.4
     },
     "착즙 애플": {
-        "base_bias": 1.67,
+        "base_bias": 1.64,
         "weights": {
-            "day_Monday": -0.19,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": -0.33,
-            "day_Thursday": -0.23,
+            "day_Monday": -0.21,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -0.27,
+            "day_Thursday": -0.17,
             "day_Friday": 0.08,
-            "day_Saturday": 0.6,
-            "day_Sunday": 0.07,
-            "is_rain": -0.23,
-            "temp": -0.01
-        }
+            "day_Saturday": 0.53,
+            "day_Sunday": 0.04,
+            "is_rain": -0.17,
+            "temp": -0.0
+        },
+        "waste_risk": 0.0,
+        "avg_made": 1.6
     },
     "바닐라빈라떼 HOT": {
-        "base_bias": 1.58,
+        "base_bias": 1.72,
         "weights": {
-            "day_Monday": -0.07,
+            "day_Monday": -0.17,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -0.12,
-            "day_Thursday": 0.0,
-            "day_Friday": 0.21,
-            "day_Saturday": 0.05,
+            "day_Wednesday": -0.18,
+            "day_Thursday": 0.01,
+            "day_Friday": 0.13,
+            "day_Saturday": 0.28,
             "day_Sunday": -0.08,
-            "is_rain": -0.14,
-            "temp": -0.01
-        }
+            "is_rain": -0.21,
+            "temp": -0.02
+        },
+        "waste_risk": 0.0,
+        "avg_made": 1.5
     },
     "카페라떼 HOT": {
-        "base_bias": 2.8,
+        "base_bias": 3.31,
         "weights": {
-            "day_Monday": 0.09,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": -0.38,
-            "day_Thursday": 0.22,
-            "day_Friday": -0.13,
-            "day_Saturday": 0.32,
-            "day_Sunday": -0.12,
-            "is_rain": 0.12,
-            "temp": -0.02
-        }
+            "day_Monday": 0.2,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -0.22,
+            "day_Thursday": 0.19,
+            "day_Friday": -0.27,
+            "day_Saturday": 0.42,
+            "day_Sunday": -0.32,
+            "is_rain": -0.02,
+            "temp": -0.04
+        },
+        "waste_risk": 0.0,
+        "avg_made": 2.6
     },
     "크림치즈": {
-        "base_bias": 2.73,
+        "base_bias": 3.11,
         "weights": {
-            "day_Monday": -0.02,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": 0.26,
+            "day_Monday": -0.09,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": 0.48,
             "day_Thursday": 0.0,
-            "day_Friday": 0.0,
-            "day_Saturday": -1.53,
-            "day_Sunday": 1.29,
-            "is_rain": 0.15,
-            "temp": -0.01
-        }
+            "day_Friday": -0.0,
+            "day_Saturday": -1.69,
+            "day_Sunday": 1.3,
+            "is_rain": 0.07,
+            "temp": -0.03
+        },
+        "waste_risk": 0.0,
+        "avg_made": 3.2
     },
     "블루베리 크림치즈": {
-        "base_bias": 1.89,
+        "base_bias": 2.1,
         "weights": {
-            "day_Monday": 0.35,
+            "day_Monday": 0.43,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -0.25,
-            "day_Thursday": -0.95,
-            "day_Friday": -0.0,
-            "day_Saturday": -0.59,
-            "day_Sunday": 1.44,
-            "is_rain": 0.41,
-            "temp": 0.0
-        }
+            "day_Wednesday": -0.19,
+            "day_Thursday": -0.94,
+            "day_Friday": 0.0,
+            "day_Saturday": -0.65,
+            "day_Sunday": 1.34,
+            "is_rain": 0.28,
+            "temp": -0.0
+        },
+        "waste_risk": 0.0,
+        "avg_made": 2.6
     },
     "바질토마토 크림치즈": {
-        "base_bias": 2.11,
+        "base_bias": 2.79,
         "weights": {
-            "day_Monday": 0.65,
+            "day_Monday": 0.66,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -0.19,
+            "day_Wednesday": -0.25,
             "day_Thursday": 0.0,
             "day_Friday": -0.0,
-            "day_Saturday": -1.28,
-            "day_Sunday": 0.81,
-            "is_rain": 0.22,
-            "temp": 0.02
-        }
+            "day_Saturday": -1.39,
+            "day_Sunday": 0.97,
+            "is_rain": 0.12,
+            "temp": -0.01
+        },
+        "waste_risk": 0.0,
+        "avg_made": 3.0
     },
     "연하게": {
         "base_bias": 2.84,
@@ -501,175 +571,201 @@
             "day_Sunday": 0.0,
             "is_rain": -0.41,
             "temp": -0.05
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 2.0
     },
     "착즙 오렌지": {
         "base_bias": 1.71,
         "weights": {
-            "day_Monday": -0.67,
+            "day_Monday": -0.57,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -0.55,
-            "day_Thursday": 1.04,
-            "day_Friday": 0.01,
-            "day_Saturday": 0.3,
-            "day_Sunday": -0.13,
-            "is_rain": -0.51,
+            "day_Wednesday": -0.52,
+            "day_Thursday": 0.97,
+            "day_Friday": -0.03,
+            "day_Saturday": 0.25,
+            "day_Sunday": -0.11,
+            "is_rain": -0.44,
             "temp": 0.01
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 1.9
     },
     "당근라페치아바타샌드위치": {
-        "base_bias": 9.89,
+        "base_bias": 9.64,
         "weights": {
-            "day_Monday": -8.78,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -10.88,
-            "day_Thursday": 6.27,
-            "day_Friday": 8.02,
-            "day_Saturday": 15.5,
-            "day_Sunday": -10.14,
-            "is_rain": 1.14,
-            "temp": 0.09
-        }
+            "day_Monday": -8.7,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -10.7,
+            "day_Thursday": 6.06,
+            "day_Friday": 7.9,
+            "day_Saturday": 15.53,
+            "day_Sunday": -10.09,
+            "is_rain": 1.29,
+            "temp": 0.1
+        },
+        "waste_risk": 0.0,
+        "avg_made": 20.2
     },
     "쉬림프과카몰리샌드위치": {
-        "base_bias": 12.37,
+        "base_bias": 10.38,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -12.36,
-            "day_Thursday": 0.81,
-            "day_Friday": 1.34,
-            "day_Saturday": 10.21,
+            "day_Wednesday": -11.58,
+            "day_Thursday": 0.79,
+            "day_Friday": 1.21,
+            "day_Saturday": 9.58,
             "day_Sunday": 0.0,
-            "is_rain": -0.59,
-            "temp": 0.06
-        }
+            "is_rain": -0.14,
+            "temp": 0.14
+        },
+        "waste_risk": 0.1,
+        "avg_made": 16.0
     },
     "바질 잠봉(루꼴라)": {
-        "base_bias": 6.14,
+        "base_bias": 5.81,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -8.03,
-            "day_Thursday": 0.88,
-            "day_Friday": 2.98,
-            "day_Saturday": 6.05,
+            "day_Wednesday": -7.14,
+            "day_Thursday": 0.75,
+            "day_Friday": 2.46,
+            "day_Saturday": 5.81,
             "day_Sunday": -1.89,
-            "is_rain": 0.96,
-            "temp": 0.11
-        }
+            "is_rain": 1.0,
+            "temp": 0.13
+        },
+        "waste_risk": 0.0,
+        "avg_made": 11.3
     },
     "치아바타 샌드위치": {
-        "base_bias": 50.24,
+        "base_bias": 39.24,
         "weights": {
-            "day_Monday": 99.81,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": 0.0,
-            "day_Thursday": -36.21,
-            "day_Friday": -34.93,
-            "day_Saturday": -28.68,
+            "day_Monday": 110.71,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -39.35,
+            "day_Thursday": -26.6,
+            "day_Friday": -25.39,
+            "day_Saturday": -19.37,
             "day_Sunday": 0.0,
-            "is_rain": 1.25,
-            "temp": -0.03
-        }
+            "is_rain": 1.06,
+            "temp": 0.03
+        },
+        "waste_risk": 0.0,
+        "avg_made": 17.0
     },
     "모짜렐라살라미치즈": {
-        "base_bias": 6.85,
+        "base_bias": 6.91,
         "weights": {
-            "day_Monday": -4.61,
+            "day_Monday": -4.65,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -5.06,
-            "day_Thursday": 2.74,
-            "day_Friday": 3.47,
-            "day_Saturday": 7.99,
-            "day_Sunday": -4.54,
+            "day_Wednesday": -4.82,
+            "day_Thursday": 2.71,
+            "day_Friday": 3.38,
+            "day_Saturday": 7.95,
+            "day_Sunday": -4.57,
             "is_rain": -0.25,
             "temp": -0.04
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 10.0
     },
     "바게트 잠봉": {
-        "base_bias": 6.49,
+        "base_bias": 6.9,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -6.77,
-            "day_Thursday": 0.94,
-            "day_Friday": 1.76,
-            "day_Saturday": 4.08,
+            "day_Wednesday": -5.94,
+            "day_Thursday": 0.76,
+            "day_Friday": 1.33,
+            "day_Saturday": 3.85,
             "day_Sunday": 0.0,
-            "is_rain": 0.65,
-            "temp": 0.06
-        }
+            "is_rain": 0.55,
+            "temp": 0.05
+        },
+        "waste_risk": 0.0,
+        "avg_made": 9.6
     },
     "피스타치오햄바게트": {
-        "base_bias": 6.68,
+        "base_bias": 6.76,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -5.12,
-            "day_Thursday": 0.06,
-            "day_Friday": 1.03,
-            "day_Saturday": 4.03,
+            "day_Wednesday": -4.63,
+            "day_Thursday": -0.12,
+            "day_Friday": 0.84,
+            "day_Saturday": 3.9,
             "day_Sunday": 0.0,
-            "is_rain": 0.48,
+            "is_rain": 0.53,
             "temp": -0.03
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 7.8
     },
     "감자 치즈": {
-        "base_bias": 8.95,
+        "base_bias": 7.74,
         "weights": {
-            "day_Monday": -6.04,
-            "day_Tuesday": -0.0,
+            "day_Monday": -6.17,
+            "day_Tuesday": 0.0,
             "day_Wednesday": 0.0,
-            "day_Thursday": 1.01,
-            "day_Friday": 0.99,
-            "day_Saturday": 4.04,
+            "day_Thursday": 1.11,
+            "day_Friday": 1.12,
+            "day_Saturday": 3.93,
             "day_Sunday": 0.0,
-            "is_rain": 0.04,
-            "temp": -0.07
-        }
+            "is_rain": 0.19,
+            "temp": -0.03
+        },
+        "waste_risk": 0.1,
+        "avg_made": 8.9
     },
     "크렌베리닭가슴살샌드위치": {
-        "base_bias": 7.24,
+        "base_bias": 7.29,
         "weights": {
             "day_Monday": 0.0,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -5.69,
-            "day_Thursday": 0.59,
-            "day_Friday": 0.82,
-            "day_Saturday": 4.28,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -5.71,
+            "day_Thursday": 0.6,
+            "day_Friday": 0.85,
+            "day_Saturday": 4.26,
             "day_Sunday": 0.0,
-            "is_rain": -0.19,
+            "is_rain": -0.22,
             "temp": -0.02
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 8.7
     },
     "단호박 크림치즈": {
-        "base_bias": 6.18,
+        "base_bias": 5.38,
         "weights": {
             "day_Monday": 0.0,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -5.07,
-            "day_Thursday": 0.84,
-            "day_Friday": 1.27,
-            "day_Saturday": 2.97,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -4.49,
+            "day_Thursday": 0.76,
+            "day_Friday": 1.06,
+            "day_Saturday": 2.67,
             "day_Sunday": 0.0,
-            "is_rain": -0.36,
-            "temp": -0.02
-        }
+            "is_rain": -0.33,
+            "temp": 0.02
+        },
+        "waste_risk": 0.0,
+        "avg_made": 7.0
     },
     "소금빵": {
-        "base_bias": 12.67,
+        "base_bias": 12.46,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": 0.0,
             "day_Wednesday": 0.0,
-            "day_Thursday": 2.46,
-            "day_Friday": 2.71,
-            "day_Saturday": 3.52,
-            "day_Sunday": -8.69,
-            "is_rain": 0.48,
-            "temp": 0.05
-        }
+            "day_Thursday": 2.73,
+            "day_Friday": 2.5,
+            "day_Saturday": 3.54,
+            "day_Sunday": -8.77,
+            "is_rain": 0.06,
+            "temp": 0.06
+        },
+        "waste_risk": 0.2,
+        "avg_made": 15.9
     },
     "소세지빵": {
         "base_bias": 9.58,
@@ -683,189 +779,217 @@
             "day_Sunday": 0.0,
             "is_rain": 0.17,
             "temp": -0.1
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 7.6
     },
     "무화과 크림치즈 사워도우": {
-        "base_bias": 4.8,
+        "base_bias": 4.29,
         "weights": {
             "day_Monday": 0.0,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": -4.45,
-            "day_Thursday": 0.77,
-            "day_Friday": 0.77,
-            "day_Saturday": 2.92,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -4.16,
+            "day_Thursday": 0.65,
+            "day_Friday": 0.65,
+            "day_Saturday": 2.85,
             "day_Sunday": 0.0,
-            "is_rain": 0.15,
-            "temp": 0.01
-        }
+            "is_rain": 0.1,
+            "temp": 0.03
+        },
+        "waste_risk": 0.1,
+        "avg_made": 6.1
     },
     "앙버터": {
-        "base_bias": 6.58,
+        "base_bias": 6.65,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -5.88,
-            "day_Thursday": 0.54,
-            "day_Friday": 0.88,
-            "day_Saturday": 4.45,
-            "day_Sunday": 0.0,
-            "is_rain": 0.36,
-            "temp": -0.04
-        }
+            "day_Wednesday": 0.0,
+            "day_Thursday": -1.22,
+            "day_Friday": -0.97,
+            "day_Saturday": 2.2,
+            "day_Sunday": -0.0,
+            "is_rain": 0.55,
+            "temp": 0.03
+        },
+        "waste_risk": 0.0,
+        "avg_made": 7.2
     },
     "고구마크림치즈사워도우": {
-        "base_bias": 4.81,
+        "base_bias": 4.87,
         "weights": {
             "day_Monday": 0.0,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -4.47,
-            "day_Thursday": 0.65,
-            "day_Friday": 0.9,
-            "day_Saturday": 2.92,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -4.09,
+            "day_Thursday": 0.54,
+            "day_Friday": 0.73,
+            "day_Saturday": 2.82,
             "day_Sunday": 0.0,
-            "is_rain": -0.13,
+            "is_rain": -0.1,
             "temp": 0.01
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 6.2
     },
     "바게트": {
-        "base_bias": 2.67,
+        "base_bias": 2.61,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -1.88,
-            "day_Thursday": 0.61,
-            "day_Friday": 0.19,
-            "day_Saturday": 1.08,
-            "day_Sunday": 0.0,
-            "is_rain": 0.18,
-            "temp": 0.01
-        }
-    },
-    "크로와상": {
-        "base_bias": 5.19,
-        "weights": {
-            "day_Monday": 0.0,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": 0.0,
-            "day_Thursday": -0.64,
-            "day_Friday": -0.36,
-            "day_Saturday": 1.0,
-            "day_Sunday": 0.0,
-            "is_rain": 0.67,
-            "temp": -0.04
-        }
-    },
-    "올리브 치즈 치아바타": {
-        "base_bias": 4.4,
-        "weights": {
-            "day_Monday": -3.35,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -3.3,
-            "day_Thursday": 2.67,
-            "day_Friday": 2.99,
-            "day_Saturday": 3.3,
-            "day_Sunday": -2.31,
-            "is_rain": -0.2,
-            "temp": -0.01
-        }
-    },
-    "대파 사워도우": {
-        "base_bias": 3.01,
-        "weights": {
-            "day_Monday": 0.0,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": 0.0,
-            "day_Thursday": -0.16,
-            "day_Friday": -0.03,
-            "day_Saturday": 0.19,
-            "day_Sunday": 0.0,
-            "is_rain": 0.21,
-            "temp": -0.01
-        }
-    },
-    "뺑오쇼콜라": {
-        "base_bias": 4.52,
-        "weights": {
-            "day_Monday": -3.57,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": 0.0,
-            "day_Thursday": 0.77,
-            "day_Friday": 0.39,
-            "day_Saturday": 2.41,
-            "day_Sunday": 0.0,
-            "is_rain": 0.42,
-            "temp": 0.0
-        }
-    },
-    "미니페스츄리식빵": {
-        "base_bias": 6.89,
-        "weights": {
-            "day_Monday": 5.12,
-            "day_Tuesday": 0.0,
-            "day_Wednesday": 0.0,
-            "day_Thursday": -2.63,
-            "day_Friday": -2.39,
-            "day_Saturday": -0.1,
+            "day_Wednesday": -1.84,
+            "day_Thursday": 0.65,
+            "day_Friday": 0.3,
+            "day_Saturday": 0.9,
             "day_Sunday": 0.0,
             "is_rain": 0.26,
+            "temp": 0.02
+        },
+        "waste_risk": 0.0,
+        "avg_made": 3.5
+    },
+    "크로와상": {
+        "base_bias": 4.85,
+        "weights": {
+            "day_Monday": -0.4,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -1.11,
+            "day_Thursday": -0.44,
+            "day_Friday": -0.16,
+            "day_Saturday": 1.08,
+            "day_Sunday": 1.03,
+            "is_rain": 0.54,
+            "temp": -0.02
+        },
+        "waste_risk": 0.1,
+        "avg_made": 4.5
+    },
+    "올리브 치즈 치아바타": {
+        "base_bias": 3.97,
+        "weights": {
+            "day_Monday": -3.12,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -3.26,
+            "day_Thursday": 2.59,
+            "day_Friday": 2.88,
+            "day_Saturday": 3.16,
+            "day_Sunday": -2.24,
+            "is_rain": -0.11,
+            "temp": 0.02
+        },
+        "waste_risk": 0.0,
+        "avg_made": 7.0
+    },
+    "대파 사워도우": {
+        "base_bias": 3.0,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 0.0,
+            "day_Thursday": -0.04,
+            "day_Friday": -0.13,
+            "day_Saturday": 0.17,
+            "day_Sunday": -0.0,
+            "is_rain": 0.12,
+            "temp": -0.0
+        },
+        "waste_risk": 0.0,
+        "avg_made": 2.9
+    },
+    "뺑오쇼콜라": {
+        "base_bias": 4.95,
+        "weights": {
+            "day_Monday": -0.73,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -0.46,
+            "day_Thursday": 0.46,
+            "day_Friday": -0.02,
+            "day_Saturday": 1.91,
+            "day_Sunday": -1.17,
+            "is_rain": 0.34,
+            "temp": 0.0
+        },
+        "waste_risk": 0.2,
+        "avg_made": 5.5
+    },
+    "미니페스츄리식빵": {
+        "base_bias": 6.97,
+        "weights": {
+            "day_Monday": 5.1,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 0.0,
+            "day_Thursday": -2.59,
+            "day_Friday": -2.38,
+            "day_Saturday": -0.13,
+            "day_Sunday": 0.0,
+            "is_rain": 0.35,
             "temp": -0.01
-        }
+        },
+        "waste_risk": 0.1,
+        "avg_made": 5.1
     },
     "호두 크랜베리 사워도우": {
-        "base_bias": 1.87,
+        "base_bias": 2.56,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -1.88,
-            "day_Thursday": 0.48,
-            "day_Friday": 0.61,
-            "day_Saturday": 0.79,
+            "day_Wednesday": -0.0,
+            "day_Thursday": -0.12,
+            "day_Friday": 0.0,
+            "day_Saturday": 0.12,
             "day_Sunday": 0.0,
-            "is_rain": 0.19,
+            "is_rain": 0.21,
             "temp": 0.0
-        }
+        },
+        "waste_risk": 0.1,
+        "avg_made": 2.5
     },
     "사워도우": {
-        "base_bias": 1.75,
+        "base_bias": 1.68,
         "weights": {
-            "day_Monday": -0.75,
+            "day_Monday": -0.76,
             "day_Tuesday": 0.0,
             "day_Wednesday": 0.0,
-            "day_Thursday": -0.09,
-            "day_Friday": 0.03,
-            "day_Saturday": 0.81,
+            "day_Thursday": 0.03,
+            "day_Friday": 0.02,
+            "day_Saturday": 0.7,
             "day_Sunday": 0.0,
-            "is_rain": -0.05,
-            "temp": -0.0
-        }
+            "is_rain": 0.08,
+            "temp": 0.01
+        },
+        "waste_risk": 0.0,
+        "avg_made": 1.9
     },
     "치아바타": {
-        "base_bias": 2.94,
+        "base_bias": 3.1,
         "weights": {
             "day_Monday": 0.0,
             "day_Tuesday": 0.0,
             "day_Wednesday": 0.0,
-            "day_Thursday": 0.19,
+            "day_Thursday": 0.16,
             "day_Friday": -0.29,
-            "day_Saturday": 0.1,
+            "day_Saturday": 0.13,
             "day_Sunday": 0.0,
-            "is_rain": 0.19,
-            "temp": 0.01
-        }
+            "is_rain": 0.21,
+            "temp": 0.0
+        },
+        "waste_risk": 0.0,
+        "avg_made": 3.1
     },
     "마르티넬리 애플주스": {
-        "base_bias": 1.76,
+        "base_bias": 1.65,
         "weights": {
-            "day_Monday": -0.24,
+            "day_Monday": -0.14,
             "day_Tuesday": -0.0,
-            "day_Wednesday": -0.16,
-            "day_Thursday": -0.21,
-            "day_Friday": 0.81,
-            "day_Saturday": -0.14,
-            "day_Sunday": -0.06,
-            "is_rain": -0.08,
-            "temp": -0.01
-        }
+            "day_Wednesday": -0.17,
+            "day_Thursday": -0.12,
+            "day_Friday": 0.76,
+            "day_Saturday": -0.13,
+            "day_Sunday": -0.19,
+            "is_rain": -0.09,
+            "temp": -0.0
+        },
+        "waste_risk": 0.0,
+        "avg_made": 1.6
     },
     "샷 추가": {
         "base_bias": 1.0,
@@ -879,91 +1003,105 @@
             "day_Sunday": 0.0,
             "is_rain": 0.0,
             "temp": 0.0
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 0.9
     },
     "모짜렐라바질토마토": {
-        "base_bias": 5.25,
+        "base_bias": 5.05,
         "weights": {
             "day_Monday": 0.0,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -0.0,
-            "day_Thursday": -0.72,
-            "day_Friday": -0.23,
-            "day_Saturday": 0.96,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": 0.0,
+            "day_Thursday": -0.58,
+            "day_Friday": -0.33,
+            "day_Saturday": 0.91,
             "day_Sunday": -0.0,
-            "is_rain": -0.05,
-            "temp": -0.04
-        }
+            "is_rain": 0.21,
+            "temp": -0.03
+        },
+        "waste_risk": 0.0,
+        "avg_made": 4.3
     },
     "피칸카라멜휘낭시에": {
-        "base_bias": 6.64,
-        "weights": {
-            "day_Monday": -0.17,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -0.36,
-            "day_Thursday": -0.58,
-            "day_Friday": -0.12,
-            "day_Saturday": 0.95,
-            "day_Sunday": 0.3,
-            "is_rain": 0.28,
-            "temp": -0.09
-        }
-    },
-    "솔티드초코휘낭시에": {
-        "base_bias": 4.24,
-        "weights": {
-            "day_Monday": -0.34,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": -0.41,
-            "day_Thursday": -0.66,
-            "day_Friday": 0.1,
-            "day_Saturday": 1.52,
-            "day_Sunday": -0.21,
-            "is_rain": -0.3,
-            "temp": -0.02
-        }
-    },
-    "플레인휘낭시에": {
-        "base_bias": 4.39,
+        "base_bias": 4.1,
         "weights": {
             "day_Monday": -0.12,
             "day_Tuesday": 0.0,
-            "day_Wednesday": 0.16,
-            "day_Thursday": -0.1,
-            "day_Friday": -0.39,
-            "day_Saturday": 0.55,
-            "day_Sunday": -0.1,
-            "is_rain": -0.22,
-            "temp": -0.03
-        }
+            "day_Wednesday": -0.05,
+            "day_Thursday": -0.66,
+            "day_Friday": -0.09,
+            "day_Saturday": 0.7,
+            "day_Sunday": 0.22,
+            "is_rain": 0.86,
+            "temp": 0.0
+        },
+        "waste_risk": 0.2,
+        "avg_made": 4.1
+    },
+    "솔티드초코휘낭시에": {
+        "base_bias": 3.75,
+        "weights": {
+            "day_Monday": -0.15,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -0.5,
+            "day_Thursday": -0.45,
+            "day_Friday": 0.01,
+            "day_Saturday": 1.46,
+            "day_Sunday": -0.37,
+            "is_rain": -0.18,
+            "temp": 0.0
+        },
+        "waste_risk": 0.1,
+        "avg_made": 3.7
+    },
+    "플레인휘낭시에": {
+        "base_bias": 3.44,
+        "weights": {
+            "day_Monday": -0.27,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 0.46,
+            "day_Thursday": -0.25,
+            "day_Friday": -0.33,
+            "day_Saturday": 0.61,
+            "day_Sunday": -0.22,
+            "is_rain": 0.3,
+            "temp": 0.0
+        },
+        "waste_risk": 0.1,
+        "avg_made": 3.5
     },
     "몽블랑": {
-        "base_bias": 4.5,
+        "base_bias": 4.27,
         "weights": {
             "day_Monday": 0.0,
-            "day_Tuesday": -0.0,
-            "day_Wednesday": 0.0,
-            "day_Thursday": -0.59,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -0.0,
+            "day_Thursday": -0.8,
             "day_Friday": 0.29,
-            "day_Saturday": 0.3,
-            "day_Sunday": -0.0,
-            "is_rain": 0.26,
-            "temp": -0.04
-        }
+            "day_Saturday": 0.52,
+            "day_Sunday": 0.0,
+            "is_rain": 0.13,
+            "temp": -0.03
+        },
+        "waste_risk": 0.1,
+        "avg_made": 3.7
     },
     "아몬드 크로와상": {
-        "base_bias": -2.8,
+        "base_bias": 0.45,
         "weights": {
-            "day_Monday": 0.0,
+            "day_Monday": -0.11,
             "day_Tuesday": -0.0,
-            "day_Wednesday": 0.0,
-            "day_Thursday": 0.71,
-            "day_Friday": -0.71,
+            "day_Wednesday": 0.79,
+            "day_Thursday": -2.55,
+            "day_Friday": 0.0,
             "day_Saturday": 0.0,
-            "day_Sunday": 0.0,
+            "day_Sunday": 1.86,
             "is_rain": 0.0,
             "temp": 0.12
-        }
+        },
+        "waste_risk": 0.1,
+        "avg_made": 1.4
     },
     "치즈 베이글": {
         "base_bias": 1.0,
@@ -977,21 +1115,25 @@
             "day_Sunday": 0.0,
             "is_rain": 0.0,
             "temp": 0.0
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 1.0
     },
     "썬드라이바질토마토": {
-        "base_bias": 7.53,
+        "base_bias": 7.68,
         "weights": {
-            "day_Monday": 1.77,
+            "day_Monday": 1.36,
             "day_Tuesday": 0.0,
-            "day_Wednesday": -2.54,
+            "day_Wednesday": -1.59,
             "day_Thursday": 0.0,
             "day_Friday": 0.0,
             "day_Saturday": 0.0,
-            "day_Sunday": 0.76,
-            "is_rain": -0.19,
-            "temp": 0.01
-        }
+            "day_Sunday": 0.24,
+            "is_rain": -0.33,
+            "temp": 0.0
+        },
+        "waste_risk": 0.4,
+        "avg_made": 6.9
     },
     "우유크림소금빵": {
         "base_bias": 12.16,
@@ -1005,20 +1147,248 @@
             "day_Sunday": -0.61,
             "is_rain": -4.49,
             "temp": -0.11
-        }
+        },
+        "waste_risk": 0.0,
+        "avg_made": 9.9
     },
     "블랙어니언 베이글": {
-        "base_bias": 9.11,
+        "base_bias": 4.1,
         "weights": {
-            "day_Monday": -0.0,
+            "day_Monday": -0.73,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -0.65,
+            "day_Thursday": 0.0,
+            "day_Friday": 0.89,
+            "day_Saturday": 0.0,
+            "day_Sunday": 0.5,
+            "is_rain": 1.38,
+            "temp": -0.06
+        },
+        "waste_risk": 0.5,
+        "avg_made": 3.4
+    },
+    "소금베이글": {
+        "base_bias": 11.76,
+        "weights": {
+            "day_Monday": -0.31,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": 0.19,
+            "day_Thursday": 0.0,
+            "day_Friday": 0.0,
+            "day_Saturday": 0.0,
+            "day_Sunday": 0.12,
+            "is_rain": -6.29,
+            "temp": -0.05
+        },
+        "waste_risk": 0.2,
+        "avg_made": 10.2
+    },
+    "닭가슴살 포카치아": {
+        "base_bias": 5.61,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -3.12,
+            "day_Thursday": 0.75,
+            "day_Friday": -0.18,
+            "day_Saturday": 2.55,
+            "day_Sunday": 0.0,
+            "is_rain": -1.1,
+            "temp": -0.25
+        },
+        "waste_risk": 0.4,
+        "avg_made": 5.2
+    },
+    "당근라페포카치아": {
+        "base_bias": 8.8,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -2.25,
+            "day_Thursday": -1.97,
+            "day_Friday": -0.34,
+            "day_Saturday": 4.57,
+            "day_Sunday": 0.0,
+            "is_rain": -4.91,
+            "temp": -0.4
+        },
+        "waste_risk": 0.2,
+        "avg_made": 6.8
+    },
+    "얼그레이스콘": {
+        "base_bias": 2.67,
+        "weights": {
+            "day_Monday": -0.27,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -0.46,
+            "day_Thursday": -0.85,
+            "day_Friday": 0.36,
+            "day_Saturday": 0.94,
+            "day_Sunday": 0.28,
+            "is_rain": -0.56,
+            "temp": -0.05
+        },
+        "waste_risk": 1.0,
+        "avg_made": 2.7
+    },
+    "씨나핀": {
+        "base_bias": 3.54,
+        "weights": {
+            "day_Monday": 0.86,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": -0.54,
+            "day_Thursday": -0.29,
+            "day_Friday": 0.06,
+            "day_Saturday": 0.97,
+            "day_Sunday": -1.05,
+            "is_rain": -1.03,
+            "temp": 0.0
+        },
+        "waste_risk": 0.5,
+        "avg_made": 2.9
+    },
+    "버섯크림치즈포카치아": {
+        "base_bias": 4.99,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -3.32,
+            "day_Thursday": 2.36,
+            "day_Friday": -0.3,
+            "day_Saturday": 1.26,
+            "day_Sunday": 0.0,
+            "is_rain": -0.56,
+            "temp": -0.07
+        },
+        "waste_risk": 0.1,
+        "avg_made": 5.2
+    },
+    "바질 토마토": {
+        "base_bias": 3.78,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 0.0,
+            "day_Thursday": -0.7,
+            "day_Friday": -0.03,
+            "day_Saturday": 0.73,
+            "day_Sunday": -0.0,
+            "is_rain": -1.73,
+            "temp": -0.08
+        },
+        "waste_risk": 0.4,
+        "avg_made": 3.2
+    },
+    "팥밤 사워도우": {
+        "base_bias": 4.48,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -0.0,
+            "day_Thursday": -0.85,
+            "day_Friday": -0.15,
+            "day_Saturday": 1.0,
+            "day_Sunday": 0.0,
+            "is_rain": -1.51,
+            "temp": -0.09
+        },
+        "waste_risk": 0.7,
+        "avg_made": 3.6
+    },
+    "딸기 치아바타": {
+        "base_bias": 4.56,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": 0.0,
+            "day_Thursday": 0.38,
+            "day_Friday": -1.3,
+            "day_Saturday": 0.92,
+            "day_Sunday": 0.0,
+            "is_rain": -1.82,
+            "temp": 0.04
+        },
+        "waste_risk": 0.3,
+        "avg_made": 4.1
+    },
+    "스위트 잠봉": {
+        "base_bias": 3.96,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": -0.0,
+            "day_Wednesday": 0.0,
+            "day_Thursday": 0.42,
+            "day_Friday": -0.23,
+            "day_Saturday": -0.19,
+            "day_Sunday": -0.0,
+            "is_rain": 1.35,
+            "temp": 0.08
+        },
+        "waste_risk": 0.2,
+        "avg_made": 4.2
+    },
+    "BLT.샌드위치": {
+        "base_bias": 4.32,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -3.07,
+            "day_Thursday": 0.84,
+            "day_Friday": 0.4,
+            "day_Saturday": 1.83,
+            "day_Sunday": 0.0,
+            "is_rain": 0.65,
+            "temp": 0.06
+        },
+        "waste_risk": 0.2,
+        "avg_made": 4.9
+    },
+    "카프레제 샌드위치": {
+        "base_bias": 4.44,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": -0.0,
+            "day_Thursday": -0.57,
+            "day_Friday": -0.54,
+            "day_Saturday": 1.11,
+            "day_Sunday": 0.0,
+            "is_rain": -0.61,
+            "temp": 0.09
+        },
+        "waste_risk": 0.1,
+        "avg_made": 4.4
+    },
+    "체다치즈 고구마 사워도우": {
+        "base_bias": 5.01,
+        "weights": {
+            "day_Monday": 0.0,
+            "day_Tuesday": 0.0,
+            "day_Wednesday": 0.0,
+            "day_Thursday": -1.46,
+            "day_Friday": 0.66,
+            "day_Saturday": 0.79,
+            "day_Sunday": -0.0,
+            "is_rain": 0.34,
+            "temp": -0.04
+        },
+        "waste_risk": 0.6,
+        "avg_made": 4.4
+    },
+    "버섯리코타 포카치아": {
+        "base_bias": 3.6,
+        "weights": {
+            "day_Monday": 0.0,
             "day_Tuesday": 0.0,
             "day_Wednesday": 0.0,
             "day_Thursday": 0.0,
-            "day_Friday": 0.71,
-            "day_Saturday": 0.0,
-            "day_Sunday": -0.71,
-            "is_rain": -0.19,
-            "temp": -0.37
-        }
+            "day_Friday": -0.18,
+            "day_Saturday": 0.18,
+            "day_Sunday": 0.0,
+            "is_rain": -2.55,
+            "temp": -0.02
+        },
+        "waste_risk": 0.4,
+        "avg_made": 2.7
     }
 }
