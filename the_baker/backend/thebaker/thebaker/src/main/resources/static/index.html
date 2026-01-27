@@ -160,6 +160,9 @@
             <svg id="barcode" class="w-full h-16"></svg>
         </div>
         <p class="text-[16px] tracking-wide uppercase text-gray-400">결제 시 스캔해주세요</p>
+        <button onclick="logout()" class="mt-6 text-xs text-gray-400 underline hover:text-brown">
+            다른 번호 입력하기
+        </button>
     </div>
 </section>
 
@@ -178,112 +181,119 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
 <script>
+    // --- 0. UTILS & TOGGLES (Mobile Menu, etc) ---
     const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
+    if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 
-        // 1. DYNAMIC STATUS CHECK
-        async function checkStatus() {
-            const container = document.getElementById('status-container');
-            try {
-                const res = await fetch('/api/staff/status');
-                if(res.ok) {
-                    const data = await res.json();
-
-                    if (data.open) {
-                        // OPEN STATE
-                        container.innerHTML = `
-                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[clamp(18px,2.5vw,40px)] font-mono font-bold tracking-wide uppercase text-brown">
-                                <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span>
-                                OPEN
-                            </span>
-                        `;
-                    } else {
-                        // CLOSED STATE
-                        container.innerHTML = `
-                            <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-300 text-[clamp(18px,2.5vw,40px)] font-mono font-bold tracking-wide uppercase text-gray-400 bg-gray-50">
-                                <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
-                                CLOSED
-                            </span>
-                        `;
-                    }
+    // --- 1. DYNAMIC STATUS CHECK ---
+    async function checkStatus() {
+        const container = document.getElementById('status-container');
+        try {
+            const res = await fetch('/api/staff/status');
+            if(res.ok) {
+                const data = await res.json();
+                if (data.open) {
+                    container.innerHTML = `
+                        <span class="inline-flex items-center px-20 py-4 rounded-full border border-brown text-[clamp(18px,2.5vw,40px)] font-mono font-bold tracking-wide uppercase text-brown">
+                            <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span> OPEN
+                        </span>`;
+                } else {
+                    container.innerHTML = `
+                        <span class="inline-flex items-center px-20 py-4 rounded-full border border-gray-300 text-[clamp(18px,2.5vw,40px)] font-mono font-bold tracking-wide uppercase text-gray-400 bg-gray-50">
+                            <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span> CLOSED
+                        </span>`;
                 }
-            } catch(e) { console.error("Status check failed"); }
+            }
+        } catch(e) { console.error("Status check failed"); }
+    }
+
+    // --- 2. MEMBERSHIP LOGIC (With LocalStorage) ---
+
+    // A. The Main Check Function
+    async function checkMember(autoPhone = null) {
+        // If autoPhone is provided, use it. Otherwise, get from Input.
+        let inputVal = autoPhone || document.getElementById('phoneInput').value;
+        if(!inputVal) return;
+
+        // SANITIZE: Remove spaces, dashes, parentheses (Fix for Mobile Keyboards)
+        const phone = inputVal.replace(/[^0-9]/g, '');
+
+        // 1. Generate Barcode immediately (Visual Feedback)
+        if(window.JsBarcode) {
+            JsBarcode("#barcode", phone, { format: "CODE128", displayValue: false, lineColor: "#000", width: 2, height: 50, margin: 0 });
         }
 
-        // 2. MEMBERSHIP CHECK (FIXED)
-        async function checkMember() {
-            const inputVal = document.getElementById('phoneInput').value;
-            if(!inputVal) return;
-
-            // 1. SANITIZE: Remove dashes to match Database format (e.g. 01012345678)
-            const phone = inputVal.replace(/[^0-9]/g, '');
-
+        try {
+            // 2. Hide Form / Show Card
             document.getElementById('login-form').classList.add('hidden');
             document.getElementById('member-card').classList.remove('hidden');
 
-            // 2. Generate Barcode with the CLEAN number
-            if(window.JsBarcode) {
-                JsBarcode("#barcode", phone, { format: "CODE128", displayValue: false, lineColor: "#000", width: 2, height: 50, margin: 0 });
+            // 3. Fetch Points
+            const res = await fetch(`/api/customers/${phone}`);
+
+            if (res.ok) {
+                const data = await res.json();
+                const fmt = new Intl.NumberFormat('ko-KR').format(data.points);
+                document.getElementById('pointsDisplay').innerText = `${fmt} P`;
+
+                // *** SAVE TO MEMORY ***
+                localStorage.setItem('thebaker_member', phone);
+            } else {
+                // New customer or error
+                document.getElementById('pointsDisplay').innerText = "0 P";
+                // Even if new, we save it so they don't have to type again
+                localStorage.setItem('thebaker_member', phone);
             }
 
-            try {
-                // 3. Send Request with CLEAN number
-                const res = await fetch(`/api/customers/${phone}`);
-
-                if (res.ok) {
-                    const data = await res.json();
-                    const fmt = new Intl.NumberFormat('ko-KR').format(data.points);
-                    document.getElementById('pointsDisplay').innerText = `${fmt} P`;
-                } else {
-                    // 4. Handle Not Found (New Customer?)
-                    document.getElementById('pointsDisplay').innerText = "0 P";
-                }
-            } catch(e) {
-                console.error("Connection Error:", e);
-                document.getElementById('pointsDisplay').innerText = "-";
-                // Optional: Alert for debugging (remove later)
-                alert("Server Error: " + e.message);
-            }
+        } catch(e) {
+            console.error("Connection Error:", e);
+            document.getElementById('pointsDisplay').innerText = "-";
         }
+    }
 
-        // INIT
-        document.addEventListener("DOMContentLoaded", () => {
-            checkStatus();
-        });
+    // B. Auto-Login on Load
+    function autoLogin() {
+        const savedPhone = localStorage.getItem('thebaker_member');
+        if (savedPhone) {
+            // If found, fill the input (just in case) and run the check automatically
+            document.getElementById('phoneInput').value = savedPhone;
+            checkMember(savedPhone);
+        }
+    }
 
-    // 1. The Dictionary (Add all your text here)
+    // C. Logout / Reset
+    function logout() {
+        // 1. Wipe Memory
+        localStorage.removeItem('thebaker_member');
+
+        // 2. Reset UI
+        document.getElementById('login-form').classList.remove('hidden');
+        document.getElementById('member-card').classList.add('hidden');
+        document.getElementById('phoneInput').value = '';
+        document.getElementById('phoneInput').focus();
+    }
+
+    // --- 3. INIT ---
+    document.addEventListener("DOMContentLoaded", () => {
+        checkStatus();
+        autoLogin(); // <--- Run this immediately when page loads
+    });
+
+    // --- 4. LANGUAGE UTILS (Existing code...) ---
     const translations = {
-        en: {
-            "main-title": "THE BAKER",
-            "about-btn": "ABOUT",
-            "reserve-btn": "RESERVE",
-            "menu-btn": "MENU",
-            "login-btn": "MY ORDERS"
-        },
-        ko: {
-            "main-title": "더베이커",
-            "about-btn": "소개",
-            "reserve-btn": "예약",
-            "menu-btn": "메뉴",
-            "login-btn": "내 주문 확인"
-        }
+        en: { "main-title": "THE BAKER", "about-btn": "ABOUT", "reserve-btn": "RESERVE", "menu-btn": "MENU" },
+        ko: { "main-title": "더베이커", "about-btn": "소개", "reserve-btn": "예약", "menu-btn": "메뉴" }
     };
-
-    // 2. Current Language State (Default to English or Korean)
     let currentLang = 'ko';
 
-    // 3. The Smart Toggle Function
     function toggleLanguage() {
-        // Switch state
         currentLang = currentLang === 'ko' ? 'en' : 'ko';
-
-        // Update every element with a 'data-key'
         document.querySelectorAll('[data-key]').forEach(element => {
             const key = element.getAttribute('data-key');
             if (translations[currentLang][key]) {
