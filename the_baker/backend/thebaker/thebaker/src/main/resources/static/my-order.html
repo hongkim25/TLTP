@@ -136,7 +136,7 @@
     }
 
     async function cancelOrder(id) {
-        if(!confirm("정말로 예약을 취소하시겠습니까? (재고가 복구됩니다)")) return;
+        if(!confirm("정말로 예약을 취소하시겠습니까?")) return;
 
         try {
             const res = await fetch(`/api/orders/${id}/cancel`, { method: 'POST' });
