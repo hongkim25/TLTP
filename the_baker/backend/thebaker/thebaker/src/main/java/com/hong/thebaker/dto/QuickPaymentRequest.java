@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class QuickPaymentRequest {
     private String phoneNumber;
-    private double totalAmount;   // <--- This is the key field the Sidebar sends!
+    private double totalAmount;
     private int pointsToUse;
     private PaymentMethod paymentMethod;
 }
