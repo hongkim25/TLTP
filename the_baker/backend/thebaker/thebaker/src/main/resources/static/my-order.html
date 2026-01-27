@@ -10,7 +10,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-F54HS1GX0M');
     </script>
     <script type="text/javascript">
@@ -21,26 +20,46 @@
         })(window, document, "clarity", "script", "v5bcs3qciu");
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <style> body { font-family: 'Noto Sans KR', sans-serif; } </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                        serif: ['Pretendard', 'sans-serif'],
+                        nav: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brown: '#6B4423',
+                        black: '#111111',
+                        white: '#FFFFFF',
+                        gray: '#F4F4F4',
+                        cream: '#f9f7f2',
+                        success: '#22c55e',
+                        danger: '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
 
 <header class="bg-white p-4 shadow-sm flex justify-between items-center sticky top-0 z-50">
-    <h1 class="text-xl font-bold text-gray-800 tracking-tighter">THE BAKER</h1>
-    <a href="index.html" class="text-sm text-gray-500 font-bold border border-gray-300 px-3 py-1 rounded">🏠 Home</a>
+    <h1 class="text-xl font-bold text-brown tracking-tighter">THE BAKER</h1>
+    <a href="index.html" class="text-sm text-gray-500 font-bold border border-gray-300 px-3 py-1 rounded">홈페이지로 돌아가기</a>
 </header>
 
 <main class="flex-grow p-6 max-w-md mx-auto w-full">
 
-    <h2 class="text-2xl font-bold mb-6 text-gray-800">나의 예약 확인<br><span class="text-sm font-normal text-gray-500">Check My Orders</span></h2>
+    <h2 class="text-2xl font-bold mb-6 text-brown tracking-tighter">나의 예약 확인<br></h2>
 
     <div id="login-section" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <div class="mb-4">
-            <label class="block text-sm font-bold text-gray-700 mb-1">전화번호 (Phone)</label>
-            <input type="tel" id="searchPhone" placeholder="010-0000-0000" class="w-full border p-3 rounded-lg focus:outline-none focus:border-black">
+            <label class="block text-lg font-bold text-gray-700 mb-1">핸드폰 번호</label>
+            <input type="tel" id="searchPhone" placeholder="010-0000-0000" class="w-full border p-3 rounded-lg focus:outline-none focus:border-brown">
         </div>
-        <button onclick="findOrders()" class="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition">조회하기 (Search)</button>
+        <button onclick="findOrders()" class="w-full bg-brown text-white py-3 rounded-lg font-bold hover:bg-black-300 transition">조회하기</button>
     </div>
 
     <div id="order-list-section" class="hidden">
