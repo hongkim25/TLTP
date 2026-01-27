@@ -222,7 +222,7 @@
             if(!inputVal) return;
 
             // 1. SANITIZE: Remove dashes to match Database format (e.g. 01012345678)
-            const phone = inputVal.replace(/-/g, '');
+            const phone = inputVal.replace(/[^0-9]/g, '');
 
             document.getElementById('login-form').classList.add('hidden');
             document.getElementById('member-card').classList.remove('hidden');
