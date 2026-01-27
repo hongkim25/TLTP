@@ -24,8 +24,8 @@ public class SecurityConfig {
                         .requestMatchers("/manifest.json", "/sw.js", "/icon-*.png").permitAll() // Static assets
 
                         // 2. PUBLIC APIs (So customers can check menu & order)
-                        .requestMatchers("/api/products/**", "/api/orders/**").permitAll() // *Note: detailed locking comes later
                         .requestMatchers("/api/staff/status").permitAll()
+                        .requestMatchers("/api/customers/**").permitAll()
                         // 3. SECURED PAGES (Staff) - Everything else requires login
                         .requestMatchers("/staff/**").authenticated()
                         .anyRequest().authenticated()
