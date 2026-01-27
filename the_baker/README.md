@@ -49,15 +49,7 @@ It calculates a Waste Risk Score (Average Loss per Active Day) vs. Production Ve
 
 ## Key Technical Features
 **1. "What-If" Simulation Engine**
-The dashboard enables Real-Time Scenario Planning. Staff can manually override weather parameters (e.g., switch forecast from "Sunny" to "Rain") which triggers a re-calculation of prediction vectors in memory (
- <br>
-     $$O(1)$$
- <br>
- complexity), without needing to retrain the underlying model (
- <br>
-     $$O(N)$$
- <br>
- ).
+The dashboard enables Real-Time Scenario Planning. Staff can manually override weather parameters (e.g., switch forecast from "Sunny" to "Rain") which triggers a re-calculation of prediction vectors in memory ( $$O(1)$$ complexity), without needing to retrain the underlying model ( $$O(N)$$ ).
 
 **2. Automated Pipeline (CI/CD)**
 Continuous Integration: Every push triggers a build and test suite via GitHub Actions. <br>
