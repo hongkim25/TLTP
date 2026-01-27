@@ -494,8 +494,8 @@
         // 2. Prepare Data (MUST MATCH JAVA QuickPaymentRequest.java)
         const payload = {
             phoneNumber: phone,
-            totalAmount: parseFloat(amount), // MATCHES: private double totalAmount
-            paymentMethod: method            // MATCHES: private PaymentMethod paymentMethod
+            totalAmount: parseFloat(amount),
+            paymentMethod: method
         };
 
         try {
@@ -511,7 +511,7 @@
                 // Note: Your Controller returns a String message, NOT JSON. 
                 // So we use res.text() instead of res.json() to avoid crashing.
                 const text = await res.text(); 
-                
+
                 msg.innerText = "적립 완료!";
                 msg.classList.remove('text-danger');
                 msg.classList.add('text-success');
