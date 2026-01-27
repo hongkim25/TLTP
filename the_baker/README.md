@@ -6,14 +6,14 @@ The application follows a Hybrid Monolith architecture designed for reliability 
 
 ```mermaid
 graph TD
-    User[Staff / POS] -->|HTTPS| Controller[Spring Boot Controller]
-    Controller -->|Read/Write| DB[(H2 / PostgreSQL)]
-    Controller -->|Request Prediction| Service[PredictionService.java]
+    User["Staff / POS"] -->|HTTPS| Controller["Spring Boot Controller"]
+    Controller -->|Read/Write| DB[("H2 / PostgreSQL")]
+    Controller -->|Request Prediction| Service["PredictionService.java"]
     
     subgraph "Dual-Core AI Engine"
-        Service -->|Load| JSON[Model Weights (ml_model.json)]
-        Trainer[Python Script (Scikit-Learn)] -->|Train & Serialize| JSON
-        CSV[Historical Data] -->|Feed| Trainer
+        Service -->|Load| JSON["Model Weights (ml_model.json)"]
+        Trainer["Python Script (Scikit-Learn)"] -->|Train & Serialize| JSON
+        CSV["Historical Data"] -->|Feed| Trainer
     end
 
 Tech Stack
