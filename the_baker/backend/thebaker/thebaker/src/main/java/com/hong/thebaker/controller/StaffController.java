@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Map;
 
 @RestController
@@ -20,7 +21,7 @@ public class StaffController {
     // --- DEPENDENCIES ---
     private final CustomerRepository customerRepo;
     private final OrderRepository orderRepo;
-    private final ProductRepository productRepo; // <--- NEW CONNECTION
+    private final ProductRepository productRepo;
 
     // --- CONSTRUCTOR ---
     public StaffController(CustomerRepository customerRepo,
@@ -31,20 +32,48 @@ public class StaffController {
         this.productRepo = productRepo;
     }
 
-    // --- VARIABLES (Global Settings) ---
-    public static boolean IS_STORE_OPEN = true;
+    // --- CONFIGURATION (Hours) ---
+    // You can change these numbers to match your real store hours
+    private static final LocalTime OPEN_TIME = LocalTime.of(8, 0);   // 08:00 AM
+    private static final LocalTime CLOSE_TIME = LocalTime.of(20, 0); // 08:00 PM
 
-    // --- METHOD 1: CHECK STATUS ---
+    // --- STATE ---
+    // false = We have bread. true = We manually closed early (Sold Out).
+    private static boolean IS_SOLD_OUT = false;
+
+    // --- METHOD 1: CHECK STATUS (Smart Logic) ---
     @GetMapping("/status")
     public ResponseEntity<?> getStatus() {
-        return ResponseEntity.ok(Map.of("open", IS_STORE_OPEN));
+        LocalTime now = LocalTime.now();
+
+        // 1. Is it operating hours?
+        boolean isOperatingHours = now.isAfter(OPEN_TIME) && now.isBefore(CLOSE_TIME);
+
+        // 2. The Final Verdict
+        // Open ONLY if it's day time AND we are not sold out.
+        boolean isOpen = isOperatingHours && !IS_SOLD_OUT;
+
+        return ResponseEntity.ok(Map.of("open", isOpen));
     }
 
-    // --- METHOD 2: TOGGLE STATUS (God Switch) ---
+    // --- METHOD 2: TOGGLE STATUS (Sold Out Switch) ---
     @PostMapping("/status")
     public ResponseEntity<?> toggleStatus(@RequestBody Map<String, Boolean> payload) {
-        IS_STORE_OPEN = payload.get("open");
-        return ResponseEntity.ok(Map.of("message", "Store is now " + (IS_STORE_OPEN ? "OPEN" : "CLOSED")));
+        LocalTime now = LocalTime.now();
+        boolean isOperatingHours = now.isAfter(OPEN_TIME) && now.isBefore(CLOSE_TIME);
+
+        // If it is Night Time, you cannot open the shop no matter what.
+        if (!isOperatingHours) {
+            return ResponseEntity.ok(Map.of("open", false));
+        }
+
+        // If it IS Day Time, the button toggles the "Sold Out" state.
+        boolean requestedOpen = payload.get("open");
+
+        // If user requests "Open", it means IS_SOLD_OUT should be false.
+        IS_SOLD_OUT = !requestedOpen;
+
+        return ResponseEntity.ok(Map.of("message", "Shop status updated", "open", requestedOpen));
     }
 
     // --- METHOD 3: ADD POINTS (Walk-In) ---
@@ -82,22 +111,18 @@ public class StaffController {
         ));
     }
 
-    // --- METHOD 4: UPDATE STOCK (The New Part) ---
-    // Usage: The staff tablet sends { "productId": 1, "quantity": 50 }
+    // --- METHOD 4: UPDATE STOCK ---
     @PostMapping("/stock")
     public ResponseEntity<?> updateStock(@RequestBody Map<String, Integer> payload) {
-        // 1. Get the ID and Quantity from the JSON
         Long productId = Long.valueOf(payload.get("productId"));
         int newQuantity = payload.get("quantity");
 
-        // 2. Find the product -> Update it -> Save it
         return productRepo.findById(productId)
                 .map(product -> {
                     product.setStockQuantity(newQuantity);
-                    productRepo.save(product); // Write to DB
+                    productRepo.save(product);
                     return ResponseEntity.ok(Map.of("message", "Stock updated to " + newQuantity));
                 })
                 .orElse(ResponseEntity.badRequest().body(Map.of("error", "Product not found")));
     }
-
 }

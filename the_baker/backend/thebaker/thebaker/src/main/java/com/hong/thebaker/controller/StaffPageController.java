@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class StaffPageController {
 
     private final PredictionService predictionService;
-    private final ProductRepository productRepo; // <--- 1. Add Repository
+    private final ProductRepository productRepo;
 
     // 2. Inject Repository in Constructor
     public StaffPageController(PredictionService predictionService, ProductRepository productRepo) {
