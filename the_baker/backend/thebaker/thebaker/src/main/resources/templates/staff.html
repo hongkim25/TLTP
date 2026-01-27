@@ -482,6 +482,7 @@
     async function processTransaction() {
         const phone = document.getElementById('phone').value;
         const amount = document.getElementById('amount').value;
+        const method = document.getElementById('paymentMethod').value;
         const msg = document.getElementById('pointMsg');
 
         // 1. Validation
@@ -493,7 +494,8 @@
         // 2. Prepare Data (MUST MATCH JAVA CONTROLLER)
         const payload = {
             phoneNumber: phone,
-            amount: parseFloat(amount)  // <--- The backend expects "amount", not "totalAmount"
+            amount: parseFloat(amount),  // <--- The backend expects "amount", not "totalAmount"
+            paymentMethod: method 
         };
 
         try {
@@ -507,7 +509,6 @@
             if (res.ok) {
                 // 4. Success Handling
                 const data = await res.json();
-
                 msg.innerText = "적립 완료! (총 포인트: " + data.currentPoints + ")";
                 msg.classList.remove('text-danger');
                 msg.classList.add('text-success');
