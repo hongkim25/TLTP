@@ -478,41 +478,57 @@
         addLog(`신규 상품 등록: ${name}`);
     }
 
-    // --- 6. TRANSACTION LOGIC ---
+    // --- 6. TRANSACTION LOGIC (FIXED) ---
     async function processTransaction() {
         const phone = document.getElementById('phone').value;
         const amount = document.getElementById('amount').value;
-        const usePoints = document.getElementById('usePoints').value || 0;
-        const paymentMethod = document.getElementById('paymentMethod').value;
         const msg = document.getElementById('pointMsg');
 
-        if(!phone || !amount) { alert("핸드폰 번호와 금액을 입력해주세요."); return; }
+        // 1. Validation
+        if(!phone || !amount) {
+            alert("핸드폰 번호와 금액을 입력해주세요.");
+            return;
+        }
 
+        // 2. Prepare Data (MUST MATCH JAVA CONTROLLER)
         const payload = {
             phoneNumber: phone,
-            totalAmount: parseFloat(amount),
-            pointsToUse: parseInt(usePoints),
-            paymentMethod: paymentMethod
+            amount: parseFloat(amount)  // <--- The backend expects "amount", not "totalAmount"
         };
 
         try {
-            const res = await fetch('/api/points/pay', {
-                method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
+            // 3. Send to Correct URL
+            const res = await fetch('/api/staff/points', { // <--- Changed from /api/points/pay
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
             });
 
             if (res.ok) {
-                msg.innerText = "처리 완료!";
-                msg.classList.replace('text-danger', 'text-success');
-                addLog(`결제 완료: ₩${amount}`);
+                // 4. Success Handling
+                const data = await res.json();
+
+                msg.innerText = "적립 완료! (총 포인트: " + data.currentPoints + ")";
+                msg.classList.remove('text-danger');
+                msg.classList.add('text-success');
+
+                addLog(`포인트 적립: ₩${amount}`);
+
+                // Clear the form
                 document.getElementById('amount').value = '';
                 document.getElementById('phone').value = '';
                 document.getElementById('phone').focus();
+
                 setTimeout(() => msg.innerText = '', 3000);
             } else {
-                msg.innerText = "Error: " + await res.text();
-                msg.classList.replace('text-success', 'text-danger');
+                // 5. Error Handling
+                msg.innerText = "오류 발생";
+                msg.classList.add('text-danger');
             }
-        } catch(e) { console.error(e); msg.innerText = "System Error!"; }
+        } catch(e) {
+            console.error(e);
+            msg.innerText = "System Error!";
+        }
     }
 
     // --- 7. UTILS ---
