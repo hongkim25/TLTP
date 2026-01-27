@@ -4,8 +4,6 @@ A full-stack retail management platform featuring a "Dual-Core" predictive engin
 🏗️ Architecture Overview
 The application follows a Hybrid Monolith architecture designed for reliability and ease of deployment. It leverages Java Spring Boot for robust transaction handling and Python for statistical modeling, bridging the two via a lightweight local interface.
 
-코드 스니펫
-
 graph TD
     User[Staff / POS] -->|HTTPS| Controller[Spring Boot Controller]
     Controller -->|Read/Write| DB[(H2 / PostgreSQL)]
@@ -16,15 +14,12 @@ graph TD
         Trainer[Python Script (Scikit-Learn)] -->|Train & Serialize| JSON
         CSV[Historical Data] -->|Feed| Trainer
     end
+
 Tech Stack
 Backend: Java 17, Spring Boot 3.2 (Web, JPA, Thymeleaf)
-
 Data Science: Python 3.x, Pandas, Scikit-Learn (Linear Regression)
-
 Database: H2 (Dev) / PostgreSQL (Prod)
-
 Frontend: Server-Side Rendering (Thymeleaf) + TailwindCSS
-
 DevOps: GitHub Actions (CI) -> Render (CD)
 
 🧠 The "Dual-Core" Prediction Logic
@@ -36,26 +31,18 @@ Objective: Predict "How many can we sell tomorrow?"
 Algorithm: Multivariate Linear Regression.
 
 Features:
-
 Day of Week (One-hot encoded)
-
 Weather Condition (Sunny, Rain, Snow)
-
 Temperature (Continuous variable)
-
 Logic: The model calculates a Base Bias (Standard Demand) and applies weighted coefficients (e.g., Saturday Boost: +3.0, Rain Drop: -1.5) to generate a dynamic target.
 
 Core 2: The Risk Model (Sparse Data Handling)
 Objective: "What is the risk of over-production?"
-
 Challenge: Waste data is sparse (zeros are common) and negatively skewed. A standard regression often fails to capture the magnitude of risk.
-
 Solution: An "Active-Day" Risk Scoring system.
 
 The system filters historical data to isolate only Active Shelf Days (days the product was actually produced).
-
 It calculates a Waste Risk Score (Avg. Loss per Active Day) vs. Production Velocity (Avg. Made).
-
 UI Impact: If the risk exceeds a threshold, the dashboard flashes a ⚠️ High Waste Risk alert, contextualizing the sales target.
 
 🚀 Key Technical Features
