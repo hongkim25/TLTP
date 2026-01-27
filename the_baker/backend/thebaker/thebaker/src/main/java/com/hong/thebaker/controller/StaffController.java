@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.time.DayOfWeek; // <--- NEW
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Map;
@@ -23,7 +24,6 @@ public class StaffController {
     private final OrderRepository orderRepo;
     private final ProductRepository productRepo;
 
-    // --- CONSTRUCTOR ---
     public StaffController(CustomerRepository customerRepo,
                            OrderRepository orderRepo,
                            ProductRepository productRepo) {
@@ -32,48 +32,61 @@ public class StaffController {
         this.productRepo = productRepo;
     }
 
-    // --- CONFIGURATION (Hours) ---
-    // You can change these numbers to match your real store hours
-    private static final LocalTime OPEN_TIME = LocalTime.of(8, 0);   // 08:00 AM
-    private static final LocalTime CLOSE_TIME = LocalTime.of(20, 0); // 08:00 PM
+    // --- CONFIGURATION ---
+    private static final LocalTime OPEN_TIME = LocalTime.of(9, 0);
+    private static final LocalTime CLOSE_TIME = LocalTime.of(17, 0);
 
-    // --- STATE ---
-    // false = We have bread. true = We manually closed early (Sold Out).
-    private static boolean IS_SOLD_OUT = false;
+    // --- STATE (Manual Overrides) ---
+    // These start as null/false, meaning "Follow the Schedule"
+    private static boolean FORCE_OPEN = false;
+    private static boolean FORCE_CLOSED = false;
 
     // --- METHOD 1: CHECK STATUS (Smart Logic) ---
     @GetMapping("/status")
     public ResponseEntity<?> getStatus() {
-        LocalTime now = LocalTime.now();
+        // 1. PRIORITY: Check Manual Overrides first
+        if (FORCE_OPEN) return ResponseEntity.ok(Map.of("open", true));
+        if (FORCE_CLOSED) return ResponseEntity.ok(Map.of("open", false));
 
-        // 1. Is it operating hours?
-        boolean isOperatingHours = now.isAfter(OPEN_TIME) && now.isBefore(CLOSE_TIME);
-
-        // 2. The Final Verdict
-        // Open ONLY if it's day time AND we are not sold out.
-        boolean isOpen = isOperatingHours && !IS_SOLD_OUT;
-
+        // 2. FALLBACK: Automatic Schedule
+        boolean isOpen = checkSchedule();
         return ResponseEntity.ok(Map.of("open", isOpen));
     }
 
-    // --- METHOD 2: TOGGLE STATUS (Sold Out Switch) ---
+    // --- METHOD 2: TOGGLE STATUS (God Mode) ---
     @PostMapping("/status")
     public ResponseEntity<?> toggleStatus(@RequestBody Map<String, Boolean> payload) {
-        LocalTime now = LocalTime.now();
-        boolean isOperatingHours = now.isAfter(OPEN_TIME) && now.isBefore(CLOSE_TIME);
-
-        // If it is Night Time, you cannot open the shop no matter what.
-        if (!isOperatingHours) {
-            return ResponseEntity.ok(Map.of("open", false));
-        }
-
-        // If it IS Day Time, the button toggles the "Sold Out" state.
         boolean requestedOpen = payload.get("open");
 
-        // If user requests "Open", it means IS_SOLD_OUT should be false.
-        IS_SOLD_OUT = !requestedOpen;
+        if (requestedOpen) {
+            // User clicked "OPEN"
+            FORCE_OPEN = true;
+            FORCE_CLOSED = false; // Reset the other flag
+        } else {
+            // User clicked "CLOSE"
+            FORCE_OPEN = false; // Reset the other flag
+            FORCE_CLOSED = true;
+        }
 
-        return ResponseEntity.ok(Map.of("message", "Shop status updated", "open", requestedOpen));
+        return ResponseEntity.ok(Map.of(
+                "message", "Manual Override: " + (requestedOpen ? "OPEN" : "CLOSED"),
+                "open", requestedOpen
+        ));
+    }
+
+    // --- HELPER: The Schedule Logic ---
+    private boolean checkSchedule() {
+        LocalDateTime now = LocalDateTime.now();
+        LocalTime time = now.toLocalTime();
+        DayOfWeek day = now.getDayOfWeek();
+
+        // Rule 1: Closed on Tuesdays
+        if (day == DayOfWeek.TUESDAY) {
+            return false;
+        }
+
+        // Rule 2: Open between 08:00 and 20:00
+        return time.isAfter(OPEN_TIME) && time.isBefore(CLOSE_TIME);
     }
 
     // --- METHOD 3: ADD POINTS (Walk-In) ---
