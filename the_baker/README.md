@@ -1,7 +1,7 @@
-#The Baker: AI-Driven Inventory Optimization System
+# The Baker: AI-Driven Inventory Optimization System
 A full-stack retail management platform featuring a "Dual-Core" predictive engine to minimize food waste while maximizing sales potential.
 
-##Architecture Overview
+## Architecture Overview
 The application follows a Hybrid Monolith architecture designed for reliability and ease of deployment. It leverages Java Spring Boot for robust transaction handling and Python for statistical modeling, bridging the two via a lightweight local interface.
 
 graph TD
@@ -22,7 +22,7 @@ Database: H2 (Dev) / PostgreSQL (Prod)
 Frontend: Server-Side Rendering (Thymeleaf) + TailwindCSS
 DevOps: GitHub Actions (CI) -> Render (CD)
 
-##🧠 The "Dual-Core" Prediction Logic
+## 🧠 The "Dual-Core" Prediction Logic
 Retail inventory management faces two conflicting challenges: Demand Volatility (Weather/Day effects) and Data Sparsity (Waste events are rare but costly). To solve this, The Baker employs a hybrid "Dual-Core" strategy:
 
 Core 1: The Demand Model (Dynamic Regression)
@@ -45,7 +45,7 @@ The system filters historical data to isolate only Active Shelf Days (days the p
 It calculates a Waste Risk Score (Avg. Loss per Active Day) vs. Production Velocity (Avg. Made).
 UI Impact: If the risk exceeds a threshold, the dashboard flashes a ⚠️ High Waste Risk alert, contextualizing the sales target.
 
-##🚀 Key Technical Features
+## 🚀 Key Technical Features
 1. "What-If" Simulation Engine
 The dashboard allows staff to manually override weather parameters. This triggers a real-time recalculation of the prediction vectors without retraining the model, allowing for rapid scenario planning (e.g., "The forecast changed to Rain; how should we adjust prep?").
 
@@ -55,6 +55,5 @@ Continuous Integration: Every push triggers a build and test suite via GitHub Ac
 Model Retraining: The Python training script runs as part of the pipeline, ensuring the ml_model.json weights are always synchronized with the latest history.csv data before deployment.
 
 3. Mathematical Transparency
-Unlike "Black Box" AI tools, The Baker provides full explainability to the end-user. The UI breaks down the prediction into its components:
-
+Unlike "Black Box" AI tools, The Baker provides full explainability to the end-user(staff). The UI breaks down the prediction into its components:
 Prediction = Base (10) + Saturday (+2) + Rain (-1) = 11 Units
