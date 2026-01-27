@@ -14,7 +14,8 @@ graph TD
         Service -->|Load| JSON["Model Weights (ml_model.json)"]
         Trainer["Python Script (Scikit-Learn)"] -->|Train & Serialize| JSON
         CSV["Historical Data"] -->|Feed| Trainer
-    end```
+    end
+```
 
 Tech Stack
 Backend: Java 17, Spring Boot 3.2 (Web, JPA, Thymeleaf)
