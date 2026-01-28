@@ -201,7 +201,7 @@
     // --- 3. FETCH MENU & SHOW STOCK (New Logic) ---
     async function fetchMenuForDate() {
         const list = document.getElementById('menu-list');
-        list.innerHTML = '<div class="animate-pulse text-gray-300">잠시만 기다려주세요... (Checking Stock)</div>';
+        list.innerHTML = '<div class="animate-pulse text-gray-300">잠시만 기다려주세요...</div>';
 
         try {
             // Fetch Live Stock (No date parameter needed anymore)
@@ -341,7 +341,7 @@
 
             // Validation: Check if critical elements exist
             if (!nameEl || !phoneEl) {
-                alert("Error: Name or Phone input missing in HTML");
+                alert("에러: 이름이나 핸드폰 번호가 입력되지 않았습니다.");
                 return;
             }
 
@@ -364,7 +364,7 @@
             }
 
             if (items.length === 0) {
-                alert("Cart is empty (장바구니가 비어있습니다).");
+                alert("장바구니가 비어있습니다.");
                 return;
             }
 
@@ -399,7 +399,7 @@
 
         } catch (e) {
             console.error("Critical Error:", e);
-            alert("System Error: " + e.message); // Now you will see WHY it failed
+            alert("System Error: " + e.message);
         }
     }
 

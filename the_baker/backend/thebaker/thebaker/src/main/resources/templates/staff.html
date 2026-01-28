@@ -319,35 +319,45 @@
 
     function renderGrid(products) {
         const container = document.getElementById('inventory-grid');
-        // Sort: Drinks last, then by ID
+
+        // Sort: Drinks last, then by Korean Name (Ga-Na-Da)
         products.sort((a,b) => {
              const drinks = ["커피", "라떼", "아메리카노"];
              const isA = drinks.some(k => a.name.includes(k));
              const isB = drinks.some(k => b.name.includes(k));
+
+             // 1. Push Drinks to the bottom
              if(isA && !isB) return 1;
              if(!isA && isB) return -1;
-             return a.id - b.id;
+
+             // 2. Sort by Korean Name
+             return a.name.localeCompare(b.name, 'ko');
         });
 
         container.innerHTML = products.map(p => `
             <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-auto flex flex-col">
+
                 <div class="absolute top-2 right-2 flex items-center space-x-2 z-10 bg-white/90 px-1">
                     <a href="/product/edit/${p.id}" class="text-[10px] text-gray-400 hover:text-black font-bold uppercase transition pr-1">수정</a>
                     <button onclick="deleteProduct(${p.id})" class="text-[10px] text-gray-400 hover:text-danger font-bold uppercase transition pl-0">삭제</button>
                 </div>
-                <div class="flex-1 flex flex-col justify-center items-center text-center mt-8 mb-2">
-                    <span class="text-sm font-bold text-gray-500 uppercase tracking-tight mb-1">${p.name}</span>
-                    <span class="font-mono text-xl font-black text-black" id="display-${p.id}">${p.stockQuantity}</span>
+
+                <div class="flex-1 flex flex-col justify-center items-center text-center mt-6 mb-1">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-tight leading-tight px-1">${p.name}</span>
+                    <span class="font-mono text-lg font-black text-black mt-1" id="display-${p.id}">${p.stockQuantity}</span>
                 </div>
-                <div class="flex space-x-2 w-full mb-3">
-                    <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">-</button>
-                    <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-2 rounded font-bold">+</button>
+
+                <div class="flex space-x-1 w-full mb-2 px-1">
+                    <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-1.5 rounded font-bold">-</button>
+                    <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-1.5 rounded font-bold">+</button>
                 </div>
-                <div class="text-center pb-2">
-                    <span class="font-bold font-mono text-lg text-brown">${Math.floor(p.price)}₩</span>
+
+                <div class="text-center pb-1">
+                    <span class="font-bold font-mono text-sm text-brown">${Math.floor(p.price).toLocaleString()}₩</span>
                 </div>
-                <div class="pt-2 border-t border-gray-100 w-full">
-                    <div id="ai-result-${p.id}" class="hidden mt-2 text-[10px] bg-gray-50 p-2 rounded text-left leading-tight"></div>
+
+                <div class="pt-1 border-t border-gray-100 w-full">
+                    <div id="ai-result-${p.id}" class="hidden mt-1 text-[10px] bg-gray-50 p-1 rounded text-left leading-tight"></div>
                 </div>
             </div> `).join('');
     }
@@ -401,7 +411,7 @@
 
                 // 2. Add Status Badge
                 const statusBadge = isCancelled
-                    ? `<span class="ml-2 bg-red-600 text-white text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider animate-pulse">🚫 취소됨 (Canceled)</span>`
+                    ? `<span class="ml-2 bg-red-600 text-white text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider animate-pulse">🚫취소됨</span>`
                     : '';
 
                 // --- O/X LOGIC ---
