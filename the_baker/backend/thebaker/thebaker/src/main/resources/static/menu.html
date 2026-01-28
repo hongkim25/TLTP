@@ -175,9 +175,13 @@
 
         } catch (error) {
             console.error('Error:', error);
-            document.getElementById('menu-grid').innerHTML = '<p class="text-red-500 col-span-full text-center">메뉴 로딩에 실패했습니다.</p>';
+            // This prints the EXACT error message to the screen so we can read it on the phone
+            document.getElementById('menu-grid').innerHTML = `
+                <div class="col-span-full text-center p-4 border border-red-500 bg-red-50 rounded">
+                    <p class="text-red-600 font-bold mb-2">메뉴 로딩 실패 (Loading Failed)</p>
+                    <p class="text-xs text-red-500 font-mono text-left whitespace-pre-wrap">${error.name}: ${error.message}</p>
+                </div>`;
         }
-    }
 
     document.addEventListener('DOMContentLoaded', loadMenu);
 </script>
