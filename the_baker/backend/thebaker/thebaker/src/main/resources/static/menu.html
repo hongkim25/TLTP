@@ -148,13 +148,13 @@
 
                 // IMAGE LOGIC (No Grayscale!)
                 const imageHtml = p.imageBase64
-                    ? `<img src="${p.imageBase64}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">`
+                    ? `<img src="${p.imageBase64}" class="w-full h-full object-contain group-hover:scale-105 transition duration-500">`
                     : `<span class="text-6xl">🍞</span>`;
 
                 const card = `
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-full relative group">
 
-                        <div class="h-48 bg-gray-50 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
                             ${imageHtml}
                         </div>
 
