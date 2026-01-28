@@ -25,6 +25,7 @@ public class Order {
     private Customer customer;
 
     private LocalDateTime orderDate;
+    private LocalDateTime cancelledDate;
     private BigDecimal totalAmount;
     private int pointsUsed;
     private int pointsEarned;

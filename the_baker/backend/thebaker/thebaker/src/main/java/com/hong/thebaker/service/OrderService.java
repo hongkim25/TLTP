@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,7 +120,7 @@ public class OrderService {
         PaymentMethod method = request.getPaymentMethod();
 
         if (method == null) {
-            method = PaymentMethod.CASH; // 기본값 카드
+            method = PaymentMethod.CASH;
         }
 
         int pointsEarned = method.calculatePoints(netPayAmount);
@@ -148,6 +149,7 @@ public class OrderService {
 
         // 2. Change Status
         order.setStatus(OrderStatus.CANCELLED);
+        order.setCancelledDate(LocalDateTime.now());
         orderRepository.save(order);
     }
 
