@@ -78,7 +78,7 @@ public class PointController {
         order.setOrderDate(LocalDateTime.now());
         order.setTotalAmount(totalAmount);
         order.setPointsUsed(pointsToUse);
-        order.setPointsEarned(pointsToAdd); 
+        order.setPointsEarned(pointsToAdd);
         order.setStatus(OrderStatus.COMPLETED);
 
         orderRepo.save(order);
