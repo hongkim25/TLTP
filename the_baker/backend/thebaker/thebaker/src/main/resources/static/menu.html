@@ -98,45 +98,56 @@
 
 <script>
     // 1. Set Today's Date
-    const today = new Date();
-    const options = { weekday: 'long', month: 'long', day: 'numeric' };
-    document.getElementById('date-display').innerText = today.toLocaleDateString('ko-KR', options);
+    document.addEventListener("DOMContentLoaded", () => {
+        const today = new Date();
+        const options = { weekday: 'long', month: 'long', day: 'numeric' };
+        const dateDisplay = document.getElementById('date-display');
+        if(dateDisplay) dateDisplay.innerText = today.toLocaleDateString('ko-KR', options);
+
+        // Start Loading
+        loadMenu();
+    });
 
     // 2. Fetch Data & Sort
     async function loadMenu() {
-        try {
-            const response = await fetch('/api/products'); 
-            const products = await response.json();
+        const grid = document.getElementById('menu-grid');
 
-            const grid = document.getElementById('menu-grid');
-            grid.innerHTML = '';
+        try {
+            // Fetch with a timeout signal (so it doesn't hang forever)
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
+            const response = await fetch('/api/products', { signal: controller.signal });
+            clearTimeout(timeoutId);
+
+            if (!response.ok) {
+                throw new Error(`Server returned ${response.status} ${response.statusText}`);
+            }
+
+            const products = await response.json();
+            grid.innerHTML = ''; // Clear "Loading..." message
 
             if (products.length === 0) {
                 grid.innerHTML = '<p class="text-gray-400 col-span-full text-center">현재 주문 가능한 상품이 없습니다.</p>';
                 return;
             }
 
-            // --- SORTING LOGIC: Bread First, Coffee Last, then by Stock ---
+            // --- SORTING LOGIC ---
             products.sort((a, b) => {
-                // 1. Identify Drinks
                 const drinkKeywords = ["라떼", "아메리카노"];
+                const isDrinkA = drinkKeywords.some(k => a.name && a.name.includes(k));
+                const isDrinkB = drinkKeywords.some(k => b.name && b.name.includes(k));
 
-                const isDrinkA = drinkKeywords.some(k => a.name.includes(k));
-                const isDrinkB = drinkKeywords.some(k => b.name.includes(k));
-
-                // 2. Push Drinks to Bottom
-                if (isDrinkA && !isDrinkB) return 1;  // A is drink -> move down
-                if (!isDrinkA && isDrinkB) return -1; // B is drink -> move A up
-
-                // 3. Sort remaining by Stock (High -> Low)
+                if (isDrinkA && !isDrinkB) return 1;
+                if (!isDrinkA && isDrinkB) return -1;
                 return b.stockQuantity - a.stockQuantity;
             });
 
-            // 3. Render items
+            // --- RENDER ---
             products.forEach(p => {
                 const formattedPrice = new Intl.NumberFormat('ko-KR').format(p.price);
 
-                // STATUS TEXT LOGIC
+                // Stock Status
                 let statusHtml = '';
                 if (p.stockQuantity <= 0) {
                     statusHtml = `<span class="text-red-500 font-black tracking-widest uppercase">SOLD OUT</span>`;
@@ -146,44 +157,39 @@
                     statusHtml = `<span class="text-gray-400 font-bold text-sm">남은 수량: ${p.stockQuantity}개</span>`;
                 }
 
-                // IMAGE LOGIC (No Grayscale!)
+                // Image Logic (Safe Check)
                 const imageHtml = p.imageBase64
                     ? `<img src="${p.imageBase64}" class="w-full h-full object-contain group-hover:scale-105 transition duration-500">`
                     : `<span class="text-6xl">🍞</span>`;
 
                 const card = `
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-full relative group">
-
                         <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
                             ${imageHtml}
                         </div>
-
                         <div class="text-center">
                             <h3 class="font-bold text-lg text-black mb-1">${p.name}</h3>
                             <div class="font-mono font-bold text-brown text-lg mb-2">₩${formattedPrice}</div>
-                            
                             <div class="pt-2 border-t border-gray-50">
                                 ${statusHtml}
                             </div>
                         </div>
-
                     </div>
                 `;
-
                 grid.insertAdjacentHTML('beforeend', card);
             });
 
         } catch (error) {
-            console.error('Error:', error);
-            // This prints the EXACT error message to the screen so we can read it on the phone
-            document.getElementById('menu-grid').innerHTML = `
-                <div class="col-span-full text-center p-4 border border-red-500 bg-red-50 rounded">
-                    <p class="text-red-600 font-bold mb-2">메뉴 로딩 실패 (Loading Failed)</p>
-                    <p class="text-xs text-red-500 font-mono text-left whitespace-pre-wrap">${error.name}: ${error.message}</p>
+            console.error('Full Error:', error);
+            // Show the actual error on screen
+            grid.innerHTML = `
+                <div class="col-span-full text-center p-6 border border-red-200 bg-red-50 rounded-lg">
+                    <p class="text-red-600 font-bold mb-2">⚠️ 로딩 실패 (Load Error)</p>
+                    <p class="text-sm text-red-500 font-mono">${error.name}: ${error.message}</p>
+                    <button onclick="location.reload()" class="mt-4 bg-red-100 px-4 py-2 rounded text-red-600 font-bold text-xs">다시 시도 (Retry)</button>
                 </div>`;
         }
-
-    document.addEventListener('DOMContentLoaded', loadMenu);
+    }
 </script>
 </body>
 </html>
