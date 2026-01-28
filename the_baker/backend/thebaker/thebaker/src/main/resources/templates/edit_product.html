@@ -41,11 +41,14 @@
         <span class="font-mono text-xs opacity-50">ID: <span th:text="${product.id}">1</span></span>
     </div>
 
-    <form th:action="@{/product/update/{id}(id=${product.id})}" method="post" class="p-8 space-y-6">
+    <form class="p-8 space-y-6">
+
+        <input type="hidden" id="product-id" th:value="${product.id}">
+        <input type="hidden" id="stock" th:value="${product.stockQuantity}">
 
         <div>
             <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">제품명 (Product Name)</label>
-            <input type="text" name="name" th:value="${product.name}" required
+            <input type="text" id="name" th:value="${product.name}" required
                    class="w-full bg-gray-50 border-b-2 border-gray-200 p-3 text-lg font-bold focus:border-brown focus:bg-white focus:outline-none transition">
         </div>
 
@@ -53,15 +56,20 @@
             <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">가격 (Price)</label>
             <div class="relative">
                 <span class="absolute left-3 top-3 text-gray-400 font-bold">₩</span>
-                <input type="number" name="price" th:value="${product.price.intValue()}" required
+                <input type="number" id="price" th:value="${product.price.intValue()}" required
                        class="w-full bg-gray-50 border-b-2 border-gray-200 p-3 pl-8 text-lg font-mono font-bold focus:border-brown focus:bg-white focus:outline-none transition">
             </div>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-sm font-bold mb-2">사진 변경 (Change Image)</label>
+            <input type="file" id="image-input" accept="image/*" class="w-full border p-2 bg-white">
         </div>
 
         <div>
             <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">카테고리 (Category)</label>
             <div class="relative">
-                <select name="category" class="w-full bg-white border border-gray-300 p-3 font-sans appearance-none focus:border-black focus:outline-none cursor-pointer">
+                <select id="category" class="w-full bg-white border border-gray-300 p-3 font-sans appearance-none focus:border-black focus:outline-none cursor-pointer">
                     <option value="HARD" th:selected="${product.category == 'HARD'}">🥖 하드계열 (Hard Bread)</option>
                     <option value="SOFT" th:selected="${product.category == 'SOFT'}">🥯 베이글/소프트 (Soft/Bagel)</option>
                     <option value="ALL" th:selected="${product.category == 'ALL'}">☕ 매일 (All Day)</option>
@@ -78,7 +86,8 @@
                class="flex-1 border border-black py-4 text-center text-sm font-bold uppercase hover:bg-gray-100 transition tracking-wide">
                 취소 (Cancel)
             </a>
-            <button type="submit"
+
+            <button type="button" onclick="updateProduct()"
                     class="flex-1 bg-brown text-white py-4 text-sm font-bold uppercase hover:bg-darkbrown transition tracking-wide shadow-md">
                 저장 (Save)
             </button>
@@ -86,6 +95,49 @@
 
     </form>
 </div>
+
+<script>
+    async function updateProduct() {
+        // 1. Get Values
+        const id = document.getElementById('product-id').value;
+        const name = document.getElementById('name').value;
+        const price = document.getElementById('price').value;
+        const category = document.getElementById('category').value;
+        const stock = document.getElementById('stock').value;
+        const imageInput = document.getElementById('image-input');
+
+        // 2. Prepare Form Data
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('price', price);
+        formData.append('category', category);
+        formData.append('stockQuantity', stock);
+
+        // 3. Add Image ONLY if user selected one
+        if (imageInput.files[0]) {
+            formData.append('image', imageInput.files[0]);
+        }
+
+        // 4. Send PUT Request
+        try {
+            const res = await fetch(`/api/products/${id}`, {
+                method: 'PUT',
+                body: formData
+                // Note: No 'Content-Type' header needed for FormData
+            });
+
+            if (res.ok) {
+                alert("수정 완료되었습니다!");
+                window.location.href = "/staff"; // Return to dashboard
+            } else {
+                alert("수정 실패 (Update Failed)");
+            }
+        } catch (e) {
+            console.error(e);
+            alert("시스템 오류 (System Error)");
+        }
+    }
+</script>
 
 </body>
 </html>

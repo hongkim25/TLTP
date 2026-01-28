@@ -99,6 +99,38 @@ public class ProductController {
         }
     }
 
+    // PUT /api/products/{id} -> Updates product (including Image!)
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(
+            @PathVariable Long id,
+            @RequestParam("name") String name,
+            @RequestParam("price") BigDecimal price,
+            @RequestParam("category") String category,
+            @RequestParam("stockQuantity") int stockQuantity,
+            @RequestParam(value = "image", required = false) MultipartFile imageFile
+    ) {
+        return productRepository.findById(id).map(product -> {
+            product.setName(name);
+            product.setPrice(price);
+            product.setCategory(category);
+            product.setStockQuantity(stockQuantity);
+
+            // IMAGE UPDATE LOGIC
+            // Only update if a NEW file is sent. Otherwise, keep the old one.
+            if (imageFile != null && !imageFile.isEmpty()) {
+                try {
+                    String base64Image = Base64.getEncoder().encodeToString(imageFile.getBytes());
+                    // IMPORTANT: Must add the prefix just like Create method
+                    product.setImageBase64("data:image/jpeg;base64," + base64Image);
+                } catch (Exception e) {
+                    throw new RuntimeException("Image upload failed");
+                }
+            }
+
+            return ResponseEntity.ok(productRepository.save(product));
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
     // DELETE /api/products/{id}
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
