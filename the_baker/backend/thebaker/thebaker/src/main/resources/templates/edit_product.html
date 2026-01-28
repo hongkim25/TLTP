@@ -123,14 +123,16 @@
             const res = await fetch(`/api/products/${id}`, {
                 method: 'PUT',
                 body: formData
-                // Note: No 'Content-Type' header needed for FormData
             });
 
             if (res.ok) {
                 alert("수정 완료되었습니다!");
-                window.location.href = "/staff"; // Return to dashboard
+                window.location.href = "/staff";
             } else {
-                alert("수정 실패 (Update Failed)");
+                // READ THE SERVER ERROR MESSAGE
+                const errorText = await res.text();
+                console.error("Server Error:", res.status, errorText);
+                alert(`수정 실패 (Error ${res.status}): ${errorText || 'Check Server Logs'}`);
             }
         } catch (e) {
             console.error(e);
