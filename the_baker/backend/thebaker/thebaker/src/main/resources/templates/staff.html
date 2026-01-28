@@ -58,7 +58,7 @@
                 <h2 class="text-lg font-bold tracking-tight uppercase text-brown">재고 현황</h2>
                 <button onclick="loadInventory()" class="text-[11px] uppercase tracking-tight text-gray-500 hover:text-black">새로고침</button>
             </div>
-            <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-24 md:pb-0">
+            <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 pb-24 md:pb-0">
             </div>
         </div>
 
@@ -72,10 +72,10 @@
             </div>
         </div>
 
-        <h2 class="text-lg font-bold tracking-tight uppercase text-brown">
+        <h2 class="text-lg font-bold tracking-tight uppercase text-brown mb-1">
             AI 시뮬레이션 설정
         </h2>
-        <div class="text-brown p-6 rounded-xl mb-2 shadow-lg">
+        <div class="text-brown p-6 rounded-xl mb-1">
             <form method="get" action="/staff" class="flex flex-wrap items-center gap-4">
 
                 <div class="flex flex-col gap-1">
@@ -84,8 +84,8 @@
                     </label>
                     <select
                             name="weather"
-                            class="border border-gray-600 text-brown px-4 h-10 rounded w-32
-                       focus:outline-none focus:border-blue-500">
+                            class="border border-gray-600 text-brown px-4 h-10 rounded w-30
+                       focus:outline-none focus:border-brown">
                         <option value="Sunny" th:selected="${param.weather == 'Sunny'}">☀️ 맑음</option>
                         <option value="Cloudy" th:selected="${param.weather == 'Cloudy'}">☁️ 흐림</option>
                         <option value="Rain" th:selected="${param.weather == 'Rain'}">☔ 비</option>
@@ -103,8 +103,8 @@
                             step="0.1"
                             value="20.0"
                             th:value="${param.temp != null} ? ${param.temp} : 20.0"
-                            class="border border-gray-600 text-brown px-4 h-10 rounded w-24
-                       focus:outline-none focus:border-blue-500 text-center
+                            class="border border-gray-600 text-brown px-4 h-10 rounded w-30
+                       focus:outline-none focus:border-brown text-center
                        [appearance:textfield]
                        [&::-webkit-inner-spin-button]:appearance-none
                        [&::-webkit-outer-spin-button]:appearance-none">
@@ -115,27 +115,26 @@
                     <button
                             type="submit"
                             class="bg-brown hover:bg-darkbrown text-white font-bold h-10 px-6
-                       rounded shadow transition flex items-center justify-center gap-2">
+                       rounded transition flex items-center justify-center gap-1">
                         업데이트
                     </button>
                 </div>
-
             </form>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
 
             <div class="bg-darkbrown text-white p-4 rounded-xl flex justify-between items-center mb-0">
                 <div>
-                    <div class="text-lg text-white-400 uppercase mb-3">AI 분석</div>
-                    <div class="font-bold text-xl">
+                    <div class="text-xl text-white-400 uppercase mb-5">AI 분석</div>
+                    <div class="font-bold text-2xl">
                         내일 타겟: <span class="text-gray-400 mb-6" th:text=" ${targetDay} ">내일</span>
                     </div>
-                    <div class="text-xs">Dual-Core AI (판매 예측 + 폐기 위험)</div>
+                    <div class="text-lg">Dual-Core AI (판매 예측 + 폐기 위험)</div>
                 </div>
             </div>
 
-            <div th:each="item : ${report}" class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm relative overflow-hidden group hover:border-brown transition">
+            <div th:each="item : ${report}" class="bg-white p-5 rounded-xl border border-gray-200 relative overflow-hidden group hover:border-brown transition">
 
                 <div class="flex justify-between items-center mb-3">
                     <h3 class="font-bold text-lg" th:text="${item.productName}">Bagel</h3>
@@ -154,7 +153,7 @@
                 <div class="bg-gray-50 rounded-lg p-3 text-xs space-y-2 border border-gray-100">
 
                     <div class="flex justify-between text-gray-500">
-                        <span>기본 판매력 (Base)</span>
+                        <span>기본 판매</span>
                         <span class="font-mono font-bold" th:text="${#numbers.formatDecimal(item.baseScore, 1, 1)}">10.0</span>
                     </div>
 
@@ -164,7 +163,7 @@
                     </div>
 
                     <div class="flex justify-between" th:if="${item.rainEffect != 0}" th:classappend="${item.rainEffect > 0} ? 'text-green-600' : 'text-red-500'">
-                        <span>날씨(비/눈) 효과</span>
+                        <span>날씨(눈/비) 효과</span>
                         <span class="font-mono font-bold" th:text="${item.rainEffect > 0 ? '+' : ''} + ${#numbers.formatDecimal(item.rainEffect, 1, 1)}">-1.5</span>
                     </div>
 
@@ -221,7 +220,7 @@
                 </div>
 
                 <button onclick="processTransaction()"
-                        class="w-full bg-brown text-white py-3 text-base font-bold uppercase tracking-wide hover:bg-darkbrown transition rounded-sm shadow-sm">
+                        class="w-full bg-brown text-white py-3 text-base font-bold uppercase tracking-wide hover:bg-darkbrown transition rounded-sm">
                     결제 완료
                 </button>
 
@@ -320,44 +319,43 @@
     function renderGrid(products) {
         const container = document.getElementById('inventory-grid');
 
-        // Sort: Drinks last, then by Korean Name (Ga-Na-Da)
+        // 1. Sort Logic (Drinks Last + Korean Ga-Na-Da)
         products.sort((a,b) => {
              const drinks = ["커피", "라떼", "아메리카노"];
              const isA = drinks.some(k => a.name.includes(k));
              const isB = drinks.some(k => b.name.includes(k));
-
-             // 1. Push Drinks to the bottom
              if(isA && !isB) return 1;
              if(!isA && isB) return -1;
-
-             // 2. Sort by Korean Name
              return a.name.localeCompare(b.name, 'ko');
         });
 
         container.innerHTML = products.map(p => `
-            <div class="bg-white border border-gray-200 p-2 relative group hover:border-black transition shadow-sm h-auto flex flex-col">
+            <div class="bg-white border border-gray-200 p-1.5 relative group hover:border-black transition shadow-sm flex flex-col justify-between min-h-[140px]">
 
-                <div class="absolute top-2 right-2 flex items-center space-x-2 z-10 bg-white/90 px-1">
-                    <a href="/product/edit/${p.id}" class="text-[10px] text-gray-400 hover:text-black font-bold uppercase transition pr-1">수정</a>
-                    <button onclick="deleteProduct(${p.id})" class="text-[10px] text-gray-400 hover:text-danger font-bold uppercase transition pl-0">삭제</button>
+                <div class="w-full">
+                    <div class="absolute top-1 right-1 flex items-center space-x-1 z-10 bg-white/90 px-1 rounded">
+                        <a href="/product/edit/${p.id}" class="text-[10px] text-gray-400 hover:text-black uppercase">수정</a>
+                        <button onclick="deleteProduct(${p.id})" class="text-[10px] text-gray-400 hover:text-danger uppercase">삭제</button>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <span class="text-[16px] font-bold text-black uppercase tracking-tight leading-none">${p.name}</span>
+                    </div>
                 </div>
 
-                <div class="flex-1 flex flex-col justify-center items-center text-center mt-6 mb-1">
-                    <span class="text-xs font-bold text-gray-500 uppercase tracking-tight leading-tight px-1">${p.name}</span>
-                    <span class="font-mono text-lg font-black text-black mt-1" id="display-${p.id}">${p.stockQuantity}</span>
+                <div class="flex-1 flex items-center justify-center my-1">
+                    <span class="font-mono text-2xl font-black text-black tracking-tighter" id="display-${p.id}">${p.stockQuantity}</span>
                 </div>
 
-                <div class="flex space-x-1 w-full mb-2 px-1">
-                    <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-1.5 rounded font-bold">-</button>
-                    <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-xs py-1.5 rounded font-bold">+</button>
-                </div>
+                <div class="w-full">
+                    <div class="flex space-x-1 w-full mb-1">
+                        <button onclick="quickUpdate(${p.id}, -1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-[10px] py-1 rounded font-bold">-</button>
+                        <button onclick="quickUpdate(${p.id}, 1)" class="flex-1 bg-gray-100 hover:bg-brown hover:text-white text-[10px] py-1 rounded font-bold">+</button>
+                    </div>
 
-                <div class="text-center pb-1">
-                    <span class="font-bold font-mono text-sm text-brown">${Math.floor(p.price).toLocaleString()}₩</span>
-                </div>
-
-                <div class="pt-1 border-t border-gray-100 w-full">
-                    <div id="ai-result-${p.id}" class="hidden mt-1 text-[10px] bg-gray-50 p-1 rounded text-left leading-tight"></div>
+                    <div class="text-center border-t border-gray-100 pt-1">
+                        <span class="font-bold font-mono text-base text-brown">${Math.floor(p.price).toLocaleString()}₩</span>
+                    </div>
                 </div>
             </div> `).join('');
     }
@@ -419,13 +417,12 @@
                 const isCut = order.wantsCut;
 
                 const takeawayUI = isTakeaway
-                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-500 mb-1">포장</span><span class="text-xl font-black text-blue-600 border-2 border-blue-600 w-8 h-8 flex items-center justify-center">O</span></div>`
+                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-900 mb-1">포장</span><span class="text-xl font-black text-blue-600 border-2 border-blue-600 w-8 h-8 flex items-center justify-center">O</span></div>`
                     : `<div class="flex flex-col items-center"><span class="text-xs text-gray-300 mb-1">포장</span><span class="text-xl font-bold text-gray-300">X</span></div>`;
 
                 const cutUI = isCut
-                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-500 mb-1">컷팅</span><span class="text-xl font-black text-red-500 border-2 border-red-500 w-8 h-8 flex items-center justify-center">O</span></div>`
+                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-900 mb-1">컷팅</span><span class="text-xl font-black text-red-500 border-2 border-red-500 w-8 h-8 flex items-center justify-center">O</span></div>`
                     : `<div class="flex flex-col items-center"><span class="text-xs text-gray-300 mb-1">컷팅</span><span class="text-xl font-bold text-gray-300">X</span></div>`;
-
 
                 // Archive Button Logic
                 const isDone = order.status === 'COMPLETED' || order.status === 'CANCELLED';
@@ -433,9 +430,9 @@
                 // If cancelled, show "Confirm Cancellation" button. If completed, show "Pickup Complete".
                 let archiveBtn = '';
                 if (isCancelled) {
-                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-4 w-full text-[11px] bg-red-100 text-red-500 py-3 rounded hover:bg-red-200 font-bold transition">취소 확인 (목록에서 지우기)</button>`;
+                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-1 w-full text-[11px] bg-red-100 text-red-500 py-3 rounded hover:bg-red-200 font-bold transition">취소 확인 (목록에서 지우기)</button>`;
                 } else if (isDone) {
-                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-4 w-full text-[10px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">픽업 완료 (숨기기)</button>`;
+                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-1 w-full text-[11px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">픽업 완료 (숨기기)</button>`;
                 }
 
                 return `
