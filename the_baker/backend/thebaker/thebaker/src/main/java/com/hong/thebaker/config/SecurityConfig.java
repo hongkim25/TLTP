@@ -25,6 +25,7 @@ public class SecurityConfig {
 
                         // 2. PUBLIC APIs (So customers can check menu & order)
                         .requestMatchers("/api/staff/status").permitAll()
+                        .requestMatchers("/api/products").permitAll()
                         .requestMatchers("/api/customers/**").permitAll()
                         // 3. SECURED PAGES (Staff) - Everything else requires login
                         .requestMatchers("/staff/**").authenticated()
