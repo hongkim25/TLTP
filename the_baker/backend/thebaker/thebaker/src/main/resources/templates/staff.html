@@ -367,7 +367,7 @@
         } catch(e) { console.error("Stock Update Error"); }
     }
 
-    // --- 4. ORDERS LOGIC (FIXED UX) ---
+// --- 4. ORDERS LOGIC (UPDATED: Shows Cancellations) ---
     async function loadOrders() {
         const list = document.getElementById('order-list');
         try {
@@ -382,21 +382,29 @@
             list.innerHTML = orders.map(order => {
                 if (!order.items || order.items.length === 0) return '';
 
-                // Date is now saved in KST by backend, so we just format it nicely
-                // We show "Order Time" clearly
                 const dateObj = new Date(order.orderDate);
                 const timeStr = dateObj.toLocaleTimeString('ko-KR', { hour: '2-digit', minute:'2-digit', hour12: false });
                 const dateStr = dateObj.toLocaleDateString('ko-KR', { month:'numeric', day:'numeric'});
 
                 const itemsHtml = order.items.map(i =>
-                    `<span class="inline-flex items-center bg-gray-50 border border-gray-200 rounded px-2 py-1 mr-2 mb-2">
+                    `<span class="inline-flex items-center bg-white/50 border border-gray-200 rounded px-2 py-1 mr-2 mb-2">
                         <span class="text-black font-bold text-sm mr-2">${i.product ? i.product.name : 'Item'}</span>
-                        <span class="font-mono text-sm text-brown font-black bg-white-100 px-1 rounded">x${i.quantity}</span>
+                        <span class="font-mono text-sm text-brown font-black bg-white px-1 rounded">x${i.quantity}</span>
                     </span>`
                 ).join('');
 
+                // --- NEW LOGIC: Check for Cancellation ---
+                const isCancelled = order.status === 'CANCELLED';
+
+                // 1. Change Background Color (Red if cancelled)
+                const cardBg = isCancelled ? 'bg-red-50 border-red-300' : 'bg-white border-gray-200';
+
+                // 2. Add Status Badge
+                const statusBadge = isCancelled
+                    ? `<span class="ml-2 bg-red-600 text-white text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider animate-pulse">🚫 취소됨 (Canceled)</span>`
+                    : '';
+
                 // --- O/X LOGIC ---
-                // Circle O (Blue/Red) vs Gray X
                 const isTakeaway = order.takeaway;
                 const isCut = order.wantsCut;
 
@@ -409,27 +417,33 @@
                     : `<div class="flex flex-col items-center"><span class="text-xs text-gray-300 mb-1">컷팅</span><span class="text-xl font-bold text-gray-300">X</span></div>`;
 
 
-                // Archive Button
+                // Archive Button Logic
                 const isDone = order.status === 'COMPLETED' || order.status === 'CANCELLED';
-                const archiveBtn = isDone
-                    ? `<button onclick="archiveOrder(${order.id})" class="mt-4 w-full text-[10px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">픽업 완료 (숨기기)</button>`
-                    : '';
+
+                // If cancelled, show "Confirm Cancellation" button. If completed, show "Pickup Complete".
+                let archiveBtn = '';
+                if (isCancelled) {
+                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-4 w-full text-[11px] bg-red-100 text-red-500 py-3 rounded hover:bg-red-200 font-bold transition">취소 확인 (목록에서 지우기)</button>`;
+                } else if (isDone) {
+                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-4 w-full text-[10px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">픽업 완료 (숨기기)</button>`;
+                }
 
                 return `
-                    <div class="bg-white border border-gray-200 p-5 shadow-sm rounded-lg relative overflow-hidden">
+                    <div class="${cardBg} border p-5 shadow-sm rounded-lg relative overflow-hidden transition-colors">
 
-                        <div class="flex justify-between items-start border-b border-gray-100 pb-3 mb-3">
+                        <div class="flex justify-between items-start border-b border-gray-100/50 pb-3 mb-3">
                             <div>
-                                <div class="flex items-center space-x-2">
+                                <div class="flex items-center flex-wrap gap-1">
                                     <span class="text-base font-black text-brown uppercase">${order.customer ? order.customer.name : 'Guest'}</span>
                                     <span class="text-[10px] text-gray-400 font-mono tracking-tighter">${order.customer ? order.customer.phone.substring(7) : ''}</span>
+                                    ${statusBadge}
                                 </div>
                                 <div class="text-xs font-bold text-blue-600 mt-1 bg-blue-50 inline-block px-2 py-1 rounded">
                                     ⏰ 픽업 시간: ${order.pickupTime ? order.pickupTime : 'Not Specified'}
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="font-mono font-bold text-lg">₩${order.totalAmount.toLocaleString()}</div>
+                                <div class="font-mono font-bold text-lg ${isCancelled ? 'line-through text-gray-400' : ''}">₩${order.totalAmount.toLocaleString()}</div>
                                 <div class="text-[10px] text-gray-400 mt-1">Ordered: ${dateStr} ${timeStr}</div>
                             </div>
                         </div>
@@ -438,7 +452,7 @@
                             ${itemsHtml}
                         </div>
 
-                        <div class="flex justify-center space-x-8 bg-gray-50 p-2 rounded mb-2">
+                        <div class="flex justify-center space-x-8 bg-gray-50/50 p-2 rounded mb-2">
                             ${takeawayUI}
                             ${cutUI}
                         </div>
