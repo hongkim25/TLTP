@@ -103,12 +103,12 @@
     <div class="mb-12">
         <h3 class="text-lg font-bold mb-3 flex items-center justify-between">
             <span>메뉴 선택</span>
-            <span class="text-base text-gray-400 font-normal">* 예약은 당일 오후 12시부터 매장 운영 마감 시간까지만 가능합니다. </span>
+            <span class="text-base text-gray-400 font-semibold">* 예약은 당일 오후 12시부터 매장 운영 마감 시간까지만 가능합니다. </span>
         </h3>
         <div id="menu-list" class="space-y-4 min-h-[100px]"></div>
     </div>
 
-    <div class="bg-gray-50 p-6 rounded-xl shadow-inner">
+    <div class="bg-gray-50 p-6 rounded-xl border ">
         <div class="flex justify-between items-center mb-6">
             <span class="text-sm font-bold uppercase tracking-wide text-gray-400">총 결제금액</span>
             <span class="text-2xl font-black text-black" id="totalPrice">0 원</span>
@@ -141,21 +141,21 @@
                       placeholder="추가적인 요청사항이 있으시면 말씀해주세요. (선택사항)"></textarea>
         </div>
 
-        <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-xl font-bold uppercase tracking-wide hover:bg-darkbrown transition rounded">
+        <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-xl font-bold uppercase tracking-wide hover:bg-darkbrown transition">
             예약 완료하기
         </button>
-        <p class="text-[16px] text-gray-400 mt-4 text-center leading-relaxed">
+        <p class="text-[17px] text-gray-400 mt-4 text-center font-bold leading-relaxed">
             * 20개 이상 대량 주문은 매장으로 직접 전화 부탁드립니다.<br>
             * 노쇼 방지를 위해 선입금을 원칙으로 합니다.<br>
         </p>
     </div>
 </main>
 
-<a href="my-order.html" class="block text-center mt-4 text-sm text-gray-500 underline">
+<a href="my-order.html" class="block text-center mt-4 text-base text-gray-500">
     내 예약 확인 / 취소
 </a>
 
-<footer class="bg-white py-12 px-6 border-t border-gray-100 mt-auto">
+<footer class="bg-white py-12 px-6 mt-auto">
     <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[13px] uppercase tracking-wide text-gray-400">
         <p class="font-bold tracking-tight">&copy; 2026 THE BAKER DAEJEON</p>
         <div class="space-x-6 mt-4 md:mt-0 font-bold">
