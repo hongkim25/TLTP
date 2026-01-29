@@ -1,6 +1,8 @@
 __The Life Transition Project: 1 August 2025 - 30 April 2026 (39 Weeks, 273 days)__
 
 __WEEK 26__ <br>
+29 JAN 2026 - Woke up at 6:30. Finished adding and editing images for the menu page, updated the historical data for the prediction algorithm, and had a final check for customer launch of the Bakery Web App, continued Algorithms for Coding Tests course (completed 31 out of 56 lectures), reviewed Neetcode 150 (Lowest Common Ancestor of a Binary Search Tree), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
+
 28 JAN 2026 - Woke up at 6:20. Updated about page, added and edited images for the menu page, updated the points percentage, fixed reservation cancellation not showing up on the staff page for the Bakery Web App, continued Algorithms for Coding Tests course (completed 30 out of 56 lectures), reviewed Neetcode 150 (Binary Tree Level Order Traversal), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
 
 27 JAN 2026 - Woke up at 6:20. Added an auto-login feature, debugged a membership issue, changed the design for the "my order" page, and created a readme.md file for the Bakery Web App, continued Algorithms for Coding Tests course (completed 29 out of 56 lectures), reviewed Neetcode 150 (Binary Tree Right Side View), talked to Gemini/Claude/ChatGPT, continued Data Types and Exceptions in Java course on Datacamp, practiced Python on Brilliant, and practiced French/Spanish on Babbel/Duolingo.
