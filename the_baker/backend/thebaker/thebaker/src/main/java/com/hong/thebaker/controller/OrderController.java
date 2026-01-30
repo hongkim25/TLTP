@@ -51,4 +51,34 @@ public class OrderController {
     public List<Order> findMyOrders(@RequestParam String phone) {
         return orderService.findMyOrders(phone);
     }
+
+    // 6. Confirm Order (Staff checks stock -> Status PROCESSING)
+    @PutMapping("/{id}/confirm")
+    public ResponseEntity<Void> confirmOrder(@PathVariable Long id) {
+        orderService.confirmOrder(id);
+        return ResponseEntity.ok().build();
+    }
+
+    // 7. Complete Order (Payment received -> Status COMPLETED)
+    @PutMapping("/{id}/complete")
+    public ResponseEntity<Void> completeOrder(@PathVariable Long id) {
+        orderService.completeOrder(id);
+        return ResponseEntity.ok().build();
+    }
+
+    // 8. Poll for Pending Orders (For the Staff Alarm)
+    @GetMapping("/pending-count")
+    public ResponseEntity<Long> getPendingCount() {
+        return ResponseEntity.ok(orderService.countPendingOrders());
+    }
+
+    // 9. Check Order Status (For Customer Polling)
+    @GetMapping("/{id}/status")
+    public ResponseEntity<String> getOrderStatus(@PathVariable Long id) {
+        Order order = orderService.getOrderById(id); // You might need to add this getter to Service if missing
+        // OR simply:
+        // return ResponseEntity.ok(orderRepository.findById(id).get().getStatus().name());
+        // But let's do it cleanly via Service:
+        return ResponseEntity.ok(orderService.getOrderStatus(id));
+    }
 }

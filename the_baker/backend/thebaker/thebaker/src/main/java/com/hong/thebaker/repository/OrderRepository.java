@@ -1,6 +1,7 @@
 package com.hong.thebaker.repository;
 
 import com.hong.thebaker.entity.Order;
+import com.hong.thebaker.entity.OrderStatus; // Make sure to import this!
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     // 3. "Find orders where Customer -> Phone matches the input, sort by date"
     List<Order> findByCustomerPhoneOrderByOrderDateDesc(String phone);
+
+    // 4. For Alarm (Count Pending Orders)
+    long countByStatus(OrderStatus status);
 }

@@ -258,6 +258,12 @@
     </div>
 </div>
 
+<audio id="alarm-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+
+<div id="alarm-btn" onclick="enableAlarm()" class="fixed bottom-6 right-6 bg-red-600 text-white px-6 py-4 rounded-full shadow-2xl cursor-pointer animate-bounce z-50 font-bold flex items-center gap-2 border-2 border-white">
+    <span>🔔</span>
+    <span>주문 알림 켜기 (클릭)</span>
+</div>
 
 <script>
     // --- 1. CLOCK ---
@@ -375,11 +381,11 @@
         } catch(e) { console.error("Stock Update Error"); }
     }
 
-// --- 4. ORDERS LOGIC (UPDATED: Shows Cancellations) ---
+// --- 4. ORDERS LOGIC (UPDATED FOR RESERVATION FLOW) ---
     async function loadOrders() {
         const list = document.getElementById('order-list');
         try {
-            const res = await fetch('/api/orders');
+            const res = await fetch('/api/orders'); // Gets all active orders
             const orders = await res.json();
 
             if(orders.length === 0) {
@@ -390,83 +396,99 @@
             list.innerHTML = orders.map(order => {
                 if (!order.items || order.items.length === 0) return '';
 
+                // DATE & TIME
                 const dateObj = new Date(order.orderDate);
                 const timeStr = dateObj.toLocaleTimeString('ko-KR', { hour: '2-digit', minute:'2-digit', hour12: false });
-                const dateStr = dateObj.toLocaleDateString('ko-KR', { month:'numeric', day:'numeric'});
 
+                // STATUS LOGIC
+                let cardClass = 'bg-white border-gray-200'; // Default
+                let statusBadge = '';
+                let actionButtons = '';
+
+                // --- STATE 1: PENDING (New Request) -> NEEDS STOCK CHECK ---
+                if (order.status === 'PENDING') {
+                    cardClass = 'bg-red-50 border-red-500 border-2 shadow-xl'; // RED & LOUD
+                    statusBadge = `<div class="bg-red-600 text-white text-xs px-2 py-1 rounded font-bold animate-pulse">🔔 재고 확인 필요</div>`;
+
+                    actionButtons = `
+                        <div class="grid grid-cols-2 gap-2 mt-3">
+                            <button onclick="cancelOrder(${order.id})" class="bg-white border border-red-200 text-red-500 py-3 rounded font-bold hover:bg-red-50">
+                                🚫 재고 없음 (취소)
+                            </button>
+                            <button onclick="confirmStock(${order.id})" class="bg-red-600 text-white py-3 rounded font-bold hover:bg-red-700 shadow-md">
+                                ✅ 재고 있음 (확인)
+                            </button>
+                        </div>
+                    `;
+                }
+                // --- STATE 2: PROCESSING (Confirmed) -> NEEDS PAYMENT ---
+                else if (order.status === 'PROCESSING') {
+                    cardClass = 'bg-yellow-50 border-yellow-400 border-2'; // YELLOW
+                    statusBadge = `<div class="bg-yellow-400 text-black text-xs px-2 py-1 rounded font-bold">💰 입금 대기중</div>`;
+
+                    actionButtons = `
+                         <button onclick="completePayment(${order.id})" class="w-full mt-3 bg-black text-white py-3 rounded font-bold hover:bg-gray-800 shadow-md">
+                             💸 입금 확인 완료 (주문 확정)
+                         </button>
+                    `;
+                }
+                // --- STATE 3: COMPLETED/CANCELLED (History) ---
+                else {
+                    const isCancelled = order.status === 'CANCELLED';
+                    cardClass = isCancelled ? 'bg-gray-50 border-gray-200 opacity-70' : 'bg-white border-gray-200';
+                    statusBadge = isCancelled
+                        ? `<span class="bg-gray-200 text-gray-500 text-xs px-2 py-1 rounded font-bold">취소됨</span>`
+                        : `<span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded font-bold">예약 확정</span>`;
+
+                    // Archive Button
+                    actionButtons = `
+                        <button onclick="archiveOrder(${order.id})" class="w-full mt-2 text-[11px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">
+                            목록에서 숨기기
+                        </button>
+                    `;
+                }
+
+                // ITEMS HTML
                 const itemsHtml = order.items.map(i =>
-                    `<span class="inline-flex items-center bg-white/50 border border-gray-200 rounded px-2 py-1 mr-2 mb-2">
+                    `<span class="inline-flex items-center bg-white/80 border border-gray-200 rounded px-2 py-1 mr-2 mb-2">
                         <span class="text-black font-bold text-sm mr-2">${i.product ? i.product.name : 'Item'}</span>
-                        <span class="font-mono text-sm text-brown font-black bg-white px-1 rounded">x${i.quantity}</span>
+                        <span class="font-mono text-sm text-brown font-black bg-gray-100 px-1 rounded">x${i.quantity}</span>
                     </span>`
                 ).join('');
 
-                // --- NEW LOGIC: Check for Cancellation ---
-                const isCancelled = order.status === 'CANCELLED';
-
-                // 1. Change Background Color (Red if cancelled)
-                const cardBg = isCancelled ? 'bg-red-50 border-red-300' : 'bg-white border-gray-200';
-
-                // 2. Add Status Badge
-                const statusBadge = isCancelled
-                    ? `<span class="ml-2 bg-red-600 text-white text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider animate-pulse">🚫취소됨</span>`
-                    : '';
-
-                // --- O/X LOGIC ---
+                // O/X OPTIONS
                 const isTakeaway = order.takeaway;
                 const isCut = order.wantsCut;
-
-                const takeawayUI = isTakeaway
-                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-900 mb-1">포장</span><span class="text-xl font-black text-blue-600 border-2 border-blue-600 w-8 h-8 flex items-center justify-center">O</span></div>`
-                    : `<div class="flex flex-col items-center"><span class="text-xs text-gray-300 mb-1">포장</span><span class="text-xl font-bold text-gray-300">X</span></div>`;
-
-                const cutUI = isCut
-                    ? `<div class="flex flex-col items-center"><span class="text-xs text-gray-900 mb-1">컷팅</span><span class="text-xl font-black text-red-500 border-2 border-red-500 w-8 h-8 flex items-center justify-center">O</span></div>`
-                    : `<div class="flex flex-col items-center"><span class="text-xs text-gray-300 mb-1">컷팅</span><span class="text-xl font-bold text-gray-300">X</span></div>`;
-
-                // Archive Button Logic
-                const isDone = order.status === 'COMPLETED' || order.status === 'CANCELLED';
-
-                // If cancelled, show "Confirm Cancellation" button. If completed, show "Pickup Complete".
-                let archiveBtn = '';
-                if (isCancelled) {
-                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-1 w-full text-[11px] bg-red-100 text-red-500 py-3 rounded hover:bg-red-200 font-bold transition">취소 확인 (목록에서 지우기)</button>`;
-                } else if (isDone) {
-                     archiveBtn = `<button onclick="archiveOrder(${order.id})" class="mt-1 w-full text-[11px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">픽업 완료 (숨기기)</button>`;
-                }
+                const takeawayUI = isTakeaway ? `<span class="text-blue-600 font-bold text-xs border border-blue-200 bg-blue-50 px-1 rounded">포장 O</span>` : '';
+                const cutUI = isCut ? `<span class="text-red-500 font-bold text-xs border border-red-200 bg-red-50 px-1 rounded">컷팅 O</span>` : '';
 
                 return `
-                    <div class="${cardBg} border p-5 shadow-sm rounded-lg relative overflow-hidden transition-colors">
-
-                        <div class="flex justify-between items-start border-b border-gray-100/50 pb-3 mb-3">
+                    <div class="${cardClass} p-5 rounded-xl transition-all duration-300">
+                        <div class="flex justify-between items-start mb-3 border-b border-black/5 pb-2">
                             <div>
-                                <div class="flex items-center flex-wrap gap-1">
-                                    <span class="text-base font-black text-brown uppercase">${order.customer ? order.customer.name : 'Guest'}</span>
-                                    <span class="text-[10px] text-gray-400 font-mono tracking-tighter">${order.customer ? order.customer.phone.substring(7) : ''}</span>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-lg font-black text-brown">${order.customer ? order.customer.name : 'Guest'}</span>
                                     ${statusBadge}
                                 </div>
-                                <div class="text-xs font-bold text-blue-600 mt-1 bg-blue-50 inline-block px-2 py-1 rounded">
-                                    ⏰ 픽업 시간: ${order.pickupTime ? order.pickupTime : 'Not Specified'}
-                                </div>
+                                <div class="text-xs text-gray-500 font-mono">${order.customer ? order.customer.phone : ''}</div>
                             </div>
                             <div class="text-right">
-                                <div class="font-mono font-bold text-lg ${isCancelled ? 'line-through text-gray-400' : ''}">₩${order.totalAmount.toLocaleString()}</div>
-                                <div class="text-[10px] text-gray-400 mt-1">Ordered: ${dateStr} ${timeStr}</div>
+                                <div class="font-mono font-bold text-lg">₩${order.totalAmount.toLocaleString()}</div>
+                                <div class="text-[10px] text-gray-400">픽업: ${order.pickupTime}</div>
                             </div>
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-3">
                             ${itemsHtml}
                         </div>
 
-                        <div class="flex justify-center space-x-8 bg-gray-50/50 p-2 rounded mb-2">
-                            ${takeawayUI}
-                            ${cutUI}
+                        <div class="flex gap-2 mb-2">
+                            ${takeawayUI} ${cutUI}
                         </div>
 
-                        ${order.memo ? `<div class="mt-2 text-xs text-gray-600 bg-yellow-50 border border-yellow-100 p-2 rounded"><strong>📝 요청:</strong> ${order.memo}</div>` : ''}
+                        ${order.memo ? `<div class="text-xs bg-yellow-100/50 p-2 rounded text-gray-700 mb-2">📝 ${order.memo}</div>` : ''}
 
-                        ${archiveBtn}
+                        ${actionButtons}
                     </div>
                 `;
             }).join('');
@@ -595,6 +617,66 @@ async function processTransaction() {
             if (e.key === "Enter") { e.preventDefault(); processTransaction(); }
         });
     });
+
+    // --- 9. NEW RESERVATION ACTIONS ---
+    // A. Staff Confirms Stock (PENDING -> PROCESSING)
+    async function confirmStock(id) {
+        if(!confirm("재고 확인을 완료했습니까? 고객에게 입금 안내가 뜹니다.")) return;
+        try {
+            const res = await fetch(`/api/orders/${id}/confirm`, { method: 'PUT' });
+            if(res.ok) {
+                loadOrders(); // Refresh immediately
+                // Stop alarm sound if playing
+                document.getElementById('alarm-sound').pause();
+                document.getElementById('alarm-sound').currentTime = 0;
+            }
+        } catch(e) { alert("Error confirming order"); }
+    }
+
+    // B. Staff Confirms Payment (PROCESSING -> COMPLETED)
+    async function completePayment(id) {
+        if(!confirm("입금이 확인되었습니까?")) return;
+        try {
+            const res = await fetch(`/api/orders/${id}/complete`, { method: 'PUT' });
+            if(res.ok) loadOrders();
+        } catch(e) { alert("Error completing order"); }
+    }
+
+    // C. Cancel Order (PENDING -> CANCELLED)
+    async function cancelOrder(id) {
+        if(!confirm("재고 부족으로 주문을 취소하시겠습니까?")) return;
+        try {
+            const res = await fetch(`/api/orders/${id}/cancel`, { method: 'POST' }); // Using POST for cancel as per your controller
+            if(res.ok) loadOrders();
+        } catch(e) { alert("Error cancelling order"); }
+    }
+
+    // --- 10. ALARM SYSTEM ---
+    function enableAlarm() {
+        const sound = document.getElementById('alarm-sound');
+        sound.play().then(() => {
+            sound.pause();
+            document.getElementById('alarm-btn').style.display = 'none'; // Hide button after clicking
+        });
+    }
+
+    let lastPendingCount = 0;
+
+    // Check for new orders every 5 seconds
+    setInterval(async () => {
+        try {
+            const res = await fetch('/api/orders/pending-count');
+            if(res.ok) {
+                const count = await res.json();
+                if(count > lastPendingCount) {
+                    // NEW ORDER ARRIVED!
+                    document.getElementById('alarm-sound').play();
+                    loadOrders(); // Auto refresh the list
+                }
+                lastPendingCount = count;
+            }
+        } catch(e) { console.log("Polling error"); }
+    }, 5000);
 </script>
 </body>
 </html>

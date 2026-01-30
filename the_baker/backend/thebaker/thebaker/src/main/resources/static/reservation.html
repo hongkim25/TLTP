@@ -165,26 +165,50 @@
     </div>
 </footer>
 
+<div id="waiting-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
+    
+    <div class="relative bg-white w-full max-w-sm mx-6 p-8 rounded-xl shadow-2xl text-center">
+        <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-100 border-t-brown mb-6"></div>
+        
+        <h3 class="text-xl font-bold mb-2 text-black">재고 확인 중입니다.</h3>
+        <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+            매장에서 주문 내용을 확인하고 있습니다.<br>
+            확인이 완료되면 입금 계좌번호가 뜹니다.
+        </p>
+
+        <p class="text-xs text-red-500 font-bold animate-pulse">
+            * 화면을 닫지 마시고 잠시만 기다려주세요!
+        </p>
+    </div>
+</div>
+
 <div id="bank-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center">
-    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+    
     <div class="relative bg-white w-full max-w-sm mx-6 p-8 shadow-2xl">
         <h3 class="text-xl font-bold mb-6 tracking-tight text-black">입금 계좌</h3>
+        
         <div class="space-y-4 mb-8 text-black">
             <div class="p-4 bg-gray-50 border border-gray-100">
                 <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">은행</p>
                 <p class="text-lg font-bold">하나은행 (김현균)</p>
             </div>
+            
             <div class="p-4 bg-gray-50 border border-gray-100 group cursor-pointer" onclick="copyAccount()">
-                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">계좌번호</p>
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">계좌번호 (클릭해서 복사)</p>
                 <p class="text-xl font-mono font-bold" id="account-num">907-910327-61107</p>
             </div>
+            
             <div class="flex justify-between items-center pt-4 border-t border-gray-100">
                 <span class="text-sm font-bold text-gray-400">입금하실 금액</span>
                 <span class="text-xl font-black text-brown" id="modalTotal">0</span>
             </div>
         </div>
-        <button onclick="finishReservation()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-wide hover:bg-black transition">입금을 완료하신 후 클릭해주세요.</button>
-        <button onclick="closeModal()" class="w-full mt-4 text-xs font-bold uppercase tracking-widest text-gray-400">취소하기</button>
+        
+        <button onclick="confirmPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-wide hover:bg-black transition shadow-lg">
+            입금을 완료했습니다 (확인)
+        </button>
     </div>
 </div>
 
@@ -325,64 +349,41 @@
         alert("계좌번호가 복사되었습니다!");
     }
 
-    // --- 7. FINISH RESERVATION (SAFE VERSION) ---
+// --- 7. STEP 1: REQUEST RESERVATION ---
     async function finishReservation() {
-        console.log("Submit button clicked..."); // Debug log
+        // Validation
+        const nameEl = document.getElementById('custName');
+        const phoneEl = document.getElementById('custPhone');
+        
+        if (!nameEl.value || !phoneEl.value) {
+            alert("성함과 연락처를 입력해주세요.");
+            return;
+        }
+
+        const items = [];
+        if (typeof cart !== 'undefined') {
+            for (const [id, qty] of Object.entries(cart)) {
+                if (qty > 0) items.push({ productId: parseInt(id), quantity: qty });
+            }
+        }
+        if (items.length === 0) { alert("메뉴를 선택해주세요."); return; }
+
+        if(!confirm("예약을 요청하시겠습니까? (재고 확인 후 결제창이 뜹니다)")) return;
+
+        // Prepare Payload
+        const payload = {
+            customerName: nameEl.value,
+            phoneNumber: phoneEl.value,
+            items: items,
+            pickupTime: document.getElementById('pickup-time').value,
+            takeaway: document.getElementById('optTakeaway') ? document.getElementById('optTakeaway').checked : false,
+            wantsCut: document.getElementById('optCut') ? document.getElementById('optCut').checked : false,
+            memo: document.getElementById('orderMemo').value,
+            marketingConsent: document.getElementById('marketingConsent') ? document.getElementById('marketingConsent').checked : false
+        };
 
         try {
-            // 1. Safe Value Extraction (Prevents crashes if IDs are missing)
-            const nameEl = document.getElementById('custName');
-            const phoneEl = document.getElementById('custPhone');
-            const pickupEl = document.getElementById('pickup-time');
-            const takeawayEl = document.getElementById('optTakeaway');
-            const cutEl = document.getElementById('optCut');
-            const memoEl = document.getElementById('orderMemo');
-            const consentEl = document.getElementById('marketingConsent');
-
-            // Validation: Check if critical elements exist
-            if (!nameEl || !phoneEl) {
-                alert("에러: 이름이나 핸드폰 번호가 입력되지 않았습니다.");
-                return;
-            }
-
-            const name = nameEl.value;
-            const phone = phoneEl.value;
-            const memo = memoEl ? memoEl.value : "";
-            const consent = consentEl ? consentEl.checked : false;
-
-            // SAFE FALLBACKS: If element is missing, default to false/default string
-            const pickupTime = pickupEl ? pickupEl.value : "12:00 PM";
-            const isTakeawayVal = takeawayEl ? takeawayEl.checked : false;
-            const wantsCutVal = cutEl ? cutEl.checked : false;
-
-            // 2. Build Items
-            const items = [];
-            if (typeof cart !== 'undefined') {
-                for (const [id, qty] of Object.entries(cart)) {
-                    if (qty > 0) items.push({ productId: parseInt(id), quantity: qty });
-                }
-            }
-
-            if (items.length === 0) {
-                alert("장바구니가 비어있습니다.");
-                return;
-            }
-
-            // 3. Payload (Using "takeaway" key for Java)
-            const payload = {
-                customerName: name,
-                phoneNumber: phone,
-                items: items,
-                pickupTime: pickupTime,
-                memo: memo,
-                marketingConsent: consent,
-                takeaway: isTakeawayVal,
-                wantsCut: wantsCutVal
-            };
-
-            console.log("Sending Payload:", payload); // Verify data in Console
-
-            // 4. Send to Backend
+            // SEND POST
             const res = await fetch('/api/orders', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -390,23 +391,68 @@
             });
 
             if (res.ok) {
-                alert("예약이 완료되었습니다");
-                location.reload();
+                const orderData = await res.json();
+                
+                // Show "Waiting" Modal immediately
+                document.getElementById('waiting-modal').classList.remove('hidden');
+                
+                // Start checking status
+                startPolling(orderData.id);
+
             } else {
-                const errorText = await res.text();
-                alert("Reservation Failed: " + errorText);
+                alert("예약 실패: " + await res.text());
             }
 
         } catch (e) {
-            console.error("Critical Error:", e);
-            alert("System Error: " + e.message);
+            alert("시스템 오류: " + e.message);
         }
     }
 
-    // --- 8. INITIALIZE ---
+    // --- 8. STEP 2: POLL FOR CONFIRMATION ---
+    function startPolling(orderId) {
+        // Poll every 2 seconds
+        const pollInterval = setInterval(async () => {
+            try {
+                const res = await fetch(`/api/orders/${orderId}/status`);
+                if (res.ok) {
+                    const status = await res.text();
+                    console.log("Status Check:", status);
+
+                    // IF STAFF CONFIRMED (PROCESSING)
+                    if (status === 'PROCESSING') {
+                        clearInterval(pollInterval); // Stop polling
+                        
+                        // Switch Modals: Waiting -> Bank Info
+                        document.getElementById('waiting-modal').classList.add('hidden');
+                        document.getElementById('bank-modal').classList.remove('hidden');
+                    }
+                    // IF CANCELLED
+                    else if (status === 'CANCELLED') {
+                        clearInterval(pollInterval);
+                        alert("죄송합니다. 재고 부족으로 주문이 취소되었습니다.");
+                        location.reload();
+                    }
+                }
+            } catch (e) {
+                console.error("Polling error", e);
+            }
+        }, 2000);
+    }
+    
+    // --- 9. STEP 3: CONFIRM PAYMENT ---
+    function confirmPayment() {
+        // Customer claims they paid. 
+        // We do not need a new API call here because the Order is already in 'PROCESSING' state.
+        // The Staff Dashboard will simply show this order as "Waiting for Payment".
+        
+        alert("✅ 입금 확인 요청이 완료되었습니다!\n\n직원이 입금 내역을 확인한 후\n'예약 확정' 문자를 보내드립니다.\n감사합니다.");
+        location.reload(); // Reload to reset the page
+    }
+
+    // --- 10. INITIALIZE ---
     fetchMenuForDate();
 
-    // --- 9. Navigation Highlight ---
+    // --- 11. Navigation Highlight ---
     document.addEventListener("DOMContentLoaded", () => {
         const path = window.location.pathname;
         if (path.includes("about")) document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
@@ -414,7 +460,7 @@
         else if (path.includes("reservation")) document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
     });
 
-    // --- 10. PWA INSTALLATION ---
+    // --- 12. PWA INSTALLATION ---
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')

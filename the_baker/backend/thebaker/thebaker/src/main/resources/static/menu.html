@@ -82,19 +82,20 @@
     </div>
 
     <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="animate-pulse text-gray-300 font-bold text-xl">메뉴 불러오는 중...</div>
+        <div class="animate-pulse text-gray-300 font-bold text-2xl">메뉴 불러오는 중...</div>
     </div>
 </main>
 
-<footer class="bg-white py-12 px-6 mt-auto">
-    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[13px] uppercase tracking-wide text-gray-400">
+<footer class="bg-white py-12 mt-auto">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center text-[13px] uppercase tracking-wide text-gray-400">
         <p class="font-bold tracking-tight">&copy; 2026 THE BAKER DAEJEON</p>
         <div class="space-x-6 mt-4 md:mt-0 font-bold">
-            <a href="#">인스타그램</a>
-            <a href="/privacy">개인정보</a>
+            <a href="https://instagram.com/thebaker_22" target="_blank" class="hover:text-black transition">인스타그램</a>
+            <a href="/privacy" class="hover:text-black transition">개인정보</a>
         </div>
     </div>
 </footer>
+
 <script>
     // 1. Set Today's Date
     document.addEventListener("DOMContentLoaded", () => {
@@ -149,7 +150,7 @@
                 // Stock Status
                 let statusHtml = '';
                 if (p.stockQuantity <= 0) {
-                    statusHtml = `<span class="text-red-500 font-black tracking-widest uppercase">SOLD OUT</span>`;
+                    statusHtml = `<span class="text-red-500 font-black uppercase">SOLD OUT</span>`;
                 } else if (p.stockQuantity <= 5) {
                     statusHtml = `<span class="text-brown font-bold text-sm">남은 수량: ${p.stockQuantity}개</span>`;
                 } else {
