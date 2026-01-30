@@ -381,12 +381,15 @@
         } catch(e) { console.error("Stock Update Error"); }
     }
 
-// --- 4. ORDERS LOGIC (UPDATED FOR RESERVATION FLOW) ---
+// --- 4. ORDERS LOGIC (FIXED & FINAL) ---
     async function loadOrders() {
         const list = document.getElementById('order-list');
         try {
-            const res = await fetch('/api/orders'); // Gets all active orders
-            const orders = await res.json();
+            const res = await fetch('/api/orders'); 
+            const allOrders = await res.json();
+
+            // 1. FILTER: Hide Archived orders from the screen
+            const orders = allOrders.filter(o => o.archived !== true);
 
             if(orders.length === 0) {
                 list.innerHTML = '<div class="text-gray-400 text-sm text-center py-4">새로운 예약이 없습니다.</div>';
@@ -394,7 +397,19 @@
             }
 
             list.innerHTML = orders.map(order => {
-                if (!order.items || order.items.length === 0) return '';
+                
+                // 2. SAFE ITEM RENDERING (Prevents invisible cards)
+                let itemsHtml = '';
+                if (order.items && order.items.length > 0) {
+                    itemsHtml = order.items.map(i =>
+                        `<span class="inline-flex items-center bg-white/80 border border-gray-200 rounded px-2 py-1 mr-2 mb-2">
+                            <span class="text-black font-bold text-sm mr-2">${i.product ? i.product.name : 'Unknown'}</span>
+                            <span class="font-mono text-sm text-brown font-black bg-gray-100 px-1 rounded">x${i.quantity}</span>
+                        </span>`
+                    ).join('');
+                } else {
+                    itemsHtml = `<div class="bg-red-100 text-red-600 font-bold p-2 rounded mb-2">⚠️ 아이템 로딩 실패 (데이터 확인 필요)</div>`;
+                }
 
                 // DATE & TIME
                 const dateObj = new Date(order.orderDate);
@@ -405,38 +420,28 @@
                 let statusBadge = '';
                 let actionButtons = '';
 
-                // --- STATE 1: PENDING (New Request) -> NEEDS STOCK CHECK ---
+                // --- STATE 1: PENDING (New Request) ---
                 if (order.status === 'PENDING') {
-                    cardClass = 'bg-red-50 border-red-500 border-2 shadow-xl'; // RED & LOUD
+                    cardClass = 'bg-red-50 border-red-500 border-2 shadow-xl'; 
                     statusBadge = `<div class="bg-red-600 text-white text-xs px-2 py-1 rounded font-bold animate-pulse">🔔 재고 확인 필요</div>`;
-
                     actionButtons = `
                         <div class="grid grid-cols-2 gap-2 mt-3">
-                            <button onclick="cancelOrder(${order.id})" class="bg-white border border-red-200 text-red-500 py-3 rounded font-bold hover:bg-red-50">
-                                🚫 재고 없음 (취소)
-                            </button>
-                            <button onclick="confirmStock(${order.id})" class="bg-red-600 text-white py-3 rounded font-bold hover:bg-red-700 shadow-md">
-                                ✅ 재고 있음 (확인)
-                            </button>
-                        </div>
-                    `;
-                }
-                // --- STATE 2: PROCESSING (Confirmed) -> NEEDS PAYMENT ---
+                            <button onclick="cancelOrder(${order.id})" class="bg-white border border-red-200 text-red-500 py-3 rounded font-bold hover:bg-red-50">🚫 재고 없음 (취소)</button>
+                            <button onclick="confirmStock(${order.id})" class="bg-red-600 text-white py-3 rounded font-bold hover:bg-red-700 shadow-md">✅ 재고 있음 (확인)</button>
+                        </div>`;
+                } 
+                // --- STATE 2: PROCESSING (Confirmed) ---
                 else if (order.status === 'PROCESSING') {
-                    cardClass = 'bg-yellow-50 border-yellow-400 border-2'; // YELLOW
+                    cardClass = 'bg-yellow-50 border-yellow-400 border-2'; 
                     statusBadge = `<div class="bg-yellow-400 text-black text-xs px-2 py-1 rounded font-bold">💰 입금 대기중</div>`;
-
                     actionButtons = `
-                         <button onclick="completePayment(${order.id})" class="w-full mt-3 bg-black text-white py-3 rounded font-bold hover:bg-gray-800 shadow-md">
-                             💸 입금 확인 완료 (주문 확정)
-                         </button>
-                    `;
+                         <button onclick="completePayment(${order.id})" class="w-full mt-3 bg-black text-white py-3 rounded font-bold hover:bg-gray-800 shadow-md">💸 입금 확인 완료</button>`;
                 }
-                // --- STATE 3: COMPLETED/CANCELLED (History) ---
+                // --- STATE 3: COMPLETED/CANCELLED ---
                 else {
                     const isCancelled = order.status === 'CANCELLED';
                     cardClass = isCancelled ? 'bg-gray-50 border-gray-200 opacity-70' : 'bg-white border-gray-200';
-                    statusBadge = isCancelled
+                    statusBadge = isCancelled 
                         ? `<span class="bg-gray-200 text-gray-500 text-xs px-2 py-1 rounded font-bold">취소됨</span>`
                         : `<span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded font-bold">예약 확정</span>`;
 
@@ -444,17 +449,8 @@
                     actionButtons = `
                         <button onclick="archiveOrder(${order.id})" class="w-full mt-2 text-[11px] bg-gray-100 text-gray-400 py-2 rounded hover:bg-gray-200 font-bold transition">
                             목록에서 숨기기
-                        </button>
-                    `;
+                        </button>`;
                 }
-
-                // ITEMS HTML
-                const itemsHtml = order.items.map(i =>
-                    `<span class="inline-flex items-center bg-white/80 border border-gray-200 rounded px-2 py-1 mr-2 mb-2">
-                        <span class="text-black font-bold text-sm mr-2">${i.product ? i.product.name : 'Item'}</span>
-                        <span class="font-mono text-sm text-brown font-black bg-gray-100 px-1 rounded">x${i.quantity}</span>
-                    </span>`
-                ).join('');
 
                 // O/X OPTIONS
                 const isTakeaway = order.takeaway;
@@ -478,9 +474,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            ${itemsHtml}
-                        </div>
+                        <div class="mb-3">${itemsHtml}</div>
 
                         <div class="flex gap-2 mb-2">
                             ${takeawayUI} ${cutUI}
@@ -619,6 +613,7 @@ async function processTransaction() {
     });
 
     // --- 9. NEW RESERVATION ACTIONS ---
+
     // A. Staff Confirms Stock (PENDING -> PROCESSING)
     async function confirmStock(id) {
         if(!confirm("재고 확인을 완료했습니까? 고객에게 입금 안내가 뜹니다.")) return;
@@ -652,6 +647,7 @@ async function processTransaction() {
     }
 
     // --- 10. ALARM SYSTEM ---
+
     function enableAlarm() {
         const sound = document.getElementById('alarm-sound');
         sound.play().then(() => {
