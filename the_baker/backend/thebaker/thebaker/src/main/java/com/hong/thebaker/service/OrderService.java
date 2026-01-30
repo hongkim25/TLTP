@@ -138,7 +138,7 @@ public class OrderService {
 
         // 1. Calculate Net Pay
         // We need to know how many points were used.
-        // If 'pointsUsed' isn't in Entity, we can infer it or we assume 0 for simplicity if field missing.
+        // If 'pointsUsed' isn't in Entity, we can infer it, or we assume 0 for simplicity if field missing.
         // Ideally, add 'private int pointsUsed;' to Order.java.
         // For now, let's assume we re-calculate based on Total vs Net?
         // Or simpler: Just give flat points or assume standard 3% on Total for MVP.
@@ -240,5 +240,10 @@ public class OrderService {
         return orderRepository.findById(id)
                 .map(order -> order.getStatus().name())
                 .orElse("UNKNOWN");
+    }
+
+    public Order getOrderById(Long id) {
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found with id: " + id));
     }
 }
