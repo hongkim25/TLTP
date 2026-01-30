@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE BAKER - 예약</title>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54HS1GX0M"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-F54HS1GX0M');
     </script>
     <script type="text/javascript">
@@ -19,6 +19,7 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "v5bcs3qciu");
     </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -50,21 +51,14 @@
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; transform: translateY(10px); }
-        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-
-        html {
-            overflow-y: scroll;
-        }
+        html { overflow-y: scroll; }
     </style>
 </head>
 <body class="bg-white text-brown font-sans antialiased">
 
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
     <div class="max-w-screen-xl mx-auto px-4 md:px-6 h-16 flex justify-between items-center">
-
         <a href="index.html" class="text-[20px] md:text-[24px] font-semibold tracking-tight hover:opacity-70 transition">THE BAKER</a>
-
         <div class="flex space-x-4 md:space-x-8 text-[14px] md:text-[15px] font-bold tracking-tight md:tracking-wider">
             <a href="about.html" class="hover:text-brown transition">소개</a>
             <a href="menu.html" class="hover:text-brown transition">메뉴</a>
@@ -73,13 +67,10 @@
     </div>
 </nav>
 
-
-
 <main class="pt-28 pb-24 px-4 md:px-6 max-w-screen-xl mx-auto overflow-hidden">
     <h1 class="text-3xl font-bold mb-8 tracking-[-0.03em] uppercase mt-4">당일 예약</h1>
 
     <div class="space-y-4 mb-8 pb-8 border-b border-gray-100">
-
         <div class="mb-8 text-lg">
             픽업 날짜: <span class="font-bold" id="displayDate">Today</span>
         </div>
@@ -113,7 +104,7 @@
             <span class="text-sm font-bold uppercase tracking-wide text-gray-400">총 결제금액</span>
             <span class="text-2xl font-black text-black" id="totalPrice">0 원</span>
         </div>
-        
+
         <div class="flex items-start space-x-3 mb-6 bg-white p-4 border border-gray-100 rounded-lg">
             <input type="checkbox" id="marketingConsent" class="mt-1 w-4 h-4 accent-brown shrink-0">
             <label for="marketingConsent" class="text-xs text-gray-500 leading-tight">
@@ -141,12 +132,12 @@
                       placeholder="추가적인 요청사항이 있으시면 말씀해주세요. (선택사항)"></textarea>
         </div>
 
-        <button onclick="openPayment()" class="w-full bg-brown text-white py-4 text-xl font-bold uppercase tracking-wide hover:bg-darkbrown transition">
-            예약 완료하기
+        <button onclick="finishReservation()" class="w-full bg-brown text-white py-4 text-xl font-bold uppercase tracking-wide hover:bg-darkbrown transition shadow-lg">
+            예약 요청하기 (재고 확인)
         </button>
         <p class="text-[17px] text-gray-400 mt-4 text-center font-bold leading-relaxed">
-            * 20개 이상 대량 주문은 매장으로 직접 전화 부탁드립니다.<br>
-            * 노쇼 방지를 위해 선입금을 원칙으로 합니다.<br>
+            * 예약 요청을 하시면 직원이 재고를 확인합니다.<br>
+            * 재고 확인 후 입금 안내창이 뜹니다.
         </p>
     </div>
 </main>
@@ -167,16 +158,13 @@
 
 <div id="waiting-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center">
     <div class="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
-    
     <div class="relative bg-white w-full max-w-sm mx-6 p-8 rounded-xl shadow-2xl text-center">
         <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-100 border-t-brown mb-6"></div>
-        
         <h3 class="text-xl font-bold mb-2 text-black">재고 확인 중입니다.</h3>
         <p class="text-gray-500 text-sm mb-6 leading-relaxed">
             매장에서 주문 내용을 확인하고 있습니다.<br>
             확인이 완료되면 입금 계좌번호가 뜹니다.
         </p>
-
         <p class="text-xs text-red-500 font-bold animate-pulse">
             * 화면을 닫지 마시고 잠시만 기다려주세요!
         </p>
@@ -185,27 +173,27 @@
 
 <div id="bank-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-    
+
     <div class="relative bg-white w-full max-w-sm mx-6 p-8 shadow-2xl">
         <h3 class="text-xl font-bold mb-6 tracking-tight text-black">입금 계좌</h3>
-        
+
         <div class="space-y-4 mb-8 text-black">
             <div class="p-4 bg-gray-50 border border-gray-100">
                 <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">은행</p>
                 <p class="text-lg font-bold">하나은행 (김현균)</p>
             </div>
-            
+
             <div class="p-4 bg-gray-50 border border-gray-100 group cursor-pointer" onclick="copyAccount()">
                 <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">계좌번호 (클릭해서 복사)</p>
                 <p class="text-xl font-mono font-bold" id="account-num">907-910327-61107</p>
             </div>
-            
+
             <div class="flex justify-between items-center pt-4 border-t border-gray-100">
                 <span class="text-sm font-bold text-gray-400">입금하실 금액</span>
                 <span class="text-xl font-black text-brown" id="modalTotal">0</span>
             </div>
         </div>
-        
+
         <button onclick="confirmPayment()" class="w-full bg-brown text-white py-4 text-sm font-bold uppercase tracking-wide hover:bg-black transition shadow-lg">
             입금을 완료했습니다 (확인)
         </button>
@@ -213,58 +201,43 @@
 </div>
 
 <script>
-    // --- 1. DATE DISPLAY (Keep this) ---
+    // --- 1. INITIALIZE ---
     document.getElementById('displayDate').innerText = new Date().toLocaleDateString('ko-KR', {
         year: 'numeric', month: 'long', day: 'numeric', weekday: 'short'
     });
 
-    // --- 2. GLOBAL VARIABLES ---
     let cart = {};
-    let productData = []; // Stores live stock data
+    let productData = [];
 
-    // --- 3. FETCH MENU & SHOW STOCK (New Logic) ---
+    // --- 2. FETCH MENU ---
     async function fetchMenuForDate() {
         const list = document.getElementById('menu-list');
         list.innerHTML = '<div class="animate-pulse text-gray-300">잠시만 기다려주세요...</div>';
 
         try {
-            // Fetch Live Stock (No date parameter needed anymore)
             const res = await fetch(`/api/products`);
             productData = await res.json();
 
+            // Sort logic (Drinks vs Bread, Stock)
             productData.sort((a, b) => {
-                // 1. Define what counts as "Coffee/Drink"
-                // Add any keyword that identifies a drink in your menu
                 const drinkKeywords = ["라떼", "아메리카노"];
-
                 const isDrinkA = drinkKeywords.some(k => a.name.includes(k));
                 const isDrinkB = drinkKeywords.some(k => b.name.includes(k));
-
-                // 2. Separate Drinks from Bread
-                // If A is Drink and B is Bread -> A goes down (1)
                 if (isDrinkA && !isDrinkB) return 1;
-                // If A is Bread and B is Drink -> A goes up (-1)
                 if (!isDrinkA && isDrinkB) return -1;
-
-                // 3. Sort by Stock (Descending)
-                // If both are Bread (or both Drinks), sort by Quantity
                 return b.stockQuantity - a.stockQuantity;
             });
 
             list.innerHTML = '';
-
             if(productData.length === 0) {
                 list.innerHTML = '<div class="text-red-400 font-bold">현재 예약 가능한 제품이 없습니다.</div>';
                 return;
             }
 
-            // Render Items
             productData.forEach(p => {
                 const priceFmt = new Intl.NumberFormat('ko-KR').format(p.price);
-
-                // LOGIC: Check Stock
                 const isSoldOut = p.stockQuantity <= 0;
-                const stockText = isSoldOut ? '(품절 - Sold Out)' : `(${p.stockQuantity}개 남음)`;
+                const stockText = isSoldOut ? '(품절)' : `(${p.stockQuantity}개 남음)`;
                 const btnDisabled = isSoldOut ? 'disabled class="w-8 h-8 rounded-full bg-gray-200 text-gray-400 cursor-not-allowed"' : 'class="w-8 h-8 rounded-full bg-black text-white hover:bg-brown font-bold"';
                 const opacity = isSoldOut ? 'opacity-50' : '';
 
@@ -274,7 +247,6 @@
                             <h4 class="font-bold text-lg">${p.name}</h4>
                             <p class="text-sm text-gray-500">₩${priceFmt} <span class="text-red-500 text-xs font-bold">${stockText}</span></p>
                         </div>
-
                         <div class="flex items-center space-x-3">
                             <button onclick="updateQty(${p.id}, -1)" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 font-bold">-</button>
                             <span id="qty-${p.id}" class="w-4 text-center font-bold">0</span>
@@ -284,81 +256,47 @@
                 `;
                 list.insertAdjacentHTML('beforeend', itemHTML);
             });
-
         } catch(e) {
             console.error(e);
             list.innerHTML = 'Error loading menu.';
         }
     }
 
-    // --- 4. UPDATE QUANTITY (With Protection) ---
+    // --- 3. CART LOGIC ---
     function updateQty(id, change) {
         if(!cart[id]) cart[id] = 0;
-
-        // FIND PRODUCT TO CHECK LIMIT
         const product = productData.find(p => p.id === id);
-
-        // IF ADDING (+), CHECK STOCK LIMIT
-        if (change > 0) {
-            if (cart[id] >= product.stockQuantity) {
-                alert(`죄송합니다. 현재 재고가 ${product.stockQuantity}개만 있습니다.`);
-                return; // STOP! Do not add.
-            }
+        if (change > 0 && cart[id] >= product.stockQuantity) {
+            alert(`죄송합니다. 현재 재고가 ${product.stockQuantity}개만 있습니다.`);
+            return;
         }
-
         cart[id] += change;
         if(cart[id] < 0) cart[id] = 0;
-
-        // Update UI Number
         document.getElementById(`qty-${id}`).innerText = cart[id];
         updateTotal();
     }
 
-    // --- 5. UPDATE TOTAL ---
     function updateTotal() {
         let total = 0;
         for (const [id, qty] of Object.entries(cart)) {
             const product = productData.find(p => p.id == id);
-            if(product) {
-                total += product.price * qty;
-            }
+            if(product) total += product.price * qty;
         }
         const fmt = new Intl.NumberFormat('ko-KR').format(total) + " 원";
         document.getElementById('totalPrice').innerText = fmt;
-
-        // Update Modal Total if exists
         const modalTotal = document.getElementById('modalTotal');
         if(modalTotal) modalTotal.innerText = fmt;
     }
 
-    // --- 6. MODAL UTILS ---
-    function openPayment() {
-        const name = document.getElementById('custName').value;
-        const totalText = document.getElementById('totalPrice').innerText;
+    // --- 4. UTILS ---
+    function copyAccount() { navigator.clipboard.writeText("1234-56-789012"); alert("계좌번호가 복사되었습니다!"); }
 
-        if(!name) { alert("성함을 적어주세요."); return; }
-        if(totalText === "0 원") { alert("최소 한 개 이상의 제품을 선택해주세요."); return; }
-
-        document.getElementById('bank-modal').classList.remove('hidden');
-    }
-
-    function closeModal() { document.getElementById('bank-modal').classList.add('hidden'); }
-
-    function copyAccount() {
-        navigator.clipboard.writeText("1234-56-789012");
-        alert("계좌번호가 복사되었습니다!");
-    }
-
-// --- 7. STEP 1: REQUEST RESERVATION ---
+    // --- 5. RESERVATION LOGIC (THE NEW FLOW) ---
     async function finishReservation() {
-        // Validation
         const nameEl = document.getElementById('custName');
         const phoneEl = document.getElementById('custPhone');
-        
-        if (!nameEl.value || !phoneEl.value) {
-            alert("성함과 연락처를 입력해주세요.");
-            return;
-        }
+
+        if (!nameEl.value || !phoneEl.value) { alert("성함과 연락처를 입력해주세요."); return; }
 
         const items = [];
         if (typeof cart !== 'undefined') {
@@ -370,7 +308,6 @@
 
         if(!confirm("예약을 요청하시겠습니까? (재고 확인 후 결제창이 뜹니다)")) return;
 
-        // Prepare Payload
         const payload = {
             customerName: nameEl.value,
             phoneNumber: phoneEl.value,
@@ -392,11 +329,12 @@
 
             if (res.ok) {
                 const orderData = await res.json();
-                
-                // Show "Waiting" Modal immediately
+
+                // ** SHOW WAITING MODAL, HIDE BANK MODAL **
                 document.getElementById('waiting-modal').classList.remove('hidden');
-                
-                // Start checking status
+                document.getElementById('bank-modal').classList.add('hidden');
+
+                // Start polling
                 startPolling(orderData.id);
 
             } else {
@@ -408,21 +346,19 @@
         }
     }
 
-    // --- 8. STEP 2: POLL FOR CONFIRMATION ---
+    // --- 6. POLLING ---
     function startPolling(orderId) {
-        // Poll every 2 seconds
         const pollInterval = setInterval(async () => {
             try {
                 const res = await fetch(`/api/orders/${orderId}/status`);
                 if (res.ok) {
                     const status = await res.text();
-                    console.log("Status Check:", status);
 
                     // IF STAFF CONFIRMED (PROCESSING)
                     if (status === 'PROCESSING') {
-                        clearInterval(pollInterval); // Stop polling
-                        
-                        // Switch Modals: Waiting -> Bank Info
+                        clearInterval(pollInterval);
+
+                        // Switch Modals
                         document.getElementById('waiting-modal').classList.add('hidden');
                         document.getElementById('bank-modal').classList.remove('hidden');
                     }
@@ -433,26 +369,20 @@
                         location.reload();
                     }
                 }
-            } catch (e) {
-                console.error("Polling error", e);
-            }
+            } catch (e) { console.error("Polling error", e); }
         }, 2000);
     }
-    
-    // --- 9. STEP 3: CONFIRM PAYMENT ---
+
+    // --- 7. FINAL CONFIRM PAYMENT ---
     function confirmPayment() {
-        // Customer claims they paid. 
-        // We do not need a new API call here because the Order is already in 'PROCESSING' state.
-        // The Staff Dashboard will simply show this order as "Waiting for Payment".
-        
         alert("✅ 입금 확인 요청이 완료되었습니다!\n\n직원이 입금 내역을 확인한 후\n'예약 확정' 문자를 보내드립니다.\n감사합니다.");
-        location.reload(); // Reload to reset the page
+        location.reload();
     }
 
-    // --- 10. INITIALIZE ---
+    // --- 8. INIT ---
     fetchMenuForDate();
 
-    // --- 11. Navigation Highlight ---
+    // --- 9. NAV HIGHLIGHT ---
     document.addEventListener("DOMContentLoaded", () => {
         const path = window.location.pathname;
         if (path.includes("about")) document.getElementById("link-about").classList.add("opacity-50", "pointer-events-none");
@@ -460,16 +390,12 @@
         else if (path.includes("reservation")) document.getElementById("link-reservation").classList.add("opacity-50", "pointer-events-none");
     });
 
-    // --- 12. PWA INSTALLATION ---
+    // --- 10. PWA INSTALLATION ---
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('App Ready: Service Worker registered');
-                })
-                .catch(err => {
-                    console.log('App Error: Service Worker failed', err);
-                });
+                .then(registration => console.log('App Ready'))
+                .catch(err => console.log('App Error', err));
         });
     }
 </script>
