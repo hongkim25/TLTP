@@ -20,7 +20,7 @@ public class Order {
     private Long id;
 
     // Link to Customer
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
@@ -47,7 +47,7 @@ public class Order {
     private OrderStatus status;
 
     // Link to the items in this order
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderItem> items = new ArrayList<>();
 
     @PrePersist
