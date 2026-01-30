@@ -228,7 +228,7 @@ public class OrderService {
 
     public void archiveOrder(Long id) {
         Order order = orderRepository.findById(id).orElseThrow(() -> new RuntimeException("Order not found"));
-        order.setArchived(true);
+        order.setArchived(false);
         orderRepository.save(order);
     }
 
