@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public enum PaymentMethod {
     CASH(0.03), // 현금 3%
-    CARD(0.03); // 카드 1%
+    CARD(0.03); // 카드 3%
 
     private final double rate;
 

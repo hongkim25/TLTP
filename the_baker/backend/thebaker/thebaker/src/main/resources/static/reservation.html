@@ -200,6 +200,20 @@
     </div>
 </div>
 
+<div id="closed-overlay" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-white/80 backdrop-blur-md">
+    <div class="bg-white border border-gray-200 p-8 rounded-xl shadow-2xl text-center max-w-sm mx-6">
+        <div class="text-4xl mb-4">⏳</div>
+        <h2 class="text-2xl font-bold mb-3 text-black">지금은 예약 시간이 아닙니다.</h2>
+        <p class="text-gray-600 text-base mb-8 leading-relaxed">
+            당일 예약은 재고 파악을 위해<br>
+            <span class="text-brown font-black bg-gray-100 px-2 py-1 rounded">오후 12:00</span> 부터 가능합니다.
+        </p>
+        <a href="index.html" class="block w-full bg-black text-white py-4 font-bold rounded-lg hover:bg-gray-800 transition">
+            메인으로 돌아가기
+        </a>
+    </div>
+</div>
+
 <script>
     // --- 1. INITIALIZE ---
     document.getElementById('displayDate').innerText = new Date().toLocaleDateString('ko-KR', {
@@ -208,6 +222,30 @@
 
     let cart = {};
     let productData = [];
+
+    // --- NEW: CHECK RESERVATION TIME ---
+    async function checkReservationStatus() {
+        try {
+            const res = await fetch('/api/staff/status');
+            if (res.ok) {
+                const data = await res.json();
+                const overlay = document.getElementById('closed-overlay');
+                
+                // If reservationOpen is FALSE -> SHOW the blocking box
+                if (data.reservationOpen === false) {
+                    overlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Stop scrolling
+                } else {
+                    overlay.classList.add('hidden');
+                    document.body.style.overflow = ''; // Allow scrolling
+                }
+            }
+        } catch (e) {
+            console.error("Status check failed", e);
+        }
+    }
+    // Run this immediately when page opens
+    checkReservationStatus();
 
     // --- 2. FETCH MENU ---
     async function fetchMenuForDate() {

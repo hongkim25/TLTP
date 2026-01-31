@@ -41,16 +41,29 @@ public class StaffController {
     private static boolean FORCE_OPEN = false;
     private static boolean FORCE_CLOSED = false;
 
+    // Controls if the Reservation Page is active
+    private static boolean RESERVATION_AVAILABLE = false;
+
     // --- METHOD 1: CHECK STATUS (Smart Logic) ---
     @GetMapping("/status")
     public ResponseEntity<?> getStatus() {
-        // 1. PRIORITY: Check Manual Overrides first
-        if (FORCE_OPEN) return ResponseEntity.ok(Map.of("open", true));
-        if (FORCE_CLOSED) return ResponseEntity.ok(Map.of("open", false));
+        boolean isShopOpen; // Calculate shop status first
 
-        // 2. FALLBACK: Automatic Schedule
-        boolean isOpen = checkSchedule();
-        return ResponseEntity.ok(Map.of("open", isOpen));
+        // 1. PRIORITY: Check Manual Overrides
+        if (FORCE_OPEN) {
+            isShopOpen = true;
+        } else if (FORCE_CLOSED) {
+            isShopOpen = false;
+        } else {
+            // 2. FALLBACK: Automatic Schedule
+            isShopOpen = checkSchedule();
+        }
+
+        // Return BOTH statuses
+        return ResponseEntity.ok(Map.of(
+                "open", isShopOpen,
+                "reservationOpen", RESERVATION_AVAILABLE // <--- NEW
+        ));
     }
 
     // --- METHOD 2: TOGGLE STATUS (God Mode) ---
@@ -71,6 +84,19 @@ public class StaffController {
         return ResponseEntity.ok(Map.of(
                 "message", "Manual Override: " + (requestedOpen ? "OPEN" : "CLOSED"),
                 "open", requestedOpen
+        ));
+    }
+
+    // --- NEW METHOD: TOGGLE RESERVATION ONLY ---
+    @PostMapping("/reservation-status")
+    public ResponseEntity<?> toggleReservation(@RequestBody Map<String, Boolean> payload) {
+        boolean requestedOpen = payload.get("open");
+
+        RESERVATION_AVAILABLE = requestedOpen;
+
+        return ResponseEntity.ok(Map.of(
+                "message", "Reservation Status: " + (requestedOpen ? "OPEN" : "CLOSED"),
+                "reservationOpen", RESERVATION_AVAILABLE
         ));
     }
 
