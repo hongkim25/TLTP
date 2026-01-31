@@ -61,28 +61,16 @@ public class Order {
     // --- MANUAL COMPATIBILITY FIXES (Add these at the bottom) ---
 
     // 1. Fixes "setTakeaway" error
-    public void setTakeaway(boolean val) {
-        this.isTakeaway = val;
-    }
+    public void setTakeaway(boolean val) { this.isTakeaway = val; }
     // (Safety Getter to prevent crashes)
-    public boolean isTakeaway() {
-        return isTakeaway != null && isTakeaway;
-    }
+    public boolean isTakeaway() { return isTakeaway != null && isTakeaway; }
 
     // 2. Fixes "setArchived" error
-    public void setArchived(boolean val) {
-        this.isArchived = val;
-    }
+    public void setArchived(boolean val) { this.isArchived = val; }
     // (Safety Getter)
-    public boolean isArchived() {
-        return isArchived != null && isArchived;
-    }
+    public boolean isArchived() { return isArchived != null && isArchived; }
 
     // 3. Fixes "wantsCut" (Just in case)
-    public void setWantsCut(boolean val) {
-        this.wantsCut = val;
-    }
-    public boolean isWantsCut() {
-        return wantsCut != null && wantsCut;
-    }
+    public void setWantsCut(boolean val) { this.wantsCut = val; }
+    public boolean isWantsCut() { return wantsCut != null && wantsCut; }
 }

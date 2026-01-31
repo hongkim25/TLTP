@@ -389,7 +389,7 @@
             const allOrders = await res.json();
 
             // 1. FILTER: Hide Archived orders from the screen
-            const orders = allOrders.filter(o => o.archived !== true);
+            const orders = allOrders.filter(o => o.archived !== true && o.items && o.items.length > 0);
 
             if(orders.length === 0) {
                 list.innerHTML = '<div class="text-gray-400 text-sm text-center py-4">새로운 예약이 없습니다.</div>';
