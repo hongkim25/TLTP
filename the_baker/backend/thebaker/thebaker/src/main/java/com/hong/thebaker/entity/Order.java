@@ -35,13 +35,13 @@ public class Order {
     private String pickupTime; // Stores "12:00 PM", "1:00 PM" etc.
 
     @Column(name = "is_takeaway")
-    private boolean isTakeaway; // true = To Go
+    private Boolean isTakeaway; // true = To Go
 
     @Column(name = "wants_cut")
-    private boolean wantsCut;   // true = Cut
+    private Boolean wantsCut;   // true = Cut
 
     @Column(name = "is_archived")
-    private boolean isArchived = false;
+    private Boolean isArchived = false;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
